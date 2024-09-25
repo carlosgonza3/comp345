@@ -11,10 +11,12 @@ public:
     Card(const Card& other);            //Copy constructor using pass by reference
     Card& operator=(const Card& other); // Assignment operator
     ~Card();
-    void play();
+
+    friend std::ostream& operator<<(std::ostream& os, const Card& card); //Stream insert. op
+
+    void play(); //Also takes in a pointer to a deck object so it appends to the deck
     std::string getCardType();          //Getter
     
-
 private:
     std::string * cardType;
 };

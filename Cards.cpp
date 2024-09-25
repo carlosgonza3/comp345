@@ -1,4 +1,5 @@
 #include "Cards.h"
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -22,22 +23,27 @@ Card::~Card(){
     delete cardType;
 }
 
+std::ostream& operator<<(std::ostream& os, const Card& card) {
+    os << "Card Type: " << *(card.cardType); 
+    return os; 
+}
+
 void Card::play(){
-    //Creates order depending on cardtype
+    
     //add order to player's list of orders
     //Remove card from hand and put it back into the player's hand
 }
 
 
 
+std::string Card::getCardType(){
+    return *cardType;
+}
 
 
 
-
-class Deck {
-
-};
-
-class Hand {
-
-};
+int main(){
+    Card * myCard = new Card("Airlift");
+    std::cout << *myCard << std::endl;
+    return 0;
+}
