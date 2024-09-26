@@ -7,7 +7,7 @@
 
 class Card {
 public:
-    Card(const std::string& cardType);  //Constructor using pass by reference
+    Card(const std::string& cardType);  //Constructor using pass by reference 
     Card(const Card& other);            //Copy constructor using pass by reference
     Card& operator=(const Card& other); // Assignment operator
     ~Card();                            //Destructor
@@ -18,9 +18,6 @@ public:
 private:
     std::string * cardType;
 };
-
-
-
 
 class Deck {
 public:
@@ -33,11 +30,7 @@ public:
 
 private:
     std::vector<Card*> deck_cards;
-
 };
-
-
-
 
 class Hand {
 public:

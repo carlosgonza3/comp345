@@ -9,16 +9,15 @@ using namespace std;
 // Card class: play methodz
 // Constructor, copy constructor, assignment op, stream insertion op.
 
-//Card class constructor
-Card::Card(const std::string& type) {
+
+//Card class***************************************************************************
+Card::Card(const std::string& type) {   //Card class constructor
     cardType = new string(type);
 }
-
 //Copy constructor
 Card::Card(const Card& otherCard){
     cardType = new string(*otherCard.cardType);
 }
-
 Card& Card::operator=(const Card& other) {
     if (this != &other) {
         delete cardType; 
@@ -26,11 +25,9 @@ Card& Card::operator=(const Card& other) {
     }
     return *this; 
 }
-
 Card::~Card(){
     delete cardType;
 }
-
 std::ostream& operator<<(std::ostream& os, const Card& card) {
     os << "Card Type: " << *(card.cardType); 
     return os; 
@@ -43,29 +40,70 @@ std::string Card::getCardType(){
     return *cardType;
 }
 
+//Deck class******************************************************************************************
+Deck::Deck(){ //Creating 15 cards!
+    for (int i = 0; i < 3; i++){
+        deck_cards.push_back(new Card("Bomb"));
+        deck_cards.push_back(new Card("Reinforcement"));
+        deck_cards.push_back(new Card("Blockade"));
+        deck_cards.push_back(new Card("Airlift"));
+        deck_cards.push_back(new Card("Diplomacy"));
+    }
+}
+Deck::Deck(const Deck& copyDeck) {
+    //deep copy for each card
+    for (size_t i = 0; i < copyDeck.deck_cards.size(); ++i) {
+        const Card* cardPtr = copyDeck.deck_cards[i]; 
+        deck_cards.push_back(new Card(*cardPtr)); 
+    }
+}
 
-Deck::Deck(){
-    deck_cards.push_back(new Card("Bomb"));
-    deck_cards.push_back(new Card("Reinforcement"));
-    deck_cards.push_back(new Card("Blockade"));
-    deck_cards.push_back(new Card("Airlift"));
-    deck_cards.push_back(new Card("Diplomacy"));
+Deck& Deck::operator=(const Deck& other) { //Should i return reference or pointer?
+    if (this != &other) { // Check
+        
+        for (size_t i = 0; i < deck_cards.size(); ++i) {
+            Card* cardPtr = deck_cards[i];
+            delete cardPtr; // Free dynamic mem. alloc.
+            deck_cards[i] = nullptr; // Remove dangling pointers
+        }
+        
+
+        // Deep copy rhs to lhs
+        for (size_t i = 0; i < other.deck_cards.size(); ++i) {
+            Card* cardPtr = other.deck_cards[i];
+            deck_cards.push_back(new Card(*cardPtr)); // Use the copy constructor
+        }
+    }
+    return *this; // Return reference to obj
+}
+
+Deck::~Deck() {
+    for (int i = 0; i < deck_cards.size(); ++i) {
+        Card* cardPtr = deck_cards[i];
+        delete cardPtr; 
+    }
+}
+
+std::ostream& operator<<(std::ostream& os, const Deck& deck) {
+    os << "Total Number Of Cards In Deck: " << deck.deck_cards.size() << endl;
+    return os;
 }
 
 Card* Deck::draw() {
     if (deck_cards.empty()) {
-        return nullptr; // No cards left to draw
+        return nullptr; 
     }
     
-    // Generate a random index to draw a card and return it directly
-    Card* drawnCard = deck_cards.back(); // Get the last card as a ptr
-    deck_cards.pop_back(); // Remove the last card from the deck
-    return drawnCard; // Return the drawn card
+    Card* drawnCard = deck_cards.back(); //retrieve ptr to card
+    deck_cards.pop_back(); // Remove card
+    return drawnCard; 
 }
 
 
 int main(){
-    Card * myCard = new Card("Airlift");
-    std::cout << *myCard << std::endl;
+    //Card * myCard = new Card("Airlift");
+    //std::cout << *myCard << std::endl;
+    Deck * myDeck = new Deck();
+    cout << *myDeck << endl;
     return 0;
 }
