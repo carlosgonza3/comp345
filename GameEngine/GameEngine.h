@@ -7,218 +7,220 @@
 #include <string>
 #include <iostream>
 
+class State;
+class IssueOrdersState;
+class AssignReinforcementState;
+class ExecuteOrdersState;
+class PlayersAddedState;
+class MapValidatedState;
+class MapLoadedState;
+class StartState;
+class WinState;
+
 std::string getUserInput(std::string& output);
 
-
+// base class State, which works as a blueprint for [8] different States along the program...
 class State {
 
-public:
+    public:
+    virtual ~State() = default;
     virtual bool runState() = 0;
-    virtual State* transitionState() = 0;
-    virtual bool validateTransitionCommand( std::string& command) = 0;
-    virtual std::string getState() const = 0;
-
-    virtual ~State() {}
+    virtual std::string getState() = 0;
+    virtual State* requestTransition(std::string& command) = 0;
+    virtual bool isFinished() = 0;
 };
 
-class GameEngine
-{
+class GameEngine {
+
+    public:
+        State *currentState;
+
+        GameEngine();
+
+        void setCurrentState(State *state) {
+            currentState = state;
+        }
+
+        State* getCurrentState() const {
+            return currentState;
+        }
+
+        void printCurrentState() const {
+            if (currentState != nullptr) {
+                std::cout <<"\n\t** Current Game State: "<<currentState->getState() <<"\n"<<std::endl;
+            }
+        }
+
+        bool runCurrentState() const {
+            if (currentState != nullptr) {
+                bool runState = currentState->runState();
+                return runState;
+            }
+            return false;
+        }
+
+        void deleteCurrentState() {
+            if (currentState != nullptr) {
+                delete currentState;  // Delete the current state safely
+                currentState = nullptr;  // Set it to nullptr to avoid dangling pointer
+            }
+        }
+
+};
+
+// Map Validated State
+class AssignReinforcementState  : public State {
+    public:
+        // Main Function for State "Assign Reinforcement" -> Returns true if no errors occurred
+        bool runState() override;
+
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition(std::string& command) override;
+
+        // Returns a string, that contains current state
+        std::string getState() override;
+
+        bool isFinished() override;
+};
+
+// Execute Orders State
+class ExecuteOrdersState : public State {
 public:
-    State *currentState;
+    // Main Function for State "Execute Orders" -> Returns true if no errors occurred
+    bool runState() override;
 
-    GameEngine() {
-        currentState = nullptr;
-    }
+    // Function that takes a given command, and returns a new State pointer, according to command given,
+    // if command not valid, returns nullptr
+    State* requestTransition(std::string& command) override;
 
-    ~GameEngine() {
-        delete currentState;
-    }
+    // Returns a string, that contains current state
+    std::string getState() override;
 
-    void setCurrentState(State *state) {
-        currentState = state;
-    }
+    bool isFinished() override;
+};
 
-    State* getCurrentState() const {
-        return currentState;
-    }
+// Issue Order State
+class IssueOrdersState  : public State {
+    public:
+        // Main Function for State "Issue Orders" -> Returns true if no errors occurred
+        bool runState() override;
 
-    void printCurrentState() const {
-        if (currentState != nullptr) {
-            std::cout <<"\n\t** Current Game State: "<<currentState->getState() <<" **\n"<<std::endl;
-        }
-    }
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition (std::string& command) override;
 
-    bool runCurrentState() const {
-        if (currentState != nullptr) {
-            bool runState = currentState->runState();
-            return runState;
-        }
-        return false;
-    }
+        // Returns a string, that contains current state
+        std::string getState() override;
+
+        bool isFinished() override;
+
+};
+
+// Players Added State
+class PlayersAddedState  : public State {
+    public:
+        // Main Function for State "Players Added" -> Returns true if no errors occurred
+        bool runState() override;
+
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition (std::string& command) override;
+
+        // Returns a string, that contains current state
+        std::string getState() override;
+
+        bool isFinished() override;
+
+};
+
+// Map Validated State
+class MapValidatedState  : public State {
+    public:
+        // Main Function for State "Map Validated" -> Returns true if no errors occurred
+        bool runState() override;
+
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition(std::string& command) override;
+
+        // Returns a string, that contains current state
+        std::string getState() override;
+
+        bool isFinished() override;
 };
 
 // MapLoaded State
-class PlayersAddedState : public State
-{
-public:
-    bool runState() override {
+class MapLoadedState  : public State {
+    public:
+        // Main Function for State "Map Loaded" -> Returns true if no errors occurred
+        bool runState() override;
 
-        std::vector<std::string> playersAdded;
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition(std::string& command) override;
 
-        while (true) {
-            std::cout << "------------------ Add Players ------------------\n" << std::endl;
-            std::cout << "\tCurrent Added Players:" << std::endl;
+        // Returns a string, that contains current state
+        std::string getState() override;
 
-            if (playersAdded.size() > 0) {
-                for (int i = 0; i < playersAdded.size(); i++) {
-                    std::cout << "\t["<<i<<"] " << playersAdded[i] << std::endl;
-                }
-            } else {
-                std::cout << "\t[!] -> No Players Added" << std::endl;
-            }
-
-            std::cout << "\t------------------------" << std::endl;
-            std::cout << "\t[i] Add new Player" << std::endl;
-            std::cout << "\t[s] Save changes\n" << std::endl;
-
-            std::string output = "Enter Option";
-            std::string userInput = getUserInput(output);
-
-            std::string enterMapName;
-            std::string mapName;
-            switch (userInput[0]) {
-            case 'i':
-                enterMapName = "Enter Player Name";
-                mapName =  getUserInput(enterMapName);
-                playersAdded.push_back(mapName);
-                break;
-            case 's':
-                std::cout << "** Changes saved successfully" <<std::endl;
-                std::cout << "-----------------------------------------------\n" <<std::endl;
-                return true;
-            default:
-                std::cout << "Invalid Input: "<< userInput << ", try again..." <<std::endl;
-                break;
-            }
-        }
-    }
-
-    State* transitionState() override {
-        return nullptr;
-    }
-
-    bool validateTransitionCommand(std::string& command) override {
-        return command == "assigncountries";
-    }
-
-    std::string getState() const override {
-        return "PlayersAdded State";
-    }
+        bool isFinished() override;
 };
-
-// MapLoaded State
-class MapValidatedState : public State {
-public:
-    bool runState() override {
-        std::cout << "------------------ Validate Maps ------------------\n" << std::endl;
-        std::cout << " Validation of maps implementation..\n" << std::endl;
-        std::cout << "---------------------------------------------------\n" << std::endl;
-
-        return true;
-    }
-
-    State* transitionState() override {
-        return new PlayersAddedState();
-    }
-
-    bool validateTransitionCommand(std::string& command) override {
-        return command == "addplayer";
-    }
-
-    std::string getState() const override {
-        return "Map Validated State";
-    }
-};
-
-// MapLoaded State
-class MapLoadedState : public State {
-public:
-    bool runState() override {
-
-        std::vector<std::string> mapsLoaded;
-
-        while (true) {
-            std::cout << "------------------ Load Maps ------------------\n" << std::endl;
-            std::cout << "\tCurrent Loaded Maps:" << std::endl;
-
-            if (mapsLoaded.size() > 0) {
-                for (int i = 0; i < mapsLoaded.size(); i++) {
-                    std::cout << "\t["<<i<<"] " << mapsLoaded[i] << std::endl;
-                }
-            } else {
-                std::cout << "\t[!] -> No Maps Loaded" << std::endl;
-            }
-
-            std::cout << "\t------------------------" << std::endl;
-            std::cout << "\t[i] Import new map" << std::endl;
-            std::cout << "\t[s] Save changes\n" << std::endl;
-
-            std::string output = "Enter Option";
-            std::string userInput = getUserInput(output);
-
-            std::string enterMapName;
-            std::string mapName;
-            switch (userInput[0]) {
-                case 'i':
-                    enterMapName = "Enter Map Name";
-                    mapName =  getUserInput(enterMapName);
-                    mapsLoaded.push_back(mapName);
-                    break;
-                case 's':
-                    std::cout << "** Changes saved successfully" <<std::endl;
-                    std::cout << "-----------------------------------------------\n" <<std::endl;
-                    return true;
-                    break;
-                default:
-                    std::cout << "Invalid Input: "<< userInput << ", try again..." <<std::endl;
-                    break;
-            }
-        }
-    }
-
-    State* transitionState() override {
-        return new MapValidatedState();
-    }
-
-    bool validateTransitionCommand(std::string& command) override {
-        return command == "validatemap";
-    }
-
-    std::string getState() const override {
-        return "Map Loaded State";
-    }
-};
-
 
 // Start State
 class StartState : public State {
-public:
-    bool runState() override {
-        std::cout << "\n================== Warzone Game ==================\n" << std::endl;
-        return true;
-    }
+    public:
 
-    State* transitionState() override {
-        return new MapLoadedState();
-    }
+        // Main Function for State "Start" -> Returns true if no errors occurred
+        bool runState() override;
 
-    bool validateTransitionCommand(std::string& command) override {
-        return command == "loadmap";
-    }
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition(std::string& command) override;
 
-    std::string getState() const override {
-        return "Start State";
-    }
+        // Returns a string, that contains current state
+        std::string getState() override;
+
+        bool isFinished() override;
 };
+
+// Win State
+class WinState  : public State {
+
+    protected:
+        bool gameFinished = false;
+
+    public:
+        // Main Function for State "Win" -> Returns true if no errors occurred
+        bool runState() override {
+            std::cout << "------------------ Warzone Game ------------------\n\n" << std::endl;
+            std::cout << " ** Congratulations, you win! \n\n" << std::endl;
+            std::cout << "----------------------------------------------------------\n" << std::endl;
+
+            return true;
+        }
+
+        // Function that takes a given command, and returns a new State pointer, according to command given,
+        // if command not valid, returns nullptr
+        State* requestTransition(std::string& command) override {
+            if (command == "play") {
+                return new StartState();
+            } else if (command == "end") {
+                gameFinished = true;
+                return nullptr;
+            } else {
+                return nullptr;
+            }
+        }
+
+        // Returns a string, that contains current state
+        std::string getState() override {
+            return "Win State";
+        }
+
+        bool isFinished() override {
+            return gameFinished;
+        }
+};
+
 
 #endif //GAMEENGINE_H
