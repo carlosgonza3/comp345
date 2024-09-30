@@ -3,12 +3,12 @@
 //test the OrdersList functionality
 void testOrdersLists() {
     // Create an instance of OrdersList
-    // We need to fix it to match 
+    // We need to change it to match 
     //A player has their own list of orders to be created and executed in the current turn (see Part 3).
     OrdersList orderList;
 
     // Create and add orders to the list
-    // We need to fix it
+    // We need to change it
     orderList.addOrder(new DeployOrder());
     orderList.addOrder(new AdvanceOrder());
     orderList.addOrder(new BombOrder());
