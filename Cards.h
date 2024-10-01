@@ -14,7 +14,6 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Card& card); //Stream insert. op
     void play(); //Also takes in a pointer to a deck object so it appends to the deck
     std::string getCardType();          //Getter
-    
 private:
     std::string * cardType;
 };
@@ -27,6 +26,7 @@ public:
     ~Deck();                            //Deconst.
     friend std::ostream& operator<<(std::ostream& os, const Deck& deck); //Stream insert. op
     Card* draw(); //Draw method that hand card will call to get cards
+    void returnToDeck(Card* card);
 
 private:
     std::vector<Card*> deck_cards;
@@ -34,11 +34,16 @@ private:
 
 class Hand {
 public:
-    Hand();
+    Hand(Deck* shared_deck);
     Hand(const Hand& copyHand);
     Hand& operator=(const Hand& other);
+    friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
+    void addCardIntoHand();
+    void playCard(int index);
+    std::vector<Card*> cards_in_hand; 
 private:
-    std::vector<Card*> hand_cards; //ArrayList of cards 
+    //ArrayList of cards 
+    Deck* sharedDeck;
 };
 
 
