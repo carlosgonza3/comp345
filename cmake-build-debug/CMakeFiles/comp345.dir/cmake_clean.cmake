@@ -1,14 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/comp345.dir/MapDriver.cpp.obj"
-  "CMakeFiles/comp345.dir/MapDriver.cpp.obj.d"
-  "CMakeFiles/comp345.dir/MapStuff/Map.cpp.obj"
-  "CMakeFiles/comp345.dir/MapStuff/Map.cpp.obj.d"
-  "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.obj"
-  "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.obj.d"
-  "comp345.exe"
-  "comp345.exe.manifest"
+  "CMakeFiles/comp345.dir/MapDriver.cpp.o"
+  "CMakeFiles/comp345.dir/MapDriver.cpp.o.d"
+  "CMakeFiles/comp345.dir/MapStuff/Map.cpp.o"
+  "CMakeFiles/comp345.dir/MapStuff/Map.cpp.o.d"
+  "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o"
+  "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o.d"
+  "comp345"
   "comp345.pdb"
-  "libcomp345.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

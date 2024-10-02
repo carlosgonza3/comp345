@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/danny/Documents/GitHub/comp345/MapDriver.cpp" "CMakeFiles/comp345.dir/MapDriver.cpp.obj" "gcc" "CMakeFiles/comp345.dir/MapDriver.cpp.obj.d"
-  "C:/Users/danny/Documents/GitHub/comp345/MapStuff/Map.cpp" "CMakeFiles/comp345.dir/MapStuff/Map.cpp.obj" "gcc" "CMakeFiles/comp345.dir/MapStuff/Map.cpp.obj.d"
-  "C:/Users/danny/Documents/GitHub/comp345/MapStuff/MapLoader.cpp" "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.obj" "gcc" "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.obj.d"
+  "/Users/dannykhunn/Documents/GitHub/comp345/MapDriver.cpp" "CMakeFiles/comp345.dir/MapDriver.cpp.o" "gcc" "CMakeFiles/comp345.dir/MapDriver.cpp.o.d"
+  "/Users/dannykhunn/Documents/GitHub/comp345/MapStuff/Map.cpp" "CMakeFiles/comp345.dir/MapStuff/Map.cpp.o" "gcc" "CMakeFiles/comp345.dir/MapStuff/Map.cpp.o.d"
+  "/Users/dannykhunn/Documents/GitHub/comp345/MapStuff/MapLoader.cpp" "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o" "gcc" "CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

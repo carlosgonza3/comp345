@@ -1,5 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
+
 #include <string>
 #include <vector>
 
@@ -8,6 +9,8 @@ class Territory {
     //Attributes
     std::string name;
     int army;
+    int x;
+    int y;
     std::vector<Territory*> adjTerritories;
     /*
     Player owner;
@@ -29,6 +32,7 @@ class Continent {
     public:
     //Attributes
     std::string name;
+    int armyBonus;
     std::vector<Territory*> territories;
 
     Continent(); //Default constructor
@@ -44,9 +48,14 @@ class Continent {
 };
 
 class Map {
-public:
+    public:
     //Attributes
     std::string name;
+    std::string image;
+    std::string wrap;
+    std::string scroll;
+    std::string author;
+    std::string warn;
     std::vector<Continent*> continents;
     std::vector<Territory*> territories;
 

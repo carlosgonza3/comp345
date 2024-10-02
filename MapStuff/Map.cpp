@@ -22,7 +22,7 @@ Map &Map::operator=(const Map *map) {
     }
     return *this;
 }
-std::ostream & operator<<(std::ostream &os, const Map &map) {
+std::ostream &operator<<(std::ostream &os, const Map &map) {
     std::cout << "This Map's name is: " << map.name << std::endl;
     return os;
 }
