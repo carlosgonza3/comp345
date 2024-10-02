@@ -69,8 +69,9 @@ bool Map::isUniqueSubgraph() const {
 Continent::Continent() {
     name = "";
 }
-Continent::Continent(std::string name) {
+Continent::Continent(std::string name, int armyBonus) {
     this->name = name;
+    this->armyBonus = armyBonus;
 }
 Continent::Continent(const Continent &continent) {
     this->name = continent.name;
@@ -97,9 +98,11 @@ Territory::Territory() {
     name = "";
     army = 0;
 }
-Territory::Territory(std::string name, const int army) {
+Territory::Territory(std::string name, int army, int x, int y) {
     this->name = name;
     this->army = army;
+    this->x = x;
+    this->y = y;
 }
 Territory::Territory(const Territory &territory) {
     this->name = territory.name;

@@ -17,7 +17,7 @@ class Territory {
      */
 
     Territory(); //Default constructor
-    Territory(std::string name, int army); //Parameterized constructor
+    Territory(std::string name, int army, int x, int y); //Parameterized constructor
     Territory(const Territory &territory); //Copy constructor
     /*
     ~Territory(); //Destructor
@@ -36,7 +36,7 @@ class Continent {
     std::vector<Territory*> territories;
 
     Continent(); //Default constructor
-    Continent(std::string name); //Parameterized constructor
+    Continent(std::string name, int armyBonus); //Parameterized constructor
     Continent(const Continent &continent); //Copy constructor
     /*
     ~Continent(); //Destructor
