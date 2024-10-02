@@ -25,8 +25,7 @@ Map* MapLoader::loadMap(std::string filename) {
 
     std::vector<std::string> categories = parseFileIntoCategories(filename);
     if (categories.size() != 4) {
-        std::cout << "Invalid map file format" << std::endl;
-        return nullptr;
+        return map;
     }
 
     map->name = filename;
