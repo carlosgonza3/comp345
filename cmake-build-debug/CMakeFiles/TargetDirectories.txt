@@ -1,3 +1,3 @@
-/Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/comp345.dir
-/Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/danny/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/comp345.dir
+C:/Users/danny/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/danny/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles/rebuild_cache.dir

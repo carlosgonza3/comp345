@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "comp345"
+			"path" : "comp345.exe"
+		},
+		{
+			"path" : "comp345.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -42,14 +45,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/dannykhunn/Documents/GitHub/comp345/MapStuff"
+					"path" : "C:/Users/danny/Documents/GitHub/comp345/MapStuff"
 				}
 			],
 			"language" : "CXX",
@@ -81,12 +84,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "comp345",
-	"nameOnDisk" : "comp345",
+	"nameOnDisk" : "comp345.exe",
 	"paths" : 
 	{
 		"build" : ".",
