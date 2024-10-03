@@ -38,8 +38,10 @@ std::vector<Map*> testLoadMaps(std::vector<std::string> mapFiles) {
 int main() {
     std::vector<std::string> mapFiles;
     mapFiles.push_back("USA.map");
-    mapFiles.push_back("NonConnectedMap.map");
-    mapFiles.push_back("NotValidMap.map");
+    mapFiles.push_back("NotValidCanada.map");
+    mapFiles.push_back("Canada.map");
+    mapFiles.push_back("Junk.txt");
+    mapFiles.push_back("Junk.map");
     std::vector<Map*> maps = testLoadMaps(mapFiles);
 
     std::cout << "Here are the maps created:" << std::endl;
