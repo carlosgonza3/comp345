@@ -23,12 +23,12 @@ private:
 class Deck {
 public:
     Deck();                             //Constructor to build the deck/cards
-    Deck(const Deck& copyDeck);         //Copy const
-    Deck& operator=(const Deck& other); //Assignment op
-    ~Deck();                            //Deconst.
+    Deck(const Deck& copyDeck);         //Copy constructor
+    Deck& operator=(const Deck& other); //Assignment operator
+    ~Deck();                            //Deconstructor
     friend std::ostream& operator<<(std::ostream& os, const Deck& deck); //Stream insert. op
-    Card* draw(); //Draw method that hand card will call to get cards
-    void returnToDeck(Card* card);
+    Card* draw(); // Draw method that will remove card from deck and return it as pointer.
+    void returnToDeck(Card* card); // return method that appends card to deck.
 
 private:
     std::vector<Card*> deck_cards;
@@ -36,13 +36,13 @@ private:
 
 class Hand {
 public:
-    Hand(Deck* shared_deck);
-    Hand(const Hand& copyHand);
-    Hand& operator=(const Hand& other);
-    ~Hand();
+    Hand(Deck* shared_deck);            // Constructor  
+    Hand(const Hand& copyHand);         // Copy constructor
+    Hand& operator=(const Hand& other); // Assignment operator  
+    ~Hand();                            // Destructor
     friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
-    void addCardIntoHand();
-    void playCard(int index, OrdersList* ptrToList);
+    void addCardIntoHand();             //Method that will add a card to the hand by calling draw card from deck class.
+    void playCard(int index, OrdersList* ptrToList);    // playCard method that will 
     
 private:
     //ArrayList of cards 
