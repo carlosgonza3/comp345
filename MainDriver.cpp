@@ -4,10 +4,15 @@
 
 
 #include "GameEngine/GameEngineDriver.h"
+#include "CardsDriver.h"
+#include "OrdersDriver.h"
 
 
 int main() {
-    testGameStates();
+    //testGameStates();
+    //testCards();
+    testOrdersLists();
+
     return 0;
 }
 

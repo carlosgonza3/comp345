@@ -3,11 +3,19 @@ project(comp345)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(.)
+include_directories(GameEngine)
 
 add_executable(comp345
         MainDriver.cpp
         GameEngine/GameEngine.cpp
         GameEngine/GameEngine.h
         GameEngine/GameEngineDriver.cpp
-        GameEngine/GameEngineDriver.h)
+        GameEngine/GameEngineDriver.h
+        CardsDriver.cpp
+        OrdersDriver.cpp
+        OrdersList.cpp
+        OrdersList.h
+        Cards.h
+        Cards.cpp
+        OrdersDriver.h
+        CardsDriver.h)

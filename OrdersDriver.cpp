@@ -1,4 +1,4 @@
-#include "OrdersList.cpp"
+#include "OrdersList.h"
 #include <iostream>
 //test the OrdersList functionality
 void testOrdersLists() {
@@ -95,8 +95,4 @@ void testOrdersLists() {
         orderList->printOrders();
     }
 }
-// Main function to call testOrdersLists()
-int main() {
-    testOrdersLists();
-    return 0;
-}
+

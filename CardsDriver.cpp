@@ -1,6 +1,7 @@
 #include "Cards.h"
 #include "OrdersList.h"
 #include <iostream>
+
 using namespace std;
 
 void testCards(){
@@ -38,8 +39,4 @@ void testCards(){
     delete hand1;
     delete myDeck;
     
-}
-
-int main(){
-    testCards();
 }
