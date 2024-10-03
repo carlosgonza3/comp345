@@ -1,0 +1,5 @@
+# ninja log v6
+1	26	1727829897103258156	CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o	512d0bce7c61f590
+0	26	1727829897102984613	CMakeFiles/comp345.dir/MapStuff/Map.cpp.o	25ee39a3cbecb4f
+1	215	1727829897103406739	CMakeFiles/comp345.dir/MapDriver.cpp.o	5cd6662fb8aa57f4
+217	247	1727829897319329631	comp345	47d2943d7d42ae7d
