@@ -1,24 +1,25 @@
-#include "OrdersList.h"
+#include "OrdersList.cpp"
 #include <iostream>
 //test the OrdersList functionality
 void testOrdersLists() {
     // Create an instance of OrdersList
     // We need to fix it to match 
     //A player has their own list of orders to be created and executed in the current turn (see Part 3).
-    OrdersList orderList;
+    OrdersList* orderList = new OrdersList();
 
     // Create and add orders to the list
     // We need to fix it
-    orderList.addOrder(new DeployOrder());
-    orderList.addOrder(new AdvanceOrder());
-    orderList.addOrder(new BombOrder());
-    orderList.addOrder(new BlockadeOrder());
-    orderList.addOrder(new AirliftOrder());
-    orderList.addOrder(new NegotiateOrder());
+    orderList->addOrder(new DeployOrder());
+    orderList->addOrder(new AdvanceOrder());
+    orderList->addOrder(new BombOrder());
+    orderList->addOrder(new BlockadeOrder());
+    orderList->addOrder(new AirliftOrder());
+    orderList->addOrder(new NegotiateOrder());
+
 
     // Display orders
     std::cout << "Initial Orders List:" << std::endl;
-    orderList.printOrders();
+    orderList->printOrders();
 
     char moveOrder;
     // Ask the player if they want to move an order
@@ -40,26 +41,26 @@ void testOrdersLists() {
             std::cout << "Please enter the index of the order to move: ";
             std::cin >> firstIndex;
             // Validate the input
-            if (firstIndex < 0 || firstIndex >= static_cast<int>(orderList.getSize())) {
+            if (firstIndex < 0 || firstIndex >= static_cast<int>(orderList->getSize())) {
                 std::cout << "Invalid index. Please try again." << std::endl;
             }
-        } while (firstIndex < 0 || firstIndex >= static_cast<int>(orderList.getSize()));
+        } while (firstIndex < 0 || firstIndex >= static_cast<int>(orderList->getSize()));
 
         // Loop until get a valid index
         do {
             std::cout << "Please enter the new index position for the order: ";
             std::cin >> secondIndex;
              // Validate input
-            if (secondIndex < 0 || secondIndex >= static_cast<int>(orderList.getSize())) {
+            if (secondIndex < 0 || secondIndex >= static_cast<int>(orderList->getSize())) {
                 std::cout << "Invalid index. Please try again." << std::endl;
             }
-        } while (secondIndex < 0 || secondIndex >= static_cast<int>(orderList.getSize()));
+        } while (secondIndex < 0 || secondIndex >= static_cast<int>(orderList->getSize()));
         // Move the order to new position
-        orderList.move(firstIndex, secondIndex);
+        orderList->move(firstIndex, secondIndex);
         std::cout << "\nYou successfully moved the order.";
         std::cout << "\nOrders List after moving the order from position " << firstIndex << " to position " << secondIndex << ":" << std::endl;
         std::cout << "\n";
-        orderList.printOrders();
+        orderList->printOrders();
     }
 
     char removeOrder;
@@ -82,16 +83,16 @@ void testOrdersLists() {
             std::cout << "Please enter the index of the order to remove: ";
             std::cin >> removeIndex;
             // Validate the input
-            if (removeIndex < 0 || removeIndex >= static_cast<int>(orderList.getSize())) {
+            if (removeIndex < 0 || removeIndex >= static_cast<int>(orderList->getSize())) {
                 std::cout << "Invalid index. Please try again." << std::endl;
             }
-        } while (removeIndex < 0 || removeIndex >= static_cast<int>(orderList.getSize()));
+        } while (removeIndex < 0 || removeIndex >= static_cast<int>(orderList->getSize()));
         // Delete the order from List
-        orderList.remove(removeIndex);
+        orderList->remove(removeIndex);
         std::cout << "\nYou successfully removed the order.";
         std::cout << "\nOrders List after removing the order at position " << removeIndex << ":" << std::endl;
         std::cout << "\n";
-        orderList.printOrders();
+        orderList->printOrders();
     }
 }
 // Main function to call testOrdersLists()
