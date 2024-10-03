@@ -41,7 +41,7 @@ void Card::play(OrdersList * ptrToList){    //Creates an order depending on card
         (*ptrToList).addOrder(new BombOrder());
     }
     else if(*cardType == "Reinforcement"){
-        //(*ptrToList).addOrder(new Order());
+        (*ptrToList).addOrder(new DeployOrder());
     }
     else if (*cardType == "Blockade"){
         (*ptrToList).addOrder(new BlockadeOrder());
