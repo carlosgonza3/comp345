@@ -55,24 +55,24 @@ void OrdersList::remove(int index) {
 }
 
 // Move an Order to another position
-void OrdersList::move(int fromIndex, int toIndex) {
-    if (fromIndex >= 0 && fromIndex < static_cast<int>(orders.size()) &&
-        toIndex >= 0 && toIndex < static_cast<int>(orders.size())) { //using casting to check the index is valid
-        Order* temp = orders[fromIndex];
-        orders.erase(orders.begin() + fromIndex); // remove order 
-        orders.insert(orders.begin() + toIndex, temp);//insert order
+void OrdersList::move(int firstIndex, int secondIndex) {
+    if (firstIndex >= 0 && firstIndex < static_cast<int>(orders.size()) &&
+        secondIndex >= 0 && secondIndex < static_cast<int>(orders.size())) { //using casting to check the index is valid
+        Order* temp = orders[firstIndex];
+        orders.erase(orders.begin() + firstIndex); // remove order 
+        orders.insert(orders.begin() + secondIndex, temp);//insert order
     }
 }
 
 // Display Orders in the list
 void OrdersList::printOrders() const {
-    for (size_t i = 0; i < orders.size(); ++i) {
+    for (int i = 0; i < orders.size(); ++i) {
         std::cout << i << ": " << *orders[i] << std::endl;
     }
 }
 
 // Get the size of list
-size_t OrdersList::getSize() const {
+int OrdersList::getSize() const {
     return orders.size();
 }
 
