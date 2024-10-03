@@ -4,22 +4,33 @@
 #include <sstream>
 
 //These are the functions for the MapLoader class
+//Default constructor
 MapLoader::MapLoader() {
     filename = "";
 }
+//Parameterized constructor
 MapLoader::MapLoader(std::string filename) {
     this->filename = filename;
 }
+//Copy constructor
 MapLoader::MapLoader(const MapLoader &mapLoader) {
     this->filename = mapLoader.filename;
 }
+//Destructor
+MapLoader::~MapLoader() {
+    //There are no dynamically allocated resources to clean up in MapLoader
+}
+//Assignment operator
 MapLoader &MapLoader::operator=(const MapLoader *mapLoader) {
     return *this;
 }
+//Stream insertion operator
 std::ostream &operator<<(std::ostream &os, const MapLoader &mapLoader) {
     std::cout << "This MapLoader's filename is: " <<mapLoader.filename << std::endl;
     return os;
 }
+//Function that takes a filename, then calls parseFileIntoCategories to take its subset of strings to make a map with
+//other support functions
 Map* MapLoader::loadMap(std::string filename) {
     Map* map = new Map();
 
@@ -35,6 +46,8 @@ Map* MapLoader::loadMap(std::string filename) {
 
     return map;
 }
+//Function that takes a filename and parses the text file string into appropriate category substrings (look at
+//assignment guidelines for format)
 std::vector<std::string> MapLoader::parseFileIntoCategories(std::string filename) {
     std::vector<std::string> categories;
 
@@ -56,6 +69,7 @@ std::vector<std::string> MapLoader::parseFileIntoCategories(std::string filename
 
     return categories;
 }
+//Takes a formated substring for the map's baseline info to insert them into the map
 void MapLoader::insertMapInfo(std::string mapSubCategory, Map *map) {
     std::vector<std::string> mapInfo;
     std::stringstream ss(mapSubCategory);
@@ -83,6 +97,7 @@ void MapLoader::insertMapInfo(std::string mapSubCategory, Map *map) {
         }
     }
 }
+//Takes a formated substring for the map's continents to insert them into the map
 void MapLoader::insertContinents(std::string continentSubCategory, Map *map) {
     std::vector<std::string> continentInfo;
     std::stringstream ss(continentSubCategory);
@@ -104,6 +119,7 @@ void MapLoader::insertContinents(std::string continentSubCategory, Map *map) {
         map->addContinent(continent);
     }
 }
+//Takes a formated substring for the map's territories to insert them into the map
 void MapLoader::insertTerritories(std::string territorySubCategory, Map *map) {
     std::vector<std::string> territoriesInfo;
     std::stringstream ss(territorySubCategory);
@@ -141,39 +157,4 @@ void MapLoader::insertTerritories(std::string territorySubCategory, Map *map) {
             }
         }
     }
-    /*
-    std::ifstream reader;
-    reader.open(territorySubCategory);
-    std::string line;
-    while (std::getline(reader, line)) {
-        if (line.substr(0,1) == "[") {
-            continue;
-        }
-        std::vector<std::string> territoryInfo;
-        std::stringstream ss(territorySubCategory);
-        while (ss.good()) {
-            std::string substring;
-            getline(ss, substring, ',');
-            territoryInfo.push_back(substring);
-        }
-
-        Territory* territory = new Territory();
-        territory->name = territoryInfo[0];
-        territory->x = stoi(territoryInfo[1]);
-        territory->y = stoi(territoryInfo[2]);
-
-        for (int i = 4; i < territorySubCategory.size(); i++) {
-            Territory* adjTerritory = new Territory();
-            adjTerritory->name = territoryInfo[i];
-            territory->addAdjTerritory(adjTerritory);
-        }
-
-        map->addTerritory(territory);
-        for (int i = 0; i < map->continents.size(); i++) {
-            if (map->continents[i]->name == territoryInfo[3]) {
-                map->continents[i]->addTerritory(territory);
-            }
-        }
-    }
-    */
 }
