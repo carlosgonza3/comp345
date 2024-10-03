@@ -3,12 +3,12 @@
 //test the OrdersList functionality
 void testOrdersLists() {
     // Create an instance of OrdersList
-    // We need to change it to match 
+    // We need to fix it to match 
     //A player has their own list of orders to be created and executed in the current turn (see Part 3).
     OrdersList orderList;
 
     // Create and add orders to the list
-    // We need to change it
+    // We need to fix it
     orderList.addOrder(new DeployOrder());
     orderList.addOrder(new AdvanceOrder());
     orderList.addOrder(new BombOrder());
@@ -33,31 +33,31 @@ void testOrdersLists() {
 
     if (moveOrder == 'y' || moveOrder == 'Y') {
         // Move an order
-        int fromIndex, toIndex;
+        int firstIndex, secondIndex;
         
         // Loop until get a valid index
         do {
             std::cout << "Please enter the index of the order to move: ";
-            std::cin >> fromIndex;
+            std::cin >> firstIndex;
             // Validate the input
-            if (fromIndex < 0 || fromIndex >= static_cast<int>(orderList.getSize())) {
+            if (firstIndex < 0 || firstIndex >= static_cast<int>(orderList.getSize())) {
                 std::cout << "Invalid index. Please try again." << std::endl;
             }
-        } while (fromIndex < 0 || fromIndex >= static_cast<int>(orderList.getSize()));
+        } while (firstIndex < 0 || firstIndex >= static_cast<int>(orderList.getSize()));
 
         // Loop until get a valid index
         do {
             std::cout << "Please enter the new index position for the order: ";
-            std::cin >> toIndex;
+            std::cin >> secondIndex;
              // Validate input
-            if (toIndex < 0 || toIndex >= static_cast<int>(orderList.getSize())) {
+            if (secondIndex < 0 || secondIndex >= static_cast<int>(orderList.getSize())) {
                 std::cout << "Invalid index. Please try again." << std::endl;
             }
-        } while (toIndex < 0 || toIndex >= static_cast<int>(orderList.getSize()));
+        } while (secondIndex < 0 || secondIndex >= static_cast<int>(orderList.getSize()));
         // Move the order to new position
-        orderList.move(fromIndex, toIndex);
+        orderList.move(firstIndex, secondIndex);
         std::cout << "\nYou successfully moved the order.";
-        std::cout << "\nOrders List after moving the order from position " << fromIndex << " to position " << toIndex << ":" << std::endl;
+        std::cout << "\nOrders List after moving the order from position " << firstIndex << " to position " << secondIndex << ":" << std::endl;
         std::cout << "\n";
         orderList.printOrders();
     }
