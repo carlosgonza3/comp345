@@ -4,27 +4,20 @@
 #include <string>
 using namespace std;
 
-// Card class & Deck class
-// Each card must have a type: bomb, reinforcement, blockade, airlift and diplomacy.
-// Deck class: draw method 
-// Card class: play methodz
-// Constructor, copy constructor, assignment op, stream insertion op.
+//Card class
 
 
-//Card class***************************************************************************
-
-//Default constructor for Card class
-Card::Card(const std::string& type) {   
+Card::Card(const std::string& type) {       //Default constructor for Card class
     cardType = new string(type);
 }
 
-//Copy constructor for Card class.
-Card::Card(const Card& otherCard){
+
+Card::Card(const Card& otherCard){          //Copy constructor for Card class.
     cardType = new string(*otherCard.cardType);
 }
 
-//Assignment operator returns reference to a the card
-Card& Card::operator=(const Card& other) {
+
+Card& Card::operator=(const Card& other) {  //Assignment operator returns reference to a the card
     if (this != &other) {
         delete cardType; 
         cardType = new std::string(*(other.cardType)); 
@@ -32,20 +25,18 @@ Card& Card::operator=(const Card& other) {
     return *this; 
 }
 
-//Destructor for Card class
-Card::~Card(){
+Card::~Card(){                              //Destructor for Card class deleting the memory allocation made for the cardType
     delete cardType;
 }
 
-//Stream insertion operator logging the cardType.
-std::ostream& operator<<(std::ostream& os, const Card& card) {
+
+std::ostream& operator<<(std::ostream& os, const Card& card) {  //Stream insertion operator logging the cardType.
     os << "Card Type: " << *(card.cardType); 
     return os; 
 }
 
-void Card::play(OrdersList * ptrToList){
-    //create and add an order to player's list of orders
-    cout << "Playing card: " << *(this->cardType) << endl;
+void Card::play(OrdersList * ptrToList){    //Creates an order depending on card type and adds to the list of order
+    cout << "Current card being played: " << *(this->cardType) << endl;
     if (*cardType == "Bomb"){
         (*ptrToList).addOrder(new BombOrder());
     }
@@ -63,14 +54,14 @@ void Card::play(OrdersList * ptrToList){
     }
 }
 
-std::string Card::getCardType(){
+std::string Card::getCardType(){            //Getter returning the card type.
     return *cardType;
 }
 
 
 //Deck class
 
-Deck::Deck(){ //Creating a deck with 15 cards.
+Deck::Deck(){                                   //Default constructor creating a deck with 15 cards.
     for (int i = 0; i < 3; i++){
         deck_cards.push_back(new Card("Bomb"));
         deck_cards.push_back(new Card("Reinforcement"));
@@ -79,7 +70,7 @@ Deck::Deck(){ //Creating a deck with 15 cards.
         deck_cards.push_back(new Card("Diplomacy"));
     }
 }
-Deck::Deck(const Deck& copyDeck) {
+Deck::Deck(const Deck& copyDeck) {              //Copy constructor making deep copy of cards in deck1 into deck2
     //deep copy for each card
     for (int i = 0; i < copyDeck.deck_cards.size(); ++i) {
         const Card* cardPtr = copyDeck.deck_cards[i]; 
@@ -87,16 +78,15 @@ Deck::Deck(const Deck& copyDeck) {
     }
 }
 
-Deck& Deck::operator=(const Deck& other) { //Should i return reference or pointer?
-    if (this != &other) { // Check
+Deck& Deck::operator=(const Deck& other) {      //Assignment operator deep copying 
+    if (this != &other) { // Check for self-assignment
         
-        for (int i = 0; i < deck_cards.size(); ++i) {
+        for (int i = 0; i < deck_cards.size(); ++i) { //Removing deck_cards for RHS 
             Card* cardPtr = deck_cards[i];
             delete cardPtr; // Free dynamic mem. alloc.
             deck_cards[i] = nullptr; // Remove dangling pointers
-        }
+        }  
         
-
         // Deep copy rhs to lhs
         for (int i = 0; i < other.deck_cards.size(); ++i) {
             Card* cardPtr = other.deck_cards[i];
@@ -106,15 +96,18 @@ Deck& Deck::operator=(const Deck& other) { //Should i return reference or pointe
     return *this; // Return reference to obj
 }
 
-Deck::~Deck() {
+Deck::~Deck() {                                 //Destructor for deck class                            
     for (int i = 0; i < deck_cards.size(); ++i) {
         Card* cardPtr = deck_cards[i];
         delete cardPtr; 
     }
 }
 
-//Stream insertion operator that prints the size of the deck.
-std::ostream& operator<<(std::ostream& os, const Deck& deck) {
+std::ostream& operator<<(std::ostream& os, const Deck& deck) {  //Stream insertion operator that prints the size of the deck.
+    if (deck.deck_cards.size() == 0){
+        os << "Deck is empty!"  << endl;
+        return os;
+    }
     os << "Total Number Of Cards In Deck: " << deck.deck_cards.size() << endl;
     return os;
 }
@@ -134,12 +127,12 @@ void Deck::returnToDeck(Card* card) {
         deck_cards.push_back(card);
 }
 
-//**********************************************************************************************************
-Hand::Hand(Deck* shared_deck){
+//Hand class
+Hand::Hand(Deck* shared_deck){                      //Default Constructor
     sharedDeck = shared_deck;
 }
 
-Hand::Hand(const Hand& copyHand)   {
+Hand::Hand(const Hand& copyHand){                   //Copy constructor
     sharedDeck = copyHand.sharedDeck;
     for (int i = 0; i < copyHand.cards_in_hand.size(); i++) {
         const Card* cardPtr = copyHand.cards_in_hand[i]; 
@@ -147,14 +140,14 @@ Hand::Hand(const Hand& copyHand)   {
     }
 }
 
-Hand::~Hand() {
+Hand::~Hand() {                                     //Destructor
     for (int i = 0; i < cards_in_hand.size(); ++i) {
         Card* cardPtr = cards_in_hand[i];
         delete cardPtr; 
     }
 }
 
-Hand& Hand::operator=(const Hand& other) {
+Hand& Hand::operator=(const Hand& other) {          //Assignment operator
     if (this != &other) { // Check for self-assignment
         
         // Clear the current hand in case there are cards
@@ -162,26 +155,31 @@ Hand& Hand::operator=(const Hand& other) {
             delete cards_in_hand[i]; // free alloc. memory
             cards_in_hand[i] = nullptr; // Avoid dangling pointers
         }
-        cards_in_hand.clear(); //clear everything
+        
 
 
-        // Deep copy of the cards from the other hand
+        // Deep copy LHS to RHS
         for (int i = 0; i < other.cards_in_hand.size(); i++) {
             Card* cardPtr = other.cards_in_hand[i];
-            cards_in_hand.push_back(new Card(*cardPtr)); // Deep copy using the Card copy constructor
+            cards_in_hand.push_back(new Card(*cardPtr));
         }
 
-        // Copy the shared deck (shallow copy since it's a shared resource)
+        // Shallow copy the shared deck 
         sharedDeck = other.sharedDeck;
     }
     return *this; // Return reference to the current object
 }
-std::ostream& operator<<(std::ostream& os, const Hand& hand) {
+
+std::ostream& operator<<(std::ostream& os, const Hand& hand) { //Stream insertion operator
     os << "Total Number Of Cards In The Hand: " << hand.cards_in_hand.size() << endl;
+
+    for (int i = 0; i < hand.cards_in_hand.size(); i++) {
+        os << "Index: " << i << " " << *(hand.cards_in_hand[i]) << endl; 
+    }
     return os;
 }
 
-void Hand::addCardIntoHand(){
+void Hand::addCardIntoHand(){                               // Method that draws a card from the deck and adds it to the hand.
     Card * drawnCard = sharedDeck->draw();
     if (drawnCard != nullptr) { // Only add card if valid
         cards_in_hand.push_back(drawnCard);
@@ -191,19 +189,18 @@ void Hand::addCardIntoHand(){
     }
 }
 
-//Method playCard takes the index of the card in hand and calls the play() method on the card. Erases the 
-void Hand::playCard(int cardIndex, OrdersList* ptrToList){
+void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the card in hand at given index. Takes orderslist as argument.
     if (cards_in_hand.size() == 0){
         cout << "Hand is empty, cannot play any card." << endl;
         return;
     }
     else if (cardIndex < 0 || cardIndex >= cards_in_hand.size()) {
-        cout << "Invalid card index." << endl;
+        cout << "Invalid card index. There are no cards at that index." << endl;
         return;
     }
-    Card * cardPtr = cards_in_hand[cardIndex];
-    cardPtr->play(ptrToList);
-    cards_in_hand.erase(cards_in_hand.begin() + cardIndex);
-    sharedDeck->returnToDeck(cardPtr);
+    Card * cardPtr = cards_in_hand[cardIndex]; //Retrieve card at index and stores into pointer.
+    cardPtr->play(ptrToList);                   
+    cards_in_hand.erase(cards_in_hand.begin() + cardIndex); //Deletes pointer in the hand.
+    sharedDeck->returnToDeck(cardPtr);         //Return card to deck.
 }
 
