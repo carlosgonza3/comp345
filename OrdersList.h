@@ -125,9 +125,9 @@ public:
     // add, remove, move and print order and gert size methods
     void addOrder(Order* order);
     void remove(int index);
-    void move(int fromIndex, int toIndex);
+    void move(int firstIndex, int secondIndex);
     void printOrders() const;
-    size_t getSize() const;
+    int getSize() const;
 };
 
 #endif // ORDERSLIST_H
