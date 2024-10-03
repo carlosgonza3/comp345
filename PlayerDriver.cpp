@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Map.h"
+#include "MapStuff/Map.h"
 #include <iostream>
 
 void testPlayers() {
@@ -39,9 +39,4 @@ void testPlayers() {
     delete territory3;
     delete territory4;
     delete Hand1; // Clean up the deck
-}
-
-int main() {
-    testPlayers();
-    return 0;
 }

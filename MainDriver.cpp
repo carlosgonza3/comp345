@@ -7,6 +7,7 @@
 #include "CardsDriver.h"
 #include "OrdersDriver.h"
 #include "MapDriver.h"
+#include "PlayerDriver.h"
 #include <vector>
 #include <iostream>
 
@@ -14,8 +15,9 @@
 int main() {
     //testGameStates();
     //testCards();
-    //testOrdersLists();
+    // testOrdersLists();
 
+    /*
     std::vector<std::string> mapFiles;
     mapFiles.push_back("USA.map");
     mapFiles.push_back("NotValidCanada.map");
@@ -28,6 +30,10 @@ int main() {
     for (int i = 0; i < maps.size(); i++) {
         std::cout << maps[i]->name << std::endl;
     }
+    */
+
+     testPlayers();
+
 
 
     return 0;

@@ -24,4 +24,8 @@ add_executable(comp345
         MapStuff/MapLoader.cpp
         MapStuff/Map.h
         MapStuff/MapLoader.h
-        MapDriver.cpp)
+        MapDriver.cpp
+        PlayerDriver.h
+        PlayerDriver.cpp
+        Player.cpp
+        Player.h)

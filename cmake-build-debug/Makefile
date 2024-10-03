@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dannykhunn/Documents/GitHub/comp345
+CMAKE_SOURCE_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles /Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/comp345/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,126 @@ comp345: cmake_check_build_system
 comp345/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/build
 .PHONY : comp345/fast
+
+Cards.o: Cards.cpp.o
+.PHONY : Cards.o
+
+# target to build an object file
+Cards.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards.cpp.o
+.PHONY : Cards.cpp.o
+
+Cards.i: Cards.cpp.i
+.PHONY : Cards.i
+
+# target to preprocess a source file
+Cards.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards.cpp.i
+.PHONY : Cards.cpp.i
+
+Cards.s: Cards.cpp.s
+.PHONY : Cards.s
+
+# target to generate assembly for a file
+Cards.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards.cpp.s
+.PHONY : Cards.cpp.s
+
+CardsDriver.o: CardsDriver.cpp.o
+.PHONY : CardsDriver.o
+
+# target to build an object file
+CardsDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CardsDriver.cpp.o
+.PHONY : CardsDriver.cpp.o
+
+CardsDriver.i: CardsDriver.cpp.i
+.PHONY : CardsDriver.i
+
+# target to preprocess a source file
+CardsDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CardsDriver.cpp.i
+.PHONY : CardsDriver.cpp.i
+
+CardsDriver.s: CardsDriver.cpp.s
+.PHONY : CardsDriver.s
+
+# target to generate assembly for a file
+CardsDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CardsDriver.cpp.s
+.PHONY : CardsDriver.cpp.s
+
+GameEngine/GameEngine.o: GameEngine/GameEngine.cpp.o
+.PHONY : GameEngine/GameEngine.o
+
+# target to build an object file
+GameEngine/GameEngine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o
+.PHONY : GameEngine/GameEngine.cpp.o
+
+GameEngine/GameEngine.i: GameEngine/GameEngine.cpp.i
+.PHONY : GameEngine/GameEngine.i
+
+# target to preprocess a source file
+GameEngine/GameEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i
+.PHONY : GameEngine/GameEngine.cpp.i
+
+GameEngine/GameEngine.s: GameEngine/GameEngine.cpp.s
+.PHONY : GameEngine/GameEngine.s
+
+# target to generate assembly for a file
+GameEngine/GameEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s
+.PHONY : GameEngine/GameEngine.cpp.s
+
+GameEngine/GameEngineDriver.o: GameEngine/GameEngineDriver.cpp.o
+.PHONY : GameEngine/GameEngineDriver.o
+
+# target to build an object file
+GameEngine/GameEngineDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o
+.PHONY : GameEngine/GameEngineDriver.cpp.o
+
+GameEngine/GameEngineDriver.i: GameEngine/GameEngineDriver.cpp.i
+.PHONY : GameEngine/GameEngineDriver.i
+
+# target to preprocess a source file
+GameEngine/GameEngineDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i
+.PHONY : GameEngine/GameEngineDriver.cpp.i
+
+GameEngine/GameEngineDriver.s: GameEngine/GameEngineDriver.cpp.s
+.PHONY : GameEngine/GameEngineDriver.s
+
+# target to generate assembly for a file
+GameEngine/GameEngineDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s
+.PHONY : GameEngine/GameEngineDriver.cpp.s
+
+MainDriver.o: MainDriver.cpp.o
+.PHONY : MainDriver.o
+
+# target to build an object file
+MainDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MainDriver.cpp.o
+.PHONY : MainDriver.cpp.o
+
+MainDriver.i: MainDriver.cpp.i
+.PHONY : MainDriver.i
+
+# target to preprocess a source file
+MainDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MainDriver.cpp.i
+.PHONY : MainDriver.cpp.i
+
+MainDriver.s: MainDriver.cpp.s
+.PHONY : MainDriver.s
+
+# target to generate assembly for a file
+MainDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MainDriver.cpp.s
+.PHONY : MainDriver.cpp.s
 
 MapDriver.o: MapDriver.cpp.o
 .PHONY : MapDriver.o
@@ -201,6 +321,102 @@ MapStuff/MapLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.s
 .PHONY : MapStuff/MapLoader.cpp.s
 
+OrdersDriver.o: OrdersDriver.cpp.o
+.PHONY : OrdersDriver.o
+
+# target to build an object file
+OrdersDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersDriver.cpp.o
+.PHONY : OrdersDriver.cpp.o
+
+OrdersDriver.i: OrdersDriver.cpp.i
+.PHONY : OrdersDriver.i
+
+# target to preprocess a source file
+OrdersDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersDriver.cpp.i
+.PHONY : OrdersDriver.cpp.i
+
+OrdersDriver.s: OrdersDriver.cpp.s
+.PHONY : OrdersDriver.s
+
+# target to generate assembly for a file
+OrdersDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersDriver.cpp.s
+.PHONY : OrdersDriver.cpp.s
+
+OrdersList.o: OrdersList.cpp.o
+.PHONY : OrdersList.o
+
+# target to build an object file
+OrdersList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersList.cpp.o
+.PHONY : OrdersList.cpp.o
+
+OrdersList.i: OrdersList.cpp.i
+.PHONY : OrdersList.i
+
+# target to preprocess a source file
+OrdersList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersList.cpp.i
+.PHONY : OrdersList.cpp.i
+
+OrdersList.s: OrdersList.cpp.s
+.PHONY : OrdersList.s
+
+# target to generate assembly for a file
+OrdersList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrdersList.cpp.s
+.PHONY : OrdersList.cpp.s
+
+Player.o: Player.cpp.o
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
+PlayerDriver.o: PlayerDriver.cpp.o
+.PHONY : PlayerDriver.o
+
+# target to build an object file
+PlayerDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerDriver.cpp.o
+.PHONY : PlayerDriver.cpp.o
+
+PlayerDriver.i: PlayerDriver.cpp.i
+.PHONY : PlayerDriver.i
+
+# target to preprocess a source file
+PlayerDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerDriver.cpp.i
+.PHONY : PlayerDriver.cpp.i
+
+PlayerDriver.s: PlayerDriver.cpp.s
+.PHONY : PlayerDriver.s
+
+# target to generate assembly for a file
+PlayerDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerDriver.cpp.s
+.PHONY : PlayerDriver.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,6 +426,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... comp345"
+	@echo "... Cards.o"
+	@echo "... Cards.i"
+	@echo "... Cards.s"
+	@echo "... CardsDriver.o"
+	@echo "... CardsDriver.i"
+	@echo "... CardsDriver.s"
+	@echo "... GameEngine/GameEngine.o"
+	@echo "... GameEngine/GameEngine.i"
+	@echo "... GameEngine/GameEngine.s"
+	@echo "... GameEngine/GameEngineDriver.o"
+	@echo "... GameEngine/GameEngineDriver.i"
+	@echo "... GameEngine/GameEngineDriver.s"
+	@echo "... MainDriver.o"
+	@echo "... MainDriver.i"
+	@echo "... MainDriver.s"
 	@echo "... MapDriver.o"
 	@echo "... MapDriver.i"
 	@echo "... MapDriver.s"
@@ -219,6 +450,18 @@ help:
 	@echo "... MapStuff/MapLoader.o"
 	@echo "... MapStuff/MapLoader.i"
 	@echo "... MapStuff/MapLoader.s"
+	@echo "... OrdersDriver.o"
+	@echo "... OrdersDriver.i"
+	@echo "... OrdersDriver.s"
+	@echo "... OrdersList.o"
+	@echo "... OrdersList.i"
+	@echo "... OrdersList.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
+	@echo "... PlayerDriver.o"
+	@echo "... PlayerDriver.i"
+	@echo "... PlayerDriver.s"
 .PHONY : help
 
 
