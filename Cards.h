@@ -1,18 +1,20 @@
-// Cards.h
 #ifndef CARDS_H
 #define CARDS_H
 
 #include <string>
+#include "OrdersList.h"
 #include <vector>
+
+void testCards();
 
 class Card {
 public:
     Card(const std::string& cardType);  //Constructor using pass by reference 
     Card(const Card& other);            //Copy constructor using pass by reference
-    Card& operator=(const Card& other); // Assignment operator
+    Card& operator=(const Card& other); //Assignment operator
     ~Card();                            //Destructor
     friend std::ostream& operator<<(std::ostream& os, const Card& card); //Stream insert. op
-    void play(); //Also takes in a pointer to a deck object so it appends to the deck
+    void play(OrdersList* ptrToList); //Also takes in a pointer to a deck object so it appends to the deck
     std::string getCardType();          //Getter
 private:
     std::string * cardType;
@@ -37,12 +39,14 @@ public:
     Hand(Deck* shared_deck);
     Hand(const Hand& copyHand);
     Hand& operator=(const Hand& other);
+    ~Hand();
     friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
     void addCardIntoHand();
-    void playCard(int index);
-    std::vector<Card*> cards_in_hand; 
+    void playCard(int index, OrdersList* ptrToList);
+    
 private:
     //ArrayList of cards 
+    std::vector<Card*> cards_in_hand; 
     Deck* sharedDeck;
 };
 
