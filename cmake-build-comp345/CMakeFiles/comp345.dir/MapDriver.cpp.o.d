@@ -1,8 +1,5 @@
-CMakeFiles/comp345.dir/MainDriver.cpp.o: \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/MainDriver.cpp \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/CardsDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrdersDriver.h \
+CMakeFiles/comp345.dir/MapDriver.cpp.o: \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.cpp \
   /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/string \

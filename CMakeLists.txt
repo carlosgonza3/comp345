@@ -18,4 +18,10 @@ add_executable(comp345
         Cards.h
         Cards.cpp
         OrdersDriver.h
-        CardsDriver.h)
+        CardsDriver.h
+        MapDriver.h
+        MapStuff/Map.cpp
+        MapStuff/MapLoader.cpp
+        MapStuff/Map.h
+        MapStuff/MapLoader.h
+        MapDriver.cpp)

@@ -167,6 +167,48 @@ CMakeFiles/comp345.dir/Cards.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/Cards.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/Cards.cpp -o CMakeFiles/comp345.dir/Cards.cpp.s
 
+CMakeFiles/comp345.dir/MapStuff/Map.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/MapStuff/Map.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.cpp
+CMakeFiles/comp345.dir/MapStuff/Map.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-comp345/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/comp345.dir/MapStuff/Map.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/MapStuff/Map.cpp.o -MF CMakeFiles/comp345.dir/MapStuff/Map.cpp.o.d -o CMakeFiles/comp345.dir/MapStuff/Map.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.cpp
+
+CMakeFiles/comp345.dir/MapStuff/Map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/MapStuff/Map.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.cpp > CMakeFiles/comp345.dir/MapStuff/Map.cpp.i
+
+CMakeFiles/comp345.dir/MapStuff/Map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/MapStuff/Map.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.cpp -o CMakeFiles/comp345.dir/MapStuff/Map.cpp.s
+
+CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/MapLoader.cpp
+CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-comp345/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o -MF CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o.d -o CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/MapLoader.cpp
+
+CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/MapLoader.cpp > CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.i
+
+CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/MapLoader.cpp -o CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.s
+
+CMakeFiles/comp345.dir/MapDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/MapDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.cpp
+CMakeFiles/comp345.dir/MapDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-comp345/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/comp345.dir/MapDriver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/MapDriver.cpp.o -MF CMakeFiles/comp345.dir/MapDriver.cpp.o.d -o CMakeFiles/comp345.dir/MapDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.cpp
+
+CMakeFiles/comp345.dir/MapDriver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/MapDriver.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.cpp > CMakeFiles/comp345.dir/MapDriver.cpp.i
+
+CMakeFiles/comp345.dir/MapDriver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/MapDriver.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.cpp -o CMakeFiles/comp345.dir/MapDriver.cpp.s
+
 # Object files for target comp345
 comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/MainDriver.cpp.o" \
@@ -175,7 +217,10 @@ comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/CardsDriver.cpp.o" \
 "CMakeFiles/comp345.dir/OrdersDriver.cpp.o" \
 "CMakeFiles/comp345.dir/OrdersList.cpp.o" \
-"CMakeFiles/comp345.dir/Cards.cpp.o"
+"CMakeFiles/comp345.dir/Cards.cpp.o" \
+"CMakeFiles/comp345.dir/MapStuff/Map.cpp.o" \
+"CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o" \
+"CMakeFiles/comp345.dir/MapDriver.cpp.o"
 
 # External object files for target comp345
 comp345_EXTERNAL_OBJECTS =
@@ -187,9 +232,12 @@ comp345: CMakeFiles/comp345.dir/CardsDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/OrdersDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/OrdersList.cpp.o
 comp345: CMakeFiles/comp345.dir/Cards.cpp.o
+comp345: CMakeFiles/comp345.dir/MapStuff/Map.cpp.o
+comp345: CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o
+comp345: CMakeFiles/comp345.dir/MapDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/build.make
 comp345: CMakeFiles/comp345.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-comp345/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable comp345"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-comp345/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable comp345"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/comp345.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

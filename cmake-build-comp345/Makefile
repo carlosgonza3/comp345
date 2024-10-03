@@ -249,6 +249,78 @@ MainDriver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MainDriver.cpp.s
 .PHONY : MainDriver.cpp.s
 
+MapDriver.o: MapDriver.cpp.o
+.PHONY : MapDriver.o
+
+# target to build an object file
+MapDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapDriver.cpp.o
+.PHONY : MapDriver.cpp.o
+
+MapDriver.i: MapDriver.cpp.i
+.PHONY : MapDriver.i
+
+# target to preprocess a source file
+MapDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapDriver.cpp.i
+.PHONY : MapDriver.cpp.i
+
+MapDriver.s: MapDriver.cpp.s
+.PHONY : MapDriver.s
+
+# target to generate assembly for a file
+MapDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapDriver.cpp.s
+.PHONY : MapDriver.cpp.s
+
+MapStuff/Map.o: MapStuff/Map.cpp.o
+.PHONY : MapStuff/Map.o
+
+# target to build an object file
+MapStuff/Map.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/Map.cpp.o
+.PHONY : MapStuff/Map.cpp.o
+
+MapStuff/Map.i: MapStuff/Map.cpp.i
+.PHONY : MapStuff/Map.i
+
+# target to preprocess a source file
+MapStuff/Map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/Map.cpp.i
+.PHONY : MapStuff/Map.cpp.i
+
+MapStuff/Map.s: MapStuff/Map.cpp.s
+.PHONY : MapStuff/Map.s
+
+# target to generate assembly for a file
+MapStuff/Map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/Map.cpp.s
+.PHONY : MapStuff/Map.cpp.s
+
+MapStuff/MapLoader.o: MapStuff/MapLoader.cpp.o
+.PHONY : MapStuff/MapLoader.o
+
+# target to build an object file
+MapStuff/MapLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.o
+.PHONY : MapStuff/MapLoader.cpp.o
+
+MapStuff/MapLoader.i: MapStuff/MapLoader.cpp.i
+.PHONY : MapStuff/MapLoader.i
+
+# target to preprocess a source file
+MapStuff/MapLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.i
+.PHONY : MapStuff/MapLoader.cpp.i
+
+MapStuff/MapLoader.s: MapStuff/MapLoader.cpp.s
+.PHONY : MapStuff/MapLoader.s
+
+# target to generate assembly for a file
+MapStuff/MapLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/MapStuff/MapLoader.cpp.s
+.PHONY : MapStuff/MapLoader.cpp.s
+
 OrdersDriver.o: OrdersDriver.cpp.o
 .PHONY : OrdersDriver.o
 
@@ -321,6 +393,15 @@ help:
 	@echo "... MainDriver.o"
 	@echo "... MainDriver.i"
 	@echo "... MainDriver.s"
+	@echo "... MapDriver.o"
+	@echo "... MapDriver.i"
+	@echo "... MapDriver.s"
+	@echo "... MapStuff/Map.o"
+	@echo "... MapStuff/Map.i"
+	@echo "... MapStuff/Map.s"
+	@echo "... MapStuff/MapLoader.o"
+	@echo "... MapStuff/MapLoader.i"
+	@echo "... MapStuff/MapLoader.s"
 	@echo "... OrdersDriver.o"
 	@echo "... OrdersDriver.i"
 	@echo "... OrdersDriver.s"
