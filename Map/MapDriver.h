@@ -5,8 +5,8 @@
 #ifndef MAPDRIVER_H
 #define MAPDRIVER_H
 
-#include "MapStuff/Map.h"
-#include "MapStuff/MapLoader.h"
+#include "Map.h"
+#include "MapLoader.h"
 #include <fstream>
 
 

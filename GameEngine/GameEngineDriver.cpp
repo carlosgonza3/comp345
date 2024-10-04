@@ -8,14 +8,19 @@
 void testGameStates() {
 
     std::cout << "\n\t** Testing GameStates... " << std::endl;
-    // Setting up game
+
+
+    // Setting up Game
     std::cout << "\n\t** Creating Game Engine..." << std::endl;
+
+    // Setting up Game Engine
     GameEngine* gameEngine = new GameEngine();
     std::cout << "\n\t** Game Engine created successfully" << std::endl;
     std::cout << "\n\t** Setting up Game Engine..." << std::endl;
     gameEngine->setCurrentState(new StartState());
     std::cout << "\n\t** Game Engine configured successfully" << std::endl;
 
+    // Setting running variable
     bool running = true;
 
     // Main loop 3 Steps to follow
@@ -27,6 +32,7 @@ void testGameStates() {
         // Step 2 -> Run Current State
         bool runStateStatus = gameEngine->runCurrentState();
         if (!runStateStatus) {
+            std::cout << "\n\t** An error has occurred, failed to run " << gameEngine->currentState <<std::endl;
             running = false;
             break;
         }
@@ -82,7 +88,7 @@ void testGameStates() {
     std::cout << "\n\t** Current State has been set to null succesfully." << std::endl;
     delete gameEngine;
     std::cout << "\n\t** Game Engine has been deleted successfully..." << std::endl;
-    std::cout << "\n\t** Warzone Game has Ended, thanks for playing!" << std::endl;
+    std::cout << "\n\t** Game Engine test finished successfully!" << std::endl;
 
 
 }

@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "MapStuff/Map.h"
+#include "Map.h"
 #include <iostream>
 
 // Constructor

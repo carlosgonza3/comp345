@@ -1,11 +1,11 @@
 #include "Player.h"
-#include "MapStuff/Map.h"
+#include "Map.h"
 #include <iostream>
 
 void testPlayers() {
+
     Deck* Shared_Deck = new Deck ();
     Hand* Hand1 = new Hand(Shared_Deck);
-    
 
     Player player(Hand1);
 

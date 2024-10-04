@@ -93,7 +93,7 @@ std::ostream& operator<<(std::ostream& os, AssignReinforcementState& state) {
 }
 
 bool AssignReinforcementState::runState() {
-    std::cout << "------------------ Assign Reinforcement ------------------\n\n" << std::endl;
+    std::cout << "------------------ Assign Reinforcement State Test ------------------\n\n" << std::endl;
     std::cout << " ** Assigning Reinforcement implementation...\n\n" << std::endl;
     std::cout << "----------------------------------------------------------\n" << std::endl;
 
@@ -133,7 +133,7 @@ std::ostream& operator<<(std::ostream& os, const ExecuteOrdersState& state) {
 }
 
 bool ExecuteOrdersState::runState() {
-    std::cout << "------------------ Execute Orders ------------------\n\n" << std::endl;
+    std::cout << "------------------ Execute Orders State Test ------------------\n\n" << std::endl;
     std::cout << " ** Executing Orders implementation...\n\n" << std::endl;
     std::cout << "----------------------------------------------------------\n" << std::endl;
     return true;
@@ -181,7 +181,7 @@ bool IssueOrdersState::runState() {
 
     // Loop for Issuing Orders functionality
     while (true) {
-        std::cout << "------------------ Issue Orders ------------------\n" << std::endl;
+        std::cout << "------------------ Issue Orders State Test ------------------\n" << std::endl;
         std::cout << "\tCurrent Issued Orders:" << std::endl;
 
         // Displays current Issued Orders in session, using data from *tempData -> ordersIssued
@@ -266,7 +266,7 @@ bool PlayersAddedState::runState() {
 
             // Loop for Adding Players functionality
             while (true) {
-                std::cout << "------------------ Add Players ------------------\n" << std::endl;
+                std::cout << "------------------ Add Players State Test ------------------\n" << std::endl;
                 std::cout << "\tCurrent Added Players:" << std::endl;
 
                 // Displays current Added players in session, using data from *tempData -> playersAdded
@@ -346,7 +346,7 @@ std::ostream& operator<<(std::ostream& os, const MapValidatedState& state) {
 }
 
 bool MapValidatedState::runState() {
-    std::cout << "------------------ Validate Maps ------------------\n" << std::endl;
+    std::cout << "------------------ Validate Maps State Test ------------------\n" << std::endl;
     std::cout << " Validation of maps implementation..\n" << std::endl;
     std::cout << "---------------------------------------------------\n" << std::endl;
     return true;
@@ -381,7 +381,7 @@ bool MapLoadedState::runState() {
 
     // Loop for Loading Maps functionality
     while (true) {
-        std::cout << "------------------ Load Maps ------------------\n" << std::endl;
+        std::cout << "------------------ Load Maps State Test ------------------\n" << std::endl;
         std::cout << "\tCurrent Loaded Maps:" << std::endl;
 
         // Displays current Loaded Maps in session, using data from *tempData -> mapsLoaded
@@ -468,7 +468,7 @@ std::ostream& operator<<(std::ostream& os, const StartState& state) {
 }
 
 bool StartState::runState()  {
-    std::cout << "\n================== Warzone Game ==================\n" << std::endl;
+    std::cout << "------------------ Start State Test ------------------\n\n" << std::endl;
     return true;
 }
 
@@ -516,7 +516,7 @@ std::ostream& operator<<(std::ostream& os, const WinState& state) {
 }
 
 bool WinState::runState() {
-    std::cout << "------------------ Warzone Game ------------------\n\n" << std::endl;
+    std::cout << "------------------ Win State Test ------------------\n\n" << std::endl;
     std::cout << " ** Congratulations, you win! \n\n" << std::endl;
     std::cout << "----------------------------------------------------------\n" << std::endl;
     return true;
