@@ -4,11 +4,7 @@
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 CXX_DEFINES = 
 
-<<<<<<< HEAD
-CXX_INCLUDES = -I/Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine
-=======
 CXX_INCLUDES = -I/Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine -I/Users/carlosgonzalez/Developer/GitHub/comp345/Cards -I/Users/carlosgonzalez/Developer/GitHub/comp345/OrderList -I/Users/carlosgonzalez/Developer/GitHub/comp345/Player -I/Users/carlosgonzalez/Developer/GitHub/comp345/Map
->>>>>>> temp/main_gameEngine
 
 CXX_FLAGSarm64 = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
 

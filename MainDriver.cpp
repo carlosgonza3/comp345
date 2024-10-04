@@ -15,14 +15,8 @@
 
 
 int main() {
-<<<<<<< HEAD
 
     std::cout << "\nWarzone Game Testing!" << std::endl;
-    // testGameStates();
-    //testCards();
-    //testOrdersLists();
-=======
->>>>>>> temp/main_gameEngine
 
     std::vector<std::string> mapFiles;
 
@@ -76,12 +70,6 @@ int main() {
 
 
     }
-<<<<<<< HEAD
-    */
-
-    // testPlayers();
-=======
->>>>>>> temp/main_gameEngine
 
     return 0;
 }
