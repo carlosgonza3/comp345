@@ -13,9 +13,11 @@
 
 
 int main() {
-    //testGameStates();
+
+    std::cout << "\nWarzone Game Testing!" << std::endl;
+    // testGameStates();
     //testCards();
-    // testOrdersLists();
+    //testOrdersLists();
 
     /*
     std::vector<std::string> mapFiles;
@@ -32,9 +34,7 @@ int main() {
     }
     */
 
-     testPlayers();
-
-
+    // testPlayers();
 
     return 0;
 }
