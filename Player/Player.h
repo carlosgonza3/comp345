@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Cards.h"
 #include "OrdersList.h"
-#include "MapStuff/Map.h"
+#include "Map.h"
 
 class Player {
 public:

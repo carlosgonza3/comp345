@@ -2,6 +2,7 @@
 #include "OrdersList.h"
 #include <iostream>
 #include <string>
+class OrdersList;
 using namespace std;
 
 //Card class

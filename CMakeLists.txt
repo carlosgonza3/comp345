@@ -3,29 +3,33 @@ project(comp345)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(GameEngine)
+include_directories(GameEngine
+                    Cards
+                    OrderList
+                    Player
+                    Map)
 
 add_executable(comp345
-        MainDriver.cpp
-        GameEngine/GameEngine.cpp
-        GameEngine/GameEngine.h
-        GameEngine/GameEngineDriver.cpp
-        GameEngine/GameEngineDriver.h
-        CardsDriver.cpp
-        OrdersDriver.cpp
-        OrdersList.cpp
-        OrdersList.h
-        Cards.h
-        Cards.cpp
-        OrdersDriver.h
-        CardsDriver.h
-        MapDriver.h
-        MapStuff/Map.cpp
-        MapStuff/MapLoader.cpp
-        MapStuff/Map.h
-        MapStuff/MapLoader.h
-        MapDriver.cpp
-        PlayerDriver.h
-        PlayerDriver.cpp
-        Player.cpp
-        Player.h)
+            MainDriver.cpp
+            GameEngine/GameEngine.cpp
+            GameEngine/GameEngine.h
+            GameEngine/GameEngineDriver.cpp
+            GameEngine/GameEngineDriver.h
+            Map/Map.h
+            Map/Map.cpp
+            Map/MapDriver.h
+            Map/MapDriver.cpp
+            Map/MapLoader.h
+            Map/MapLoader.cpp
+            Player/Player.h
+            Player/Player.cpp
+            Player/PlayerDriver.h
+            Player/PlayerDriver.cpp
+            OrderList/OrdersList.h
+            OrderList/OrdersList.cpp
+            OrderList/OrdersDriver.h
+            OrderList/OrdersDriver.cpp
+            Cards/CardsDriver.cpp
+            Cards/Cards.h
+            Cards/Cards.cpp
+            Cards/CardsDriver.h)

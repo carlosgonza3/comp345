@@ -1,6 +1,11 @@
 #include "MapDriver.h"
 #include <iostream>
 
+
+#include "MapLoader.h"
+#include "Map.h"
+
+
 std::vector<Map*> testLoadMaps(std::vector<std::string> mapFiles) {
     std::cout << "[testLoadMaps starting]" << std::endl;
     std::cout << "Will attempt to create maps for:" << std::endl;

@@ -1,17 +1,7 @@
-CMakeFiles/comp345.dir/MainDriver.cpp.o: \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/MainDriver.cpp \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.h \
-<<<<<<< HEAD
-  /Users/carlosgonzalez/Developer/GitHub/comp345/CardsDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrdersDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/MapDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/Map.h \
-=======
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/CardsDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersDriver.h \
+CMakeFiles/comp345.dir/Map/MapDriver.cpp.o: \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.cpp \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
->>>>>>> temp/main_gameEngine
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/string \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -914,11 +904,7 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/cstdarg \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__split_buffer \
-<<<<<<< HEAD
-  /Users/carlosgonzalez/Developer/GitHub/comp345/MapStuff/MapLoader.h \
-=======
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h \
->>>>>>> temp/main_gameEngine
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -992,11 +978,4 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-<<<<<<< HEAD
-  /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerDriver.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream
-=======
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/PlayerDriver.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.h
->>>>>>> temp/main_gameEngine
