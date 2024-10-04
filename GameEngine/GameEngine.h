@@ -7,70 +7,88 @@
 #include <string>
 #include <iostream>
 
-class State;
-class IssueOrdersState;
-class AssignReinforcementState;
-class ExecuteOrdersState;
-class PlayersAddedState;
-class MapValidatedState;
-class MapLoadedState;
-class StartState;
-class WinState;
-
+// Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
 
-// base class State, which works as a blueprint for [8] different States along the program...
+// Base class State, which works as a blueprint for the 8 different States along the program...
 class State {
-
     public:
-    virtual ~State() = default;
-    virtual bool runState() = 0;
-    virtual std::string getState() = 0;
-    virtual State* requestTransition(std::string& command) = 0;
-    virtual bool isFinished() = 0;
+
+        // Deconstructor
+        virtual ~State() = default;
+
+        // Copy Constructor
+        virtual State* clone() = 0;
+
+        // Assignment constructor is implemented in child classes, since this is a virtual class
+
+        // Stream insertion operator is implemented in child classes, since this is a virtual class
+
+        // Ensures a state has a run state
+        virtual bool runState() = 0;
+
+        // Ensures a state returns a string of current state
+        virtual std::string getState() const = 0;
+
+        // Ensures a state can request transition to next state(s)
+        virtual State* requestTransition(std::string& command) = 0;
+
+        // Ensures checking if the game is finished is implemented by all states
+        virtual bool isFinished() = 0;
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Game Engine class
 class GameEngine {
 
     public:
+
+        // Holds pointer of current state in Game Engine
         State *currentState;
 
+        // Game Engine Constructor
         GameEngine();
 
-        void setCurrentState(State *state) {
-            currentState = state;
-        }
+        // Copy Constructor
+        GameEngine(const GameEngine &other);
 
-        State* getCurrentState() const {
-            return currentState;
-        }
+        // Assignment Operator
+        GameEngine& operator=(const GameEngine& other);
 
-        void printCurrentState() const {
-            if (currentState != nullptr) {
-                std::cout <<"\n\t** Current Game State: "<<currentState->getState() <<"\n"<<std::endl;
-            }
-        }
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, GameEngine& gameEngine);
 
-        bool runCurrentState() const {
-            if (currentState != nullptr) {
-                bool runState = currentState->runState();
-                return runState;
-            }
-            return false;
-        }
+        // Sets current state in Game Engine
+        void setCurrentState(State *state);
 
-        void deleteCurrentState() {
-            if (currentState != nullptr) {
-                delete currentState;  // Delete the current state safely
-                currentState = nullptr;  // Set it to nullptr to avoid dangling pointer
-            }
-        }
+        // Returns the pointer of the current state in Game Engine
+        State* getCurrentState() const;
+
+        // Access the current state in Game Engine and prints to console
+        void printCurrentState() const;
+
+        // Access and runs current state in Game Engine
+        bool runCurrentState() const;
+
+        // Deletes current state in Game Engine
+        void deleteCurrentState();
 
 };
 
-// Map Validated State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Map Validated State class
 class AssignReinforcementState  : public State {
     public:
+
+        // Copy Constructor
+        AssignReinforcementState* clone() override;
+
+        // Assignment Operator
+        AssignReinforcementState& operator=(const AssignReinforcementState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, AssignReinforcementState& state);
+
         // Main Function for State "Assign Reinforcement" -> Returns true if no errors occurred
         bool runState() override;
 
@@ -79,14 +97,26 @@ class AssignReinforcementState  : public State {
         State* requestTransition(std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 };
 
-// Execute Orders State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Execute Orders State class
 class ExecuteOrdersState : public State {
 public:
+
+    // Copy Constructor
+    ExecuteOrdersState* clone() override;
+
+    // Assignment Operator
+    ExecuteOrdersState& operator=(const ExecuteOrdersState& other);
+
+    // Stream insertion operator which overloads the << operator for easy printing
+    friend std::ostream& operator<<(std::ostream& os, const ExecuteOrdersState& state);
+
     // Main Function for State "Execute Orders" -> Returns true if no errors occurred
     bool runState() override;
 
@@ -95,14 +125,26 @@ public:
     State* requestTransition(std::string& command) override;
 
     // Returns a string, that contains current state
-    std::string getState() override;
+    std::string getState() const override;
 
+    // Checks if Game is finished
     bool isFinished() override;
 };
 
-// Issue Order State
-class IssueOrdersState  : public State {
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Issue Order State class
+class IssueOrdersState : public State {
     public:
+
+        // Copy Constructor
+        IssueOrdersState* clone() override;
+
+        // Assignment Operator
+        IssueOrdersState& operator=(const IssueOrdersState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, const IssueOrdersState& state);
+
         // Main Function for State "Issue Orders" -> Returns true if no errors occurred
         bool runState() override;
 
@@ -111,15 +153,27 @@ class IssueOrdersState  : public State {
         State* requestTransition (std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 
 };
 
-// Players Added State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Players Added State class
 class PlayersAddedState  : public State {
+
     public:
+        // Copy Constructor
+        PlayersAddedState* clone() override;
+
+        // Assignment Operator
+        PlayersAddedState& operator=(const PlayersAddedState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, const PlayersAddedState& state);
+
         // Main Function for State "Players Added" -> Returns true if no errors occurred
         bool runState() override;
 
@@ -128,15 +182,27 @@ class PlayersAddedState  : public State {
         State* requestTransition (std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 
 };
 
-// Map Validated State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Map Validated State class
 class MapValidatedState  : public State {
     public:
+
+        // Copy Constructor
+        MapValidatedState* clone() override;
+
+        // Assignment Operator
+        MapValidatedState& operator=(const MapValidatedState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, const MapValidatedState& state);
+
         // Main Function for State "Map Validated" -> Returns true if no errors occurred
         bool runState() override;
 
@@ -145,14 +211,26 @@ class MapValidatedState  : public State {
         State* requestTransition(std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 };
 
-// MapLoaded State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MapLoaded State class
 class MapLoadedState  : public State {
     public:
+
+        // Copy Constructor
+        MapLoadedState* clone() override;
+
+        // Assignment Operator
+        MapLoadedState& operator=(const MapLoadedState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, const MapLoadedState& state);
+
         // Main Function for State "Map Loaded" -> Returns true if no errors occurred
         bool runState() override;
 
@@ -161,14 +239,25 @@ class MapLoadedState  : public State {
         State* requestTransition(std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 };
 
-// Start State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start State class
 class StartState : public State {
     public:
+
+        // Copy Constructor
+        StartState* clone() override;
+
+        // Assignment Operator
+        StartState& operator=(const StartState& other);
+
+        // Stream insertion operator which overloads the << operator for easy printing
+        friend std::ostream& operator<<(std::ostream& os, const StartState& state);
 
         // Main Function for State "Start" -> Returns true if no errors occurred
         bool runState() override;
@@ -178,48 +267,46 @@ class StartState : public State {
         State* requestTransition(std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override;
+        std::string getState() const override;
 
+        // Checks if Game is finished
         bool isFinished() override;
 };
 
-// Win State
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Win State class
 class WinState  : public State {
 
-    protected:
-        bool gameFinished = false;
-
     public:
-        // Main Function for State "Win" -> Returns true if no errors occurred
-        bool runState() override {
-            std::cout << "------------------ Warzone Game ------------------\n\n" << std::endl;
-            std::cout << " ** Congratulations, you win! \n\n" << std::endl;
-            std::cout << "----------------------------------------------------------\n" << std::endl;
 
-            return true;
+        bool *gameFinished;
+
+        WinState() {
+            gameFinished = new bool(false);
         }
+
+        ~WinState() override;
+
+        // Copy Constructor
+        WinState* clone() override;
+
+        // Assignment Operator
+        WinState& operator=(const WinState& other);
+
+        friend std::ostream& operator<<(std::ostream& os, const WinState& state);
+
+         // Main Function for State "Win" -> Returns true if no errors occurred
+        bool runState() override;
 
         // Function that takes a given command, and returns a new State pointer, according to command given,
         // if command not valid, returns nullptr
-        State* requestTransition(std::string& command) override {
-            if (command == "play") {
-                return new StartState();
-            } else if (command == "end") {
-                gameFinished = true;
-                return nullptr;
-            } else {
-                return nullptr;
-            }
-        }
+        State* requestTransition(std::string& command) override;
 
         // Returns a string, that contains current state
-        std::string getState() override {
-            return "Win State";
-        }
+        std::string getState() const override;
 
-        bool isFinished() override {
-            return gameFinished;
-        }
+        // Checks if Game is finished
+        bool isFinished() override;
 };
 
 

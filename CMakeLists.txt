@@ -10,4 +10,5 @@ add_executable(comp345
         GameEngine/GameEngine.cpp
         GameEngine/GameEngine.h
         GameEngine/GameEngineDriver.cpp
-        GameEngine/GameEngineDriver.h)
+        GameEngine/GameEngineDriver.h
+        GameEngine/GameEngine.h)

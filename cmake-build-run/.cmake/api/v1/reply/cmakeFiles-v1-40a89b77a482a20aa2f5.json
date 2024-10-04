@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake"
+			"path" : "cmake-build-run/CMakeFiles/3.29.6/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -20,11 +20,11 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake"
+			"path" : "cmake-build-run/CMakeFiles/3.29.6/CMakeCCompiler.cmake"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-run/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -150,7 +150,7 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug",
+		"build" : "/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-run",
 		"source" : "/Users/carlosgonzalez/Developer/GitHub/comp345"
 	},
 	"version" : 

@@ -11,18 +11,86 @@ std::string getUserInput(std::string& output) {
     std::cout << "\t-> "<< output << ": ";
     std::getline(std::cin, input);
     std::cout << "\n";
-
     return input;
 }
 
-// Game Engine constructor
-GameEngine::GameEngine() : currentState(nullptr) {
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Game Engine Class Methods
+GameEngine::GameEngine() {
+    currentState = nullptr;
 }
 
-// Following implementations, have been fully documented in the header file GameEngine.h
+GameEngine::GameEngine(const GameEngine &other) {
+    if (other.currentState) {
+        this->currentState = other.currentState->clone();
+    } else {
+        this->currentState = nullptr;
+    }
+}
 
-// Assign ReinforcementState State ------------------------------------------------------------------------------
+GameEngine& GameEngine::operator=(const GameEngine& other) {
+    if (this != &other) {
+        delete this->currentState;
+        this->currentState = other.currentState ? other.currentState->clone() : nullptr;
+    }
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, GameEngine& gameEngine) {
+    os << "CurrentState: " << gameEngine.getCurrentState();
+    return os;
+}
+
+void GameEngine::setCurrentState(State* state) {
+    currentState = state;
+}
+
+State* GameEngine::getCurrentState() const {
+    return currentState;
+}
+
+void GameEngine::printCurrentState() const {
+    if (currentState != nullptr) {
+        std::cout <<"\n\t** Current Game State: "<<currentState->getState() <<"\n"<<std::endl;
+    } else {
+        std::cout << "\n\t[!] Current Game State: Not Found...\n";
+    }
+}
+
+bool GameEngine::runCurrentState() const {
+    if (currentState != nullptr) {
+        bool status = currentState->runState();
+        return status;
+    }
+    return false;
+}
+
+void GameEngine::deleteCurrentState() {
+    if (currentState != nullptr) {
+        delete currentState;  // Delete the current state safely
+        currentState = nullptr;  // Set it to nullptr to avoid dangling pointer
+    }
+}
+
+
+// Following implementations, have been fully documented in the header file GameEngine.h ...
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Assign ReinforcementState State Class Methods
+
+AssignReinforcementState* AssignReinforcementState::clone() {
+    return new AssignReinforcementState(*this);
+}
+
+AssignReinforcementState& AssignReinforcementState::operator=(const AssignReinforcementState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, AssignReinforcementState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
+
 bool AssignReinforcementState::runState() {
     std::cout << "------------------ Assign Reinforcement ------------------\n\n" << std::endl;
     std::cout << " ** Assigning Reinforcement implementation...\n\n" << std::endl;
@@ -39,7 +107,7 @@ State* AssignReinforcementState::requestTransition(std::string& command) {
     }
 }
 
-std::string AssignReinforcementState::getState() {
+std::string AssignReinforcementState::getState() const {
     return "Assign Reinforcement State";
 }
 
@@ -47,7 +115,22 @@ bool AssignReinforcementState::isFinished() {
     return false;
 }
 
-// Execute Order State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Execute Order State Class Methods
+
+ExecuteOrdersState* ExecuteOrdersState::clone()  {
+    return new ExecuteOrdersState(*this);
+}
+
+ExecuteOrdersState& ExecuteOrdersState::operator=(const ExecuteOrdersState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const ExecuteOrdersState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
+
 bool ExecuteOrdersState::runState() {
     std::cout << "------------------ Execute Orders ------------------\n\n" << std::endl;
     std::cout << " ** Executing Orders implementation...\n\n" << std::endl;
@@ -67,7 +150,7 @@ State* ExecuteOrdersState::requestTransition(std::string& command) {
     }
 }
 
-std::string ExecuteOrdersState::getState() {
+std::string ExecuteOrdersState::getState() const {
     return "Execute Order State";
 }
 
@@ -75,7 +158,22 @@ bool ExecuteOrdersState::isFinished() {
     return false;
 }
 
-// Issue Order State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Issue Order State Class Methods
+
+IssueOrdersState* IssueOrdersState::clone() {
+    return new IssueOrdersState(*this);
+}
+
+IssueOrdersState& IssueOrdersState::operator=(const IssueOrdersState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const IssueOrdersState& state)  {
+    os << "State: " << state.getState();
+    return os;
+}
+
 bool IssueOrdersState::runState() {
     // Holds *tempData, for -> testing purposes
     std::vector<std::string> ordersIssued;
@@ -137,7 +235,7 @@ State* IssueOrdersState::requestTransition(std::string& command) {
     }
 }
 
-std::string IssueOrdersState::getState() {
+std::string IssueOrdersState::getState() const {
     return "Issue Orders State";
 }
 
@@ -145,7 +243,21 @@ bool IssueOrdersState::isFinished() {
     return false;
 }
 
-// Players Added State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Players Added State Class Methods
+PlayersAddedState* PlayersAddedState::clone() {
+    return new PlayersAddedState(*this);
+}
+
+PlayersAddedState& PlayersAddedState::operator=(const PlayersAddedState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const PlayersAddedState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
+
 bool PlayersAddedState::runState() {
 
             // Holds *tempData, for -> testing purposes
@@ -209,7 +321,7 @@ State* PlayersAddedState::requestTransition(std::string& command) {
     }
 }
 
-std::string PlayersAddedState::getState() {
+std::string PlayersAddedState::getState() const {
     return "Players Added State";
 }
 
@@ -217,7 +329,21 @@ bool PlayersAddedState::isFinished() {
     return false;
 }
 
-// Map Validated State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Map Validated State Class Methods
+MapValidatedState* MapValidatedState::clone() {
+    return new MapValidatedState(*this);
+}
+
+MapValidatedState& MapValidatedState::operator=(const MapValidatedState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const MapValidatedState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
+
 bool MapValidatedState::runState() {
     std::cout << "------------------ Validate Maps ------------------\n" << std::endl;
     std::cout << " Validation of maps implementation..\n" << std::endl;
@@ -233,7 +359,7 @@ State* MapValidatedState::requestTransition(std::string& command) {
     }
 }
 
-std::string MapValidatedState::getState() {
+std::string MapValidatedState::getState() const {
     return "Map Validated State";
 }
 
@@ -241,9 +367,11 @@ bool MapValidatedState::isFinished() {
     return false;
 }
 
-
-
-// Map Loaded State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Map Loaded State Class Methods
+MapLoadedState* MapLoadedState::clone() {
+    return new MapLoadedState(*this);
+}
 
 bool MapLoadedState::runState() {
 
@@ -289,12 +417,20 @@ bool MapLoadedState::runState() {
             // Missing save to engine function
             std::cout << "-----------------------------------------------\n" <<std::endl;
             return true;
-            break;
         default:
             std::cout << "Invalid Input: "<< userInput << ", try again..." <<std::endl;
             break;
         }
     }
+}
+
+MapLoadedState& MapLoadedState::operator=(const MapLoadedState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const MapLoadedState& state) {
+    os << "State: " << state.getState();
+    return os;
 }
 
 State* MapLoadedState::requestTransition(std::string& command) {
@@ -307,7 +443,7 @@ State* MapLoadedState::requestTransition(std::string& command) {
     }
 }
 
-std::string MapLoadedState::getState() {
+std::string MapLoadedState::getState() const {
     return "Map Loaded State";
 }
 
@@ -315,7 +451,20 @@ bool MapLoadedState::isFinished() {
     return false;
 }
 
-// Start State ------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start State Class Methods
+StartState* StartState::clone() {
+    return new StartState(*this);
+}
+
+StartState& StartState::operator=(const StartState& other) {
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const StartState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
 
 bool StartState::runState()  {
     std::cout << "\n================== Warzone Game ==================\n" << std::endl;
@@ -330,7 +479,7 @@ State* StartState::requestTransition(std::string& command) {
         }
 }
 
-std::string StartState::getState() {
+std::string StartState::getState() const  {
     return "Start State";
 
 }
@@ -338,3 +487,60 @@ std::string StartState::getState() {
 bool StartState::isFinished() {
     return false;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Win State Class Methods
+
+
+WinState::~WinState() {
+    delete gameFinished;
+    gameFinished = nullptr;
+}
+
+WinState* WinState::clone() {
+    return new WinState(*this);
+}
+
+WinState& WinState::operator=(const WinState& other) {
+    if (this != &other) {
+        delete gameFinished;
+        gameFinished = new bool(*other.gameFinished);
+    }
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const WinState& state) {
+    os << "State: " << state.getState();
+    return os;
+}
+
+bool WinState::runState() {
+    std::cout << "------------------ Warzone Game ------------------\n\n" << std::endl;
+    std::cout << " ** Congratulations, you win! \n\n" << std::endl;
+    std::cout << "----------------------------------------------------------\n" << std::endl;
+    return true;
+}
+
+State* WinState::requestTransition(std::string& command) {
+    if (command == "play") {
+        return new StartState();
+    }
+    if (command == "end") {
+        if (gameFinished != nullptr) {
+            *gameFinished = true;
+        }
+        return nullptr;
+    }
+    return nullptr;
+
+}
+
+std::string WinState::getState() const {
+        return "Win State";
+}
+
+bool WinState::isFinished() {
+    return (gameFinished && *gameFinished);
+}
+
+

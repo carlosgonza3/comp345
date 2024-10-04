@@ -26,14 +26,13 @@ void testGameStates() {
 
         // Step 2 -> Run Current State
         bool runStateStatus = gameEngine->runCurrentState();
-
         if (!runStateStatus) {
             running = false;
             break;
         }
 
         // Show valid transition commands?
-            // -> Each State can have a list with their accepted commands
+            // -> Each State can have a list with their accepted commands?
 
         // State 3 -> Get user command and validate State transition
         while (true) {
@@ -66,7 +65,6 @@ void testGameStates() {
             // Else case which displays that an invalid command was entered, which we know it was invalid, since the
             // requestTransition returned a null pointer.
             } else {
-                std::cout << gameEngine->currentState->isFinished() << std::endl;
                 if (gameEngine->currentState->isFinished()) {
                     running = false;
                     break;
@@ -76,6 +74,7 @@ void testGameStates() {
         }
     }
 
+    // Terminating process which deletes the used pointers to prevent data leaks
     std::cout << "\n\t** Game Engine terminating..." << std::endl;
     gameEngine->deleteCurrentState();
     std::cout << "\n\t** Current State has been deleted successfully..." << std::endl;
