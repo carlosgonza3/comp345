@@ -42,33 +42,30 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine"
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-43d4a533cc3fe601725f.json
-========
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/GameEngine"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Cards"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Cards"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/OrderList"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/OrderList"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Player"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Player"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Map"
->>>>>>>> temp/main_gameEngine:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-1769ed4e1e7594cf0123.json
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Map"
 				}
 			],
 			"language" : "CXX",

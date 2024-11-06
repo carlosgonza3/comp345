@@ -39,11 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "comp345::@6890427a1f51a3e7e1df",
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7f219a02ce7ec5f4298d.json
-					"jsonFile" : "target-comp345-Debug-43d4a533cc3fe601725f.json",
-========
-					"jsonFile" : "target-comp345-Debug-1769ed4e1e7594cf0123.json",
->>>>>>>> temp/main_gameEngine:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6ca812980cea7f887f61.json
+					"jsonFile" : "target-comp345-Debug-cc5f7d5c719ab8ef1a30.json",
 					"name" : "comp345",
 					"projectIndex" : 0
 				}
@@ -53,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug",
-		"source" : "/Users/carlosgonzalez/Developer/GitHub/comp345"
+		"build" : "/Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug",
+		"source" : "/Users/dannykhunn/Documents/GitHub/Comp345"
 	},
 	"version" : 
 	{
