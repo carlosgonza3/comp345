@@ -957,7 +957,6 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/unistd.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/Vector \
   /Users/dannykhunn/Documents/GitHub/Comp345/Map/Map.h \
   /Users/dannykhunn/Documents/GitHub/Comp345/Map/MapDriver.h \
   /Users/dannykhunn/Documents/GitHub/Comp345/Map/MapLoader.h \
@@ -980,4 +979,9 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/Player/Player.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/Cards/Cards.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/OrderList/OrdersList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/Vector \
+  /Users/dannykhunn/Documents/GitHub/Comp345/Player/PlayerDriver.h

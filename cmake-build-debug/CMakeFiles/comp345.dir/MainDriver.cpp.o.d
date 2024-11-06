@@ -983,4 +983,7 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Users/dannykhunn/Documents/GitHub/Comp345/Player/PlayerDriver.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/iostream \
-  /Users/dannykhunn/Documents/GitHub/Comp345/GameEngine/GameEngine.h
+  /Users/dannykhunn/Documents/GitHub/Comp345/GameEngine/GameEngine.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/Player/Player.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/Cards/Cards.h \
+  /Users/dannykhunn/Documents/GitHub/Comp345/OrderList/OrdersList.h

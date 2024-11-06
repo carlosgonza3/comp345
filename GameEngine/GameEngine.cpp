@@ -6,9 +6,7 @@
 #include "string"
 #include <Vector>
 
-#include "Map.h"
-#include "MapDriver.h"
-
+#include "PlayerDriver.h"
 
 // displays output given and prompts the user for a string, then it returns the user's input
 std::string getUserInput(std::string& output) {
@@ -553,7 +551,6 @@ bool WinState::isFinished() {
 void GameEngine::startupPhase() {
     //Section to be deleted? I.E, we put it in a Driver            PLEASE CONFIRM
 
-    //1)Load maps from directory? I assume from a txt
     std::vector<std::string> mapFileNames;
     std::ifstream file("MapFileNames.txt");
     std::string line;
@@ -562,23 +559,61 @@ void GameEngine::startupPhase() {
     }
     file.close();
 
-    for (int i = 0; i < mapFileNames.size(); i++) {
-        std::cout << "[" << i+1 << "]" << mapFileNames[i] << std::endl;
-    }
-
-    //1.5)Select map from list
-    std::cout << "Select which map to load: ";
-    int input;
-    std::cin >> input;
-    while (input < 1 || input > mapFileNames.size()) {
-        std::cout << "Invalid Input: "<< input << std::endl;
-        std::cout << "Select which map to load: ";
-        std::cin >> input;
-    }
-
-    //2)Validate map
     std::vector<std::string> mapFiles;
-    std::cout << "\n\n\tTesting Map...\n"<< std::endl;
-    mapFiles.push_back(mapFileNames[input-1]);
-    std::vector<Map*> maps = testLoadMaps(mapFiles);
+
+    std::vector<Player*> playerList;
+
+    while (true) {
+
+        std::cout << "\n\n\t======================= startupPhase() ======================= "<< std::endl;
+        std::cout << "\t\t [1] loadmap <filename> \n"<< std::endl;
+        std::cout << "\t\t [2] validatemap \n"<< std::endl;
+        std::cout << "\t\t [3] addplayer <playername> \n"<< std::endl;
+        std::cout << "\t\t [4] gamestart \n"<< std::endl;
+        std::cout << "\t\t [0] Exit \n"<< std::endl;
+        std::cout << "\t _____________________________________________________________ \n"<< std::endl;
+        std::cout << "\t\t Enter Option: ";
+        std::string menuInput;
+        std::cin >> menuInput;
+        if (menuInput == "1") {
+            for (int i = 0; i < mapFileNames.size(); i++) {
+                std::cout << "[" << i+1 << "]" << mapFileNames[i] << std::endl;
+            }
+            std::cout << mapFileNames[1] << std::endl;
+            std::cout << "Select which map to load: ";
+            int input;
+            std::cin >> input;
+            while (input < 1 || input > mapFileNames.size()) {
+                std::cout << "Invalid Input: "<< input << std::endl;
+                std::cout << "Select which map to load: ";
+                std::cin >> input;
+            }
+            mapFiles.push_back(mapFileNames[input-1]);
+        } else if (menuInput == "2") {
+            std::cout << "\n\n\tValidating Maps...\n"<< std::endl;
+            std::vector<Map*> maps = testLoadMaps(mapFiles);
+        } else if (menuInput == "3") {
+            std::string flag;
+            while (flag != "exit" || playerList.size() < 2) {
+                std::cout << "Please enter a player name or \"exit\" (Game needs 2-6 players): ";
+                std::cin >> flag;
+                if (flag != "exit") {
+                    Player* player = new Player();
+                    player->name = flag;
+                    playerList.push_back(player);
+                }
+                if (playerList.size() >= 6) {
+                    flag = "exit";
+                }
+            }
+            for (int i = 0; i < playerList.size(); i++) {
+                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
+            }
+        } else if (menuInput == "4") {
+
+        } else if (menuInput == "0") {
+            std::cout << "Closing \"startupPhase\"" << std::endl;
+            exit(0);
+        }
+    }
 }

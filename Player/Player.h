@@ -9,6 +9,11 @@
 
 class Player {
 public:
+
+	//Adding a name temporarily
+	std::string name;
+	Player();
+
 	Player(Hand* Hand); // Constructor
 	Player(const Player& other); // Copy constructor
 	Player& operator=(const Player& other); // Assignment operator

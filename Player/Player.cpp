@@ -2,6 +2,11 @@
 #include "Map.h"
 #include <iostream>
 
+Player::Player() {
+
+}
+
+
 // Constructor
 Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {
 }
