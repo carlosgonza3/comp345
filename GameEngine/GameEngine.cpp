@@ -6,6 +6,10 @@
 #include "string"
 #include <Vector>
 
+#include "Map.h"
+#include "MapDriver.h"
+
+
 // displays output given and prompts the user for a string, then it returns the user's input
 std::string getUserInput(std::string& output) {
     std::string input;
@@ -544,4 +548,37 @@ bool WinState::isFinished() {
     return (gameFinished && *gameFinished);
 }
 
+//A2 Section
 
+void GameEngine::startupPhase() {
+    //Section to be deleted? I.E, we put it in a Driver            PLEASE CONFIRM
+
+    //1)Load maps from directory? I assume from a txt
+    std::vector<std::string> mapFileNames;
+    std::ifstream file("MapFileNames.txt");
+    std::string line;
+    while (std::getline(file, line)) {
+        mapFileNames.push_back(line);
+    }
+    file.close();
+
+    for (int i = 0; i < mapFileNames.size(); i++) {
+        std::cout << "[" << i+1 << "]" << mapFileNames[i] << std::endl;
+    }
+
+    //1.5)Select map from list
+    std::cout << "Select which map to load: ";
+    int input;
+    std::cin >> input;
+    while (input < 1 || input > mapFileNames.size()) {
+        std::cout << "Invalid Input: "<< input << std::endl;
+        std::cout << "Select which map to load: ";
+        std::cin >> input;
+    }
+
+    //2)Validate map
+    std::vector<std::string> mapFiles;
+    std::cout << "\n\n\tTesting Map...\n"<< std::endl;
+    mapFiles.push_back(mapFileNames[input-1]);
+    std::vector<Map*> maps = testLoadMaps(mapFiles);
+}

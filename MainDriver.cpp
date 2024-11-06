@@ -16,6 +16,7 @@
 
 int main() {
 
+    /*
     std::cout << "\nWarzone Game Testing!" << std::endl;
 
     std::vector<std::string> mapFiles;
@@ -70,6 +71,10 @@ int main() {
 
 
     }
+    */
+
+    GameEngine gameEngine;
+    gameEngine.startupPhase();
 
     return 0;
 }
