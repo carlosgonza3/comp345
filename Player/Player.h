@@ -12,6 +12,7 @@ public:
 
 	//Adding a name temporarily
 	std::string name;
+	std::vector<Territory*> ownedTerritories;
 	Player();
 
 	Player(Hand* Hand); // Constructor

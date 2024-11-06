@@ -561,6 +561,8 @@ void GameEngine::startupPhase() {
 
     std::vector<std::string> mapFiles;
 
+    Map* map = new Map();
+
     std::vector<Player*> playerList;
 
     while (true) {
@@ -588,10 +590,14 @@ void GameEngine::startupPhase() {
                 std::cout << "Select which map to load: ";
                 std::cin >> input;
             }
+            if (mapFiles.size() > 0) {
+                mapFiles.pop_back();
+            }
             mapFiles.push_back(mapFileNames[input-1]);
         } else if (menuInput == "2") {
             std::cout << "\n\n\tValidating Maps...\n"<< std::endl;
             std::vector<Map*> maps = testLoadMaps(mapFiles);
+            map = maps[0];
         } else if (menuInput == "3") {
             std::string flag;
             while (flag != "exit" || playerList.size() < 2) {
@@ -610,7 +616,21 @@ void GameEngine::startupPhase() {
                 std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
             }
         } else if (menuInput == "4") {
+            std::cout << map->name << std::endl;
+            for (int i = 0; i < map->territories.size(); i++) {
+                std::cout << "[" << i+1 << "]" << map->territories[i]->name << std::endl;
+            }
+            for (int i = 0; i < map->territories.size(); i++) {
+                playerList[i % playerList.size()]->ownedTerritories.push_back(map->territories[i]);
+            }
 
+            for (int i = 0; i < playerList.size(); i++) {
+                std::cout << "\t _____________________________________________________________ \n"<< std::endl;
+                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
+                for (int j = 0; j < playerList[i]->ownedTerritories.size(); j++) {
+                    std::cout << playerList[i]->ownedTerritories[j]->name << std::endl;
+                }
+            }
         } else if (menuInput == "0") {
             std::cout << "Closing \"startupPhase\"" << std::endl;
             exit(0);

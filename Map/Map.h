@@ -12,9 +12,6 @@ class Territory {
     int x;
     int y;
     std::vector<Territory*> adjTerritories;
-    /*
-    Player owner;
-     */
 
     Territory(); //Default constructor
     Territory(std::string name, int army, int x, int y); //Parameterized constructor
