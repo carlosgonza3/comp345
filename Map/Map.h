@@ -41,7 +41,7 @@ class Continent {
     Continent &operator=(const Continent *continent); //Assignment operator
     friend std::ostream &operator<<(std::ostream &os, const Continent &continent); //Stream insertion operator
 
-    //Implemented functions
+    //Implemented functionsz
     void addTerritory(Territory *territory);
 };
 

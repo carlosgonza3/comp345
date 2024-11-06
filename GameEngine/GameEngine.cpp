@@ -4,7 +4,7 @@
 
 #include "GameEngine.h"
 #include "string"
-#include <Vector>
+#include <vector>
 
 // displays output given and prompts the user for a string, then it returns the user's input
 std::string getUserInput(std::string& output) {

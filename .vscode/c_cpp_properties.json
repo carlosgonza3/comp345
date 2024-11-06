@@ -1,3 +1,5 @@
+/*
+//FOR MAC!!!
 {
     "configurations": [
         {
@@ -17,3 +19,27 @@
     ],
     "version": 4
 }
+*/
+//For Ubuntu WSL
+
+{
+    "configurations": [
+        {
+            "name": "WSL",
+            "includePath": [
+                "${workspaceFolder}/**",                           // Your project’s headers
+                "/usr/lib/gcc/x86_64-linux-gnu/11/include",         // GCC 11 headers
+                "/usr/local/include",                               // Local headers (e.g., libraries installed via package manager)
+                "/usr/include/x86_64-linux-gnu",                    // Architecture-specific headers
+                "/usr/include"                                      // Standard system headers
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",                        // Path to g++ in WSL
+            "cStandard": "c11",
+            "cppStandard": "c++17",                                 // Update the C++ standard as needed
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
+
