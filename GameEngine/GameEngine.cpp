@@ -5,6 +5,7 @@
 #include "GameEngine.h"
 #include "string"
 #include <Vector>
+#include <random>
 
 #include "PlayerDriver.h"
 
@@ -612,9 +613,6 @@ void GameEngine::startupPhase() {
                     flag = "exit";
                 }
             }
-            for (int i = 0; i < playerList.size(); i++) {
-                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
-            }
         } else if (menuInput == "4") {
             std::cout << map->name << std::endl;
             for (int i = 0; i < map->territories.size(); i++) {
@@ -625,12 +623,18 @@ void GameEngine::startupPhase() {
             }
 
             for (int i = 0; i < playerList.size(); i++) {
-                std::cout << "\t _____________________________________________________________ \n"<< std::endl;
-                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
                 for (int j = 0; j < playerList[i]->ownedTerritories.size(); j++) {
                     std::cout << playerList[i]->ownedTerritories[j]->name << std::endl;
                 }
             }
+
+            auto rng = std::default_random_engine {};
+            std::shuffle(std::begin(playerList), std::end(playerList), rng);
+            for (int i = 0; i < playerList.size(); i++) {
+                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
+            }
+
+
         } else if (menuInput == "0") {
             std::cout << "Closing \"startupPhase\"" << std::endl;
             exit(0);
