@@ -89,6 +89,4 @@ void testGameStates() {
     delete gameEngine;
     std::cout << "\n\t** Game Engine has been deleted successfully..." << std::endl;
     std::cout << "\n\t** Game Engine test finished successfully!" << std::endl;
-
-
 }

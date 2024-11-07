@@ -566,6 +566,8 @@ void GameEngine::startupPhase() {
 
     std::vector<Player*> playerList;
 
+    Deck* deck = new Deck();
+
     while (true) {
 
         std::cout << "\n\n\t======================= startupPhase() ======================= "<< std::endl;
@@ -605,7 +607,8 @@ void GameEngine::startupPhase() {
                 std::cout << "Please enter a player name or \"exit\" (Game needs 2-6 players): ";
                 std::cin >> flag;
                 if (flag != "exit") {
-                    Player* player = new Player();
+                    Hand* hand = new Hand(deck);
+                    Player* player = new Player(hand);
                     player->name = flag;
                     playerList.push_back(player);
                 }
@@ -614,26 +617,28 @@ void GameEngine::startupPhase() {
                 }
             }
         } else if (menuInput == "4") {
-            std::cout << map->name << std::endl;
-            for (int i = 0; i < map->territories.size(); i++) {
-                std::cout << "[" << i+1 << "]" << map->territories[i]->name << std::endl;
-            }
             for (int i = 0; i < map->territories.size(); i++) {
                 playerList[i % playerList.size()]->ownedTerritories.push_back(map->territories[i]);
             }
 
-            for (int i = 0; i < playerList.size(); i++) {
-                for (int j = 0; j < playerList[i]->ownedTerritories.size(); j++) {
-                    std::cout << playerList[i]->ownedTerritories[j]->name << std::endl;
-                }
-            }
-
             auto rng = std::default_random_engine {};
             std::shuffle(std::begin(playerList), std::end(playerList), rng);
+
             for (int i = 0; i < playerList.size(); i++) {
-                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << std::endl;
+                playerList[i]->Hand1->addCardIntoHand();
+                playerList[i]->Hand1->addCardIntoHand();
             }
 
+            for (int i = 0; i < playerList.size(); i++) {
+                playerList[i]->setReinforcementPool(50);
+            }
+
+            for (int i = 0; i < playerList.size(); i++) {
+                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << " Reinforcement Pool: " << playerList[i]->reinforcementPool << std::endl;
+                std::cout << *playerList[i]->Hand1 << std::endl;
+            }
+
+            std::cout << "Switch the game to Play phase" << std::endl;
 
         } else if (menuInput == "0") {
             std::cout << "Closing \"startupPhase\"" << std::endl;

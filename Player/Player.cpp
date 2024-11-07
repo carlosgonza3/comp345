@@ -59,3 +59,7 @@ void Player::printTerritories() {
         std::cout << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
+
+void Player::setReinforcementPool(int numOfReinforcement) {
+    reinforcementPool = numOfReinforcement;
+}
