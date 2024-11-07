@@ -6,6 +6,10 @@
 #define GAMEENGINE_H
 #include <string>
 #include <iostream>
+#include <map>
+
+#include "CommandProcessing.h"
+
 
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
@@ -72,6 +76,10 @@ class GameEngine {
 
         // Deletes current state in Game Engine
         void deleteCurrentState();
+        bool checkCommandValid(const std::string& cmd);
+        void initializeStateTransitions();
+        std::map<std::string, std::vector<std::string>> stateTransitions;
+
 
 };
 

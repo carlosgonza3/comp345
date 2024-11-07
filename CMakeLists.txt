@@ -7,14 +7,11 @@ include_directories(GameEngine
                     Cards
                     OrderList
                     Player
-                    Map)
+                    Map
+                    CommandProcessing)
 
 add_executable(comp345
             MainDriver.cpp
-            GameEngine/GameEngine.cpp
-            GameEngine/GameEngine.h
-            GameEngine/GameEngineDriver.cpp
-            GameEngine/GameEngineDriver.h
             Map/Map.h
             Map/Map.cpp
             Map/MapDriver.h
@@ -33,6 +30,14 @@ add_executable(comp345
             Cards/Cards.h
             Cards/Cards.cpp
             Cards/CardsDriver.h
+<<<<<<< HEAD
         GameEngine/LoggingObserver.cpp
         GameEngine/LoggingObserver.h
         GameEngine/LoggingObserverDriver.cpp)
+=======
+            GameEngine/GameEngine.cpp
+            GameEngine/GameEngine.h
+            GameEngine/GameEngineDriver.cpp
+        CommandProcessing/CommandProcessing.cpp
+        CommandProcessing/CommandProcessingDriver.cpp)
+>>>>>>> Weilun-A2-part1
