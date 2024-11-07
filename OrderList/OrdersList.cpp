@@ -23,6 +23,7 @@ OrdersList::OrdersList(const OrdersList& other) {
     }
 }
 
+
 // Assignment operator for OrdersList
 OrdersList& OrdersList::operator=(const OrdersList& other) {
     if (this != &other) { // If it is self-assignment, then no change 
@@ -249,3 +250,25 @@ std::string NegotiateOrder::effect() const {
      // Add Something in A2 & A3
     return "Negotiations (Add more in Assignment2 & Assignment3)";
 }
+
+
+
+
+
+
+
+//ASSIGNMENT 2 parameterized CONSTRUCTORS NEEDED FOR PART 3
+
+
+DeployOrder::DeployOrder(int units, Territory* target, Player* player): units(units), targetTerritory(target), issuingPlayer(player) {
+}
+AdvanceOrder::AdvanceOrder(int units, Territory* source, Territory* target, Player* player): units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {
+}
+
+BombOrder::BombOrder(Territory* target, Player* player): targetTerritory(target), issuingPlayer(player) {}
+
+BlockadeOrder::BlockadeOrder(Territory* target, Player* player): targetTerritory(target), issuingPlayer(player) {}
+
+AirliftOrder::AirliftOrder(int units, Territory* source, Territory* target, Player* player): units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {}
+
+NegotiateOrder::NegotiateOrder(Player* target, Player* player): targetPlayer(target), issuingPlayer(player) {}

@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {  //Stream inserti
     return os; 
 }
 
-void Card::play(OrdersList * ptrToList){    //Creates an order depending on card type and adds to the list of order
+void Card::play(OrdersList * ptrToList, Player* issuingPlayer){    //Creates an order depending on card type and adds to the list of order
     cout << "Current card being played: " << *(this->cardType) << endl;
     if (*cardType == "Bomb"){
         (*ptrToList).addOrder(new BombOrder());
@@ -194,7 +194,7 @@ int Hand::getHandSize(){
     return cards_in_hand.size();
 }
 
-void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the card in hand at given index. Takes orderslist as argument.
+void Hand::playCard(int cardIndex, OrdersList* ptrToList, Player* issuingPlayer){  //Method plays the card in hand at given index. Takes orderslist as argument.
     if (cards_in_hand.size() == 0){
         cout << "Hand is empty, cannot play any card." << endl;
         return;
@@ -204,7 +204,7 @@ void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the c
         return;
     }
     Card * cardPtr = cards_in_hand[cardIndex]; //Retrieve card at index and stores into pointer.
-    cardPtr->play(ptrToList);                   
+    cardPtr->play(ptrToList, issuingPlayer);                   
     cards_in_hand.erase(cards_in_hand.begin() + cardIndex); //Deletes pointer in the hand.
     sharedDeck->returnToDeck(cardPtr);         //Return card to deck.
 }

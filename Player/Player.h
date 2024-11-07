@@ -6,6 +6,8 @@
 #include "../Cards/Cards.h"
 #include "../OrderList/OrdersList.h"
 #include "../Map/Map.h" 
+class OrdersList;
+class Hand;
 
 class Player {
 public:
@@ -19,6 +21,7 @@ public:
     // Get defend territories
 	std::vector<Territory*>& toDefend();
 	std::vector<Territory*>& toAttack();
+	std::vector<Territory*>& toAttack(Territory* fromWhatTerritory);
 	
 	friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
 

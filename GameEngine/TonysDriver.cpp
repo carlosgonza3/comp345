@@ -9,9 +9,9 @@ int main(){
     Deck* sharedDeck = new Deck();
     Hand* hand = new Hand(sharedDeck);
     Player* player = new Player(hand);
-    //player->drawCard();
-    //player->drawCard();
-    player->setReinforcementPool(10);
+    player->drawCard();
+    player->drawCard();
+    player->setReinforcementPool(0);
     
     Territory* territory1 = new Territory("USA", 5, 1, 2);
     Territory* territory2 = new Territory("China", 5, 3, 4);
@@ -21,16 +21,17 @@ int main(){
     player->addDefendTerritory(territory2);
     player->addDefendTerritory(territory3);
     player->addDefendTerritory(territory4);
+    while(!player->hasIssuedAllOrders()){
+        player->issueOrder(1);
+    }
     /*
     std::cout << *player << std::endl;
     player->printTerritoriesToDefend();
     */
-    player->issueOrder(1);
-   /*
-   while(!player->hasIssuedAllOrders()){
-    player->issueOrder(1);
-   }
-   */
+    
+   
+   
+   
    
    
     

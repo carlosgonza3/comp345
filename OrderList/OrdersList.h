@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "../Map/Map.h"
+
+class Player;
 
 // Base class for Orders
 class Order {
@@ -26,6 +29,7 @@ public:
 class DeployOrder : public Order {
 public:
     DeployOrder() = default;    // Default constructor
+    DeployOrder(int units, Territory* target, Player* player); //Paramerized constructor
     DeployOrder(const DeployOrder& other);  // Copy Constructor
     DeployOrder& operator=(const DeployOrder& other);  // Assignment Operator
     // Clone method, overriding virtual method in Order class 
@@ -36,12 +40,18 @@ public:
     void execute() override; // Executes the order
     std::string description() const override; // Print a description of the orde
     std::string effect() const override; //Describe the effect for the order
+private:
+    int units;
+    Territory* targetTerritory;
+    Player* issuingPlayer;
 };
+
 // AdvanceOrder Class declaration
 class AdvanceOrder : public Order {
 public:
     AdvanceOrder() = default;   // Default constructor
     AdvanceOrder(const AdvanceOrder& other);  // Copy Constructor
+    AdvanceOrder(int units, Territory* source, Territory* target, Player* player); //Parameterized constructor
     AdvanceOrder& operator=(const AdvanceOrder& other);  // Assignment Operator
     // Clone method, overriding virtual method in Order class 
     //and calling Copy Constructor to create a new  project 
@@ -51,12 +61,22 @@ public:
     void execute() override;    // Executes the order
     std::string description() const override;   // Print a description of the orde
     std::string effect() const override;    //Describe the effect for the order
+private:
+    int units;
+    Territory* sourceTerritory;
+    Territory* targetTerritory;
+    Player* issuingPlayer;
 };
+
+
+
+
 // BombOrder Class declaration
 class BombOrder : public Order {
 public:
     BombOrder() = default;  // Default constructor
     BombOrder(const BombOrder& other);  // Copy Constructor
+    BombOrder(Territory* target, Player* player); //Parameterized constructor
     BombOrder& operator=(const BombOrder& other);  // Assignment Operator
     // Clone method, overriding virtual method in Order class 
     //and calling Copy Constructor to create a new project 
@@ -66,12 +86,21 @@ public:
     void execute() override;    // Executes the order
     std::string description() const override;   // Print a description of the orde
     std::string effect() const override;    //Describe the effect for the order
+
+private:
+    Territory* targetTerritory;
+    Player* issuingPlayer;
 };
+
+
+
+
 // BlockadeOrder Class declaration
 class BlockadeOrder : public Order {
 public:
     BlockadeOrder() = default;  // Default constructor
     BlockadeOrder(const BlockadeOrder& other);  // Copy Constructor
+    BlockadeOrder(Territory* target, Player* player); //Parameterized constructor
     BlockadeOrder& operator=(const BlockadeOrder& other);  // Assignment Operator
     // Clone method, overriding virtual method in Order class 
     //and calling Copy Constructor to create a new project 
@@ -81,12 +110,21 @@ public:
     void execute() override;    // Executes the order
     std::string description() const override;   // Print a description of the orde
     std::string effect() const override;    //Describe the effect for the order
+
+private:
+    Territory* targetTerritory;
+    Player* issuingPlayer;
 };
+
+
+
+
 // AirliftOrder Class declaration
 class AirliftOrder : public Order {
 public:
     AirliftOrder() = default;   // Default constructor
     AirliftOrder(const AirliftOrder& other);  // Copy Constructor
+    AirliftOrder(int units, Territory* source, Territory* target, Player* player); //Parameterized constructor
     AirliftOrder& operator=(const AirliftOrder& other);  // Assignment Operator
      // Clone method, overriding virtual method in Order class 
     //and calling Copy Constructor to create a new project 
@@ -96,12 +134,22 @@ public:
     void execute() override;    // Executes the order
     std::string description() const override;   // Print a description of the orde
     std::string effect() const override;    //Describe the effect for the order
+private:
+    int units;
+    Territory* sourceTerritory;
+    Territory* targetTerritory;
+    Player* issuingPlayer;
 };
+
+
+
+
 // NegotiateOrder Class declaration
 class NegotiateOrder : public Order {
 public:
     NegotiateOrder() = default;  // Default constructor
     NegotiateOrder(const NegotiateOrder& other);  // Copy Constructor
+    NegotiateOrder(Player* target, Player* player);  //Parameterized Constructor
     NegotiateOrder& operator=(const NegotiateOrder& other);  // Assignment Operator
     // Clone method, overriding virtual method in Order class 
     //and calling Copy Constructor to create a new project 
@@ -111,7 +159,12 @@ public:
     void execute() override;// Executes the order
     std::string description() const override; // Print a description of the orde
     std::string effect() const override;//Describe the effect for the order
+private:
+    Player* targetPlayer;
+    Player* issuingPlayer;
 };
+
+
 
 // OrdersList Class declaration
 class OrdersList {

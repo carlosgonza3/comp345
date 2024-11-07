@@ -34,7 +34,75 @@ std::vector<Territory*>& Player::toAttack() {
     return attackTerritories;
 }
 
+void Player::issueOrder(int number) {
+    //TO DO
+    int indexInput;
+    bool validInput;
+    if (reinforcementPool > 0){
+        std::cout << "Player " << number << " still has a reinforcement pool of "<< reinforcementPool << " units. Therefore must issue a Deploy Order." << std::endl;
+        validInput = false;
+        
+        int reinforcementInput;
+        while(!validInput){
+            this->printTerritoriesToDefend();
+            std::cout << "Please enter the index of the territory where you want to issue a Deploy Order: " << std::endl;
+            std::cin >> indexInput;
+            
+            std::cout << "Please enter the number of reinforcement you wish to deploy at territory at index " << indexInput << std::endl;
+            std::cin >> reinforcementInput;
+            if ((indexInput >= 0 && indexInput <= (toDefend().size() - 1)) && (reinforcementInput >= 1 && reinforcementInput <= getReinforcementPool())){
+                validInput = true;
+            }
+            else{
+                std::cout << "Invalid inputs! Try again! \n" << std::endl;
+            }
+        }
+        std::cout << "Deploying " << reinforcementInput << " units to " << toDefend()[indexInput]->name << std::endl;
+        //CREATE ORDER AND ADD IT TO LIST!!!!!!!!!!
+        return;
+    }
 
+    validInput = false;
+    while(!validInput){
+        std::cout << "\nPlayer " << number << " no longer has a reinforcement pool. Please enter the index of the order you want to issue: " << std::endl;
+        std::cout << "1. Advance Order To Attack Territories" << std::endl;
+        std::cout << "2. Advance Order To Defend Territories" << std::endl;
+        int handSize = Hand1->getHandSize();
+        if (handSize != 0){
+            std::cout << "3. Use Cards" << std::endl;
+        }
+        std::cout << "0. Finished giving orders" << std::endl;
+        std::cin >> indexInput;
+        if ((indexInput >= 0 && indexInput <= 2) || (handSize > 0 && indexInput <= 3 && indexInput >= 0)) {
+            validInput = true;
+        } 
+        else {
+            std::cout << "\nInvalid input! Try again!\n" << std::endl;
+        }
+    }
+
+    
+    
+    if (indexInput == 1){
+        std::cout << "\nChose index 1" << std::endl;
+        this->printTerritoriesToAttack();
+    }
+    else if(indexInput == 2){
+        std::cout << "\nChose index 2" << std::endl;
+        this->printTerritoriesToDefend();
+    }
+    else if(indexInput == 3){
+        std::cout << "\nChose index 3" << std::endl;
+        std::cout << *Hand1 << std::endl;
+        std::cout << "Please enter the index of the card that you want to use: " << std::endl;
+        std::cin >> indexInput;
+        this->Hand1->playCard(indexInput, this->orders, this);
+    }
+    else if(indexInput == 0){
+        std::cout << "Player " << number << " has finished giving orders." << std::endl;
+        setIssuedAllOrders(true);
+    }
+}
 
 std::ostream& operator<<(std::ostream& os, const Player& player) {
     os << "Player with " << player.defendTerritories.size() + player.attackTerritories.size()
@@ -81,60 +149,5 @@ void Player::drawCard(){
     Hand1->addCardIntoHand();
 }
 
-void Player::issueOrder(int number) {
-    //TO DO
-    int indexInput;
-    if (reinforcementPool > 0){
-        std::cout << "Player " << number << " still has a reinforcement pool. Therefore must issue a Deploy Order." << std::endl;
-        bool validInput = false;
-        
-        int reinforcementInput;
-        while(!validInput){
-            this->printTerritoriesToDefend();
-            std::cout << "Please enter the index of the territory where you want to issue a Deploy Order: " << std::endl;
-            std::cin >> indexInput;
-            
-            std::cout << "Please enter the number of reinforcement you wish to deploy at territory at index " << indexInput << std::endl;
-            std::cin >> reinforcementInput;
-            if ((indexInput >= 0 && indexInput <= (toDefend().size() - 1)) && (reinforcementInput >= 1 && reinforcementInput <= getReinforcementPool())){
-                validInput = true;
-            }
-            else{
-                std::cout << "Invalid inputs! Try again! \n" << std::endl;
-            }
-        }
-        std::cout << "Deploying " << reinforcementInput << " units to " << toDefend()[indexInput]->name << std::endl;
-        //CREATE ORDER AND ADD IT TO LIST!!!!!!!!!!
-        return;
-    }
-    
-    std::cout << "Player " << number << " no longer has a reinforcement pool, please choose one of the following orders to issue: " << std::endl;
-    std::cout << "1. Attack Territories" << std::endl;
-    std::cout << "2. Defend Territories" << std::endl;
 
-
-    int handSize = Hand1->getHandSize();
-    
-    if (handSize != 0){
-        std::cout << "3. Use Cards" << std::endl;
-    }
-    
-    
-    std::cout << 0 << "0. Finished giving orders" << std::endl;
-    std::cin >> indexInput;
-    if (indexInput == 1){
-        std::cout << "Chose index 1" << std::endl;
-    }
-    else if(indexInput == 2){
-        std::cout << "Chose index 2" << std::endl;
-    }
-    else if(indexInput == 3){
-        std::cout << "Chose index 3" << std::endl;
-    }
-    else if(indexInput == 0){
-        setIssuedAllOrders(true);
-    }
-    
-    
-}
 
