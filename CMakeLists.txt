@@ -35,4 +35,5 @@ add_executable(comp345
             GameEngine/LoggingObserverDriver.cpp
             CommandProcessing/CommandProcessingDriver.cpp
             CommandProcessing/CommandProcessing.cpp
-            CommandProcessing/CommandProcessing.h)
+            CommandProcessing/CommandProcessing.h
+        GameEngine/GameEngineDriver.h)

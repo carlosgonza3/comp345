@@ -8,7 +8,7 @@
 #include "LoggingObserver.h"
 
 // Base class for Orders
-class Order : public ILogabble, Subject {
+class Order {
 public:
     // virtual method
     virtual ~Order() {} // able to delete safely

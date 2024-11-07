@@ -1,6 +1,6 @@
-CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o: \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersList.cpp \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersList.h \
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__assert \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__assertion_handler \
@@ -957,7 +957,6 @@ CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/copy_options.h \

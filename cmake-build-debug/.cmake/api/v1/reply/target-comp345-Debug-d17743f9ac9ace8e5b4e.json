@@ -159,7 +159,8 @@
 				16,
 				18,
 				20,
-				24
+				24,
+				25
 			]
 		}
 	],
@@ -302,6 +303,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "CommandProcessing/CommandProcessing.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "GameEngine/GameEngineDriver.h",
 			"sourceGroupIndex" : 1
 		}
 	],
