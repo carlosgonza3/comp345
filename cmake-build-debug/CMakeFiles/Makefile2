@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dannykhunn/Documents/GitHub/Comp345
+CMAKE_SOURCE_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,22 +81,14 @@ clean: CMakeFiles/comp345.dir/clean
 CMakeFiles/comp345.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/build
-<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target comp345"
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target comp345"
->>>>>>> A2P2
 .PHONY : CMakeFiles/comp345.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/comp345.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles 15
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug/CMakeFiles 13
->>>>>>> A2P2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/comp345.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/comp345.dir/rule
 
 # Convenience name for target.
