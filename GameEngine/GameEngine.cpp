@@ -1,7 +1,13 @@
+//
+// Created by Carlos Gonzalez on 2024-09-26.
+//
 
 #include "GameEngine.h"
 #include "string"
 #include <Vector>
+#include <random>
+
+#include "PlayerDriver.h"
 #include <map>
 
 // displays output given and prompts the user for a string, then it returns the user's input
@@ -81,7 +87,7 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
 
     // Define valid transitions for each state
     std::map<std::string, std::string> validCommands = {
-        {"loadmap", "start"}, 
+        {"loadmap", "start"},
         {"loadmap", "maploaded"},
         {"validatemap", "maploaded"},
         {"addplayer", "mapvalidated"},
@@ -127,7 +133,7 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
 }
 
 void GameEngine::initializeStateTransitions() {
-    
+
     stateTransitions["start"] = {"loadmap"};
     stateTransitions["maploaded"] = {"validatemap"};
     stateTransitions["mapvalidated"] = {"addplayer"};
@@ -604,4 +610,104 @@ std::string WinState::getState() const {
 
 bool WinState::isFinished() {
     return (gameFinished && *gameFinished);
+}
+
+//A2 Section
+
+void GameEngine::startupPhase() {
+    //Section to be deleted? I.E, we put it in a Driver            PLEASE CONFIRM
+
+    std::vector<std::string> mapFileNames;
+    std::ifstream file("MapFileNames.txt");
+    std::string line;
+    while (std::getline(file, line)) {
+        mapFileNames.push_back(line);
+    }
+    file.close();
+
+    std::vector<std::string> mapFiles;
+
+    Map* map = new Map();
+
+    std::vector<Player*> playerList;
+
+    Deck* deck = new Deck();
+
+    while (true) {
+
+        std::cout << "\n\n\t======================= startupPhase() ======================= "<< std::endl;
+        std::cout << "\t\t [1] loadmap <filename> \n"<< std::endl;
+        std::cout << "\t\t [2] validatemap \n"<< std::endl;
+        std::cout << "\t\t [3] addplayer <playername> \n"<< std::endl;
+        std::cout << "\t\t [4] gamestart \n"<< std::endl;
+        std::cout << "\t\t [0] Exit \n"<< std::endl;
+        std::cout << "\t _____________________________________________________________ \n"<< std::endl;
+        std::cout << "\t\t Enter Option: ";
+        std::string menuInput;
+        std::cin >> menuInput;
+        if (menuInput == "1") {
+            for (int i = 0; i < mapFileNames.size(); i++) {
+                std::cout << "[" << i+1 << "]" << mapFileNames[i] << std::endl;
+            }
+            std::cout << mapFileNames[1] << std::endl;
+            std::cout << "Select which map to load: ";
+            int input;
+            std::cin >> input;
+            while (input < 1 || input > mapFileNames.size()) {
+                std::cout << "Invalid Input: "<< input << std::endl;
+                std::cout << "Select which map to load: ";
+                std::cin >> input;
+            }
+            if (mapFiles.size() > 0) {
+                mapFiles.pop_back();
+            }
+            mapFiles.push_back(mapFileNames[input-1]);
+        } else if (menuInput == "2") {
+            std::cout << "\n\n\tValidating Maps...\n"<< std::endl;
+            std::vector<Map*> maps = testLoadMaps(mapFiles);
+            map = maps[0];
+        } else if (menuInput == "3") {
+            std::string flag;
+            while (flag != "exit" || playerList.size() < 2) {
+                std::cout << "Please enter a player name or \"exit\" (Game needs 2-6 players): ";
+                std::cin >> flag;
+                if (flag != "exit") {
+                    Hand* hand = new Hand(deck);
+                    Player* player = new Player(hand);
+                    player->name = flag;
+                    playerList.push_back(player);
+                }
+                if (playerList.size() >= 6) {
+                    flag = "exit";
+                }
+            }
+        } else if (menuInput == "4") {
+            for (int i = 0; i < map->territories.size(); i++) {
+                playerList[i % playerList.size()]->ownedTerritories.push_back(map->territories[i]);
+            }
+
+            auto rng = std::default_random_engine {};
+            std::shuffle(std::begin(playerList), std::end(playerList), rng);
+
+            for (int i = 0; i < playerList.size(); i++) {
+                playerList[i]->Hand1->addCardIntoHand();
+                playerList[i]->Hand1->addCardIntoHand();
+            }
+
+            for (int i = 0; i < playerList.size(); i++) {
+                playerList[i]->setReinforcementPool(50);
+            }
+
+            for (int i = 0; i < playerList.size(); i++) {
+                std::cout << "Player " << i+1 << " Name: " << playerList[i]->name << " Reinforcement Pool: " << playerList[i]->reinforcementPool << std::endl;
+                std::cout << *playerList[i]->Hand1 << std::endl;
+            }
+
+            std::cout << "Switch the game to Play phase" << std::endl;
+
+        } else if (menuInput == "0") {
+            std::cout << "Closing \"startupPhase\"" << std::endl;
+            exit(0);
+        }
+    }
 }

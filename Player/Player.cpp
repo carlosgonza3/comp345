@@ -2,6 +2,11 @@
 #include "Map.h"
 #include <iostream>
 
+Player::Player() {
+
+}
+
+
 // Constructor
 Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {
 }
@@ -53,4 +58,8 @@ void Player::printTerritories() {
     for (const auto& territory : defendTerritories) {
         std::cout << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
+}
+
+void Player::setReinforcementPool(int numOfReinforcement) {
+    reinforcementPool = numOfReinforcement;
 }

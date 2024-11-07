@@ -43,11 +43,11 @@ void testGameStates() {
 
             // Call checkCommandValid to validate the user's command
             bool commandValid = gameEngine->checkCommandValid(userCommand);
-            
+
             if (commandValid) {
                 // If command is valid, print confirmation and transition to the new state
                 std::cout << "\n\t** Command valid. Transitioning state..." << std::endl;
-                
+
                 // If the transition was valid, the current state will be updated within checkCommandValid
                 // Break out of the loop to continue the game
                 break;

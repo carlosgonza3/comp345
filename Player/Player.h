@@ -9,6 +9,13 @@
 
 class Player {
 public:
+
+	//Adding a name temporarily
+	std::string name;
+	std::vector<Territory*> ownedTerritories;
+
+	Player();
+
 	Player(Hand* Hand); // Constructor
 	Player(const Player& other); // Copy constructor
 	Player& operator=(const Player& other); // Assignment operator
@@ -24,11 +31,14 @@ public:
 
 	void printTerritories();
 
+	void setReinforcementPool(int numOfReinforcement);
+	Hand* Hand1; // Player's deck
+	int reinforcementPool;
+
 private:
 	std::vector<Territory*> defendTerritories; // Defend territories
 	std::vector<Territory*> attackTerritories; // Attack territories
 	OrdersList* orders; // Player's orders
-	Hand* Hand1; // Player's deck
 };
 
 #endif

@@ -11,6 +11,10 @@
 #include "CommandProcessing.h"
 
 
+#include "Map.h"
+#include "MapDriver.h"
+#include "Player.h"
+
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
 
@@ -81,6 +85,9 @@ class GameEngine {
         std::map<std::string, std::vector<std::string>> stateTransitions;
 
 
+    //A2 Section
+
+        void startupPhase();
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
