@@ -2,10 +2,9 @@
 #define CARDS_H
 
 #include <string>
-#include "OrdersList.h"
 #include <vector>
+#include "OrdersList.h" 
 
-void testCards();
 
 class Card {
 public:

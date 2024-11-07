@@ -5,23 +5,30 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(GameEngine
                     Cards
-                    OrderList
+        Order
                     Player
                     Map
                     CommandProcessing)
 
 add_executable(comp345
             MainDriver.cpp
+<<<<<<< HEAD
             Map/Map.h
             Map/Map.cpp
+=======
+            GameEngine/GameEngine.cpp
+            GameEngine/GameEngine.h
+            GameEngine/GameEngineDriver.cpp
+            GameEngine/GameEngineDriver.h
+        Map/Map.cpp
+>>>>>>> part4_copy
             Map/MapDriver.h
             Map/MapDriver.cpp
             Map/MapLoader.h
             Map/MapLoader.cpp
-            Player/Player.h
-            Player/Player.cpp
-            Player/PlayerDriver.h
+        Player/PlayerDriver.h
             Player/PlayerDriver.cpp
+<<<<<<< HEAD
             OrderList/OrdersList.h
             OrderList/OrdersList.cpp
             OrderList/OrdersDriver.h
@@ -37,3 +44,8 @@ add_executable(comp345
             CommandProcessing/CommandProcessing.cpp
             CommandProcessing/CommandProcessing.h
         GameEngine/GameEngineDriver.h)
+=======
+        Cards/CardsDriver.cpp
+        Cards/Cards.cpp
+            Cards/CardsDriver.h)
+>>>>>>> part4_copy

@@ -125,47 +125,41 @@ void Continent::addTerritory(Territory *territory) {
     territories.push_back(territory);
 }
 
-//These are the functions for Territory class
-//Default constructor
-Territory::Territory() {
-    name = "";
-    army = 0;
-}
-//Parameterized constructor
-Territory::Territory(std::string name, int army, int x, int y) {
-    this->name = name;
-    this->army = army;
-    this->x = x;
-    this->y = y;
-}
-//Copy constructor
-Territory::Territory(const Territory &territory) {
-    this->name = territory.name;
-    this->army = territory.army;
-    this->adjTerritories = territory.adjTerritories;
-}
-//Destructor
-Territory::~Territory() {
-    for (Territory* adjTerritory : adjTerritories) {
-        delete adjTerritory;
-    }
-}
-//Assignment operator
-Territory &Territory::operator=(const Territory *territory) {
-    if (this != territory) {
-        this->name = territory->name;
-        this->army = territory->army;
-        this->adjTerritories = territory->adjTerritories;
-    }
+// Default constructor
+Territory::Territory() : name(""), army(0), x(0), y(0) {}
 
+// Parameterized constructor
+Territory::Territory(std::string name, int army, int x, int y)
+    : name(std::move(name)), army(army), x(x), y(y) {}
+
+// Copy constructor
+Territory::Territory(const Territory& territory)
+    : name(territory.name), army(territory.army), x(territory.x), y(territory.y),
+      adjTerritories(territory.adjTerritories) {}
+
+// Destructor
+Territory::~Territory() = default; // Default destructor
+
+// Assignment operator
+Territory& Territory::operator=(const Territory* territory) {
+    if (this != territory) {
+        name = territory->name;
+        army = territory->army;
+        x = territory->x;
+        y = territory->y;
+        adjTerritories = territory->adjTerritories;
+    }
     return *this;
 }
-//Stream insertion operator
-std::ostream & operator<<(std::ostream &os, const Territory &territory) {
-    std::cout << "This Territory's name is: " << territory.name << std::endl;
+
+// Stream insertion operator
+std::ostream& operator<<(std::ostream& os, const Territory& territory) {
+    os << "Territory: " << territory.name << " with " << territory.army << " armies at ("
+       << territory.x << ", " << territory.y << ")";
     return os;
 }
-//Function to add a territory to the list of adjacent territories
-void Territory::addAdjTerritory(Territory *territory) {
+
+// Add an adjacent territory
+void Territory::addAdjTerritory(Territory* territory) {
     adjTerritories.push_back(territory);
 }
