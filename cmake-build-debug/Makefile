@@ -177,6 +177,54 @@ Cards/CardsDriver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.s
 .PHONY : Cards/CardsDriver.cpp.s
 
+CommandProcessing/CommandProcessing.o: CommandProcessing/CommandProcessing.cpp.o
+.PHONY : CommandProcessing/CommandProcessing.o
+
+# target to build an object file
+CommandProcessing/CommandProcessing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o
+.PHONY : CommandProcessing/CommandProcessing.cpp.o
+
+CommandProcessing/CommandProcessing.i: CommandProcessing/CommandProcessing.cpp.i
+.PHONY : CommandProcessing/CommandProcessing.i
+
+# target to preprocess a source file
+CommandProcessing/CommandProcessing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i
+.PHONY : CommandProcessing/CommandProcessing.cpp.i
+
+CommandProcessing/CommandProcessing.s: CommandProcessing/CommandProcessing.cpp.s
+.PHONY : CommandProcessing/CommandProcessing.s
+
+# target to generate assembly for a file
+CommandProcessing/CommandProcessing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s
+.PHONY : CommandProcessing/CommandProcessing.cpp.s
+
+CommandProcessing/CommandProcessingDriver.o: CommandProcessing/CommandProcessingDriver.cpp.o
+.PHONY : CommandProcessing/CommandProcessingDriver.o
+
+# target to build an object file
+CommandProcessing/CommandProcessingDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o
+.PHONY : CommandProcessing/CommandProcessingDriver.cpp.o
+
+CommandProcessing/CommandProcessingDriver.i: CommandProcessing/CommandProcessingDriver.cpp.i
+.PHONY : CommandProcessing/CommandProcessingDriver.i
+
+# target to preprocess a source file
+CommandProcessing/CommandProcessingDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.i
+.PHONY : CommandProcessing/CommandProcessingDriver.cpp.i
+
+CommandProcessing/CommandProcessingDriver.s: CommandProcessing/CommandProcessingDriver.cpp.s
+.PHONY : CommandProcessing/CommandProcessingDriver.s
+
+# target to generate assembly for a file
+CommandProcessing/CommandProcessingDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s
+.PHONY : CommandProcessing/CommandProcessingDriver.cpp.s
+
 GameEngine/GameEngine.o: GameEngine/GameEngine.cpp.o
 .PHONY : GameEngine/GameEngine.o
 
@@ -432,6 +480,12 @@ help:
 	@echo "... Cards/CardsDriver.o"
 	@echo "... Cards/CardsDriver.i"
 	@echo "... Cards/CardsDriver.s"
+	@echo "... CommandProcessing/CommandProcessing.o"
+	@echo "... CommandProcessing/CommandProcessing.i"
+	@echo "... CommandProcessing/CommandProcessing.s"
+	@echo "... CommandProcessing/CommandProcessingDriver.o"
+	@echo "... CommandProcessing/CommandProcessingDriver.i"
+	@echo "... CommandProcessing/CommandProcessingDriver.s"
 	@echo "... GameEngine/GameEngine.o"
 	@echo "... GameEngine/GameEngine.i"
 	@echo "... GameEngine/GameEngine.s"

@@ -1,10 +1,8 @@
-//
-// Created by Carlos Gonzalez on 2024-09-26.
-//
 
 #include "GameEngine.h"
 #include "string"
 #include <Vector>
+#include <map>
 
 // displays output given and prompts the user for a string, then it returns the user's input
 std::string getUserInput(std::string& output) {
@@ -73,6 +71,70 @@ void GameEngine::deleteCurrentState() {
     }
 }
 
+//____________________________________________________________
+// new parts for A2
+bool GameEngine::checkCommandValid(const std::string& cmd) {
+    if (!currentState) {
+        std::cout << "\n\tCurrent State: Not Found...\n";
+        return false;
+    }
+
+    // Define valid transitions for each state
+    std::map<std::string, std::string> validCommands = {
+        {"loadmap", "start"}, 
+        {"loadmap", "maploaded"},
+        {"validatemap", "maploaded"},
+        {"addplayer", "mapvalidated"},
+        {"addplayer", "playersadded"},
+        {"gamestart", "playersadded"},
+        {"replay", "win"},
+        {"quit", "win"}
+    };
+
+    // Output available transitions for the current state
+    std::cout << "\n\t** Available commands for the current state (" << currentState->getState() << "):\n";
+    for (const auto& cmdPair : validCommands) {
+        if (cmdPair.second == currentState->getState()) {
+            std::cout << "\t- " << cmdPair.first << "\n";
+        }
+    }
+
+    // Check if command matches any valid transition
+    if (validCommands.find(cmd) != validCommands.end() && validCommands[cmd] == currentState->getState()) {
+        std::cout << "\tCommand valid: " << cmd << "\n";
+
+        // Transition to the new state based on command
+        if (cmd == "loadmap") {
+            currentState = new MapLoadedState();  // Change to MapLoaded state
+        } else if (cmd == "validatemap") {
+            currentState = new MapValidatedState();  // Change to MapValidated state
+        } else if (cmd == "addplayer") {
+            currentState = new PlayersAddedState();  // Change to PlayersAdded state
+        } else if (cmd == "gamestart") {
+            currentState = new AssignReinforcementState();  // Change to AssignReinforcement state
+        } else if (cmd == "replay") {
+            currentState = new StartState();  // Change to Start state
+        } else if (cmd == "quit") {
+            std::cout << "\tQuitting game.\n";
+            exit(0);  // Exit the program
+        }
+
+        return true;  // Command was valid and state was updated
+    }
+
+    std::cout << "\tCommand invalid: " << cmd << "\n";
+    return false;  // Command was invalid, state not updated
+}
+
+void GameEngine::initializeStateTransitions() {
+    
+    stateTransitions["start"] = {"loadmap"};
+    stateTransitions["maploaded"] = {"validatemap"};
+    stateTransitions["mapvalidated"] = {"addplayer"};
+    stateTransitions["playersadded"] = {"gamestart"};
+    stateTransitions["win"] = {"replay", "quit"};
+}
+//____________________________________________________________
 
 // Following implementations, have been fully documented in the header file GameEngine.h ...
 
@@ -543,5 +605,3 @@ std::string WinState::getState() const {
 bool WinState::isFinished() {
     return (gameFinished && *gameFinished);
 }
-
-

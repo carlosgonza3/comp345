@@ -39,11 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "comp345::@6890427a1f51a3e7e1df",
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7f219a02ce7ec5f4298d.json
-					"jsonFile" : "target-comp345-Debug-43d4a533cc3fe601725f.json",
-========
-					"jsonFile" : "target-comp345-Debug-1769ed4e1e7594cf0123.json",
->>>>>>>> temp/main_gameEngine:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6ca812980cea7f887f61.json
+					"jsonFile" : "target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json",
 					"name" : "comp345",
 					"projectIndex" : 0
 				}
