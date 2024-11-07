@@ -1,5 +1,5 @@
 #include "Cards.h"
-#include "OrdersList.h"
+#include "../OrderList/OrdersList.h"
 #include <iostream>
 #include <string>
 class OrdersList;
@@ -190,6 +190,10 @@ void Hand::addCardIntoHand(){                               // Method that draws
     }
 }
 
+int Hand::getHandSize(){
+    return cards_in_hand.size();
+}
+
 void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the card in hand at given index. Takes orderslist as argument.
     if (cards_in_hand.size() == 0){
         cout << "Hand is empty, cannot play any card." << endl;
@@ -204,4 +208,5 @@ void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the c
     cards_in_hand.erase(cards_in_hand.begin() + cardIndex); //Deletes pointer in the hand.
     sharedDeck->returnToDeck(cardPtr);         //Return card to deck.
 }
+
 

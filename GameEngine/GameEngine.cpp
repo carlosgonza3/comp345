@@ -544,4 +544,60 @@ bool WinState::isFinished() {
     return (gameFinished && *gameFinished);
 }
 
+//ASSIGNMENT 2 PART 3's IMPLEMENTATION
 
+void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents){
+    int i = 1;
+    for (Player* player: players){
+        int continentBonus = 0;
+        for (Continent* continent: continents){
+            bool controlsAllTerritory = true;
+
+            for (Territory* territory: continent->territories){
+                bool controlsTerritory = false;
+                for (Territory* playerTerritory: player->toDefend()){
+                    if (playerTerritory == territory){
+                        controlsTerritory = true;
+                        break;
+                    }
+                }
+                if(!controlsTerritory){
+                    controlsAllTerritory = false;
+                    break;
+                }
+            }
+            if (controlsAllTerritory){
+                std::cout << "Player " << i << " received army bonus thanks to " << continent->name << std::endl;
+                continentBonus += continent->armyBonus;
+            }
+        }
+
+        int territoryBonus = player->toDefend().size() / 3;
+        int reinforcementNumber = std::max((territoryBonus + continentBonus), 3);
+        player->setReinforcementPool(reinforcementNumber);
+        //For debugging
+        std::cout << "Player " << i << " receives " << reinforcementNumber << " reinforcements." << std::endl;
+        i += 1;
+    }
+}
+
+void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
+    bool allPlayersDone = false;
+    for (Player* player: players){
+        player->setIssuedAllOrders(false);
+    }
+
+    while(!allPlayersDone){
+        allPlayersDone = true;
+        int i = 0;
+        for (Player* player: players){
+            i++;
+            if (!player->hasIssuedAllOrders()){
+                player->issueOrder(i);
+                
+                allPlayersDone = false;
+            }
+        }
+    }
+
+}

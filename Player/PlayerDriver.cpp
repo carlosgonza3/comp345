@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Map.h"
+#include "../Map/Map.h"
 #include <iostream>
 
 void testPlayers() {
@@ -24,14 +24,14 @@ void testPlayers() {
     // Issue some orders
     Order* order1 = new DeployOrder(); // Example of issuing DeployOrder
     Order* order2 = new AdvanceOrder(); // Example of issuing AdvanceOrder
-    player.issueOrder(order1);
-    player.issueOrder(order2);
+    //player.issueOrder(order1);
+    //player.issueOrder(order2);
 
     // Output the player info
     std::cout << player << std::endl;
 
     // Print territories
-    player.printTerritories();
+    //player.printTerritories();
 
     // Clean up memory
     delete territory1;

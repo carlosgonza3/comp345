@@ -4,8 +4,11 @@
 
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
+#include "../Player/Player.h"
+#include "../Map/Map.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
@@ -72,7 +75,13 @@ class GameEngine {
 
         // Deletes current state in Game Engine
         void deleteCurrentState();
-
+        
+        //ASSIGNMENT 2 PART 3 BY TONY
+        // Reinforcement phase
+        void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
+        
+        // Issuing Orders Phase
+        void issueOrdersPhase(std::vector<Player*>& players);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -11,7 +11,7 @@
 #include <vector>
 #include <iostream>
 
-#include "GameEngine.h"
+#include "GameEngine/GameEngine.h"
 
 
 int main() {
