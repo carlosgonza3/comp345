@@ -237,6 +237,34 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/Cards/Cards.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.cpp -o CMakeFiles/comp345.dir/Cards/Cards.cpp.s
 
+CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp
+CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp
+
+CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp > CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.i
+
+CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp -o CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.s
+
+CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp
+CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp
+
+CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp > CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i
+
+CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp -o CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s
+
 # Object files for target comp345
 comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/MainDriver.cpp.o" \
@@ -250,7 +278,9 @@ comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o" \
 "CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.o" \
 "CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o" \
-"CMakeFiles/comp345.dir/Cards/Cards.cpp.o"
+"CMakeFiles/comp345.dir/Cards/Cards.cpp.o" \
+"CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o" \
+"CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o"
 
 # External object files for target comp345
 comp345_EXTERNAL_OBJECTS =
@@ -267,9 +297,11 @@ comp345: CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o
 comp345: CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/Cards/Cards.cpp.o
+comp345: CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o
+comp345: CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/build.make
 comp345: CMakeFiles/comp345.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable comp345"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable comp345"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/comp345.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

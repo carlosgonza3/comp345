@@ -16,6 +16,13 @@
 
 int main() {
 
+
+
+    return 0;
+}
+
+void A1_testing() {
+
     std::cout << "\nWarzone Game Testing!" << std::endl;
 
     std::vector<std::string> mapFiles;
@@ -70,7 +77,5 @@ int main() {
 
 
     }
-
-    return 0;
 }
 

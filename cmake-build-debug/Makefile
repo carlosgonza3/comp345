@@ -225,6 +225,54 @@ GameEngine/GameEngineDriver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s
 .PHONY : GameEngine/GameEngineDriver.cpp.s
 
+GameEngine/LoggingObserver.o: GameEngine/LoggingObserver.cpp.o
+.PHONY : GameEngine/LoggingObserver.o
+
+# target to build an object file
+GameEngine/LoggingObserver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o
+.PHONY : GameEngine/LoggingObserver.cpp.o
+
+GameEngine/LoggingObserver.i: GameEngine/LoggingObserver.cpp.i
+.PHONY : GameEngine/LoggingObserver.i
+
+# target to preprocess a source file
+GameEngine/LoggingObserver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.i
+.PHONY : GameEngine/LoggingObserver.cpp.i
+
+GameEngine/LoggingObserver.s: GameEngine/LoggingObserver.cpp.s
+.PHONY : GameEngine/LoggingObserver.s
+
+# target to generate assembly for a file
+GameEngine/LoggingObserver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.s
+.PHONY : GameEngine/LoggingObserver.cpp.s
+
+GameEngine/LoggingObserverDriver.o: GameEngine/LoggingObserverDriver.cpp.o
+.PHONY : GameEngine/LoggingObserverDriver.o
+
+# target to build an object file
+GameEngine/LoggingObserverDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o
+.PHONY : GameEngine/LoggingObserverDriver.cpp.o
+
+GameEngine/LoggingObserverDriver.i: GameEngine/LoggingObserverDriver.cpp.i
+.PHONY : GameEngine/LoggingObserverDriver.i
+
+# target to preprocess a source file
+GameEngine/LoggingObserverDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i
+.PHONY : GameEngine/LoggingObserverDriver.cpp.i
+
+GameEngine/LoggingObserverDriver.s: GameEngine/LoggingObserverDriver.cpp.s
+.PHONY : GameEngine/LoggingObserverDriver.s
+
+# target to generate assembly for a file
+GameEngine/LoggingObserverDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s
+.PHONY : GameEngine/LoggingObserverDriver.cpp.s
+
 MainDriver.o: MainDriver.cpp.o
 .PHONY : MainDriver.o
 
@@ -438,6 +486,12 @@ help:
 	@echo "... GameEngine/GameEngineDriver.o"
 	@echo "... GameEngine/GameEngineDriver.i"
 	@echo "... GameEngine/GameEngineDriver.s"
+	@echo "... GameEngine/LoggingObserver.o"
+	@echo "... GameEngine/LoggingObserver.i"
+	@echo "... GameEngine/LoggingObserver.s"
+	@echo "... GameEngine/LoggingObserverDriver.o"
+	@echo "... GameEngine/LoggingObserverDriver.i"
+	@echo "... GameEngine/LoggingObserverDriver.s"
 	@echo "... MainDriver.o"
 	@echo "... MainDriver.i"
 	@echo "... MainDriver.s"

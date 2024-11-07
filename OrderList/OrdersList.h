@@ -5,8 +5,10 @@
 #include <vector>
 #include <string>
 
+#include "LoggingObserver.h"
+
 // Base class for Orders
-class Order {
+class Order : public ILogabble, Subject {
 public:
     // virtual method
     virtual ~Order() {} // able to delete safely

@@ -32,4 +32,7 @@ add_executable(comp345
             Cards/CardsDriver.cpp
             Cards/Cards.h
             Cards/Cards.cpp
-            Cards/CardsDriver.h)
+            Cards/CardsDriver.h
+        GameEngine/LoggingObserver.cpp
+        GameEngine/LoggingObserver.h
+        GameEngine/LoggingObserverDriver.cpp)

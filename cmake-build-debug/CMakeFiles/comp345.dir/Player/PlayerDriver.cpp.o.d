@@ -959,4 +959,5 @@ CMakeFiles/comp345.dir/Player/PlayerDriver.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h
