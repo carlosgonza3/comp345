@@ -39,11 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "comp345::@6890427a1f51a3e7e1df",
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-413d1a286b7b3e081ded.json
-					"jsonFile" : "target-comp345-Debug-92388ba8c68cd4db6e1c.json",
-========
-					"jsonFile" : "target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json",
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6387cca445b458ffe14b.json
+					"jsonFile" : "target-comp345-Debug-db8ace2706190e927ade.json",
 					"name" : "comp345",
 					"projectIndex" : 0
 				}

@@ -66,13 +66,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Map"
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
-========
 				},
 				{
 					"backtrace" : 2,
 					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing"
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
 				}
 			],
 			"language" : "CXX",
@@ -98,13 +95,8 @@
 				17,
 				19,
 				21,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
-				23,
-				25
-========
 				22,
 				23
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
 			]
 		}
 	],
@@ -149,13 +141,8 @@
 				17,
 				19,
 				21,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
-				23,
-				25
-========
 				22,
 				23
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
 			]
 		},
 		{
@@ -169,17 +156,10 @@
 				9,
 				11,
 				13,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
-				15,
-				17,
-				20,
-				22,
-				24
-========
 				16,
 				18,
-				20
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
+				20,
+				24
 			]
 		}
 	],
@@ -293,29 +273,24 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
 			"path" : "GameEngine/LoggingObserver.cpp",
-========
-			"path" : "GameEngine/GameEngine.cpp",
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
 			"path" : "GameEngine/LoggingObserver.h",
-========
-			"path" : "GameEngine/GameEngine.h",
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-92388ba8c68cd4db6e1c.json
 			"path" : "GameEngine/LoggingObserverDriver.cpp",
-========
-			"path" : "GameEngine/GameEngineDriver.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CommandProcessing/CommandProcessingDriver.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -326,10 +301,8 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "CommandProcessing/CommandProcessingDriver.cpp",
->>>>>>>> Weilun-A2-part1:cmake-build-debug/.cmake/api/v1/reply/target-comp345-Debug-a7ae6eeee6bcf92b4a2d.json
-			"sourceGroupIndex" : 0
+			"path" : "CommandProcessing/CommandProcessing.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

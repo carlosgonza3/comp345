@@ -225,54 +225,6 @@ CommandProcessing/CommandProcessingDriver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s
 .PHONY : CommandProcessing/CommandProcessingDriver.cpp.s
 
-GameEngine/GameEngine.o: GameEngine/GameEngine.cpp.o
-.PHONY : GameEngine/GameEngine.o
-
-# target to build an object file
-GameEngine/GameEngine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o
-.PHONY : GameEngine/GameEngine.cpp.o
-
-GameEngine/GameEngine.i: GameEngine/GameEngine.cpp.i
-.PHONY : GameEngine/GameEngine.i
-
-# target to preprocess a source file
-GameEngine/GameEngine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i
-.PHONY : GameEngine/GameEngine.cpp.i
-
-GameEngine/GameEngine.s: GameEngine/GameEngine.cpp.s
-.PHONY : GameEngine/GameEngine.s
-
-# target to generate assembly for a file
-GameEngine/GameEngine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s
-.PHONY : GameEngine/GameEngine.cpp.s
-
-GameEngine/GameEngineDriver.o: GameEngine/GameEngineDriver.cpp.o
-.PHONY : GameEngine/GameEngineDriver.o
-
-# target to build an object file
-GameEngine/GameEngineDriver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o
-.PHONY : GameEngine/GameEngineDriver.cpp.o
-
-GameEngine/GameEngineDriver.i: GameEngine/GameEngineDriver.cpp.i
-.PHONY : GameEngine/GameEngineDriver.i
-
-# target to preprocess a source file
-GameEngine/GameEngineDriver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i
-.PHONY : GameEngine/GameEngineDriver.cpp.i
-
-GameEngine/GameEngineDriver.s: GameEngine/GameEngineDriver.cpp.s
-.PHONY : GameEngine/GameEngineDriver.s
-
-# target to generate assembly for a file
-GameEngine/GameEngineDriver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s
-.PHONY : GameEngine/GameEngineDriver.cpp.s
-
 GameEngine/LoggingObserver.o: GameEngine/LoggingObserver.cpp.o
 .PHONY : GameEngine/LoggingObserver.o
 
@@ -534,12 +486,6 @@ help:
 	@echo "... CommandProcessing/CommandProcessingDriver.o"
 	@echo "... CommandProcessing/CommandProcessingDriver.i"
 	@echo "... CommandProcessing/CommandProcessingDriver.s"
-	@echo "... GameEngine/GameEngine.o"
-	@echo "... GameEngine/GameEngine.i"
-	@echo "... GameEngine/GameEngine.s"
-	@echo "... GameEngine/GameEngineDriver.o"
-	@echo "... GameEngine/GameEngineDriver.i"
-	@echo "... GameEngine/GameEngineDriver.s"
 	@echo "... GameEngine/LoggingObserver.o"
 	@echo "... GameEngine/LoggingObserver.i"
 	@echo "... GameEngine/LoggingObserver.s"

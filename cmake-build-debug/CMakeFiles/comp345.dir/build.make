@@ -209,11 +209,10 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/Cards/Cards.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.cpp -o CMakeFiles/comp345.dir/Cards/Cards.cpp.s
 
-<<<<<<< HEAD
 CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: CMakeFiles/comp345.dir/flags.make
 CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp
 CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp
 
 CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.i: cmake_force
@@ -227,7 +226,7 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.s: cmake_force
 CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
 CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp
 CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp
 
 CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i: cmake_force
@@ -237,53 +236,11 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.i: cmake_force
 CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.cpp -o CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.s
-=======
-CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: CMakeFiles/comp345.dir/flags.make
-CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.cpp
-CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.cpp
-
-CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.cpp > CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i
-
-CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.cpp -o CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s
-
-CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
-CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.cpp
-CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o -MF CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o.d -o CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.cpp
-
-CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.cpp > CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i
-
-CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.cpp -o CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s
-
-CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: CMakeFiles/comp345.dir/flags.make
-CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp
-CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o -MF CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o.d -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp
-
-CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp > CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i
-
-CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s
 
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.cpp
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o -MF CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o.d -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.cpp
 
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.i: cmake_force
@@ -293,7 +250,20 @@ CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.i: cmake_fo
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.cpp -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s
->>>>>>> Weilun-A2-part1
+
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o -MF CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o.d -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp
+
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp > CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.i
+
+CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp -o CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.s
 
 # Object files for target comp345
 comp345_OBJECTS = \
@@ -307,15 +277,10 @@ comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.o" \
 "CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o" \
 "CMakeFiles/comp345.dir/Cards/Cards.cpp.o" \
-<<<<<<< HEAD
 "CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o" \
-"CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o"
-=======
-"CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o" \
-"CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o" \
-"CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o" \
-"CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o"
->>>>>>> Weilun-A2-part1
+"CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o" \
+"CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o" \
+"CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o"
 
 # External object files for target comp345
 comp345_EXTERNAL_OBJECTS =
@@ -330,15 +295,10 @@ comp345: CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o
 comp345: CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/Cards/Cards.cpp.o
-<<<<<<< HEAD
 comp345: CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o
 comp345: CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o
-=======
-comp345: CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o
-comp345: CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o
-comp345: CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o
 comp345: CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o
->>>>>>> Weilun-A2-part1
+comp345: CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o
 comp345: CMakeFiles/comp345.dir/build.make
 comp345: CMakeFiles/comp345.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable comp345"
