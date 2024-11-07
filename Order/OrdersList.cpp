@@ -57,3 +57,13 @@ std::vector<Order*>& OrdersList::getOrders() {
 size_t OrdersList::getSize() const {
     return orders.size();
 }
+
+// Move an Order to another position
+void OrdersList::move(int firstIndex, int secondIndex) {
+    if (firstIndex >= 0 && firstIndex < static_cast<int>(orders.size()) &&
+        secondIndex >= 0 && secondIndex < static_cast<int>(orders.size())) { //using casting to check the index is valid
+        Order* temp = orders[firstIndex];
+        orders.erase(orders.begin() + firstIndex); // remove order
+        orders.insert(orders.begin() + secondIndex, temp);//insert order
+        }
+}

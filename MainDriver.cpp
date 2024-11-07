@@ -29,7 +29,7 @@ int main() {
         std::cout << "\t\t [1] Game Engine \n"<< std::endl;
         std::cout << "\t\t [2] Map \n"<< std::endl;
         std::cout << "\t\t [3] Player \n"<< std::endl;
-        std::cout << "\t\t [4] OrderList \n"<< std::endl;
+        std::cout << "\t\t [4] Order \n"<< std::endl;
         std::cout << "\t\t [5] Cards \n"<< std::endl;
         std::cout << "\t\t[0] Exit \n"<< std::endl;
         std::cout << "\t _____________________________________________________________ \n"<< std::endl;

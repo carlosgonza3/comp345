@@ -21,6 +21,16 @@ bool DeployOrder::validate() {
     return true;
 }
 
+DeployOrder& DeployOrder::operator=(const DeployOrder& other) {
+    if (this != &other) {
+      units = other.units;
+      targetTerritory = other.targetTerritory;
+      issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
+}
+
+
 std::string DeployOrder::stringToLog() const {
     return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
 }
@@ -81,6 +91,16 @@ void AdvanceOrder::execute() {
     }
 }
 
+AdvanceOrder& AdvanceOrder::operator=(const AdvanceOrder& other) {
+    if (this != &other) {
+        units = other.units;
+        targetTerritory = other.targetTerritory;
+        sourceTerritory = other.sourceTerritory;
+        issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
+}
+
 bool AdvanceOrder::validate() {
     if (sourceTerritory->owner != issuingPlayer) {
         std::cerr << "Invalid Advance Order: Source territory does not belong to issuing player.\n";
@@ -96,6 +116,7 @@ bool AdvanceOrder::validate() {
 std::string AdvanceOrder::stringToLog() const {
     return "Advance Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
+
 
 // AirliftOrder implementation
 void AirliftOrder::execute() {
@@ -114,6 +135,16 @@ bool AirliftOrder::validate() {
     return true;
 }
 
+AirliftOrder& AirliftOrder::operator=(const AirliftOrder& other) {
+    if (this != &other) {
+        sourceTerritory = other.sourceTerritory;
+        targetTerritory = other.targetTerritory;
+        units = other.units;
+        issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
+}
+
 std::string AirliftOrder::stringToLog() const {
     return "Airlift Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
@@ -126,6 +157,15 @@ void BombOrder::execute() {
         std::cout << "Bombed " << targetTerritory->name << ", removing " << unitsRemoved << " units.\n";
     }
 }
+
+BombOrder& BombOrder::operator=(const BombOrder& other) {
+    if (this != &other) {
+      targetTerritory = other.targetTerritory;
+      issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
+}
+
 
 bool BombOrder::validate() {
     if (targetTerritory->owner == issuingPlayer) {
@@ -168,6 +208,14 @@ void BlockadeOrder::execute() {
     }
 }
 
+BlockadeOrder& BlockadeOrder::operator=(const BlockadeOrder& other) {
+    if (this != &other) {
+        targetTerritory = other.targetTerritory;
+        issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
+}
+
 bool BlockadeOrder::validate() {
     if (targetTerritory->owner != issuingPlayer) {
         std::cerr << "Invalid Blockade Order: Target territory does not belong to issuing player.\n";
@@ -187,6 +235,14 @@ void NegotiateOrder::execute() {
         targetPlayer->addNegotiatedPlayer(issuingPlayer);
         std::cout << "Negotiation established between " << issuingPlayer->name << " and " << targetPlayer->name << ".\n";
     }
+}
+
+NegotiateOrder& NegotiateOrder::operator=(const NegotiateOrder& other) {
+    if (this != &other) {
+      targetPlayer = other.targetPlayer;
+      issuingPlayer = other.issuingPlayer;
+    }
+    return *this;
 }
 
 bool NegotiateOrder::validate() {
