@@ -10,7 +10,7 @@ class Territory;
 class Player;
 
 // Abstract Order class
-class Order{
+class Order {
 public:
     virtual void execute() = 0; // Execute the order
     virtual bool validate() = 0; // Validate the order

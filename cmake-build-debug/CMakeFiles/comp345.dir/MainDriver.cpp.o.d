@@ -1,7 +1,7 @@
 CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/MainDriver.cpp \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/CardsDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersDriver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/string \
@@ -989,5 +989,5 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/OrderList/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h

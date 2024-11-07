@@ -3,49 +3,42 @@ project(comp345)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(GameEngine
-                    Cards
-        Order
-                    Player
+include_directories(Cards
+                    CommandProcessing
+                    GameEngine
                     Map
-                    CommandProcessing)
+                    Order
+                    Player)
 
 add_executable(comp345
             MainDriver.cpp
-<<<<<<< HEAD
-            Map/Map.h
-            Map/Map.cpp
-=======
+            Cards/Cards.cpp
+            Cards/Cards.h
+            Cards/CardsDriver.cpp
+            Cards/CardsDriver.h
+            CommandProcessing/CommandProcessing.cpp
+            CommandProcessing/CommandProcessing.h
+            CommandProcessing/CommandProcessingDriver.cpp
             GameEngine/GameEngine.cpp
             GameEngine/GameEngine.h
             GameEngine/GameEngineDriver.cpp
             GameEngine/GameEngineDriver.h
-        Map/Map.cpp
->>>>>>> part4_copy
-            Map/MapDriver.h
-            Map/MapDriver.cpp
-            Map/MapLoader.h
-            Map/MapLoader.cpp
-        Player/PlayerDriver.h
-            Player/PlayerDriver.cpp
-<<<<<<< HEAD
-            OrderList/OrdersList.h
-            OrderList/OrdersList.cpp
-            OrderList/OrdersDriver.h
-            OrderList/OrdersDriver.cpp
-            Cards/CardsDriver.cpp
-            Cards/Cards.h
-            Cards/Cards.cpp
-            Cards/CardsDriver.h
             GameEngine/LoggingObserver.cpp
             GameEngine/LoggingObserver.h
             GameEngine/LoggingObserverDriver.cpp
-            CommandProcessing/CommandProcessingDriver.cpp
-            CommandProcessing/CommandProcessing.cpp
-            CommandProcessing/CommandProcessing.h
-        GameEngine/GameEngineDriver.h)
-=======
-        Cards/CardsDriver.cpp
-        Cards/Cards.cpp
-            Cards/CardsDriver.h)
->>>>>>> part4_copy
+            Map/Map.cpp
+            Map/Map.h
+            Map/MapDriver.cpp
+            Map/MapDriver.h
+            Map/MapLoader.cpp
+            Map/MapLoader.h
+            Order/Orders.cpp
+            Order/Orders.h
+            Order/OrdersDriver.cpp
+            Order/OrdersList.cpp
+            Order/OrdersList.h
+            Player/Player.cpp
+            Player/Player.h
+            Player/PlayerDriver.cpp
+            Player/PlayerDriver.h
+        Order/OrdersDriver.h)

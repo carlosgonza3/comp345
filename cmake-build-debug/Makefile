@@ -225,6 +225,54 @@ CommandProcessing/CommandProcessingDriver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.s
 .PHONY : CommandProcessing/CommandProcessingDriver.cpp.s
 
+GameEngine/GameEngine.o: GameEngine/GameEngine.cpp.o
+.PHONY : GameEngine/GameEngine.o
+
+# target to build an object file
+GameEngine/GameEngine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o
+.PHONY : GameEngine/GameEngine.cpp.o
+
+GameEngine/GameEngine.i: GameEngine/GameEngine.cpp.i
+.PHONY : GameEngine/GameEngine.i
+
+# target to preprocess a source file
+GameEngine/GameEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.i
+.PHONY : GameEngine/GameEngine.cpp.i
+
+GameEngine/GameEngine.s: GameEngine/GameEngine.cpp.s
+.PHONY : GameEngine/GameEngine.s
+
+# target to generate assembly for a file
+GameEngine/GameEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.s
+.PHONY : GameEngine/GameEngine.cpp.s
+
+GameEngine/GameEngineDriver.o: GameEngine/GameEngineDriver.cpp.o
+.PHONY : GameEngine/GameEngineDriver.o
+
+# target to build an object file
+GameEngine/GameEngineDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o
+.PHONY : GameEngine/GameEngineDriver.cpp.o
+
+GameEngine/GameEngineDriver.i: GameEngine/GameEngineDriver.cpp.i
+.PHONY : GameEngine/GameEngineDriver.i
+
+# target to preprocess a source file
+GameEngine/GameEngineDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.i
+.PHONY : GameEngine/GameEngineDriver.cpp.i
+
+GameEngine/GameEngineDriver.s: GameEngine/GameEngineDriver.cpp.s
+.PHONY : GameEngine/GameEngineDriver.s
+
+# target to generate assembly for a file
+GameEngine/GameEngineDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.s
+.PHONY : GameEngine/GameEngineDriver.cpp.s
+
 GameEngine/LoggingObserver.o: GameEngine/LoggingObserver.cpp.o
 .PHONY : GameEngine/LoggingObserver.o
 
@@ -369,53 +417,77 @@ Map/MapLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Map/MapLoader.cpp.s
 .PHONY : Map/MapLoader.cpp.s
 
-OrderList/OrdersDriver.o: OrderList/OrdersDriver.cpp.o
-.PHONY : OrderList/OrdersDriver.o
+Order/Orders.o: Order/Orders.cpp.o
+.PHONY : Order/Orders.o
 
 # target to build an object file
-OrderList/OrdersDriver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.o
-.PHONY : OrderList/OrdersDriver.cpp.o
+Order/Orders.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/Orders.cpp.o
+.PHONY : Order/Orders.cpp.o
 
-OrderList/OrdersDriver.i: OrderList/OrdersDriver.cpp.i
-.PHONY : OrderList/OrdersDriver.i
+Order/Orders.i: Order/Orders.cpp.i
+.PHONY : Order/Orders.i
 
 # target to preprocess a source file
-OrderList/OrdersDriver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.i
-.PHONY : OrderList/OrdersDriver.cpp.i
+Order/Orders.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/Orders.cpp.i
+.PHONY : Order/Orders.cpp.i
 
-OrderList/OrdersDriver.s: OrderList/OrdersDriver.cpp.s
-.PHONY : OrderList/OrdersDriver.s
+Order/Orders.s: Order/Orders.cpp.s
+.PHONY : Order/Orders.s
 
 # target to generate assembly for a file
-OrderList/OrdersDriver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersDriver.cpp.s
-.PHONY : OrderList/OrdersDriver.cpp.s
+Order/Orders.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/Orders.cpp.s
+.PHONY : Order/Orders.cpp.s
 
-OrderList/OrdersList.o: OrderList/OrdersList.cpp.o
-.PHONY : OrderList/OrdersList.o
+Order/OrdersDriver.o: Order/OrdersDriver.cpp.o
+.PHONY : Order/OrdersDriver.o
 
 # target to build an object file
-OrderList/OrdersList.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.o
-.PHONY : OrderList/OrdersList.cpp.o
+Order/OrdersDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o
+.PHONY : Order/OrdersDriver.cpp.o
 
-OrderList/OrdersList.i: OrderList/OrdersList.cpp.i
-.PHONY : OrderList/OrdersList.i
+Order/OrdersDriver.i: Order/OrdersDriver.cpp.i
+.PHONY : Order/OrdersDriver.i
 
 # target to preprocess a source file
-OrderList/OrdersList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.i
-.PHONY : OrderList/OrdersList.cpp.i
+Order/OrdersDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.i
+.PHONY : Order/OrdersDriver.cpp.i
 
-OrderList/OrdersList.s: OrderList/OrdersList.cpp.s
-.PHONY : OrderList/OrdersList.s
+Order/OrdersDriver.s: Order/OrdersDriver.cpp.s
+.PHONY : Order/OrdersDriver.s
 
 # target to generate assembly for a file
-OrderList/OrdersList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/OrderList/OrdersList.cpp.s
-.PHONY : OrderList/OrdersList.cpp.s
+Order/OrdersDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.s
+.PHONY : Order/OrdersDriver.cpp.s
+
+Order/OrdersList.o: Order/OrdersList.cpp.o
+.PHONY : Order/OrdersList.o
+
+# target to build an object file
+Order/OrdersList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersList.cpp.o
+.PHONY : Order/OrdersList.cpp.o
+
+Order/OrdersList.i: Order/OrdersList.cpp.i
+.PHONY : Order/OrdersList.i
+
+# target to preprocess a source file
+Order/OrdersList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersList.cpp.i
+.PHONY : Order/OrdersList.cpp.i
+
+Order/OrdersList.s: Order/OrdersList.cpp.s
+.PHONY : Order/OrdersList.s
+
+# target to generate assembly for a file
+Order/OrdersList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersList.cpp.s
+.PHONY : Order/OrdersList.cpp.s
 
 Player/Player.o: Player/Player.cpp.o
 .PHONY : Player/Player.o
@@ -486,6 +558,12 @@ help:
 	@echo "... CommandProcessing/CommandProcessingDriver.o"
 	@echo "... CommandProcessing/CommandProcessingDriver.i"
 	@echo "... CommandProcessing/CommandProcessingDriver.s"
+	@echo "... GameEngine/GameEngine.o"
+	@echo "... GameEngine/GameEngine.i"
+	@echo "... GameEngine/GameEngine.s"
+	@echo "... GameEngine/GameEngineDriver.o"
+	@echo "... GameEngine/GameEngineDriver.i"
+	@echo "... GameEngine/GameEngineDriver.s"
 	@echo "... GameEngine/LoggingObserver.o"
 	@echo "... GameEngine/LoggingObserver.i"
 	@echo "... GameEngine/LoggingObserver.s"
@@ -504,12 +582,15 @@ help:
 	@echo "... Map/MapLoader.o"
 	@echo "... Map/MapLoader.i"
 	@echo "... Map/MapLoader.s"
-	@echo "... OrderList/OrdersDriver.o"
-	@echo "... OrderList/OrdersDriver.i"
-	@echo "... OrderList/OrdersDriver.s"
-	@echo "... OrderList/OrdersList.o"
-	@echo "... OrderList/OrdersList.i"
-	@echo "... OrderList/OrdersList.s"
+	@echo "... Order/Orders.o"
+	@echo "... Order/Orders.i"
+	@echo "... Order/Orders.s"
+	@echo "... Order/OrdersDriver.o"
+	@echo "... Order/OrdersDriver.i"
+	@echo "... Order/OrdersDriver.s"
+	@echo "... Order/OrdersList.o"
+	@echo "... Order/OrdersList.i"
+	@echo "... Order/OrdersList.s"
 	@echo "... Player/Player.o"
 	@echo "... Player/Player.i"
 	@echo "... Player/Player.s"
