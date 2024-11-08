@@ -5,7 +5,7 @@
 #include <cstddef> // Include for size_t
 #include "Orders.h" // Include Orders.h to fully declare Order
 
-class OrdersList {
+class OrdersList : public Subject, public ILoggable {
 public:
     OrdersList();                             // Constructor
     OrdersList(const OrdersList& other);      // Copy constructor
@@ -20,6 +20,8 @@ public:
     size_t getSize() const;
     void move(int firstIndex, int secondIndex);
     void printOrders();
+
+    std::string stringToLog() override;
 
 private:
     std::vector<Order*> orders;               // Vector to hold orders

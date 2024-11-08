@@ -10,7 +10,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///Command class represents the user command and its effect
-class Command{
+///
+class Command : public Subject, public ILoggable{
 
     public:
         // Constructor
@@ -21,7 +22,6 @@ class Command{
         Command(const Command& other);
         // Assignment operator
         Command& operator=(const Command& other);
-
         //Stream operator to output command and effect
         friend std::ostream& operator<<(std::ostream& os, const Command& com);
         // Method to set the effect of the command
@@ -29,7 +29,7 @@ class Command{
         // Getter for the command's effect and name
         const std::string& getEffect() const;
         const std::string& getCommandName() const;
-
+        std::string stringToLog() override;
     private:
         //Command and its effect
         //and using shared pointers for memory management
@@ -38,44 +38,45 @@ class Command{
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Base class for processing commands from different input sources
-class CommandProcessor {
-public:
-    CommandProcessor();
-    
-     //Virtual destructor for proper cleanup in derived classes
-    virtual ~CommandProcessor();
-    //Method to read a command, can be overridden by derived classe
-    virtual void readCommand();
-    //Removes the first command in the list
-    std::shared_ptr<Command> getCommand();
-    //validates a command based on the current state
-    virtual void Validate(std::string* currentState, Command* com);
+/// Base class for processing commands from different input sources
+///
+class CommandProcessor : public Subject, public ILoggable {
+    public:
+        CommandProcessor();
+         //Virtual destructor for proper cleanup in derived classes
+        virtual ~CommandProcessor();
+        //Method to read a command, can be overridden by derived classe
+        virtual void readCommand();
 
+        //Removes the first command in the list
+        std::shared_ptr<Command> getCommand();
+        //validates a command based on the current state
+        virtual void Validate(std::string* currentState, Command* com);
+        std::string stringToLog() override;
     protected:
-    //Store the command into the command list
-    void saveCommand(const std::string& command);
-    //List of commands processed
-    std::vector<std::shared_ptr<Command>> commandList;
+        //Store the command into the command list
+        void saveCommand(const std::string& command);
+        //List of commands processed
+        std::vector<std::shared_ptr<Command>> commandList;
 };
-//Derived class to read the commands from a file
-class FileCommandProcessorAdapter : public CommandProcessor {
-public:
-    //Constructor
-    FileCommandProcessorAdapter(const std::string& filename);
-    
-    // Destructor
-    ~FileCommandProcessorAdapter() override;
-//Override readCommand 
-    void readCommand() override;
-    void readCommands();
-    //Override Validate to validate commands based on current state
-    void Validate(std::string* curtState, Command* com) override;
 
-private:
-    //to read commands from file
-    std::ifstream fileStream;
-    size_t currentCommandIndex;//tracking current command being processed
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// File Command Processor Adapter declaration
+///
+class FileCommandProcessorAdapter : public CommandProcessor {
+    public:
+        //Constructor
+        FileCommandProcessorAdapter(const std::string& filename);
+        // Destructor
+        ~FileCommandProcessorAdapter() override;
+        //Override readCommand
+        void readCommands();
+        //Override Validate to validate commands based on current state
+        void Validate(std::string* curtState, Command* com) override;
+    private:
+        //to read commands from file
+        std::ifstream fileStream;
+        size_t currentCommandIndex;//tracking current command being processed
 };
 
 #endif // COMMANDPROCESSING_H

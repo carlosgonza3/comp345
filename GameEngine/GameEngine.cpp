@@ -22,6 +22,7 @@ std::string getUserInput(std::string& output) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Game Engine Class Methods
 GameEngine::GameEngine() {
+    this->attach(new LogObserver);
     currentState = nullptr;
 }
 
@@ -108,7 +109,6 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
     // Check if command matches any valid transition
     if (validCommands.find(cmd) != validCommands.end() && validCommands[cmd] == currentState->getState()) {
         std::cout << "\tCommand valid: " << cmd << "\n";
-
         // Transition to the new state based on command
         if (cmd == "loadmap") {
             currentState = new MapLoadedState();  // Change to MapLoaded state
@@ -124,11 +124,13 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
             std::cout << "\tQuitting game.\n";
             exit(0);  // Exit the program
         }
-
+        notify(this);
         return true;  // Command was valid and state was updated
     }
 
     std::cout << "\tCommand invalid: " << cmd << "\n";
+    notify(this);
+
     return false;  // Command was invalid, state not updated
 }
 
@@ -140,6 +142,12 @@ void GameEngine::initializeStateTransitions() {
     stateTransitions["playersadded"] = {"gamestart"};
     stateTransitions["win"] = {"replay", "quit"};
 }
+
+std::string GameEngine::stringToLog() {
+    return "GameEngine state transitioned to: " + currentState->getState();
+}
+
+
 //____________________________________________________________
 
 // Following implementations, have been fully documented in the header file GameEngine.h ...
@@ -542,6 +550,7 @@ bool StartState::runState()  {
 
 State* StartState::requestTransition(std::string& command) {
         if (command == "loadmap") {
+
             return new MapLoadedState();
         } else {
             return nullptr;

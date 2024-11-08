@@ -1,7 +1,5 @@
 #include "CommandProcessing.h"
-#include <filesystem>
 #include <string>
-
 
 //test function to ask user choose console or a txt file.
 void testCommandProcessor() {
@@ -12,6 +10,8 @@ void testCommandProcessor() {
     std::cout << "Enter 1 or 2: ";
     std::cin >> choice;
 
+    std::string currentState = "Start"; // Initial state for validation
+
     if (choice == 1) {
         // Console command processor
         CommandProcessor consoleProcessor;
@@ -19,8 +19,8 @@ void testCommandProcessor() {
         std::cout << "Please enter a command." << std::endl;
         
         // Ask user for a command input in the console
-        std::cin.ignore(); 
-        consoleProcessor.readCommand();  // read the user's input
+        std::cin.ignore();  // Clear input buffer
+        consoleProcessor.readCommand();  // Read the user's input
 
         auto command = consoleProcessor.getCommand();
         if (command) {

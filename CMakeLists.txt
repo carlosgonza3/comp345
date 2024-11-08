@@ -41,4 +41,5 @@ add_executable(comp345
             Player/Player.h
             Player/PlayerDriver.cpp
             Player/PlayerDriver.h
-        CommandProcessing/CommandProcessingDriver.h)
+        CommandProcessing/CommandProcessingDriver.h
+        GameEngine/LoggingObserverDriver.h)

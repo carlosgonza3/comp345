@@ -2,7 +2,9 @@
 #include <algorithm> // For std::remove
 
 // Constructor
-OrdersList::OrdersList() {}
+OrdersList::OrdersList() {
+    this->attach(new LogObserver);
+}
 
 // Copy constructor
 OrdersList::OrdersList(const OrdersList& other) {
@@ -10,6 +12,7 @@ OrdersList::OrdersList(const OrdersList& other) {
     for (Order* order : other.orders) {
         orders.push_back(order);
     }
+    this->attach(new LogObserver);
 }
 
 // Assignment operator
@@ -35,11 +38,19 @@ OrdersList::~OrdersList() {
     for (Order* order : orders) {
         delete order;
     }
+    this->orders.clear();
 }
 
 // Add an order to the list
 void OrdersList::addOrder(Order* order) {
     orders.push_back(order);
+    notify(this);
+}
+
+std::string OrdersList::stringToLog() {
+    std::string out = "Order added to list: ";
+    out.append(orders.back()->stringToOut());
+    return out;
 }
 
 // Remove an order from the list and free its memory

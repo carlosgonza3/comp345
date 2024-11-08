@@ -166,7 +166,8 @@
 				24,
 				26,
 				28,
-				29
+				29,
+				30
 			]
 		}
 	],
@@ -336,6 +337,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "CommandProcessing/CommandProcessingDriver.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "GameEngine/LoggingObserverDriver.h",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -11,21 +11,36 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Subject Class Implementation
+///
 
-void Subject::attach(Observer* observer) {
-    m_observers.push_back(observer);
-}
-
-void Subject::detach(Observer* observer) {
-    for (int i = 0; i < m_observers.size(); i++) {
-        if (m_observers[i] == observer) {
-            m_observers.erase(m_observers.begin() + i);
-        }
+// Default Constructor
+    Subject::Subject() {
+        m_observers = new std::list<Observer *>();
     }
+
+// Attaches a new Observer to notify
+    void Subject::attach(Observer* observer) {
+        m_observers->push_back(observer);
 }
 
-void Subject::notify(ILoggable* loggable) {
-    for (auto & m_observer : m_observers) {
+// Detaches a new Observer to notify
+    void Subject::detach(Observer* observer) {
+    m_observers->remove(observer);
+    delete observer;
+}
+
+// Clears all list with observers
+    void Subject::clear() {
+        for (int i = 0; i < m_observers->size(); i++) {
+             m_observers[i].pop_back();
+        }
+        m_observers->clear();
+        m_observers = nullptr;
+    }
+
+// Notifies all attached Observers
+    void Subject::notify(ILoggable* loggable) {
+    for (auto & m_observer : *m_observers) {
         m_observer->update(loggable);
     }
 }
@@ -33,7 +48,8 @@ void Subject::notify(ILoggable* loggable) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Log Observer Class Implementation
 
-LogObserver::LogObserver() {
+// Default Constructor (Opens _logFile)
+    LogObserver::LogObserver() {
     _logFile.open(LOG_FILE, std::ios::app);
     if (_logFile.fail()) {
         std::cerr << "[!] -> Error opening log file..." << std::endl;
@@ -41,14 +57,17 @@ LogObserver::LogObserver() {
     }
 }
 
-LogObserver::~LogObserver() {
+// Deconstructor
+    LogObserver::~LogObserver() {
     _logFile.close();
 }
 
-void LogObserver::update(ILoggable* loggable) {
-    std::cout <<"Logging observer updated" << std::endl;
-    _logFile << loggable->stringToLog() << std::endl;
-}
+// Updates behaviour when notified by Subject
+    void LogObserver::update(ILoggable* loggable) {
+        _logFile << loggable->stringToLog() << std::endl;
+        std::cout <<"Log observer updated!" << std::endl;
+        _logFile.flush();
+    }
 
 
 

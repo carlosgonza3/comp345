@@ -5,125 +5,131 @@
 #include <vector>
 #include <iostream>
 
+#include "LoggingObserver.h"
+
 // Forward declarations
 class Territory;
 class Player;
 
-// Abstract Order class
-class Order {
-public:
-    virtual void execute() = 0; // Execute the order
-    virtual bool validate() = 0; // Validate the order
-    virtual std::string stringToLog() const = 0; // Logging
-    friend std::ostream& operator<<(std::ostream& out, const Order& order);
-    virtual ~Order() = default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Order declaration
+///
+class Order : public Subject, public ILoggable {
+    public:
+        virtual void execute() = 0; // Execute the order
+        virtual bool validate() = 0; // Validate the order
+        friend std::ostream& operator<<(std::ostream& out, const Order& order);
+        virtual ~Order() = default;
+        virtual std::string stringToOut() const = 0;
+
 };
 
-// Deploy Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Deploy Order declaration
+///
 class DeployOrder : public Order {
-public:
-    DeployOrder();
-    DeployOrder(int units, Territory* target, Player* player)
-        : units(units), targetTerritory(target), issuingPlayer(player) {}
-    DeployOrder& operator=(const DeployOrder& other);
-    void execute() override;
-    bool validate() override;
-    std::string stringToLog() const override;
-
-private:
-    int units;
-    Territory* targetTerritory;
-    Player* issuingPlayer;
+    public:
+        DeployOrder();
+        DeployOrder(int units, Territory* target, Player* player);
+        DeployOrder& operator=(const DeployOrder& other);
+        void execute() override;
+        bool validate() override;
+        std::string stringToOut() const override ;
+        std::string stringToLog() override;
+    private:
+        int units;
+        Territory* targetTerritory;
+        Player* issuingPlayer;
 };
 
-// Advance Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Advance Order declaration
+///
 class AdvanceOrder : public Order {
-public:
-    AdvanceOrder();
-    AdvanceOrder(int units, Territory* source, Territory* target, Player* player)
-        : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {}
-
-    void execute() override;
-    bool validate() override;
-    AdvanceOrder& operator=(const AdvanceOrder& other);  // Assignment Operator
-    std::string stringToLog() const override;
-
-private:
-    int units;
-    Territory* sourceTerritory;
-    Territory* targetTerritory;
-    Player* issuingPlayer;
+    public:
+        AdvanceOrder();
+        AdvanceOrder(int units, Territory* source, Territory* target, Player* player);
+        void execute() override;
+        bool validate() override;
+        AdvanceOrder& operator=(const AdvanceOrder& other);
+        std::string stringToOut() const override;
+        std::string stringToLog() override;
+    private:
+        int units;
+        Territory* sourceTerritory;
+        Territory* targetTerritory;
+        Player* issuingPlayer;
 };
 
-// Airlift Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Airlift Order class
+///
 class AirliftOrder : public Order {
-public:
-    AirliftOrder();
-    AirliftOrder(int units, Territory* source, Territory* target, Player* player)
-        : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {}
-
-
-    AirliftOrder& operator=(const AirliftOrder& other);  // Assignment Operator
-    void execute() override;
-    bool validate() override;
-    std::string stringToLog() const override;
-
-private:
-    int units;
-    Territory* sourceTerritory;
-    Territory* targetTerritory;
-    Player* issuingPlayer;
+    public:
+        AirliftOrder();
+        AirliftOrder(int units, Territory* source, Territory* target, Player* player);
+        AirliftOrder& operator=(const AirliftOrder& other);
+        void execute() override;
+        bool validate() override;
+        std::string stringToOut() const override;
+        std::string stringToLog() override;
+    private:
+        int units;
+        Territory* sourceTerritory;
+        Territory* targetTerritory;
+        Player* issuingPlayer;
 };
 
-// Bomb Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Bomb Order class
+///
 class BombOrder : public Order {
-public:
-    BombOrder();
-    BombOrder(Territory* target, Player* player)
-        : targetTerritory(target), issuingPlayer(player) {}
+    public:
+        BombOrder();
+        BombOrder(Territory* target, Player* player);
+        BombOrder& operator=(const BombOrder& other);
+        void execute() override;
+        bool validate() override;
+        std::string stringToOut() const override;
+        std::string stringToLog() override;
 
-    BombOrder& operator=(const BombOrder& other);  // Assignment Operator
-    void execute() override;
-    bool validate() override;
-    std::string stringToLog() const override;
+    private:
+        Territory* targetTerritory;
+        Player* issuingPlayer;
+    };
 
-private:
-    Territory* targetTerritory;
-    Player* issuingPlayer;
-};
-
-// Blockade Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Block Order class
+///
 class BlockadeOrder : public Order {
-public:
-    BlockadeOrder();
-    BlockadeOrder(Territory* target, Player* player)
-        : targetTerritory(target), issuingPlayer(player) {}
-
-    BlockadeOrder& operator=(const BlockadeOrder& other);  // Assignment Operator
-    void execute() override;
-    bool validate() override;
-    std::string stringToLog() const override;
-
-private:
-    Territory* targetTerritory;
-    Player* issuingPlayer;
+    public:
+        BlockadeOrder();
+        BlockadeOrder(Territory* target, Player* player);
+        BlockadeOrder& operator=(const BlockadeOrder& other);
+        void execute() override;
+        bool validate() override;
+        std::string stringToOut() const override;
+        std::string stringToLog() override;
+    private:
+        Territory* targetTerritory;
+        Player* issuingPlayer;
 };
 
-// Negotiate Order class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Negotiate Order class
+///
 class NegotiateOrder : public Order {
-public:
-    NegotiateOrder();
-    NegotiateOrder(Player* target, Player* player)
-        : targetPlayer(target), issuingPlayer(player) {}
-
-    NegotiateOrder& operator=(const NegotiateOrder& other);  // Assignment Operator
-    void execute() override;
-    bool validate() override;
-    std::string stringToLog() const override;
-
-private:
-    Player* targetPlayer;
-    Player* issuingPlayer;
+    public:
+        NegotiateOrder();
+        NegotiateOrder(Player* target, Player* player);
+        NegotiateOrder& operator=(const NegotiateOrder& other);
+        void execute() override;
+        bool validate() override;
+        std::string stringToOut() const override;
+        std::string stringToLog() override;
+    private:
+        Player* targetPlayer;
+        Player* issuingPlayer;
 };
 
 #endif

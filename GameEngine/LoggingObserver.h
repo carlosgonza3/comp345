@@ -6,54 +6,49 @@
 #define LOGGINGOBSERVER_H
 
 #include <fstream>
+#include <list>
 #include <vector>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// ILoggable Interface
-
-class ILoggable
-{
-public:
-    virtual ~ILoggable() = default;
-    virtual std::string stringToLog() = 0;
+class ILoggable {
+    public:
+        virtual ~ILoggable() = default;
+        virtual std::string stringToLog() = 0;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Observer Interface
-class Observer
-{
-public:
-    virtual ~Observer() = default;
-    virtual void update(ILoggable* loggable) = 0;
+class Observer {
+    public:
+        virtual ~Observer() = default;
+        virtual void update(ILoggable* loggable) = 0;
 
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Subject Class
-class Subject
-{
-private:
-    std::vector<Observer*> m_observers;
-
-public:
-    virtual ~Subject() = default;
-    void attach(Observer* observer);
-    void detach(Observer* observer);
-    void notify(ILoggable* loggable);
-
+class Subject {
+    public:
+        Subject();
+        virtual ~Subject() = default;
+        void attach(Observer* observer);
+        void detach(Observer* observer);
+        void clear();
+        void notify(ILoggable* loggable);
+    private:
+        std::list<Observer*> *m_observers;
 };
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Log Observer Class
-class LogObserver : public Observer
-{
-    std::ofstream _logFile;
+class LogObserver : public Observer {
+    public:
+        LogObserver();
+        ~LogObserver() override;
+        void update(ILoggable* loggable) override;
+        std::ofstream _logFile;
 
-public:
-    LogObserver();
-    ~LogObserver() override;
-    void update(ILoggable* loggable) override;
 };
 
 #endif //LOGGINGOBSERVER_H

@@ -3,12 +3,28 @@
 //
 
 
+#include "CommandProcessing.h"
+#include "GameEngine.h"
 #include "LoggingObserver.h"
+#include "Orders.h"
+#include "OrdersList.h"
 
 void testLoggingObserver() {
 
     LogObserver logger;
 
-    // Missing Implementation with updated parts for
+    GameEngine* gameEngine = new GameEngine();
+
+    gameEngine->setCurrentState(new StartState());
+
+    gameEngine->printCurrentState();
+
+    gameEngine->initializeStateTransitions();
+
+    gameEngine->checkCommandValid("loadmap <mapfile>");
+
+
+
+
 
 }
