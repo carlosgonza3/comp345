@@ -42,7 +42,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
     void addCardIntoHand();             //Method that will add a card to the hand by calling draw card from deck class.
     void playCard(int index, OrdersList* ptrToList);    // playCard method that will 
-    
+    int getHandSize();
 private:
     //ArrayList of cards 
     std::vector<Card*> cards_in_hand; 

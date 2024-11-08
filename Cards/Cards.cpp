@@ -205,3 +205,7 @@ void Hand::playCard(int cardIndex, OrdersList* ptrToList){  //Method plays the c
     sharedDeck->returnToDeck(cardPtr);         //Return card to deck.
 }
 
+int Hand::getHandSize(){
+    return cards_in_hand.size();
+}
+

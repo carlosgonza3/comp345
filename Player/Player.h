@@ -22,12 +22,13 @@ public:
     void addAttackTerritory(Territory* territory);
     std::vector<Territory*>& toDefend();
     std::vector<Territory*>& toAttack();
-    void issueOrder(Order* order); // Issue an order
+    void issueOrder(int number); // Issue an order
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);
 	void drawCard();
-	void printTerritories();
+    void printTerritoriesToAttack();
+	void printTerritoriesToDefend();
     void printOrders();
 	void setReinforcementPool(int numOfReinforcement);
 	Hand* Hand1; // Player's deck

@@ -90,6 +90,9 @@ class GameEngine : public Subject, public ILoggable {
         void startupPhase();
 
         std::string stringToLog() override;
+
+        void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
+        void issueOrdersPhase(std::vector<Player*>& players);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
