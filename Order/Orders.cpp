@@ -6,6 +6,9 @@
 #include <random>
 
 // DeployOrder implementation
+DeployOrder::DeployOrder(){
+    //Default Const.
+}
 void DeployOrder::execute() {
     if (validate()) {
         targetTerritory->army += units;
@@ -33,6 +36,10 @@ DeployOrder& DeployOrder::operator=(const DeployOrder& other) {
 
 std::string DeployOrder::stringToLog() const {
     return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
+}
+
+AdvanceOrder::AdvanceOrder(){
+    //Default Const.
 }
 
 // AdvanceOrder implementation
@@ -117,7 +124,9 @@ std::string AdvanceOrder::stringToLog() const {
     return "Advance Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
 
-
+AirliftOrder::AirliftOrder(){
+    //Default constructor
+}
 // AirliftOrder implementation
 void AirliftOrder::execute() {
     if (validate()) {
@@ -150,6 +159,10 @@ std::string AirliftOrder::stringToLog() const {
 }
 
 // BombOrder implementation
+
+BombOrder::BombOrder(){
+    //Default constructor
+}
 void BombOrder::execute() {
     if (validate()) {
         int unitsRemoved = targetTerritory->army / 2;
@@ -195,6 +208,11 @@ std::string BombOrder::stringToLog() const {
 }
 
 // BlockadeOrder implementation
+
+BlockadeOrder::BlockadeOrder(){
+    //Default Constructor
+}
+
 void BlockadeOrder::execute() {
     if (validate()) {
         targetTerritory->army *= 2;
@@ -229,6 +247,9 @@ std::string BlockadeOrder::stringToLog() const {
 }
 
 // NegotiateOrder implementation
+NegotiateOrder::NegotiateOrder(){
+    //Default constructor
+}
 void NegotiateOrder::execute() {
     if (validate()) {
         issuingPlayer->addNegotiatedPlayer(targetPlayer);

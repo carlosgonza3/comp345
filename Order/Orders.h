@@ -22,6 +22,7 @@ public:
 // Deploy Order class
 class DeployOrder : public Order {
 public:
+    DeployOrder();
     DeployOrder(int units, Territory* target, Player* player)
         : units(units), targetTerritory(target), issuingPlayer(player) {}
     DeployOrder& operator=(const DeployOrder& other);
@@ -38,6 +39,7 @@ private:
 // Advance Order class
 class AdvanceOrder : public Order {
 public:
+    AdvanceOrder();
     AdvanceOrder(int units, Territory* source, Territory* target, Player* player)
         : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {}
 
@@ -56,6 +58,7 @@ private:
 // Airlift Order class
 class AirliftOrder : public Order {
 public:
+    AirliftOrder();
     AirliftOrder(int units, Territory* source, Territory* target, Player* player)
         : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {}
 
@@ -75,6 +78,7 @@ private:
 // Bomb Order class
 class BombOrder : public Order {
 public:
+    BombOrder();
     BombOrder(Territory* target, Player* player)
         : targetTerritory(target), issuingPlayer(player) {}
 
@@ -91,6 +95,7 @@ private:
 // Blockade Order class
 class BlockadeOrder : public Order {
 public:
+    BlockadeOrder();
     BlockadeOrder(Territory* target, Player* player)
         : targetTerritory(target), issuingPlayer(player) {}
 
@@ -107,6 +112,7 @@ private:
 // Negotiate Order class
 class NegotiateOrder : public Order {
 public:
+    NegotiateOrder();
     NegotiateOrder(Player* target, Player* player)
         : targetPlayer(target), issuingPlayer(player) {}
 
