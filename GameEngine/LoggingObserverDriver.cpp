@@ -21,7 +21,10 @@ void testLoggingObserver() {
 
     gameEngine->initializeStateTransitions();
 
-    gameEngine->checkCommandValid("loadmap <mapfile>");
+    gameEngine->checkCommandValid("loadmap");
+
+    gameEngine->checkCommandValid("validatemap");
+
 
 
 

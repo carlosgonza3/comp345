@@ -3984,7 +3984,6 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: /Users/carlosgonzalez/Develo
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/PlayerDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h
 
@@ -16339,8 +16338,6 @@ CMakeFiles/comp345.dir/Player/PlayerDriver.cpp.o: /Users/carlosgonzalez/Develope
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__type_traits/is_copy_constructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__type_traits/is_const.h:
-
-/Users/carlosgonzalez/Developer/GitHub/comp345/Player/PlayerDriver.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__bit/bit_ceil.h:
 

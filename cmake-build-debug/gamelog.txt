@@ -1,3 +1,5 @@
-
-Order added to list: Deploy Order: 10 units to 
-GameEngine state transitioned to: Start State
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
