@@ -3,11 +3,11 @@
 #include "CommandProcessing/CommandProcessingDriver.h"
 
 // For testOrderExecution
-#include "OrdersDriver.h"
+#include "../Order/OrdersDriver.h"
 
 // For testLoggingObserver
-#include "LoggingObserver.h"
-#include "LoggingObserverDriver.h"
+#include "../GameEngine/LoggingObserver.h"
+#include "../GameEngine/LoggingObserverDriver.h"
 
 
 
@@ -27,6 +27,6 @@ int main() {
    //testOrderExecution();
 
     //missing part 2
-    //missing part 3
+    //missing part 
     return 0;
 }
