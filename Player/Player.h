@@ -31,14 +31,19 @@ public:
 	void printTerritoriesToDefend();
     void printOrders();
 	void setReinforcementPool(int numOfReinforcement);
+    int getReinforcementPool();
 	Hand* Hand1; // Player's deck
 	int reinforcementPool;
+    bool hasIssuedAllOrders();
+    void setIssuedAllOrders(bool value);
+    
 
 private:
     std::vector<Territory*> defendTerritories; // Defend territories
     std::vector<Territory*> attackTerritories; // Attack territories
     OrdersList* orders; // Player's orders
     std::vector<Player*> negotiatedPlayers; // Players this player has negotiated with
+    bool issuedAllOrders = false; // To see if player still wants to issue orders
 };
 
 #endif

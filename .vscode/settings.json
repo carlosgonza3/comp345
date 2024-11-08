@@ -68,6 +68,7 @@
         "sstream": "cpp",
         "variant": "cpp",
         "map": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "list": "cpp"
     }
 }

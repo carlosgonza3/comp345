@@ -13,7 +13,7 @@ public:
     Card& operator=(const Card& other); //Assignment operator
     ~Card();                            //Destructor
     friend std::ostream& operator<<(std::ostream& os, const Card& card); //Stream insert. op
-    void play(OrdersList* ptrToList); //Also takes in a pointer to a deck object so it appends to the deck
+    void play(OrdersList* ptrToList, Player* issuingPlayer); //Also takes in a pointer to a deck object so it appends to the deck
     std::string getCardType();          //Getter
 private:
     std::string * cardType;
@@ -41,7 +41,7 @@ public:
     ~Hand();                            // Destructor
     friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
     void addCardIntoHand();             //Method that will add a card to the hand by calling draw card from deck class.
-    void playCard(int index, OrdersList* ptrToList);    // playCard method that will 
+    void playCard(int index, OrdersList* ptrToList, Player* issuingPlayer);    // playCard method that will 
     int getHandSize();
 private:
     //ArrayList of cards 

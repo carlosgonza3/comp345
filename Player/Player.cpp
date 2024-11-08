@@ -217,3 +217,15 @@ void Player::printOrders(){
 void Player::drawCard(){
     Hand1->addCardIntoHand();
 }
+
+bool Player::hasIssuedAllOrders() {
+    return issuedAllOrders;  // Check if player has finished issuing orders
+}
+
+void Player::setIssuedAllOrders(bool value) {
+    issuedAllOrders = value;    
+}
+
+int Player::getReinforcementPool(){
+    return reinforcementPool;
+}
