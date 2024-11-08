@@ -9,36 +9,29 @@
     }
 
 // Copy constructor to copy command objects
-    Command::Command(const Command& other) : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {
-        this->attach(new LogObserver);
+Command::Command(const Command& other)
+    : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {}
+//Assignment operator to copy the command objects
+Command& Command::operator=(const Command& other) {
+    if (this != &other) {
+        *command = *other.command;
+        *effect = *other.effect;
     }
+    return *this;
+}
 
-// Assignment operator to copy the command objects
-    Command& Command::operator=(const Command& other) {
-        if (this != &other) {
-            *command = *other.command;
-            *effect = *other.effect;
-        }
-        return *this;
-    }
-
-// Destructor for Command
-    Command::~Command() {
-        this->clear();
-    }
-
-// Overloaded the operator for outputting Command information
-    std::ostream& operator<<(std::ostream& os, const Command& com) {
-        os << "Command: " << *com.command << ", Effect: " << *com.effect;
-        return os;
-    }
-
-// Sets the effect description of the command
-    void Command::saveEffect(const std::string& effect) {
-        *this->effect = effect;
-        notify(this);
-
-    }
+//Destructor for Command
+Command::~Command() {
+}
+//Overloaded the operator for outputting Command information
+std::ostream& operator<<(std::ostream& os, const Command& com) {
+    os << "Command: " << *com.command << ", Effect: " << *com.effect;
+    return os;
+}
+//Sets the effect description of the command
+void Command::saveEffect(const std::string& effect) {
+    *this->effect = effect;
+}
 
 // Returns the effect of the command
     const std::string& Command::getEffect() const {
@@ -120,7 +113,7 @@
         if (*currentState == "maploaded") {
             com->saveEffect("true");
             saveCommand(commandName);
-            *currentState = "MapValidated";
+            *currentState = "MapValidated";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
             validCommand = true;
         }
@@ -130,7 +123,7 @@
         if (*currentState == "MapValidated" || *currentState == "PlayersAdded") {
             com->saveEffect("true");
             saveCommand(commandName);
-            *currentState = "PlayersAdded";
+            *currentState = "PlayersAdded";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
             validCommand = true;
         }
@@ -140,7 +133,7 @@
         if (*currentState == "PlayersAdded") {
             com->saveEffect("true");
             saveCommand(commandName);
-            *currentState = "assignreinforcement";
+            *currentState = "assignreinforcement";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
             validCommand = true;
         }
@@ -150,10 +143,9 @@
         if (*currentState == "Win") {
             com->saveEffect("true");
             saveCommand(commandName);
-            *currentState = "Start";
+            *currentState = "Start";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -163,40 +155,28 @@
             saveCommand(commandName);
             *currentState = "exit program";
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
+    // Check if the command is invalid
     if (!validCommand) {
         std::cout << "Invalid command." << std::endl;
     }
-
-
 }
 
-// String to print to log, inherited from ILoggable interface
-    std::string CommandProcessor::stringToLog() {
-        std::string output = "Command saved: ";
-        output.append(commandList.back()->getCommandName());
-        return output;
+//FileCommandProcessorAdapter methods
+//Constructor for FileCommandProcessorAdapter, 
+//it opens file and reads commands
+FileCommandProcessorAdapter::FileCommandProcessorAdapter(const std::string& filename)
+    : currentCommandIndex(0) {
+    fileStream.open(filename);
+    if (!fileStream) {
+        std::cerr << "Unable to open file: " << filename << std::endl;
+    } else {
+        readCommands();
     }
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// File Command Processor Adapter Implementation
-///
-
-// Constructor for FileCommandProcessorAdapter,
-// it opens file and reads commands
-    FileCommandProcessorAdapter::FileCommandProcessorAdapter(const std::string& filename) : currentCommandIndex(0) {
-        fileStream.open(filename);
-        if (!fileStream) {
-            std::cerr << "Unable to open file: " << filename << std::endl;
-        } else {
-            readCommands();
-        }
-    }
+}
 
 // Destructor for FileCommandProcessorAdapter
 // lose file if open
@@ -284,9 +264,10 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
         }
     }
 
-        if (!validCommand) {
-            std::cout << "Invalid command." << std::endl;
-        }
+    // Check if the command is invalid
+    if (!validCommand) {
+        std::cout << "Invalid command." << std::endl;
+    }
 }
 
 ///

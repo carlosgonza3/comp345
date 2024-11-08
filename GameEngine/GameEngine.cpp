@@ -1,13 +1,7 @@
-//
-// Created by Carlos Gonzalez on 2024-09-26.
-//
 
 #include "GameEngine.h"
 #include "string"
-#include <vector>
-#include <random>
-#include <algorithm>
-#include "../Player/PlayerDriver.h"
+#include <Vector>
 #include <map>
 
 // displays output given and prompts the user for a string, then it returns the user's input
@@ -109,6 +103,7 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
     // Check if command matches any valid transition
     if (validCommands.find(cmd) != validCommands.end() && validCommands[cmd] == currentState->getState()) {
         std::cout << "\tCommand valid: " << cmd << "\n";
+
         // Transition to the new state based on command
         if (cmd == "loadmap") {
             currentState = new MapLoadedState();  // Change to MapLoaded state

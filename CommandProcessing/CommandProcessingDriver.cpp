@@ -1,7 +1,5 @@
 #include "CommandProcessing.h"
-#include <string>
 
-//test function to ask user choose console or a txt file.
 void testCommandProcessor() {
     int choice;
     std::cout << "Please choose the command input method:" << std::endl;
@@ -17,17 +15,19 @@ void testCommandProcessor() {
         CommandProcessor consoleProcessor;
         std::cout << "Console Command Processor:" << std::endl;
         std::cout << "Please enter a command." << std::endl;
-        
-        // Ask user for a command input in the console
+
         std::cin.ignore();  // Clear input buffer
         consoleProcessor.readCommand();  // Read the user's input
 
         auto command = consoleProcessor.getCommand();
         if (command) {
             std::cout << "Command: " << command->getCommandName() << std::endl;
-            command->saveEffect("Command executed successfully");
+            std::cout << "Current Status is: " << currentState << std::endl;
             std::cout << "Effect: " << command->getEffect() << std::endl;
+            // Validate the command based on the current state
+            consoleProcessor.Validate(&currentState, command.get()); // Validate command
         }
+
     } else if (choice == 2) {
         std::cout << "Enter an Absolute file path: ";
         std::string fileName;
@@ -38,11 +38,17 @@ void testCommandProcessor() {
 
         while (auto fileCommand = fileProcessor.getCommand()) {
             std::cout << "File Command: " << fileCommand->getCommandName() << std::endl;
+            fileProcessor.Validate(&currentState, fileCommand.get()); // Validate command
             fileCommand->saveEffect("Command executed successfully from file");
             std::cout << "Effect: " << fileCommand->getEffect() << std::endl;
         }
+
     } else {
         std::cout << "Invalid choice, please run the program again and choose a valid option." << std::endl;
     }
 }
 
+int main() {
+    testCommandProcessor();
+    return 0;
+}
