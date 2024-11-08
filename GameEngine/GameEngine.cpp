@@ -82,14 +82,14 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
 
     // Define valid transitions for each state
     std::map<std::string, std::string> validCommands = {
-        {"loadmap", "start"},
-        {"loadmap", "maploaded"},
-        {"validatemap", "maploaded"},
-        {"addplayer", "mapvalidated"},
-        {"addplayer", "playersadded"},
-        {"gamestart", "playersadded"},
-        {"replay", "win"},
-        {"quit", "win"}
+        {"loadmap", "Start State"},
+        {"loadmap", "Map Loaded State"},
+        {"validatemap", "Map Loaded State"},
+        {"addplayer", "Map Validated State"},
+        {"addplayer", "Players Added State"},
+        {"gamestart", "Players Added State"},
+        {"replay", "Win State"},
+        {"quit", "Win State"}
     };
 
     // Output available transitions for the current state
