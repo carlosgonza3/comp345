@@ -153,30 +153,6 @@ Cards/Cards.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards/Cards.cpp.s
 .PHONY : Cards/Cards.cpp.s
 
-Cards/CardsDriver.o: Cards/CardsDriver.cpp.o
-.PHONY : Cards/CardsDriver.o
-
-# target to build an object file
-Cards/CardsDriver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o
-.PHONY : Cards/CardsDriver.cpp.o
-
-Cards/CardsDriver.i: Cards/CardsDriver.cpp.i
-.PHONY : Cards/CardsDriver.i
-
-# target to preprocess a source file
-Cards/CardsDriver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.i
-.PHONY : Cards/CardsDriver.cpp.i
-
-Cards/CardsDriver.s: Cards/CardsDriver.cpp.s
-.PHONY : Cards/CardsDriver.s
-
-# target to generate assembly for a file
-Cards/CardsDriver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.s
-.PHONY : Cards/CardsDriver.cpp.s
-
 CommandProcessing/CommandProcessing.o: CommandProcessing/CommandProcessing.cpp.o
 .PHONY : CommandProcessing/CommandProcessing.o
 
@@ -549,9 +525,6 @@ help:
 	@echo "... Cards/Cards.o"
 	@echo "... Cards/Cards.i"
 	@echo "... Cards/Cards.s"
-	@echo "... Cards/CardsDriver.o"
-	@echo "... Cards/CardsDriver.i"
-	@echo "... Cards/CardsDriver.s"
 	@echo "... CommandProcessing/CommandProcessing.o"
 	@echo "... CommandProcessing/CommandProcessing.i"
 	@echo "... CommandProcessing/CommandProcessing.s"

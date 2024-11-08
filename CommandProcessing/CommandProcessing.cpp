@@ -1,11 +1,13 @@
 #include "CommandProcessing.h"
 
 //Constructor to initialize Command with a command string from user
-Command::Command(const std::string& command)
-    : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {}
+Command::Command(const std::string& command) : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {
+
+}
 // Copy constructor to copy command objects
-Command::Command(const Command& other)
-    : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {}
+Command::Command(const Command& other) : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {
+
+}
 //Assignment operator to copy the command objects
 Command& Command::operator=(const Command& other) {
     if (this != &other) {
@@ -17,6 +19,7 @@ Command& Command::operator=(const Command& other) {
 
 //Destructor for Command
 Command::~Command() {
+
 }
 //Overloaded the operator for outputting Command information
 std::ostream& operator<<(std::ostream& os, const Command& com) {

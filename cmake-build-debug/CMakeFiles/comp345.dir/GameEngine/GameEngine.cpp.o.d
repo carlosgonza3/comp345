@@ -959,7 +959,7 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__tree \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../CommandProcessing/CommandProcessing.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -980,14 +980,16 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/Vector \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Map/MapDriver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
@@ -1036,4 +1038,4 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/seed_seq.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/PlayerDriver.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/PlayerDriver.h

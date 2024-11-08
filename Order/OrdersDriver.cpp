@@ -96,8 +96,3 @@ void testOrderExecution() {
     delete player3;
     delete player4;
 }
-
-int main() {
-    testOrderExecution();
-    return 0;
-}

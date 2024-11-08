@@ -5,37 +5,39 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <memory>
 
-//Command class represents the user command and its effect
-class Command {
-public:
-    // Constructor
-    Command(const std::string& command);
+#include "LoggingObserver.h"
 
-    //Copy constructor
-    Command(const Command& other);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///Command class represents the user command and its effect
+class Command{
 
-    // Assignment operator
-    Command& operator=(const Command& other);
+    public:
+        // Constructor
+        Command(const std::string& command);
+        //Destructor
+        ~Command();
+        //Copy constructor
+        Command(const Command& other);
+        // Assignment operator
+        Command& operator=(const Command& other);
 
-    //Destructor
-    ~Command();
+        //Stream operator to output command and effect
+        friend std::ostream& operator<<(std::ostream& os, const Command& com);
+        // Method to set the effect of the command
+        void saveEffect(const std::string& effect);
+        // Getter for the command's effect and name
+        const std::string& getEffect() const;
+        const std::string& getCommandName() const;
 
-   //Stream operator to output command and effect
-    friend std::ostream& operator<<(std::ostream& os, const Command& com);
-   // Method to set the effect of the command
-    void saveEffect(const std::string& effect);
-    // Getter for the command's effect and name
-    const std::string& getEffect() const;
-    const std::string& getCommandName() const;
-
-private:
-    //Command and its effect
-    //and using shared pointers for memory management
-    std::shared_ptr<std::string> command;
-    std::shared_ptr<std::string> effect;
+    private:
+        //Command and its effect
+        //and using shared pointers for memory management
+        std::shared_ptr<std::string> command;
+        std::shared_ptr<std::string> effect;
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Base class for processing commands from different input sources
 class CommandProcessor {
 public:
@@ -50,7 +52,7 @@ public:
     //validates a command based on the current state
     virtual void Validate(std::string* currentState, Command* com);
 
-protected:
+    protected:
     //Store the command into the command list
     void saveCommand(const std::string& command);
     //List of commands processed

@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/comp345.dir/Cards/Cards.cpp.o"
   "CMakeFiles/comp345.dir/Cards/Cards.cpp.o.d"
-  "CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o"
-  "CMakeFiles/comp345.dir/Cards/CardsDriver.cpp.o.d"
   "CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o"
   "CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o.d"
   "CMakeFiles/comp345.dir/CommandProcessing/CommandProcessingDriver.cpp.o"

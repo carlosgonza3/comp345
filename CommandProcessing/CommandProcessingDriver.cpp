@@ -1,4 +1,8 @@
 #include "CommandProcessing.h"
+#include <filesystem>
+#include <string>
+
+
 //test function to ask user choose console or a txt file.
 void testCommandProcessor() {
     int choice;
@@ -25,10 +29,13 @@ void testCommandProcessor() {
             std::cout << "Effect: " << command->getEffect() << std::endl;
         }
     } else if (choice == 2) {
-        std::string fileName = "commands.txt";  // change the path here
+        std::cout << "Enter an Absolute file path: ";
+        std::string fileName;
+        std::cin >> fileName;
         std::cout << "File Command Processor with file " << std::endl;
 
         FileCommandProcessorAdapter fileProcessor(fileName);
+
         while (auto fileCommand = fileProcessor.getCommand()) {
             std::cout << "File Command: " << fileCommand->getCommandName() << std::endl;
             fileCommand->saveEffect("Command executed successfully from file");
@@ -39,7 +46,3 @@ void testCommandProcessor() {
     }
 }
 
-int main() {
-    testCommandProcessor();
-    return 0;
-}

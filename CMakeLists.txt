@@ -3,6 +3,7 @@ project(comp345)
 
 set(CMAKE_CXX_STANDARD 14)
 
+
 include_directories(Cards
                     CommandProcessing
                     GameEngine
@@ -14,8 +15,6 @@ add_executable(comp345
             MainDriver.cpp
             Cards/Cards.cpp
             Cards/Cards.h
-            Cards/CardsDriver.cpp
-            Cards/CardsDriver.h
             CommandProcessing/CommandProcessing.cpp
             CommandProcessing/CommandProcessing.h
             CommandProcessing/CommandProcessingDriver.cpp
@@ -35,10 +34,11 @@ add_executable(comp345
             Order/Orders.cpp
             Order/Orders.h
             Order/OrdersDriver.cpp
+            Order/OrdersDriver.h
             Order/OrdersList.cpp
             Order/OrdersList.h
             Player/Player.cpp
             Player/Player.h
             Player/PlayerDriver.cpp
             Player/PlayerDriver.h
-        Order/OrdersDriver.h)
+        CommandProcessing/CommandProcessingDriver.h)

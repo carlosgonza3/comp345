@@ -3,18 +3,19 @@
 //
 
 
-#include "Cards/CardsDriver.h"
-#include "Order/OrdersDriver.h"
-#include "Map/MapDriver.h"
-#include "Player/PlayerDriver.h"
-#include "GameEngine/GameEngineDriver.h"
-#include <vector>
-#include <iostream>
+// For testCommandProcessor
+#include "CommandProcessing/CommandProcessingDriver.h"
 
-#include "GameEngine.h"
+// For testOrderExecution
+#include "OrdersDriver.h"
+
 
 
 int main() {
+
+    //testCommandProcessor();
+
+    testOrderExecution();
 
     return 0;
 }
