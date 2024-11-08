@@ -3,9 +3,9 @@
 
 #include <vector>
 #include <iostream>
-#include "Cards.h"
-#include "OrdersList.h"
-#include "Map.h"
+#include "../Cards/Cards.h"
+#include "../Order/OrdersList.h"
+#include "../Map/Map.h"
 
 class Player {
 public:
@@ -28,7 +28,7 @@ public:
     bool isNegotiatedWith(Player* player);
 
 	void printTerritories();
-
+    void printOrders();
 	void setReinforcementPool(int numOfReinforcement);
 	Hand* Hand1; // Player's deck
 	int reinforcementPool;

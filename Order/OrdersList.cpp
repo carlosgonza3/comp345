@@ -58,6 +58,12 @@ size_t OrdersList::getSize() const {
     return orders.size();
 }
 
+void OrdersList::printOrders(){
+    for (int i = 0; i < orders.size(); i++){
+        std::cout << i << ". " << *orders[i] << std::endl;
+    }
+}
+
 // Move an Order to another position
 void OrdersList::move(int firstIndex, int secondIndex) {
     if (firstIndex >= 0 && firstIndex < static_cast<int>(orders.size()) &&
@@ -65,5 +71,5 @@ void OrdersList::move(int firstIndex, int secondIndex) {
         Order* temp = orders[firstIndex];
         orders.erase(orders.begin() + firstIndex); // remove order
         orders.insert(orders.begin() + secondIndex, temp);//insert order
-        }
+    }
 }

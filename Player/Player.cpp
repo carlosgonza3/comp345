@@ -1,12 +1,12 @@
 #include "Player.h"
-#include "Map.h"
+#include "../Map/Map.h"
 #include <iostream>
 #include <algorithm> // For std::find
-
+/*
 Player::Player() {
 
 }
-
+*/
 
 // Constructor
 // Default constructor
@@ -85,4 +85,8 @@ void Player::addNegotiatedPlayer(Player* player) {
 // Check if this player has negotiated with another player
 bool Player::isNegotiatedWith(Player* player) {
     return std::find(negotiatedPlayers.begin(), negotiatedPlayers.end(), player) != negotiatedPlayers.end();
+}
+
+void Player::printOrders(){
+    orders->printOrders();
 }

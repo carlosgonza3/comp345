@@ -19,7 +19,7 @@ public:
     std::vector<Order*>& getOrders();         // Method to get the list of orders
     size_t getSize() const;
     void move(int firstIndex, int secondIndex);
-
+    void printOrders();
 
 private:
     std::vector<Order*> orders;               // Vector to hold orders

@@ -1,6 +1,6 @@
 #include "Orders.h"
-#include "Player.h"
-#include "Map.h"
+#include "../Player/Player.h"
+#include "../Map/Map.h"
 #include <iostream>
 
 void testOrderExecution() {
@@ -39,7 +39,7 @@ void testOrderExecution() {
     enemyTerritory->owner = player3;
     enemyTerritory->army = 12;
     player3->ownedTerritories.push_back(enemyTerritory);
-
+    
     // Set adjacency
     territory1->addAdjTerritory(territory2);
     territory1->addAdjTerritory(territory3);

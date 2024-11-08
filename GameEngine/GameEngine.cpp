@@ -4,10 +4,10 @@
 
 #include "GameEngine.h"
 #include "string"
-#include <Vector>
+#include <vector>
 #include <random>
-
-#include "PlayerDriver.h"
+#include <algorithm>
+#include "../Player/PlayerDriver.h"
 #include <map>
 
 // displays output given and prompts the user for a string, then it returns the user's input

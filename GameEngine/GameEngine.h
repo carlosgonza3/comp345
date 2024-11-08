@@ -8,12 +8,12 @@
 #include <iostream>
 #include <map>
 
-#include "CommandProcessing.h"
+#include "../CommandProcessing/CommandProcessing.h"
 
 
-#include "Map.h"
-#include "MapDriver.h"
-#include "Player.h"
+#include "../Map/Map.h"
+#include "../Map/MapDriver.h"
+#include "../Player/Player.h"
 
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);

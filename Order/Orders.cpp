@@ -1,9 +1,15 @@
 #include "Orders.h"
-#include "Player.h"
-#include "Map.h"
+#include "../Player/Player.h"
+#include "../Map/Map.h"
 #include <iostream>
 #include <algorithm>
 #include <random>
+
+std::ostream& operator<<(std::ostream& out, const Order& order) {
+    out << order.stringToLog(); //print the order description 
+
+    return out;
+}
 
 // DeployOrder implementation
 DeployOrder::DeployOrder(){
