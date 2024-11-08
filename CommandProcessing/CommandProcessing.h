@@ -5,8 +5,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
-#include "LoggingObserver.h"
+#include <memory>
+#include "../GameEngine/LoggingObserver.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///Command class represents the user command and its effect

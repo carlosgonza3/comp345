@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 
-#include "LoggingObserver.h"
+#include "../GameEngine/LoggingObserver.h"
 
 // Forward declarations
 class Territory;

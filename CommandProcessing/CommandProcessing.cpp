@@ -45,7 +45,7 @@ void Command::saveEffect(const std::string& effect) {
 
 // String to print to log, inherited from ILoggable Interface
     std::string Command::stringToLog() {
-    return "Command effect saved: " + *effect;
+        return "Command effect saved: " + *effect;
 }
 
 
