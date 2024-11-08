@@ -68,14 +68,15 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
     std::string commandName = com->getCommandName();
     std::cout << "Now the command is: " << commandName << std::endl;
 
+    bool validCommand = false; // Flag to track if a command is valid
+
     if (commandName == "loadmap") {
         if (*currentState == "Start" || *currentState == "maploaded") {
             com->saveEffect("true");
             saveCommand(commandName);
             *currentState = "maploaded";  // Update currentState directly
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -85,8 +86,7 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
             saveCommand(commandName);
             *currentState = "MapValidated";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -96,8 +96,7 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
             saveCommand(commandName);
             *currentState = "PlayersAdded";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -107,8 +106,7 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
             saveCommand(commandName);
             *currentState = "assignreinforcement";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -118,8 +116,7 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
             saveCommand(commandName);
             *currentState = "Start";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -129,15 +126,14 @@ void CommandProcessor::Validate(std::string* currentState, Command* com) {
             saveCommand(commandName);
             *currentState = "exit program";  
             std::cout << "Command accepted, transitioning to status: " << *currentState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
-    
 
-    
-    
-    
+    // Check if the command is invalid
+    if (!validCommand) {
+        std::cout << "Invalid command." << std::endl;
+    }
 }
 
 //FileCommandProcessorAdapter methods
@@ -182,14 +178,15 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
     std::string commandName = com->getCommandName();
     std::cout << "Now the command is: " << commandName << std::endl;
 
+    bool validCommand = false; // Flag to track if a command is valid
+
     if (commandName == "loadmap") {
         if (*curtState == "Start" || *curtState == "maploaded") {
             com->saveEffect("true");
             saveCommand(commandName);
             *curtState = "maploaded";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -199,8 +196,7 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
             saveCommand(commandName);
             *curtState = "MapValidated";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -210,8 +206,7 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
             saveCommand(commandName);
             *curtState = "PlayersAdded";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -221,8 +216,7 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
             saveCommand(commandName);
             *curtState = "assignreinforcement";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -232,8 +226,7 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
             saveCommand(commandName);
             *curtState = "Start";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
     }
 
@@ -243,8 +236,12 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
             saveCommand(commandName);
             *curtState = "exit program";  
             std::cout << "Command accepted, transitioning to status: " << *curtState << std::endl;
-        } else {
-            std::cout << "Invalid command." << std::endl;
+            validCommand = true;
         }
+    }
+
+    // Check if the command is invalid
+    if (!validCommand) {
+        std::cout << "Invalid command." << std::endl;
     }
 }
