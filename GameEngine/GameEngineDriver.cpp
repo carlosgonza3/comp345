@@ -73,3 +73,8 @@ void testGameStates() {
     std::cout << "\n\t** Game Engine has been deleted successfully..." << std::endl;
     std::cout << "\n\t** Game Engine test finished successfully!" << std::endl;
 }
+
+void testStartupPhase() {
+    GameEngine* gameEngine = new GameEngine();
+    gameEngine->startupPhase();
+}
