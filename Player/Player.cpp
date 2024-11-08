@@ -90,3 +90,7 @@ bool Player::isNegotiatedWith(Player* player) {
 void Player::printOrders(){
     orders->printOrders();
 }
+
+void Player::drawCard(){
+    Hand1->addCardIntoHand();
+}

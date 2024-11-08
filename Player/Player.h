@@ -26,7 +26,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);
-
+	void drawCard();
 	void printTerritories();
     void printOrders();
 	void setReinforcementPool(int numOfReinforcement);
