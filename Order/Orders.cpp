@@ -23,7 +23,7 @@
     units = 0;
     targetTerritory = nullptr;
     issuingPlayer = nullptr;
-    this->attach(new LogObserver());
+    attach(new LogObserver());
 }
 
 // Constructor
@@ -35,14 +35,17 @@
 // Execute Order
     void DeployOrder::execute() {
     if (validate()) {
-        notify(this);
         targetTerritory->army += units;
         std::cout << "Deployed " << units << " units to " << targetTerritory->name << ".\n";
     }
+    notify(this);
 }
 
 // Validates Orders
     bool DeployOrder::validate() {
+    if (!issuingPlayer || !targetTerritory) {
+        return false;
+    }
     if (targetTerritory->owner != issuingPlayer) {
         std::cerr << "Invalid Deploy Order: Territory does not belong to issuing player.\n";
         return false;
@@ -94,7 +97,6 @@
     void AdvanceOrder::execute() {
     if (validate()) {
         std::cout << "Executing advance from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
-        notify(this);
 
         if (targetTerritory->owner == issuingPlayer) {
             // Move units between owned territories
@@ -145,6 +147,7 @@
             }
         }
     }
+    notify(this);
 }
 
 // Assignment Operator
@@ -160,6 +163,11 @@
 
 // Validates Order
     bool AdvanceOrder::validate() {
+
+    if (!issuingPlayer || !targetTerritory || !sourceTerritory) {
+        return false;
+    }
+
     if (sourceTerritory->owner != issuingPlayer) {
         std::cerr << "Invalid Advance Order: Source territory does not belong to issuing player.\n";
         return false;
@@ -180,6 +188,7 @@
     std::string AdvanceOrder::stringToLog() {
     return "Advance Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Airlift Order implementation
@@ -203,15 +212,20 @@
 // Execute Order
     void AirliftOrder::execute() {
         if (validate()) {
-            notify(this);
             sourceTerritory->army -= units;
             targetTerritory->army += units;
             std::cout << "Airlifted " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
         }
+        notify(this);
     }
 
 // Validate Order
     bool AirliftOrder::validate() {
+
+        if (!issuingPlayer || !targetTerritory || !sourceTerritory) {
+            return false;
+        }
+
         if (sourceTerritory->owner != issuingPlayer || targetTerritory->owner != issuingPlayer) {
             std::cerr << "Invalid Airlift Order: Source or target territory does not belong to issuing player.\n";
             return false;
@@ -266,6 +280,7 @@
         targetTerritory->army -= unitsRemoved;
         std::cout << "Bombed " << targetTerritory->name << ", removing " << unitsRemoved << " units.\n";
     }
+    notify(this);
 }
 
 // Assignment Operator
@@ -279,6 +294,11 @@
 
 // Validates order
     bool BombOrder::validate() {
+
+    if (!issuingPlayer || !targetTerritory) {
+        return false;
+    }
+
     if (targetTerritory->owner == issuingPlayer) {
         std::cerr << "Invalid Bomb Order: Target territory belongs to issuing player.\n";
         return false;
@@ -311,6 +331,7 @@
         return "Bomb Order: Targeting " + targetTerritory->name;
     }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// BlockadeOrder implementation
 ///
@@ -341,6 +362,7 @@
         );
         std::cout << "Blockade executed on " << targetTerritory->name << ", units doubled and territory transferred to Neutral.\n";
     }
+    notify(this);
 }
 
 // Negotiate Order
@@ -354,6 +376,11 @@
 
 // Validates Orders
     bool BlockadeOrder::validate() {
+
+    if (!issuingPlayer || !targetTerritory) {
+        return false;
+    }
+
     if (targetTerritory->owner != issuingPlayer) {
         std::cerr << "Invalid Blockade Order: Target territory does not belong to issuing player.\n";
         return false;
@@ -370,6 +397,7 @@
     std::string BlockadeOrder::stringToLog() {
     return "Blockade Order: Targeting " + targetTerritory->name;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Negotiate Order implementation
@@ -396,6 +424,7 @@
         targetPlayer->addNegotiatedPlayer(issuingPlayer);
         std::cout << "Negotiation established between " << issuingPlayer->name << " and " << targetPlayer->name << ".\n";
     }
+    notify(this);
 }
 
 // Negotiate Order
@@ -409,6 +438,12 @@
 
 // Validates Orders
     bool NegotiateOrder::validate() {
+
+
+    if (!issuingPlayer) {
+        return false;
+    }
+
     if (targetPlayer == issuingPlayer) {
         std::cerr << "Invalid Negotiate Order: Cannot negotiate with self.\n";
         return false;

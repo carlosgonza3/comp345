@@ -38,7 +38,7 @@
         m_observers = nullptr;
     }
 
-// Notifies all attached Observers
+// Notifies all attached Observers with the loggable as parameter
     void Subject::notify(ILoggable* loggable) {
     for (auto & m_observer : *m_observers) {
         m_observer->update(loggable);
@@ -60,14 +60,30 @@
 // Deconstructor
     LogObserver::~LogObserver() {
     _logFile.close();
-}
+    }
 
 // Updates behaviour when notified by Subject
     void LogObserver::update(ILoggable* loggable) {
         _logFile << loggable->stringToLog() << std::endl;
-        std::cout <<"Log observer updated!" << std::endl;
+        std::cout <<"\n\t[:0] -> Log observer updated!\n" << std::endl;
         _logFile.flush();
     }
+
+// Writes Header of creation time
+    void LogObserver::saveHeaders() {
+        _logFile << "\n===================================================================================" << std::endl;
+
+        // Get the current time
+        std::time_t now = std::time(nullptr);
+        char timeBuffer[100];
+        std::strftime(timeBuffer, sizeof(timeBuffer), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+
+        // Write the log header with timestamp
+        _logFile << "\t[!] Game Log Created at: " << timeBuffer << std::endl;
+        _logFile << "===================================================================================\n" << std::endl;
+    }
+
+
 
 
 

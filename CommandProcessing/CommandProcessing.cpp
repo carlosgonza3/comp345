@@ -2,51 +2,61 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Command class implementation
+///
+
 
 // Constructor to initialize Command with a command string from user
 Command::Command(const std::string& command) : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {
     this->attach(new LogObserver);
 }
 
-// Copy constructor to copy command objects
-Command::Command(const Command& other)
-    : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {}
-//Assignment operator to copy the command objects
-Command& Command::operator=(const Command& other) {
-    if (this != &other) {
-        *command = *other.command;
-        *effect = *other.effect;
+
+    // Copy constructor to copy command objects
+    Command::Command(const Command& other)
+        : command(std::make_shared<std::string>(*other.command)), effect(std::make_shared<std::string>(*other.effect)) {
+            this->attach(new LogObserver);
     }
-    return *this;
-}
 
-//Destructor for Command
-Command::~Command() {
-}
-//Overloaded the operator for outputting Command information
-std::ostream& operator<<(std::ostream& os, const Command& com) {
-    os << "Command: " << *com.command << ", Effect: " << *com.effect;
-    return os;
-}
-//Sets the effect description of the command
-void Command::saveEffect(const std::string& effect) {
-    *this->effect = effect;
-}
+    //Assignment operator to copy the command objects
+    Command& Command::operator=(const Command& other) {
+        if (this != &other) {
+            *command = *other.command;
+            *effect = *other.effect;
+        }
+        return *this;
+    }
 
-// Returns the effect of the command
-const std::string& Command::getEffect() const {
-    return *effect;
-}
+    //Destructor for Command
+    Command::~Command() {
+        this->clear();
+    }
 
-// Return the command string
-const std::string& Command::getCommandName() const {
-    return *command;
-}
+    //Overloaded the operator for outputting Command information
+    std::ostream& operator<<(std::ostream& os, const Command& com) {
+        os << "Command: " << *com.command << ", Effect: " << *com.effect;
+        return os;
+    }
 
-// String to print to log, inherited from ILoggable Interface
-std::string Command::stringToLog() {
-    return "Command effect saved: " + *effect;
-}
+    //Sets the effect description of the command
+    void Command::saveEffect(const std::string& effect) {
+        notify(this);
+        *this->effect = effect;
+    }
+
+    // Returns the effect of the command
+    const std::string& Command::getEffect() const {
+        return *effect;
+    }
+
+    // Return the command string
+        const std::string& Command::getCommandName() const {
+            return *command;
+    }
+
+    // String to print to log, inherited from ILoggable Interface
+        std::string Command::stringToLog() {
+            return "Command effect saved: " + *effect;
+    }
 
 
 
@@ -56,29 +66,42 @@ std::string Command::stringToLog() {
 ///
 
 // Constructor to initialize an empty list
-CommandProcessor::CommandProcessor() : commandList() {
-    this->attach(new LogObserver);
-}
+    CommandProcessor::CommandProcessor() : commandList() {
+        this->attach(new LogObserver);
+    }
 
 // Destructor for CommandProcessor
-CommandProcessor::~CommandProcessor() {
-    this->clear();
-}
+    CommandProcessor::~CommandProcessor() {
+        this->clear();
+    }
 
 // Reads the user inputs and saves it
-void CommandProcessor::readCommand() {
-    std::string input;
-    std::cout << "Enter command: ";
-    std::getline(std::cin, input);
-    saveCommand(input);
-}
+    void CommandProcessor::readCommand() {
+        std::string input;
+        std::cout << "Enter command: ";
+        std::getline(std::cin, input);
+        saveCommand(input);
+    }
+
+// Accepts a string and saves it (Testing purposes)
+    void CommandProcessor::readCommand(std::string& input) {
+        saveCommand(input);
+    }
 
 // to add the new commands to the command list
     void CommandProcessor::saveCommand(const std::string& command) {
         commandList.push_back(std::make_shared<Command>(command));
+        std::cout << "\tCommand saved: " << command << std::endl;
         notify(this);
-        std::cout << "Command saved: " << command << std::endl;
     }
+
+
+std::string CommandProcessor::stringToLog() {
+        std::string out = "Command processed: ";
+        out.append(commandList.back()->getCommandName());
+        return out;
+    }
+
 
 // Retrieves the first command from the list and removes it
     std::shared_ptr<Command> CommandProcessor::getCommand() {
@@ -269,13 +292,6 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
         std::cout << "Invalid command." << std::endl;
     }
 }
-
-std::string CommandProcessor::stringToLog() {
-    std::string out = "Command processed: ";
-    out.append(commandList.back()->getCommandName());
-    return out;
-}
-
 
 ///
 ////
