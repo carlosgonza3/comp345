@@ -6,6 +6,7 @@
 #include "../Order/OrdersDriver.h"
 
 // For testLoggingObserver
+#include "GameEngineDriver.h"
 #include "../GameEngine/LoggingObserver.h"
 #include "../GameEngine/LoggingObserverDriver.h"
 
@@ -13,6 +14,7 @@
 
 int main() {
 
+    testStartupPhase();
 
     LogObserver log_observer;
 
