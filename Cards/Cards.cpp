@@ -37,8 +37,12 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {  //Stream inserti
 }
 
 void Card::play(OrdersList * ptrToList, Player* issuingPlayer){    //Creates an order depending on card type and adds to the list of order
-    cout << "Current card being played: " << *(this->cardType) << endl;
+    cout << "\nCurrent card being played: " << *(this->cardType) << endl;
+    int units;
+    int srcTerritoryIndex;
+    int targetTerritoryIndex;
     if (*cardType == "Bomb"){
+        
         (*ptrToList).addOrder(new BombOrder());
     }
     else if(*cardType == "Reinforcement"){
@@ -48,7 +52,18 @@ void Card::play(OrdersList * ptrToList, Player* issuingPlayer){    //Creates an 
         (*ptrToList).addOrder(new BlockadeOrder());
     }
     else if (*cardType == "Airlift"){
-        (*ptrToList).addOrder(new AirliftOrder());
+        issuingPlayer->printTerritoriesToDefend();
+        cout << "\nPlease Enter The Index of the Source Territory for the Airlift Order" << endl;
+        cin >> srcTerritoryIndex;
+        Territory* sourceTerritory = issuingPlayer->toDefend()[srcTerritoryIndex];
+        cout << "\nTerritory: " << sourceTerritory->name << " currently has " << sourceTerritory->army << " units." << endl;
+        cout << "How many units do you want to airlift?" << endl;
+        cin >> units;
+        issuingPlayer->printTerritoriesToAttack();
+        cout << "\nPlease Enter The Index of the Target Territory for the Airlift Order" << endl;
+        cin >> targetTerritoryIndex;
+        Territory* targetTerritory = issuingPlayer->toAttack()[targetTerritoryIndex];
+        (*ptrToList).addOrder(new AirliftOrder(units, sourceTerritory, targetTerritory, issuingPlayer));
     }
     else if (*cardType == "Diplomacy"){
         (*ptrToList).addOrder(new NegotiateOrder());
@@ -173,9 +188,9 @@ Hand& Hand::operator=(const Hand& other) {          //Assignment operator
 
 std::ostream& operator<<(std::ostream& os, const Hand& hand) { //Stream insertion operator
     os << "Total Number Of Cards In The Hand: " << hand.cards_in_hand.size() << endl;
-
+    int i = 0;
     for (int i = 0; i < hand.cards_in_hand.size(); i++) {
-        os << "Index: " << i << " " << *(hand.cards_in_hand[i]) << endl; 
+        os << i << ". " << *(hand.cards_in_hand[i]) << endl; 
     }
     return os;
 }

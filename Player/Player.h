@@ -6,6 +6,8 @@
 #include "../Cards/Cards.h"
 #include "../Order/OrdersList.h"
 #include "../Map/Map.h"
+class Hand;
+class Territory;
 
 class Player {
 public:

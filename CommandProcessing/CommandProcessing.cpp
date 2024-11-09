@@ -4,9 +4,9 @@
 /// Command class implementation
 
 // Constructor to initialize Command with a command string from user
-    Command::Command(const std::string& command) : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {
-        this->attach(new LogObserver);
-    }
+Command::Command(const std::string& command) : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {
+    this->attach(new LogObserver);
+}
 
 // Copy constructor to copy command objects
 Command::Command(const Command& other)
@@ -34,18 +34,18 @@ void Command::saveEffect(const std::string& effect) {
 }
 
 // Returns the effect of the command
-    const std::string& Command::getEffect() const {
-        return *effect;
-    }
+const std::string& Command::getEffect() const {
+    return *effect;
+}
 
 // Return the command string
-    const std::string& Command::getCommandName() const {
-        return *command;
-    }
+const std::string& Command::getCommandName() const {
+    return *command;
+}
 
 // String to print to log, inherited from ILoggable Interface
-    std::string Command::stringToLog() {
-        return "Command effect saved: " + *effect;
+std::string Command::stringToLog() {
+    return "Command effect saved: " + *effect;
 }
 
 
@@ -56,17 +56,17 @@ void Command::saveEffect(const std::string& effect) {
 ///
 
 // Constructor to initialize an empty list
-    CommandProcessor::CommandProcessor() : commandList() {
+CommandProcessor::CommandProcessor() : commandList() {
     this->attach(new LogObserver);
 }
 
 // Destructor for CommandProcessor
-    CommandProcessor::~CommandProcessor() {
-        this->clear();
-    }
+CommandProcessor::~CommandProcessor() {
+    this->clear();
+}
 
 // Reads the user inputs and saves it
-    void CommandProcessor::readCommand() {
+void CommandProcessor::readCommand() {
     std::string input;
     std::cout << "Enter command: ";
     std::getline(std::cin, input);
@@ -269,6 +269,13 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
         std::cout << "Invalid command." << std::endl;
     }
 }
+
+std::string CommandProcessor::stringToLog() {
+    std::string out = "Command processed: ";
+    out.append(commandList.back()->getCommandName());
+    return out;
+}
+
 
 ///
 ////

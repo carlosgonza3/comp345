@@ -4,7 +4,11 @@
 #include <string>
 #include <vector>
 #include "../Order/OrdersList.h" 
+#include "../Map/Map.h" 
+#include "../Player/Player.h" 
 
+class Player;
+class Territory;
 
 class Card {
 public:

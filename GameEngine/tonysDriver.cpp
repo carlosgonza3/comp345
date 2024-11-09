@@ -12,6 +12,8 @@ int main(){
     Player* player = new Player(hand);
     player->drawCard();
     player->drawCard();
+    player->drawCard();
+    player->drawCard();
     player->setReinforcementPool(0);
     
     Territory* territory1 = new Territory("USA", 5, 1, 2);

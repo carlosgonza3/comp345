@@ -126,7 +126,7 @@ void Player::issueOrder(int number) {
             }
         }
         std::cout << "Deploying " << reinforcementInput << " units to " << toDefend()[indexInput]->name << std::endl;
-        //CREATE ORDER AND ADD IT TO LIST!!!!!!!!!!
+        //CREATE ORDER AND ADD IT TO LIST!!!!!!!!!!!!!!!!!!
         return;
     }
 
@@ -181,16 +181,18 @@ std::ostream& operator<<(std::ostream& os, const Player& player) {
 
 // Print territories
 void Player::printTerritoriesToAttack() {
+    int i = 0;
     std::cout << "To Attack:" << std::endl;
     for (const auto& territory : attackTerritories) {
-        std::cout << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
+        std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
 
 void Player::printTerritoriesToDefend() {
+    int i = 0;
     std::cout << "To Defend:" << std::endl;
     for (const auto& territory : defendTerritories) {
-        std::cout << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
+        std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
 
