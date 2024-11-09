@@ -991,6 +991,8 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \

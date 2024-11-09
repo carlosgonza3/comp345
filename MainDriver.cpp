@@ -14,19 +14,22 @@
 
 int main() {
 
+    //LogObserver logObserver;
+
+    // Part 1
+    //testCommandProcessor();
+
+    // Part 2
     //testStartupPhase();
 
-    //LogObserver log_observer;
+    // Part 3
+    // missing...
 
+    // Part 4
+    //testOrderExecution();
 
-    testLoggingObserver();
-
-
-
-
-   //testCommandProcessor();
-
-   //testOrderExecution();
+    // Part 5
+    //testLoggingObserver();
 
     //missing part 2
     //missing part 

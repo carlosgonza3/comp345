@@ -275,7 +275,6 @@
 // Execute Order
     void BombOrder::execute() {
     if (validate()) {
-        notify(this);
         int unitsRemoved = targetTerritory->army / 2;
         targetTerritory->army -= unitsRemoved;
         std::cout << "Bombed " << targetTerritory->name << ", removing " << unitsRemoved << " units.\n";
@@ -352,7 +351,6 @@
 // Execute method
     void BlockadeOrder::execute() {
     if (validate()) {
-        notify(this);
         targetTerritory->army *= 2;
         targetTerritory->owner = nullptr; // Transfer to Neutral player
         // Remove territory from player's owned territories
@@ -419,7 +417,6 @@
 // Execute method
     void NegotiateOrder::execute() {
     if (validate()) {
-        notify(this);
         issuingPlayer->addNegotiatedPlayer(targetPlayer);
         targetPlayer->addNegotiatedPlayer(issuingPlayer);
         std::cout << "Negotiation established between " << issuingPlayer->name << " and " << targetPlayer->name << ".\n";

@@ -45,24 +45,7 @@ void testLoggingObserver() {
     gameEngine->checkCommandValid("addplayer");
     gameEngine->printCurrentState();
 
-    // Request transition using command "gamestart"
-    gameEngine->checkCommandValid("gamestart");
-    gameEngine->printCurrentState();
 
-    // Deleted Current Game Engine
-    std::cout << "\t** Game Engine current state deleted" << std::endl;
-    gameEngine->deleteCurrentState();
-
-    // Setting State to Win State
-    gameEngine->setCurrentState(new WinState);
-    gameEngine->printCurrentState();
-
-    // Request transition using command "replay"
-    gameEngine->checkCommandValid("replay");
-    gameEngine->printCurrentState();
-
-    // Current State Deallocation
-    gameEngine->deleteCurrentState();
 
     // End Game Engine Test
 
@@ -96,8 +79,13 @@ void testLoggingObserver() {
 /// Order Test
 ///
 
+    std::cout <<"======================= Observer: Order Test ======================= "<< std::endl;
+
     Player* player1 = new Player();
     player1->name = "Player 1";
+
+    Player* player2 = new Player();
+    player2->name = "Player 2";
 
     Territory* territory1 = new Territory("Territory 1", 5, 0, 0);
     territory1->owner = player1;
@@ -108,9 +96,21 @@ void testLoggingObserver() {
     deployOrder->execute();
     std::cout << deployOrder->stringToOut() << "\n";
 
-    OrdersList* ordersList = new OrdersList();
+    // Negotiate Order
+    Order* negotiateOrder = new NegotiateOrder(player2, player1);
+    negotiateOrder->execute();
+    std::cout << negotiateOrder->stringToOut() << "\n";
 
-    ordersList->addOrder(deployOrder);
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// OrderList Test
+///
+
+    std::cout <<"======================= Observer: Order List Test ======================= "<< std::endl;
+
+    OrdersList ordersList;
+
+    ordersList.addOrder(deployOrder);
+    ordersList.addOrder(negotiateOrder);
 
 }
