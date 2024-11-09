@@ -489,30 +489,6 @@ Player/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/Player.cpp.s
 .PHONY : Player/Player.cpp.s
 
-Player/PlayerDriver.o: Player/PlayerDriver.cpp.o
-.PHONY : Player/PlayerDriver.o
-
-# target to build an object file
-Player/PlayerDriver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/PlayerDriver.cpp.o
-.PHONY : Player/PlayerDriver.cpp.o
-
-Player/PlayerDriver.i: Player/PlayerDriver.cpp.i
-.PHONY : Player/PlayerDriver.i
-
-# target to preprocess a source file
-Player/PlayerDriver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/PlayerDriver.cpp.i
-.PHONY : Player/PlayerDriver.cpp.i
-
-Player/PlayerDriver.s: Player/PlayerDriver.cpp.s
-.PHONY : Player/PlayerDriver.s
-
-# target to generate assembly for a file
-Player/PlayerDriver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/PlayerDriver.cpp.s
-.PHONY : Player/PlayerDriver.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -567,9 +543,6 @@ help:
 	@echo "... Player/Player.o"
 	@echo "... Player/Player.i"
 	@echo "... Player/Player.s"
-	@echo "... Player/PlayerDriver.o"
-	@echo "... Player/PlayerDriver.i"
-	@echo "... Player/PlayerDriver.s"
 .PHONY : help
 
 

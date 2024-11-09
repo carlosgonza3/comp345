@@ -1,5 +1,43 @@
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Loaded State
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:28:45
+===================================================================================
+
 GameEngine state transitioned to: Map Loaded State
 GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:29:25
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:29:55
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Order added to list: Deploy Order: 3 units to Territory 1

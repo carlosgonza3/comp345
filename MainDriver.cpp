@@ -14,9 +14,9 @@
 
 int main() {
 
-    testStartupPhase();
+    //testStartupPhase();
 
-    LogObserver log_observer;
+    //LogObserver log_observer;
 
 
     testLoggingObserver();
