@@ -35,7 +35,7 @@ int main() {
 
    
     // Part 3
-    // testMainGameLoop();
+    testMainGameLoop();
 
     // Part 4
     //testOrderExecution();

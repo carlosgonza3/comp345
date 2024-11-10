@@ -224,3 +224,9 @@ Order added to list: Deploy Order: 3 units to Brazil
 Deploy Order: 12 units to USA
 Deploy Order: 6 units to NORTH KOREA
 Deploy Order: 3 units to Brazil
+Order added to list: Deploy Order: 12 units to USA
+Order added to list: Deploy Order: 6 units to NORTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Deploy Order: 12 units to USA
+Deploy Order: 6 units to NORTH KOREA
+Deploy Order: 3 units to Brazil
