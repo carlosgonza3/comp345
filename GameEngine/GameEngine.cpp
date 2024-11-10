@@ -714,7 +714,7 @@ void GameEngine::startupPhase() {
 
         } else if (menuInput == "0") {
             std::cout << "Closing \"startupPhase\"" << std::endl;
-            exit(0);
+            return;
         }
     }
 }

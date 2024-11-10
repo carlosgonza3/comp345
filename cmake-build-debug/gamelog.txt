@@ -1,69 +1,31 @@
 
 ===================================================================================
-	[!] Game Log Created at: 2024-11-09 01:28:45
+	[!] Game Log Created at: 2024-11-10 15:08:33
+===================================================================================
+
+Command processed: loadmap
+Command effect saved: 
+Command processed: loadmap
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:09:32
 ===================================================================================
 
 GameEngine state transitioned to: Map Loaded State
 GameEngine state transitioned to: Map Validated State
 GameEngine state transitioned to: Players Added State
-GameEngine state transitioned to: Assign Reinforcement State
-GameEngine state transitioned to: Start State
 Command processed: loadmap
 Command processed: validatemap
 Command processed: addplayer
 Deploy Order: 3 units to Territory 1
-
-===================================================================================
-	[!] Game Log Created at: 2024-11-09 01:29:25
-===================================================================================
-
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
-GameEngine state transitioned to: Assign Reinforcement State
-GameEngine state transitioned to: Start State
-Command processed: loadmap
-Command processed: validatemap
-Command processed: addplayer
-Deploy Order: 3 units to Territory 1
-
-===================================================================================
-	[!] Game Log Created at: 2024-11-09 01:29:55
-===================================================================================
-
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
-GameEngine state transitioned to: Assign Reinforcement State
-GameEngine state transitioned to: Start State
-Command processed: loadmap
-Command processed: validatemap
-Command processed: addplayer
-Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
 Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
 
 ===================================================================================
-	[!] Game Log Created at: 2024-11-09 11:08:25
+	[!] Game Log Created at: 2024-11-10 15:09:50
 ===================================================================================
 
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
-GameEngine state transitioned to: Assign Reinforcement State
-GameEngine state transitioned to: Start State
-Command processed: loadmap
-Command processed: validatemap
-Command processed: addplayer
-Deploy Order: 3 units to Territory 1
-Order added to list: Deploy Order: 3 units to Territory 1
-Deploy Order: 3 units to Territory 1
-Advance Order: 5 units from Territory 1 to Enemy Territory
-Airlift Order: 2 units from Territory 2 to Territory 1
-Bomb Order: Targeting Enemy Territory
-Blockade Order: Targeting Territory 1
-Blockade Order: Targeting Territory 1
-Negotiate Order: Targeting Player 3
-Negotiate Order: Targeting Player 3
 Command processed: loadmap
 Command processed: validatemap
 Command processed: addplayer
@@ -90,52 +52,412 @@ Command effect saved:
 Command effect saved: 
 
 ===================================================================================
-	[!] Game Log Created at: 2024-11-09 11:15:39
+	[!] Game Log Created at: 2024-11-10 15:16:34
 ===================================================================================
 
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
 Command processed: loadmap
 Command processed: validatemap
 Command processed: addplayer
-Deploy Order: 3 units to Territory 1
-Order added to list: Deploy Order: 3 units to Territory 1
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
 
 ===================================================================================
-	[!] Game Log Created at: 2024-11-09 11:19:08
+	[!] Game Log Created at: 2024-11-10 15:20:32
 ===================================================================================
 
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:25:30
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:29:46
+===================================================================================
+
 Command processed: loadmap
 Command processed: validatemap
 Command processed: addplayer
-Deploy Order: 3 units to Territory 1
-Negotiate Order: Targeting Player 2
-Negotiate Order: Targeting Player 2
-Order added to list: Deploy Order: 3 units to Territory 1
-Order added to list: Negotiate Order: Targeting Player 2
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
 
 ===================================================================================
-	[!] Game Log Created at: 2024-11-09 11:20:46
+	[!] Game Log Created at: 2024-11-10 15:31:01
 ===================================================================================
 
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Validated State
-GameEngine state transitioned to: Players Added State
 Command processed: loadmap
 Command processed: validatemap
 Command processed: addplayer
-Deploy Order: 3 units to Territory 1
-Negotiate Order: Targeting Player 2
-Order added to list: Deploy Order: 3 units to Territory 1
-Order added to list: Negotiate Order: Targeting Player 2
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:31:58
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:32:07
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:33:38
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:35:11
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:35:17
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:35:29
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:38:33
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:39:58
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:40:05
+===================================================================================
+
+Command processed: loadmap
+Command effect saved: 
+Command processed: loadmap
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:40:58
+===================================================================================
+
+Order added to list: Deploy Order: 2 units to USA
+Order added to list: Deploy Order: 6 units to NORTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Order added to list: Deploy Order: 10 units to Canada
+Deploy Order: 2 units to USA
+Deploy Order: 10 units to Canada
+Deploy Order: 6 units to NORTH KOREA
+Deploy Order: 3 units to Brazil
 Deploy Order: 3 units to Territory 1
 Advance Order: 5 units from Territory 1 to Enemy Territory
 Airlift Order: 2 units from Territory 2 to Territory 1
 Bomb Order: Targeting Enemy Territory
 Blockade Order: Targeting Territory 1
 Negotiate Order: Targeting Player 3
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
 
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:46:32
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 15:52:04
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 16:13:03
+===================================================================================
+
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 16:19:32
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 16:21:21
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command effect saved: 
+Command effect saved: 
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 16:21:51
+===================================================================================
+
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-10 16:24:33
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command effect saved: loadmap
+Command effect saved: validatemap
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2

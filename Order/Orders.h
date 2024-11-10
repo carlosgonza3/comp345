@@ -30,6 +30,7 @@ class Order : public Subject, public ILoggable {
 class DeployOrder : public Order {
     public:
         DeployOrder();
+        ~DeployOrder() override;
         DeployOrder(int units, Territory* target, Player* player);
         DeployOrder& operator=(const DeployOrder& other);
         void execute() override;
@@ -48,6 +49,7 @@ class DeployOrder : public Order {
 class AdvanceOrder : public Order {
     public:
         AdvanceOrder();
+        ~AdvanceOrder() override;
         AdvanceOrder(int units, Territory* source, Territory* target, Player* player);
         void execute() override;
         bool validate() override;
@@ -67,6 +69,7 @@ class AdvanceOrder : public Order {
 class AirliftOrder : public Order {
     public:
         AirliftOrder();
+        ~AirliftOrder() override;
         AirliftOrder(int units, Territory* source, Territory* target, Player* player);
         AirliftOrder& operator=(const AirliftOrder& other);
         void execute() override;
@@ -86,6 +89,7 @@ class AirliftOrder : public Order {
 class BombOrder : public Order {
     public:
         BombOrder();
+        ~BombOrder() override;
         BombOrder(Territory* target, Player* player);
         BombOrder& operator=(const BombOrder& other);
         void execute() override;
@@ -104,6 +108,7 @@ class BombOrder : public Order {
 class BlockadeOrder : public Order {
     public:
         BlockadeOrder();
+        ~BlockadeOrder() override;
         BlockadeOrder(Territory* target, Player* player);
         BlockadeOrder& operator=(const BlockadeOrder& other);
         void execute() override;
@@ -121,6 +126,7 @@ class BlockadeOrder : public Order {
 class NegotiateOrder : public Order {
     public:
         NegotiateOrder();
+        ~NegotiateOrder() override;
         NegotiateOrder(Player* target, Player* player);
         NegotiateOrder& operator=(const NegotiateOrder& other);
         void execute() override;

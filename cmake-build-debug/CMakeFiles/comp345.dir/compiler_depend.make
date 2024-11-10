@@ -979,9 +979,14 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.o: /Users/carlosgonzalez/Developer/GitHub
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h
 
 CMakeFiles/comp345.dir/CommandProcessing/CommandProcessing.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.cpp \
@@ -3974,14 +3979,19 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: /Users/carlosgonzalez/Develo
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
@@ -4968,19 +4978,25 @@ CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o: /Users/carlosgonzalez/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngine.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.h
 
 CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/Availability.h \
@@ -5814,6 +5830,7 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/wctype.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/ctype.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/errno.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/gethostuuid.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/libkern/_OSByteOrder.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/libkern/arm/_OSByteOrder.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/limits.h \
@@ -5856,6 +5873,7 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_pthread/_pthread_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_select.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_symbol_aliasing.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_blkcnt_t.h \
@@ -5893,6 +5911,7 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_null.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_off_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_pid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_posix_vdisable.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_rsize_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_rune_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_seek_set.h \
@@ -5915,6 +5934,7 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uid_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_useconds_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uuid_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_va_list.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_wchar_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_wint_t.h \
@@ -5923,10 +5943,12 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserver.cpp.o: /Users/carlosgonzalez/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/errno.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/qos.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/select.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/signal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/syslimits.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/unistd.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/wait.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/time.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
@@ -6944,10 +6966,13 @@ CMakeFiles/comp345.dir/GameEngine/LoggingObserverDriver.cpp.o: /Users/carlosgonz
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessing.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
@@ -7755,6 +7780,7 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iomanip \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/ios \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iosfwd \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/istream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iterator \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/limits \
@@ -7939,11 +7965,11 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserverDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.h
 
 CMakeFiles/comp345.dir/Map/Map.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/Availability.h \
@@ -12884,8 +12910,10 @@ CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o: /Users/carlosgonzalez/Developer
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
@@ -14852,9 +14880,11 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h \
@@ -14867,9 +14897,15 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 
 /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.cpp:
 
+/Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.h:
+
 /Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing/CommandProcessingDriver.h:
 
-/Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/select.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_select.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/gethostuuid.h:
 
 /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/LoggingObserver.cpp:
 
@@ -14878,8 +14914,6 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapLoader.h:
 
 /Users/carlosgonzalez/Developer/GitHub/comp345/Map/MapDriver.h:
-
-/Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/random:
 
@@ -14942,6 +14976,8 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/Cards.h:
 
 /Users/carlosgonzalez/Developer/GitHub/comp345/Order/Orders.h:
+
+/Users/carlosgonzalez/Developer/GitHub/comp345/Map/Map.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/__stddef_ptrdiff_t.h:
 
@@ -15425,6 +15461,8 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__type_traits/datasizeof.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_posix_vdisable.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/__endian.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iosfwd:
@@ -15564,6 +15602,8 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__type_traits/is_trivially_copyable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/unistd.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__ranges/ref_view.h:
 
@@ -16714,6 +16754,8 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: /Users/carlosgonzalez/Developer/GitH
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/clamp.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__math/remainder.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uuid_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
 

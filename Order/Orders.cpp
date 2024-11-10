@@ -7,11 +7,11 @@
 
 
 // Insertion Operator
-    std::ostream& operator<<(std::ostream& out, const Order& order) {
-        out << order.stringToOut(); //print the order description
+std::ostream& operator<<(std::ostream& out, const Order& order) {
+    out << order.stringToOut(); //print the order description
 
-        return out;
-    }
+    return out;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,14 +26,19 @@
     attach(new LogObserver());
 }
 
+// Destructor
+    DeployOrder::~DeployOrder() {
+        this->clear();
+    }
+
 // Constructor
     DeployOrder::DeployOrder(int units, Territory* target, Player* player)
         : units(units), targetTerritory(target), issuingPlayer(player) {
-    this->attach(new LogObserver());
-}
+        this->attach(new LogObserver());
+    }
 
 // Execute Order
-void DeployOrder::execute() {
+    void DeployOrder::execute() {
     if (validate()) {
         targetTerritory->army += units;
         std::cout << "Deployed " << units << " units to " << targetTerritory->name << ".\n";
@@ -43,35 +48,35 @@ void DeployOrder::execute() {
 
 // Validates Orders
     bool DeployOrder::validate() {
-    if (!issuingPlayer || !targetTerritory) {
-        return false;
-    }
-    if (targetTerritory->owner != issuingPlayer) {
-        std::cerr << "Invalid Deploy Order: Territory does not belong to issuing player.\n";
-        return false;
-    }
-    return true;
+        if (!issuingPlayer || !targetTerritory) {
+            return false;
+        }
+        if (targetTerritory->owner != issuingPlayer) {
+            std::cerr << "Invalid Deploy Order: Territory does not belong to issuing player.\n";
+            return false;
+        }
+        return true;
 }
 
 // Assignment Operator
     DeployOrder& DeployOrder::operator=(const DeployOrder& other) {
-    if (this != &other) {
-      units = other.units;
-      targetTerritory = other.targetTerritory;
-      issuingPlayer = other.issuingPlayer;
+        if (this != &other) {
+          units = other.units;
+          targetTerritory = other.targetTerritory;
+          issuingPlayer = other.issuingPlayer;
+        }
+        return *this;
     }
-    return *this;
-}
 
 // String to print to console, inherited from Order class
     std::string DeployOrder::stringToOut() const {
-    return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
-}
+        return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
+    }
 
 // String to print to log, inherited from ILoggable Interface
     std::string DeployOrder::stringToLog() {
-    return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
-}
+        return "Deploy Order: " + std::to_string(units) + " units to " + targetTerritory->name;
+    }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,22 +84,26 @@ void DeployOrder::execute() {
 ///
 
 // Default constructor
-    AdvanceOrder::AdvanceOrder(){
-        units = 0;
-        sourceTerritory = nullptr;
-        targetTerritory = nullptr;
-        issuingPlayer = nullptr;
-        this->attach(new LogObserver);
+AdvanceOrder::AdvanceOrder(){
+    units = 0;
+    sourceTerritory = nullptr;
+    targetTerritory = nullptr;
+    issuingPlayer = nullptr;
+    this->attach(new LogObserver);
+}
+
+AdvanceOrder::~AdvanceOrder() {
+    this->clear();
 }
 
 // Constructor
-    AdvanceOrder::AdvanceOrder(int units, Territory* source, Territory* target, Player* player)
-        : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {
+AdvanceOrder::AdvanceOrder(int units, Territory* source, Territory* target, Player* player)
+    : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {
     this->attach(new LogObserver());
 }
 
 // Execute Order
-    void AdvanceOrder::execute() {
+void AdvanceOrder::execute() {
     if (validate()) {
         std::cout << "Executing advance from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
 
@@ -151,7 +160,7 @@ void DeployOrder::execute() {
 }
 
 // Assignment Operator
-    AdvanceOrder& AdvanceOrder::operator=(const AdvanceOrder& other) {
+AdvanceOrder& AdvanceOrder::operator=(const AdvanceOrder& other) {
     if (this != &other) {
         units = other.units;
         targetTerritory = other.targetTerritory;
@@ -162,7 +171,7 @@ void DeployOrder::execute() {
 }
 
 // Validates Order
-    bool AdvanceOrder::validate() {
+bool AdvanceOrder::validate() {
 
     if (!issuingPlayer || !targetTerritory || !sourceTerritory) {
         return false;
@@ -180,12 +189,12 @@ void DeployOrder::execute() {
 }
 
 // String to print to console, inherited from Order class
-    std::string AdvanceOrder::stringToOut() const {
+std::string AdvanceOrder::stringToOut() const {
     return "Advance Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
 
 // String to print to log, inherited from ILoggable interface
-    std::string AdvanceOrder::stringToLog() {
+std::string AdvanceOrder::stringToLog() {
     return "Advance Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
 }
 
@@ -195,64 +204,68 @@ void DeployOrder::execute() {
 ///
 
 // Default Constructor
-    AirliftOrder::AirliftOrder(){
-        units = 0;
-        sourceTerritory = nullptr;
-        targetTerritory = nullptr;
-        issuingPlayer = nullptr;
-        this->attach(new LogObserver);
-    }
+AirliftOrder::AirliftOrder(){
+    units = 0;
+    sourceTerritory = nullptr;
+    targetTerritory = nullptr;
+    issuingPlayer = nullptr;
+    this->attach(new LogObserver);
+}
+
+AirliftOrder::~AirliftOrder() {
+    this->clear();
+}
 
 // Constructor
-    AirliftOrder::AirliftOrder(int units, Territory* source, Territory* target, Player* player)
-            : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {
-        this->attach(new LogObserver());
-    }
+AirliftOrder::AirliftOrder(int units, Territory* source, Territory* target, Player* player)
+        : units(units), sourceTerritory(source), targetTerritory(target), issuingPlayer(player) {
+    this->attach(new LogObserver());
+}
 
 // Execute Order
-    void AirliftOrder::execute() {
-        if (validate()) {
-            sourceTerritory->army -= units;
-            targetTerritory->army += units;
-            std::cout << "Airlifted " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
-        }
-        notify(this);
+void AirliftOrder::execute() {
+    if (validate()) {
+        sourceTerritory->army -= units;
+        targetTerritory->army += units;
+        std::cout << "Airlifted " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
     }
+    notify(this);
+}
 
 // Validate Order
-    bool AirliftOrder::validate() {
+bool AirliftOrder::validate() {
 
-        if (!issuingPlayer || !targetTerritory || !sourceTerritory) {
-            return false;
-        }
-
-        if (sourceTerritory->owner != issuingPlayer || targetTerritory->owner != issuingPlayer) {
-            std::cerr << "Invalid Airlift Order: Source or target territory does not belong to issuing player.\n";
-            return false;
-        }
-        return true;
+    if (!issuingPlayer || !targetTerritory || !sourceTerritory) {
+        return false;
     }
+
+    if (sourceTerritory->owner != issuingPlayer || targetTerritory->owner != issuingPlayer) {
+        std::cerr << "Invalid Airlift Order: Source or target territory does not belong to issuing player.\n";
+        return false;
+    }
+    return true;
+}
 
 // Assignment Operator
-    AirliftOrder& AirliftOrder::operator=(const AirliftOrder& other) {
-        if (this != &other) {
-            sourceTerritory = other.sourceTerritory;
-            targetTerritory = other.targetTerritory;
-            units = other.units;
-            issuingPlayer = other.issuingPlayer;
-        }
-        return *this;
+AirliftOrder& AirliftOrder::operator=(const AirliftOrder& other) {
+    if (this != &other) {
+        sourceTerritory = other.sourceTerritory;
+        targetTerritory = other.targetTerritory;
+        units = other.units;
+        issuingPlayer = other.issuingPlayer;
     }
+    return *this;
+}
 
 // String to print to console, inherited from Order class
-    std::string AirliftOrder::stringToOut() const {
-        return "Airlift Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
-    }
+std::string AirliftOrder::stringToOut() const {
+    return "Airlift Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
+}
 
 // String to print to log, inherited from ILoggable interface
-    std::string AirliftOrder::stringToLog() {
-        return "Airlift Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
-    }
+std::string AirliftOrder::stringToLog() {
+    return "Airlift Order: " + std::to_string(units) + " units from " + sourceTerritory->name + " to " + targetTerritory->name;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -260,20 +273,24 @@ void DeployOrder::execute() {
 ///
 
 // Default Constructor
-    BombOrder::BombOrder(){
+BombOrder::BombOrder(){
     targetTerritory = nullptr;
     issuingPlayer = nullptr;
     this->attach(new LogObserver);
 }
 
+BombOrder::~BombOrder() {
+    this->clear();
+}
+
 // Constructor
-    BombOrder::BombOrder(Territory* target, Player* player)
+BombOrder::BombOrder(Territory* target, Player* player)
             : targetTerritory(target), issuingPlayer(player) {
     this->attach(new LogObserver());
 }
 
 // Execute Order
-    void BombOrder::execute() {
+void BombOrder::execute() {
     if (validate()) {
         int unitsRemoved = targetTerritory->army / 2;
         targetTerritory->army -= unitsRemoved;
@@ -283,7 +300,7 @@ void DeployOrder::execute() {
 }
 
 // Assignment Operator
-    BombOrder& BombOrder::operator=(const BombOrder& other) {
+BombOrder& BombOrder::operator=(const BombOrder& other) {
     if (this != &other) {
       targetTerritory = other.targetTerritory;
       issuingPlayer = other.issuingPlayer;
@@ -292,7 +309,7 @@ void DeployOrder::execute() {
 }
 
 // Validates order
-    bool BombOrder::validate() {
+bool BombOrder::validate() {
 
     if (!issuingPlayer || !targetTerritory) {
         return false;
@@ -321,12 +338,12 @@ void DeployOrder::execute() {
 }
 
 // String to print to console, inherited from Order class
-    std::string BombOrder::stringToOut() const {
+std::string BombOrder::stringToOut() const {
         return "Bomb Order: Targeting " + targetTerritory->name;
     }
 
 // String to print to log, inherited from ILoggable interface
-    std::string BombOrder::stringToLog() {
+std::string BombOrder::stringToLog() {
         return "Bomb Order: Targeting " + targetTerritory->name;
     }
 
@@ -336,20 +353,25 @@ void DeployOrder::execute() {
 ///
 
 // Default constructor
-    BlockadeOrder::BlockadeOrder(){
+BlockadeOrder::BlockadeOrder(){
     targetTerritory = nullptr;
     issuingPlayer = nullptr;
     this->attach(new LogObserver);
 }
 
+BlockadeOrder::~BlockadeOrder() {
+    this->clear();
+}
+
+
 // Constructor
-    BlockadeOrder::BlockadeOrder(Territory* target, Player* player)
+BlockadeOrder::BlockadeOrder(Territory* target, Player* player)
         : targetTerritory(target), issuingPlayer(player) {
     this->attach(new LogObserver());
 }
 
 // Execute method
-    void BlockadeOrder::execute() {
+void BlockadeOrder::execute() {
     if (validate()) {
         targetTerritory->army *= 2;
         targetTerritory->owner = nullptr; // Transfer to Neutral player
@@ -364,7 +386,7 @@ void DeployOrder::execute() {
 }
 
 // Negotiate Order
-    BlockadeOrder& BlockadeOrder::operator=(const BlockadeOrder& other) {
+BlockadeOrder& BlockadeOrder::operator=(const BlockadeOrder& other) {
     if (this != &other) {
         targetTerritory = other.targetTerritory;
         issuingPlayer = other.issuingPlayer;
@@ -373,7 +395,7 @@ void DeployOrder::execute() {
 }
 
 // Validates Orders
-    bool BlockadeOrder::validate() {
+bool BlockadeOrder::validate() {
 
     if (!issuingPlayer || !targetTerritory) {
         return false;
@@ -387,12 +409,12 @@ void DeployOrder::execute() {
 }
 
 // String to print to console, inherited from Order class
-    std::string BlockadeOrder::stringToOut() const {
+std::string BlockadeOrder::stringToOut() const {
     return "Blockade Order: Targeting " + targetTerritory->name;
 }
 
 // String to print to log, inherited from ILoggable interface
-    std::string BlockadeOrder::stringToLog() {
+std::string BlockadeOrder::stringToLog() {
     return "Blockade Order: Targeting " + targetTerritory->name;
 }
 
@@ -402,14 +424,18 @@ void DeployOrder::execute() {
 ///
 
 // Default constructor
-    NegotiateOrder::NegotiateOrder(){
+NegotiateOrder::NegotiateOrder(){
     targetPlayer = nullptr;
     issuingPlayer = nullptr;
     this->attach(new LogObserver);
 }
 
+NegotiateOrder::~NegotiateOrder() {
+    this->clear();
+}
+
 // Constructor
-    NegotiateOrder::NegotiateOrder(Player* target, Player* player)
+NegotiateOrder::NegotiateOrder(Player* target, Player* player)
     : targetPlayer(target), issuingPlayer(player) {
     this->attach(new LogObserver());
 }

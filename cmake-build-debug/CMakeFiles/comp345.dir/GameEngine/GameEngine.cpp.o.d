@@ -990,8 +990,13 @@ CMakeFiles/comp345.dir/GameEngine/GameEngine.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Cards/Cards.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \

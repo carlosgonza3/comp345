@@ -982,5 +982,7 @@ CMakeFiles/comp345.dir/Player/Player.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/list \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/../Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Player/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Player/../Map/Map.h

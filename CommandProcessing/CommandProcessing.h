@@ -15,6 +15,7 @@ class Command : public Subject, public ILoggable{
 
     public:
 
+        Command();
 
         Command(const std::string& command);
         //Destructor

@@ -39,6 +39,7 @@ OrdersList::~OrdersList() {
         delete order;
     }
     this->orders.clear();
+    this->clear();
 }
 
 // Add an order to the list

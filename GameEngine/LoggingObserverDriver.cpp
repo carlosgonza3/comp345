@@ -11,11 +11,6 @@
 
 void testLoggingObserver() {
 
-    // Instance of Observer Interface
-    LogObserver logger;
-
-    logger.saveHeaders();
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Game Engine Test
 
@@ -74,6 +69,19 @@ void testLoggingObserver() {
 
     std::string command3 = "addplayer";
     commandProcessor->readCommand(command3);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Save Command Test
+///
+
+    std::string command4 = "loadmap";
+    std::make_shared<Command>(command4)->saveEffect("loadmap");
+
+
+    std::string command5 = "validatemap";
+    std::make_shared<Command>(command5)->saveEffect("validatemap");
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Order Test

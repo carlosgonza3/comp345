@@ -4,7 +4,6 @@
 /// Command class implementation
 ///
 
-
 // Constructor to initialize Command with a command string from user
 Command::Command(const std::string& command) : command(std::make_shared<std::string>(command)), effect(std::make_shared<std::string>("")) {
     this->attach(new LogObserver);
@@ -33,14 +32,14 @@ Command::Command(const std::string& command) : command(std::make_shared<std::str
 
     //Overloaded the operator for outputting Command information
     std::ostream& operator<<(std::ostream& os, const Command& com) {
-        os << "Command: " << *com.command << ", Effect: " << *com.effect;
+        os << "Command: " << *com.command << ", Effect: " << *com.effect << std::endl;
         return os;
     }
 
     //Sets the effect description of the command
     void Command::saveEffect(const std::string& effect) {
-        notify(this);
         *this->effect = effect;
+        notify(this);
     }
 
     // Returns the effect of the command
@@ -55,11 +54,10 @@ Command::Command(const std::string& command) : command(std::make_shared<std::str
 
     // String to print to log, inherited from ILoggable Interface
         std::string Command::stringToLog() {
-            return "Command effect saved: " + *effect;
+            std::string out = "Command effect saved: ";
+            out.append(*effect);
+            return out;
     }
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Command Processor class
@@ -92,7 +90,7 @@ Command::Command(const std::string& command) : command(std::make_shared<std::str
     void CommandProcessor::saveCommand(const std::string& command) {
         commandList.push_back(std::make_shared<Command>(command));
         std::cout << "\tCommand saved: " << command << std::endl;
-        notify(this);
+        notify(this); // Notifies the logger
     }
 
 
@@ -197,7 +195,7 @@ FileCommandProcessorAdapter::FileCommandProcessorAdapter(const std::string& file
     if (!fileStream) {
         std::cerr << "Unable to open file: " << filename << std::endl;
     } else {
-        readCommands();
+       readCommands();
     }
 }
 
@@ -292,7 +290,3 @@ void FileCommandProcessorAdapter::Validate(std::string* curtState, Command* com)
         std::cout << "Invalid command." << std::endl;
     }
 }
-
-///
-////
-///

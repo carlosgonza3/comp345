@@ -990,5 +990,11 @@ CMakeFiles/comp345.dir/GameEngine/GameEngineDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/GameEngineDriver.h

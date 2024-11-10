@@ -12,7 +12,7 @@ public:
     OrdersList& operator=(const OrdersList& other); // Assignment operator
     // Add Stream instertion operator method, here and in cpp file
 
-    ~OrdersList();                            // Destructor
+    ~OrdersList() override;                            // Destructor
 
     void addOrder(Order* order);              // Method to add an order
     void removeOrder(Order* order);           // Method to remove an order

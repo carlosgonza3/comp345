@@ -7,6 +7,9 @@
 #include <fstream>
 #include <iostream>
 #include <ctime>
+#include <unistd.h>
+#include <cstdio>
+
 
 #define LOG_FILE "gamelog.txt"
 
@@ -51,23 +54,25 @@
 
 // Default Constructor (Opens _logFile)
     LogObserver::LogObserver() {
-    _logFile.open(LOG_FILE, std::ios::app);
-    if (_logFile.fail()) {
-        std::cerr << "[!] -> Error opening log file..." << std::endl;
-        exit(1);
+        _logFile.open(LOG_FILE, std::ios::app);
+        if (_logFile.fail()) {
+            std::cerr << "[!] -> Error opening log file..." << std::endl;
+            exit(1);
+        }
     }
-}
 
 // Deconstructor
     LogObserver::~LogObserver() {
-    _logFile.close();
+        if (_logFile.is_open()) {
+            _logFile.close(); // Close ofstream
+        }
     }
 
 // Updates behaviour when notified by Subject
     void LogObserver::update(ILoggable* loggable) {
         _logFile << loggable->stringToLog() << std::endl;
+        _logFile.flush();  // Flush C++ stream buffer
         std::cout <<"\n\t[:0] -> Log observer updated!\n" << std::endl;
-        _logFile.flush();
     }
 
 // Writes Header of creation time
@@ -82,6 +87,7 @@
         // Write the log header with timestamp
         _logFile << "\t[!] Game Log Created at: " << timeBuffer << std::endl;
         _logFile << "===================================================================================\n" << std::endl;
+        _logFile.flush();
     }
 
 

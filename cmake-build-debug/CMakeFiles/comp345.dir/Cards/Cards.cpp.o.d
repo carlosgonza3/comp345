@@ -980,4 +980,9 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/list
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/list \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Map/Map.h

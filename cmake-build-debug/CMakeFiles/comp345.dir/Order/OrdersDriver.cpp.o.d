@@ -983,6 +983,8 @@ CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/Cards.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Map/Map.h
