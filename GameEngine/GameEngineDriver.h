@@ -7,5 +7,6 @@
 
 void testGameStates();
 void testStartupPhase();
+void testMainGameLoop();
 
 #endif //GAMEENGINEDRIVER_H

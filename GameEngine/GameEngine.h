@@ -7,13 +7,16 @@
 #include <string>
 #include <iostream>
 #include <map>
-
+#include <vector>
 #include "../CommandProcessing/CommandProcessing.h"
-
-
 #include "../Map/Map.h"
 #include "../Map/MapDriver.h"
 #include "../Player/Player.h"
+#include "../Order/OrdersList.h"
+#include "../Order/Orders.h"
+#include "../Cards/Cards.h"
+
+
 
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
@@ -21,7 +24,6 @@ std::string getUserInput(std::string& output);
 // Base class State, which works as a blueprint for the 8 different States along the program...
 class State {
     public:
-
         // Deconstructor
         virtual ~State() = default;
 
@@ -94,8 +96,10 @@ class GameEngine : public Subject, public ILoggable {
         void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
         void issueOrdersPhase(std::vector<Player*>& players);
         void hasTerritory(std::vector<Player*>& players);
-        void hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
+        bool hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
         void executeOrdersPhase(std::vector<Player*>& players);
+
+        void mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

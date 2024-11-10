@@ -3,32 +3,32 @@
 #include "CommandProcessing/CommandProcessingDriver.h"
 
 // For testOrderExecution
-#include "../Order/OrdersDriver.h"
+#include "Order/OrdersDriver.h"
 
 // For testLoggingObserver
-#include "../GameEngine/GameEngineDriver.h"
-#include "../GameEngine/LoggingObserver.h"
-#include "../GameEngine/LoggingObserverDriver.h"
+#include "GameEngine/GameEngineDriver.h"
+#include "GameEngine/LoggingObserver.h"
+#include "GameEngine/LoggingObserverDriver.h"
+
 
 
 
 int main() {
 
-    testStartupPhase();
+    //testStartupPhase();
 
-    LogObserver log_observer;
-
-
-    testLoggingObserver();
+    //LogObserver log_observer;
 
 
+    //testLoggingObserver();
+
+    testMainGameLoop();
 
 
    //testCommandProcessor();
 
    //testOrderExecution();
 
-    //missing part 2
-    //missing part 
+    
     return 0;
 }

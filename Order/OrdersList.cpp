@@ -95,8 +95,13 @@ Order* OrdersList::getNextOrder() { // Method to retrieve nextOrder in line
     return nullptr;  // Return nullptr if the list is empty
 }
 
-void OrdersList::removeOrder(int index) { // Method to remove Order at certain index
+
+void OrdersList::removeOrder(int index) { 
     if (index >= 0 && index < orders.size()) {
+        // Delete the order object before removing the pointer from the vector
+        delete orders[index];
+        
+        // Remove the pointer from the vector
         orders.erase(orders.begin() + index);
     }
 }

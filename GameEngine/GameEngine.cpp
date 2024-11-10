@@ -756,7 +756,6 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
             std::cout << "Player: " << player->name << " received less than 3 reinforcements, so their total is set to 3 (minimum reinforcement)." << std::endl;
             player->setReinforcementPool(3);
         }
-        //For debugging
         
         
     }
@@ -786,7 +785,7 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
 void GameEngine::hasTerritory(std::vector<Player*>& players){
     for (int i = 0; i < players.size(); ) {  
         if (players[i]->toDefend().size() == 0) {  // Check if the player has no territories
-            std::cout << "Player " << players[i]->name << " lost since he/she has no territories." << std::endl;
+            std::cout << "\nPlayer " << players[i]->name << " lost since he/she has no territories." << std::endl;
             delete players[i];  // Call destructor
             players.erase(players.begin() + i);  // Erase the player and do not increment i
         } else {
@@ -795,7 +794,7 @@ void GameEngine::hasTerritory(std::vector<Player*>& players){
     }
 }
 
-void GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories) {
+bool GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories) {
     for (int i = 0; i < players.size(); ++i) {
         Player* player = players[i];
         bool controlsAllTerritories = true;
@@ -822,8 +821,10 @@ void GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Terr
 
         if (controlsAllTerritories) {
             std::cout << "Player " << player->name << " has won since he controls all territories!" << std::endl;
-        } 
+            return true;
+        }
     }
+    return false; // no player controls all territories yet.
 }
 
 void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
@@ -838,6 +839,7 @@ void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
                 deployOrder->execute();  
                 
                 playerOrders->removeOrder(i);  // Assuming removeOrder removes the order at the given index
+                
                 --i;  
             }
 
@@ -857,10 +859,42 @@ void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
 
                 // After executing, the order is automatically popped from the list
                 
-                // Check if more orders remain for this player
+                // Check if more orders remain for this player, so if even one player still has player, then loop will continue
                 if (orders->getSize() != 0) {
-                    ordersRemaining = true;
+                    ordersRemaining = true; 
                 }
+            }
+        }
+    }
+}
+
+void GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories){
+    bool gameOver = false;
+     while (!gameOver) {
+        // Reinforcement Phase
+        reinforcementPhase(players, continents);
+
+
+        hasTerritory(players);
+        // Issue Orders Phase
+        issueOrdersPhase(players);
+
+        // Execute Orders Phase
+        executeOrdersPhase(players);
+
+        // Check if any player has lost all territories
+        hasTerritory(players);
+
+        // Check if any player has won by controlling all territories
+        
+
+        // Check if there are any players left to continue the game
+        if (hasAllTerritory(players, allTheTerritories)) {
+            gameOver = true;
+            if (!players.empty()) {
+                std::cout << "\nGame Over! Player " << players[0]->name << " has won!" << std::endl;
+            } else {
+                std::cout << "\nGame Over! No players left!" << std::endl;
             }
         }
     }

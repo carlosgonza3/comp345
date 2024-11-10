@@ -103,8 +103,15 @@ Continent::Continent(const Continent &continent) {
 //Destructor
 Continent::~Continent() {
     for (Territory* territory : territories) {
-        delete territory;
+            if (territory){
+                delete territory;
+                territory = nullptr;
+            }
     }
+    
+    territories.clear();
+        
+    
 }
 //Assignment operator
 Continent &Continent::operator=(const Continent *continent) {

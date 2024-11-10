@@ -14,7 +14,9 @@ Player::Player() : Hand1(nullptr), orders(new OrdersList()) {
 }
 
 // Constructor with Hand parameter
+
 Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {
+
 }
 
 //Copy constructor
@@ -44,12 +46,14 @@ Player::Player(const Player& other)
 
 // Destructor
 Player::~Player() {
+    
     if (Hand1 != nullptr) {
         delete Hand1;
     }
-    if (orders != nullptr) {
-        delete orders;
-    }
+    
+    delete orders;
+    
+    
     std::cout << "Player named " << name << " destroyed.\n" << std::endl;
 }
 
@@ -106,7 +110,7 @@ void Player::issueOrder(int number, std::vector<Player*>& players) {
     int indexInput;
     bool validInput;
     if (reinforcementPool > 0){
-        std::cout << "\nPlayer " << number << " still has a reinforcement pool of "<< reinforcementPool << " units. Therefore must issue a Deploy Order." << std::endl;
+        std::cout << "\nPlayer: " << name << " still has a reinforcement pool of "<< reinforcementPool << " units. Therefore must issue a Deploy Order." << std::endl;
         validInput = false;
         int reinforcementInput;
         while(!validInput){
@@ -134,16 +138,24 @@ void Player::issueOrder(int number, std::vector<Player*>& players) {
     }
     validInput = false;
     while(!validInput){
-        std::cout << "\nPlayer " << number << " no longer has a reinforcement pool. Please enter the index of the order you want to issue: " << std::endl;
+        std::cout << "\nPlayer " << name << " no longer has a reinforcement pool. Please enter the index of the order you want to issue: " << std::endl;
         std::cout << "1. Advance Order To Attack Territories" << std::endl;
         std::cout << "2. Advance Order To Defend Territories" << std::endl;
         std::cout << "3. Use Cards" << std::endl;
         std::cout << "4. See your issued orders" << std::endl;
         std::cout << "0. Finished giving orders" << std::endl;
         std::cin >> indexInput;
-        if (indexInput >= 0 && indexInput <= 4) {
+        if (indexInput >= 0 && indexInput <= 3) {
             validInput = true;
         } 
+        else if(indexInput == 4){
+            if(orders->getSize() != 0){
+                orders->printOrders();
+            }
+            else{
+                std::cout << "\nIssued Orders List is Empty!" << std::endl;
+            }
+        }
         else {
             std::cout << "\nInvalid input! Try again!\n" << std::endl;
         }
@@ -195,16 +207,8 @@ void Player::issueOrder(int number, std::vector<Player*>& players) {
             std::cout << "Your hand is empty so there is no card to play!" << std::endl;
         }
     }
-    else if(indexInput == 4){
-        if(orders->getSize() != 0){
-            orders->printOrders();
-        }
-        else{
-            std::cout << "\nIssued Orders List is Empty!" << std::endl;
-        }
-    }
     else if(indexInput == 0){
-        std::cout << "Player " << number << " has finished giving orders." << std::endl;
+        std::cout << "Player " << name << " has finished giving orders." << std::endl;
         setIssuedAllOrders(true);
     }
 }
