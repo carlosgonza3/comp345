@@ -16,3 +16,21 @@ Order added to list: Deploy Order: 3 units to USA
 Order added to list: Deploy Order: 5 units to Colombia
 Order added to list: Deploy Order: 2 units to Colombia
 Order added to list: Deploy Order: 3 units to USA
+Order added to list: Deploy Order: 5 units to USA
+Order added to list: Advance Order: 5 units from USA to SOUTH KOREA
+Order added to list: Airlift Order: 5 units from Colombia to Canada
+Order added to list: Bomb Order: Targeting SOUTH KOREA
+Order added to list: Deploy Order: 5 units to USA
+Order added to list: Deploy Order: 5 units to Colombia
+Order added to list: Deploy Order: 12 units to Canada
+Order added to list: Deploy Order: 6 units to SOUTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Order added to list: Deploy Order: 12 units to Colombia
+Order added to list: Deploy Order: 6 units to SOUTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Order added to list: Deploy Order: 12 units to Mexico
+Order added to list: Deploy Order: 6 units to NORTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Order added to list: Deploy Order: 41 units to USA
+Order added to list: Deploy Order: 41 units to USA
+Order added to list: Deploy Order: 41 units to USA

@@ -93,6 +93,9 @@ class GameEngine : public Subject, public ILoggable {
 
         void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
         void issueOrdersPhase(std::vector<Player*>& players);
+        void hasTerritory(std::vector<Player*>& players);
+        void hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
+        void executeOrdersPhase(std::vector<Player*>& players);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

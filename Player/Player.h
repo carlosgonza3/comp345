@@ -38,6 +38,7 @@ public:
 	int reinforcementPool;
     bool hasIssuedAllOrders();
     void setIssuedAllOrders(bool value);
+    OrdersList* getOrdersList();
     
 
 private:

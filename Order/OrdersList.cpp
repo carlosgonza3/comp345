@@ -85,3 +85,18 @@ void OrdersList::move(int firstIndex, int secondIndex) {
         orders.insert(orders.begin() + secondIndex, temp);//insert order
     }
 }
+
+Order* OrdersList::getNextOrder() { // Method to retrieve nextOrder in line
+    if (!orders.empty()) {
+        Order* order = orders.front();
+        orders.erase(orders.begin());  // Remove the first order
+        return order;
+    }
+    return nullptr;  // Return nullptr if the list is empty
+}
+
+void OrdersList::removeOrder(int index) { // Method to remove Order at certain index
+    if (index >= 0 && index < orders.size()) {
+        orders.erase(orders.begin() + index);
+    }
+}

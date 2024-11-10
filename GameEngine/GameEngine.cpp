@@ -721,6 +721,7 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
     int i = 1;
     for (Player* player: players){
         int continentBonus = 0;
+        std::cout << std::endl;
         for (Continent* continent: continents){
             bool controlsAllTerritory = true;
 
@@ -737,18 +738,27 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
                     break;
                 }
             }
+            
             if (controlsAllTerritory){
-                std::cout << "Player " << i << " received army bonus thanks to " << continent->name << std::endl;
+                std::cout << "Player: " << player->name << " received a continent bonus of " << continent->armyBonus << " reinforcements thanks to " << continent->name << std::endl;
                 continentBonus += continent->armyBonus;
             }
         }
-
-        int territoryBonus = player->toDefend().size() / 3;
-        int reinforcementNumber = std::max((territoryBonus + continentBonus), 3);
-        player->setReinforcementPool(reinforcementNumber);
+        
+        int territoryBonus = (player->toDefend().size()) / 3;
+        int total = territoryBonus + continentBonus;
+        std::cout << "Player: " << player->name << " received a territory bonus " << territoryBonus << " reinforcements due to owning "<< player->toDefend().size() << " territories."<< std::endl;
+        if (total >= 3){
+            std::cout << "Player: " << player->name << " received a total of " << total << " reinforcements." << std::endl;
+            player->setReinforcementPool(total);
+        }
+        else{
+            std::cout << "Player: " << player->name << " received less than 3 reinforcements, so their total is set to 3 (minimum reinforcement)." << std::endl;
+            player->setReinforcementPool(3);
+        }
         //For debugging
-        std::cout << "Player " << i << " receives " << reinforcementNumber << " reinforcements." << std::endl;
-        i += 1;
+        
+        
     }
 }
 
@@ -771,4 +781,87 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
         }
     }
 
+}
+
+void GameEngine::hasTerritory(std::vector<Player*>& players){
+    for (int i = 0; i < players.size(); ) {  
+        if (players[i]->toDefend().size() == 0) {  // Check if the player has no territories
+            std::cout << "Player " << players[i]->name << " lost since he/she has no territories." << std::endl;
+            delete players[i];  // Call destructor
+            players.erase(players.begin() + i);  // Erase the player and do not increment i
+        } else {
+            ++i;  
+        }
+    }
+}
+
+void GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories) {
+    for (int i = 0; i < players.size(); ++i) {
+        Player* player = players[i];
+        bool controlsAllTerritories = true;
+
+        // Check if the player owns each territory in allTheTerritories
+        for (int j = 0; j < allTheTerritories.size(); ++j) {
+            Territory* territory = allTheTerritories[j];
+            bool ownsTerritory = false;
+
+            // Check if this territory is in the player's ownedTerritories
+            for (int k = 0; k < player->toDefend().size(); ++k) {
+                if (player->toDefend()[k] == territory) {
+                    ownsTerritory = true;
+                    break;
+                }
+            }
+
+            // If any territory in allTheTerritories is not found in ownedTerritories, mark as false
+            if (!ownsTerritory) {
+                controlsAllTerritories = false;
+                break;
+            }
+        }
+
+        if (controlsAllTerritories) {
+            std::cout << "Player " << player->name << " has won since he controls all territories!" << std::endl;
+        } 
+    }
+}
+
+void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
+    
+    for (Player* player: players){
+        OrdersList* playerOrders = player->getOrdersList();
+
+        for (int i = 0; i < playerOrders->getSize(); i++) {
+            Order* order = playerOrders->getOrders()[i];
+            DeployOrder* deployOrder = dynamic_cast<DeployOrder*>(order); //Attempts to cast to DeployOrder otherwise nullptr
+            if (deployOrder) {  
+                deployOrder->execute();  
+                
+                playerOrders->removeOrder(i);  // Assuming removeOrder removes the order at the given index
+                --i;  
+            }
+
+        }
+    }
+
+    bool ordersRemaining = true;
+    while(ordersRemaining){
+        ordersRemaining = false;
+
+        //Round robin style. Each turn one order
+        for (Player* player: players){
+            OrdersList* orders = player->getOrdersList();
+            if (orders->getSize() != 0) {
+                Order* nextOrder = orders->getNextOrder();  // Retrieves and removes the next order
+                nextOrder->execute();  // Execute the order
+
+                // After executing, the order is automatically popped from the list
+                
+                // Check if more orders remain for this player
+                if (orders->getSize() != 0) {
+                    ordersRemaining = true;
+                }
+            }
+        }
+    }
 }

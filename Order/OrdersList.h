@@ -23,6 +23,9 @@ public:
 
     std::string stringToLog() override;
 
+    Order* getNextOrder();
+    void OrdersList::removeOrder(int index);
+
 private:
     std::vector<Order*> orders;               // Vector to hold orders
 };

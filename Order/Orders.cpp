@@ -33,7 +33,7 @@
 }
 
 // Execute Order
-    void DeployOrder::execute() {
+void DeployOrder::execute() {
     if (validate()) {
         notify(this);
         targetTerritory->army += units;
