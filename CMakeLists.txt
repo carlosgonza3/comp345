@@ -39,7 +39,6 @@ add_executable(comp345
             Order/OrdersList.h
             Player/Player.cpp
             Player/Player.h
-            Player/PlayerDriver.cpp
-            Player/PlayerDriver.h
-        CommandProcessing/CommandProcessingDriver.h
-        GameEngine/LoggingObserverDriver.h)
+            CommandProcessing/CommandProcessingDriver.h
+            GameEngine/LoggingObserverDriver.h
+            )

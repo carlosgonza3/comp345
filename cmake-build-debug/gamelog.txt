@@ -1,5 +1,141 @@
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Loaded State
-GameEngine state transitioned to: Map Loaded State
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:28:45
+===================================================================================
+
 GameEngine state transitioned to: Map Loaded State
 GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:29:25
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 01:29:55
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Order added to list: Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 11:08:25
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+GameEngine state transitioned to: Assign Reinforcement State
+GameEngine state transitioned to: Start State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Order added to list: Deploy Order: 3 units to Territory 1
+Deploy Order: 3 units to Territory 1
+Advance Order: 5 units from Territory 1 to Enemy Territory
+Airlift Order: 2 units from Territory 2 to Territory 1
+Bomb Order: Targeting Enemy Territory
+Blockade Order: Targeting Territory 1
+Blockade Order: Targeting Territory 1
+Negotiate Order: Targeting Player 3
+Negotiate Order: Targeting Player 3
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Command processed: gamestart
+Command processed: replay
+Command processed: quit
+Command effect saved: 
+Command processed: loadmap
+Command effect saved: true
+Command effect saved: 
+Command processed: validatemap
+Command effect saved: true
+Command effect saved: 
+Command processed: addplayer
+Command effect saved: true
+Command effect saved: 
+Command processed: gamestart
+Command effect saved: true
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+Command effect saved: 
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 11:15:39
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Order added to list: Deploy Order: 3 units to Territory 1
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 11:19:08
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
+
+===================================================================================
+	[!] Game Log Created at: 2024-11-09 11:20:46
+===================================================================================
+
+GameEngine state transitioned to: Map Loaded State
+GameEngine state transitioned to: Map Validated State
+GameEngine state transitioned to: Players Added State
+Command processed: loadmap
+Command processed: validatemap
+Command processed: addplayer
+Deploy Order: 3 units to Territory 1
+Negotiate Order: Targeting Player 2
+Order added to list: Deploy Order: 3 units to Territory 1
+Order added to list: Negotiate Order: Targeting Player 2
+Deploy Order: 3 units to Territory 1
+Advance Order: 5 units from Territory 1 to Enemy Territory
+Airlift Order: 2 units from Territory 2 to Territory 1
+Bomb Order: Targeting Enemy Territory
+Blockade Order: Targeting Territory 1
+Negotiate Order: Targeting Player 3
+

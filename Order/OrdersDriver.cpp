@@ -52,32 +52,32 @@ void testOrderExecution() {
     // Deploy Order
     Order* deployOrder = new DeployOrder(3, territory1, player1);
     deployOrder->execute();
-    std::cout << deployOrder->stringToLog() << "\n";
+    std::cout << deployOrder->stringToOut() << "\n";
 
     // Advance Order
     Order* advanceOrder = new AdvanceOrder(5, territory1, enemyTerritory, player1);
     advanceOrder->execute();
-    std::cout << advanceOrder->stringToLog() << "\n";
+    std::cout << advanceOrder->stringToOut() << "\n";
 
     // Airlift Order
     Order* airliftOrder = new AirliftOrder(2, territory2, territory1, player1);
     airliftOrder->execute();
-    std::cout << airliftOrder->stringToLog() << "\n";
+    std::cout << airliftOrder->stringToOut() << "\n";
 
     // Bomb Order
     Order* bombOrder = new BombOrder(enemyTerritory, player1);
     bombOrder->execute();
-    std::cout << bombOrder->stringToLog() << "\n";
+    std::cout << bombOrder->stringToOut() << "\n";
 
     // Blockade Order
     Order* blockadeOrder = new BlockadeOrder(territory1, player1);
     blockadeOrder->execute();
-    std::cout << blockadeOrder->stringToLog() << "\n";
+    std::cout << blockadeOrder->stringToOut() << "\n";
 
     // Negotiate Order
     Order* negotiateOrder = new NegotiateOrder(player3, player1);
     negotiateOrder->execute();
-    std::cout << negotiateOrder->stringToLog() << "\n";
+    std::cout << negotiateOrder->stringToOut() << "\n";
 
     // Clean up
     delete deployOrder;

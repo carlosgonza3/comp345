@@ -8,7 +8,7 @@ void testGameStates() {
     std::cout << "\n\t** Creating Game Engine..." << std::endl;
 
     // Setting up Game Engine
-    GameEngine* gameEngine = new GameEngine();
+    GameEngine* gameEngine = new GameEngine;
     std::cout << "\n\t** Game Engine created successfully" << std::endl;
     std::cout << "\n\t** Setting up Game Engine..." << std::endl;
     gameEngine->setCurrentState(new StartState());

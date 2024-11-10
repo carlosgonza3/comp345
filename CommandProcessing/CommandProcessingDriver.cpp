@@ -47,8 +47,3 @@ void testCommandProcessor() {
         std::cout << "Invalid choice, please run the program again and choose a valid option." << std::endl;
     }
 }
-
-int main() {
-    testCommandProcessor();
-    return 0;
-}

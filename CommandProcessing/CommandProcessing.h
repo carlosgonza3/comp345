@@ -14,7 +14,8 @@
 class Command : public Subject, public ILoggable{
 
     public:
-        // Constructor
+
+
         Command(const std::string& command);
         //Destructor
         ~Command();
@@ -47,12 +48,15 @@ class CommandProcessor : public Subject, public ILoggable {
         virtual ~CommandProcessor();
         //Method to read a command, can be overridden by derived classe
         virtual void readCommand();
+        // Accepts a string and saves it (Testing purposes)
+        virtual void readCommand(std::string& command);
 
         //Removes the first command in the list
         std::shared_ptr<Command> getCommand();
         //validates a command based on the current state
         virtual void Validate(std::string* currentState, Command* com);
         std::string stringToLog() override;
+
     protected:
         //Store the command into the command list
         void saveCommand(const std::string& command);
@@ -71,6 +75,7 @@ class FileCommandProcessorAdapter : public CommandProcessor {
         ~FileCommandProcessorAdapter() override;
         //Override readCommand
         void readCommands();
+
         //Override Validate to validate commands based on current state
         void Validate(std::string* curtState, Command* com) override;
     private:

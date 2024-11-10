@@ -43,6 +43,7 @@ std::ostream& operator<<(std::ostream& os, GameEngine& gameEngine) {
 }
 
 void GameEngine::setCurrentState(State* state) {
+    this->deleteCurrentState();
     currentState = state;
 }
 
@@ -100,10 +101,11 @@ bool GameEngine::checkCommandValid(const std::string& cmd) {
             std::cout << "\t- " << cmdPair.first << "\n";
         }
     }
+    std::cout << std::endl;
 
     // Check if command matches any valid transition
     if (validCommands.find(cmd) != validCommands.end() && validCommands[cmd] == currentState->getState()) {
-        std::cout << "\tCommand valid: " << cmd << "\n";
+        std::cout << "\t[S] -> Command valid: " << cmd << "\n";
 
         // Transition to the new state based on command
         if (cmd == "loadmap") {

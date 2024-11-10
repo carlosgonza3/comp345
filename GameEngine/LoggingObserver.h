@@ -24,7 +24,6 @@ class Observer {
     public:
         virtual ~Observer() = default;
         virtual void update(ILoggable* loggable) = 0;
-
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +47,8 @@ class LogObserver : public Observer {
         LogObserver();
         ~LogObserver() override;
         void update(ILoggable* loggable) override;
+        void saveHeaders();
+
         std::ofstream _logFile;
 
 };
