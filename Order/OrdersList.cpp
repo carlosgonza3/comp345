@@ -70,6 +70,7 @@ size_t OrdersList::getSize() const {
 }
 
 void OrdersList::printOrders(){
+    std::cout << "\nCurrent Orders:" << std::endl;
     for (int i = 0; i < orders.size(); i++){
         std::cout << i << ". " << *orders[i] << std::endl;
     }

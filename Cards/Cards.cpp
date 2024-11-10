@@ -36,20 +36,27 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {  //Stream inserti
     return os; 
 }
 
-void Card::play(OrdersList * ptrToList, Player* issuingPlayer){    //Creates an order depending on card type and adds to the list of order
+void Card::play(OrdersList * ptrToList, Player* issuingPlayer, vector<Player*>& players){    //Creates an order depending on card type and adds to the list of order
     cout << "\nCurrent card being played: " << *(this->cardType) << endl;
     int units;
     int srcTerritoryIndex;
     int targetTerritoryIndex;
     if (*cardType == "Bomb"){
-        
-        (*ptrToList).addOrder(new BombOrder());
+        issuingPlayer->printTerritoriesToAttack();
+        cout << "\nPlease Enter The Index of the Territory you wish to use the Bomb Order on" << endl;
+        cin >> targetTerritoryIndex;
+        Territory* targetTerritory = issuingPlayer->toAttack()[targetTerritoryIndex];
+        (*ptrToList).addOrder(new BombOrder(targetTerritory, issuingPlayer));
     }
-    else if(*cardType == "Reinforcement"){
-        (*ptrToList).addOrder(new DeployOrder());
-    }
+    //else if(*cardType == "Reinforcement"){ NO IMPLEMENTATION REQUIREMENTS IN ASSIGNMENT 2
+        //(*ptrToList).addOrder(new DeployOrder());
+    //}
     else if (*cardType == "Blockade"){
-        (*ptrToList).addOrder(new BlockadeOrder());
+        issuingPlayer->printTerritoriesToDefend();
+        cout << "\nPlease Enter The Index of the Territory you wish to use the Blockade Order on" << endl;
+        cin >> srcTerritoryIndex;
+        Territory* sourceTerritory = issuingPlayer->toDefend()[srcTerritoryIndex];
+        (*ptrToList).addOrder(new BlockadeOrder(sourceTerritory, issuingPlayer));
     }
     else if (*cardType == "Airlift"){
         issuingPlayer->printTerritoriesToDefend();
@@ -59,14 +66,33 @@ void Card::play(OrdersList * ptrToList, Player* issuingPlayer){    //Creates an 
         cout << "\nTerritory: " << sourceTerritory->name << " currently has " << sourceTerritory->army << " units." << endl;
         cout << "How many units do you want to airlift?" << endl;
         cin >> units;
-        issuingPlayer->printTerritoriesToAttack();
+        issuingPlayer->printTerritoriesToDefend();
         cout << "\nPlease Enter The Index of the Target Territory for the Airlift Order" << endl;
         cin >> targetTerritoryIndex;
-        Territory* targetTerritory = issuingPlayer->toAttack()[targetTerritoryIndex];
+        Territory* targetTerritory = issuingPlayer->toDefend()[targetTerritoryIndex];
         (*ptrToList).addOrder(new AirliftOrder(units, sourceTerritory, targetTerritory, issuingPlayer));
     }
     else if (*cardType == "Diplomacy"){
-        (*ptrToList).addOrder(new NegotiateOrder());
+        int targetPlayerIndex;
+        int j = 0;
+        std::vector<Player*> eligiblePlayers;
+        for (int i = 0; i < players.size(); i++) {
+            if (players[i]->name != issuingPlayer->name) {
+                cout << j << ". " << players[i]->name << endl;
+                eligiblePlayers.push_back(players[i]);
+                j++;
+            }
+        }
+        cout << "\nPlease Enter The Index of the Player you want to negotiate with: ";
+        cin >> targetPlayerIndex;
+
+        // Ensure the input index is valid
+        if (targetPlayerIndex >= 0 && targetPlayerIndex < eligiblePlayers.size()) {
+            (*ptrToList).addOrder(new NegotiateOrder(eligiblePlayers[targetPlayerIndex], issuingPlayer));
+        } 
+        else {
+            cout << "Invalid index selected." << endl;
+        }
     }
 }
 
@@ -80,7 +106,7 @@ std::string Card::getCardType(){            //Getter returning the card type.
 Deck::Deck(){                                   //Default constructor creating a deck with 15 cards.
     for (int i = 0; i < 3; i++){
         deck_cards.push_back(new Card("Bomb"));
-        deck_cards.push_back(new Card("Reinforcement"));
+        //deck_cards.push_back(new Card("Reinforcement")); no implementation requirements
         deck_cards.push_back(new Card("Blockade"));
         deck_cards.push_back(new Card("Airlift"));
         deck_cards.push_back(new Card("Diplomacy"));
@@ -205,7 +231,7 @@ void Hand::addCardIntoHand(){                               // Method that draws
     }
 }
 
-void Hand::playCard(int cardIndex, OrdersList* ptrToList, Player* issuingPlayer){  //Method plays the card in hand at given index. Takes orderslist as argument.
+void Hand::playCard(int cardIndex, OrdersList* ptrToList, Player* issuingPlayer, vector<Player*>& players){  //Method plays the card in hand at given index. Takes orderslist as argument.
     if (cards_in_hand.size() == 0){
         cout << "Hand is empty, cannot play any card." << endl;
         return;
@@ -215,7 +241,7 @@ void Hand::playCard(int cardIndex, OrdersList* ptrToList, Player* issuingPlayer)
         return;
     }
     Card * cardPtr = cards_in_hand[cardIndex]; //Retrieve card at index and stores into pointer.
-    cardPtr->play(ptrToList, issuingPlayer);                   
+    cardPtr->play(ptrToList, issuingPlayer, players);                   
     cards_in_hand.erase(cards_in_hand.begin() + cardIndex); //Deletes pointer in the hand.
     sharedDeck->returnToDeck(cardPtr);         //Return card to deck.
 }

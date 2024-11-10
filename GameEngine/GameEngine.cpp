@@ -764,7 +764,7 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
         for (Player* player: players){
             i++;
             if (!player->hasIssuedAllOrders()){
-                player->issueOrder(i);
+                player->issueOrder(i, players);
                 
                 allPlayersDone = false;
             }

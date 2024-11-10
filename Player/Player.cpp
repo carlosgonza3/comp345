@@ -102,8 +102,8 @@ std::vector<Territory*>& Player::toAttack() {
 }
 
 // Issue an order
-void Player::issueOrder(int number) {
-    //TO DO
+void Player::issueOrder(int number, std::vector<Player*>& players) {
+    
     int indexInput;
     bool validInput;
     if (reinforcementPool > 0){
@@ -126,7 +126,8 @@ void Player::issueOrder(int number) {
             }
         }
         std::cout << "Deploying " << reinforcementInput << " units to " << toDefend()[indexInput]->name << std::endl;
-        //CREATE ORDER AND ADD IT TO LIST!!!!!!!!!!!!!!!!!!
+        reinforcementPool -= reinforcementInput;
+        orders->addOrder(new DeployOrder(reinforcementInput, toDefend()[indexInput], this));
         return;
     }
 
@@ -135,13 +136,11 @@ void Player::issueOrder(int number) {
         std::cout << "\nPlayer " << number << " no longer has a reinforcement pool. Please enter the index of the order you want to issue: " << std::endl;
         std::cout << "1. Advance Order To Attack Territories" << std::endl;
         std::cout << "2. Advance Order To Defend Territories" << std::endl;
-        int handSize = Hand1->getHandSize();
-        if (handSize != 0){
-            std::cout << "3. Use Cards" << std::endl;
-        }
+        std::cout << "3. Use Cards" << std::endl;
+        std::cout << "4. See your issued orders" << std::endl;
         std::cout << "0. Finished giving orders" << std::endl;
         std::cin >> indexInput;
-        if ((indexInput >= 0 && indexInput <= 2) || (handSize > 0 && indexInput <= 3 && indexInput >= 0)) {
+        if (indexInput >= 0 && indexInput <= 4) {
             validInput = true;
         } 
         else {
@@ -150,10 +149,14 @@ void Player::issueOrder(int number) {
     }
 
     
-    
+    int targetTerritoryIndex;
+    int srcTerritoryIndex;
+
     if (indexInput == 1){
         std::cout << "\nChose index 1" << std::endl;
         this->printTerritoriesToAttack();
+        std::cout << "\nPlease Enter The Index of the Source Territory for the Advance Order" << endl;
+        cin >> srcTerritoryIndex;
     }
     else if(indexInput == 2){
         std::cout << "\nChose index 2" << std::endl;
@@ -161,10 +164,23 @@ void Player::issueOrder(int number) {
     }
     else if(indexInput == 3){
         std::cout << "\nChose index 3" << std::endl;
-        std::cout << *Hand1 << std::endl;
-        std::cout << "Please enter the index of the card that you want to use: " << std::endl;
-        std::cin >> indexInput;
-        this->Hand1->playCard(indexInput, this->orders, this);
+        if (Hand1->getHandSize() != 0){
+            std::cout << *Hand1 << std::endl;
+            std::cout << "Please enter the index of the card that you want to use: " << std::endl;
+            std::cin >> indexInput;
+            this->Hand1->playCard(indexInput, this->orders, this, players);
+        }
+        else{
+            std::cout << "Your hand is empty so there is no card to play!" << std::endl;
+        }
+    }
+    else if(indexInput == 4){
+        if(orders->getSize() != 0){
+            orders->printOrders();
+        }
+        else{
+            std::cout << "\nIssued Orders List is Empty!" << std::endl;
+        }
     }
     else if(indexInput == 0){
         std::cout << "Player " << number << " has finished giving orders." << std::endl;
@@ -182,7 +198,7 @@ std::ostream& operator<<(std::ostream& os, const Player& player) {
 // Print territories
 void Player::printTerritoriesToAttack() {
     int i = 0;
-    std::cout << "To Attack:" << std::endl;
+    //std::cout << "To Attack:" << std::endl;
     for (const auto& territory : attackTerritories) {
         std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
@@ -190,7 +206,7 @@ void Player::printTerritoriesToAttack() {
 
 void Player::printTerritoriesToDefend() {
     int i = 0;
-    std::cout << "To Defend:" << std::endl;
+    //std::cout << "To Defend:" << std::endl;
     for (const auto& territory : defendTerritories) {
         std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
