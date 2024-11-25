@@ -80,7 +80,21 @@ Player& Player::operator=(const Player& other) {
     }
     return *this;
 }
+//+++++++++ New part for A3+++++++
+std::vector<Territory*>& Player::getOwnedTerritories() {
+    return ownedTerritories;
+}
 
+// New member function: Adds a new territory to the player's territory list
+void Player::addTerritory(Territory* t) {
+    ownedTerritories.push_back(t);  // Add the territory to the player's list of owned territories
+    std::cout << "Player " << name << " now owns the territory: " << t->name << std::endl;
+}
+void Player::setPlayerStrategy(PlayerStrategy* strategy) {
+    playerStrategy = strategy;
+}
+
+//++++++++++ New part for A3 End+++++++++++++++
 // Add a territory to the defend list
 void Player::addDefendTerritory(Territory* territory) {
     defendTerritories.push_back(territory);
