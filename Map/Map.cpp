@@ -170,3 +170,24 @@ std::ostream& operator<<(std::ostream& os, const Territory& territory) {
 void Territory::addAdjTerritory(Territory* territory) {
     adjTerritories.push_back(territory);
 }
+// ++++++++++++++++++ New part for A3 +++++++++++++++++++++
+// Add getAdjacentTerritories() method, returns all adjacent territories of the current territory
+std::vector<Territory*> Territory::getAdjacentTerritories() {
+    return adjTerritories;  
+}
+
+// Add getOwner() method, returns the owner of the current territory
+Player* Territory::getOwner() {
+    return owner;  
+}
+
+// Add setOwner(Player* p) method, sets the owner of the current territory
+void Territory::setOwner(Player* p) {
+    owner = p;  
+}
+
+// Add getName() method, returns the name of the current territory
+std::string Territory::getName() {
+    return name;  
+}
+// ++++++++++++++++++ New part for A3 END +++++++++++++++++++++
