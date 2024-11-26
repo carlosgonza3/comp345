@@ -41,4 +41,6 @@ add_executable(comp345
             Player/Player.h
             CommandProcessing/CommandProcessingDriver.h
             GameEngine/LoggingObserverDriver.h
-            )
+        TournamentDriver.cpp
+        TournamentDriver.h
+)

@@ -42,34 +42,34 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Cards"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Cards"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/CommandProcessing"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/CommandProcessing"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/GameEngine"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Map"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Map"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Order"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Order"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/carlosgonzalez/Developer/GitHub/comp345/Player"
+					"path" : "/Users/dannykhunn/Documents/GitHub/Comp345/Player"
 				}
 			],
 			"language" : "CXX",
@@ -97,7 +97,8 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				29
 			]
 		}
 	],
@@ -144,7 +145,8 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				29
 			]
 		},
 		{
@@ -164,7 +166,8 @@
 				24,
 				26,
 				27,
-				28
+				28,
+				30
 			]
 		}
 	],
@@ -328,6 +331,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "GameEngine/LoggingObserverDriver.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "TournamentDriver.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "TournamentDriver.h",
 			"sourceGroupIndex" : 1
 		}
 	],

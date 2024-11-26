@@ -7,9 +7,10 @@
 #include "GameEngine/GameEngineDriver.h"
 #include "GameEngine/LoggingObserver.h"
 #include "GameEngine/LoggingObserverDriver.h"
+#include "TournamentDriver.h"
 
 int main() {
-
+    /*
     LogObserver logger;
     logger.saveHeaders();
 
@@ -56,14 +57,9 @@ int main() {
 
 
     }
+    */
 
+    testTournament();
 
-   
-
-
-
-
-
-    
     return 0;
 }

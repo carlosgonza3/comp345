@@ -5,6 +5,24 @@
 #include <random>
 #include <algorithm>
 
+//To be moved as non-free function?
+//Placeholder inputs, can be changed
+void tournamentLoop(int maps, int games, int turns, std::string gamelog, std::string listOfPlayers) {
+    for (int i = 0; i < maps; i++) {
+        for (int j = 0; j < games; j++) {
+            //Insert game run here
+
+            //The turns could be a loop or maybe a parameter for the game run?
+            //Placeholder string to check loops
+            for (int k = 0; k < turns; k++) {
+                std::cout << "Map " << i+1 << " Game " << j+1 << " Turn " << k+1 << std::endl;
+            }
+
+            //Modify gamelog here
+        }
+    }
+}
+
 // displays output given and prompts the user for a string, then it returns the user's input
 std::string getUserInput(std::string& output) {
     std::string input;

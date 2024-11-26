@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345
+CMAKE_SOURCE_DIR = /Users/dannykhunn/Documents/GitHub/Comp345
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug/CMakeFiles /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dannykhunn/Documents/GitHub/Comp345/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -489,6 +489,30 @@ Player/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/Player.cpp.s
 .PHONY : Player/Player.cpp.s
 
+TournamentDriver.o: TournamentDriver.cpp.o
+.PHONY : TournamentDriver.o
+
+# target to build an object file
+TournamentDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.o
+.PHONY : TournamentDriver.cpp.o
+
+TournamentDriver.i: TournamentDriver.cpp.i
+.PHONY : TournamentDriver.i
+
+# target to preprocess a source file
+TournamentDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.i
+.PHONY : TournamentDriver.cpp.i
+
+TournamentDriver.s: TournamentDriver.cpp.s
+.PHONY : TournamentDriver.s
+
+# target to generate assembly for a file
+TournamentDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.s
+.PHONY : TournamentDriver.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -543,6 +567,9 @@ help:
 	@echo "... Player/Player.o"
 	@echo "... Player/Player.i"
 	@echo "... Player/Player.s"
+	@echo "... TournamentDriver.o"
+	@echo "... TournamentDriver.i"
+	@echo "... TournamentDriver.s"
 .PHONY : help
 
 
