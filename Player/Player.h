@@ -45,6 +45,7 @@ public:
     void addTerritory(Territory* t);
     void setPlayerStrategy(PlayerStrategy* strategy);
     PlayerStrategy* getPlayerStrategy();
+    std::string getName() const;
     Player(const std::string& playerName);
     
 private:
