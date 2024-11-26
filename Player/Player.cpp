@@ -93,7 +93,9 @@ void Player::addTerritory(Territory* t) {
 void Player::setPlayerStrategy(PlayerStrategy* strategy) {
     playerStrategy = strategy;
 }
-
+PlayerStrategy* Player::getPlayerStrategy() {
+    return playerStrategy;
+}
 //++++++++++ New part for A3 End+++++++++++++++
 // Add a territory to the defend list
 void Player::addDefendTerritory(Territory* territory) {
