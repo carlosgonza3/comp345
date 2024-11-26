@@ -96,6 +96,9 @@ void Player::setPlayerStrategy(PlayerStrategy* strategy) {
 PlayerStrategy* Player::getPlayerStrategy() {
     return playerStrategy;
 }
+std::string Player::getName() const {
+    return name; 
+}
 Player::Player(const std::string& playerName) : name(playerName) {
     orders = new OrdersList();
     Hand1 = nullptr; // Initialize the Hand pointer
