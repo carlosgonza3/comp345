@@ -40,13 +40,13 @@ public:
     bool hasIssuedAllOrders();
     void setIssuedAllOrders(bool value);
     OrdersList* getOrdersList();
-    // new Part for A3
+    //+++++++++++ new Part for A3
     std::vector<Territory*>& getOwnedTerritories();
     void addTerritory(Territory* t);
     void setPlayerStrategy(PlayerStrategy* strategy);
     PlayerStrategy* getPlayerStrategy();
+    Player(const std::string& playerName);
     
-
 private:
     std::vector<Territory*> defendTerritories; // Defend territories
     std::vector<Territory*> attackTerritories; // Attack territories
