@@ -96,6 +96,11 @@ void Player::setPlayerStrategy(PlayerStrategy* strategy) {
 PlayerStrategy* Player::getPlayerStrategy() {
     return playerStrategy;
 }
+Player::Player(const std::string& playerName) : name(playerName) {
+    orders = new OrdersList();
+    Hand1 = nullptr; // Initialize the Hand pointer
+    playerStrategy = nullptr; // Initialize the strategy pointer
+}
 //++++++++++ New part for A3 End+++++++++++++++
 // Add a territory to the defend list
 void Player::addDefendTerritory(Territory* territory) {
