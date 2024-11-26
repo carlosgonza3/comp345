@@ -8,6 +8,7 @@
 #include "../Map/Map.h"
 class Hand;
 class Territory;
+class PlayerStrategy;
 
 class Player {
 public:
