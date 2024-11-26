@@ -43,6 +43,7 @@ public:
     std::vector<Territory*>& getOwnedTerritories();
     void addTerritory(Territory* t);
     void setPlayerStrategy(PlayerStrategy* strategy);
+    PlayerStrategy* getPlayerStrategy();
     
 
 private:
@@ -51,6 +52,8 @@ private:
     OrdersList* orders; // Player's orders
     std::vector<Player*> negotiatedPlayers; // Players this player has negotiated with
     bool issuedAllOrders = false; // To see if player still wants to issue orders
+    // new Part for A3
+    PlayerStrategy* playerStrategy;
 };
 
 #endif
