@@ -2,6 +2,20 @@
 #include <iostream>
 #include <vector>
 
+PlayerStrategy::PlayerStrategy() : player(nullptr) {
+}
+
+
+PlayerStrategy::~PlayerStrategy() {}
+
+PlayerStrategy::PlayerStrategy(const PlayerStrategy& copy) : player(copy.player) {}
+
+PlayerStrategy& PlayerStrategy::operator=(const PlayerStrategy& ope) {
+    if (this != &ope) {
+        player = ope.player;
+    }
+    return *this;
+}
 
 // -----------------------HumanPlayerStrategy implementation(Empty for now)
 HumanPlayerStrategy::HumanPlayerStrategy() : PlayerStrategy() {}
