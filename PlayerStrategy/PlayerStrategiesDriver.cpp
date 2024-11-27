@@ -5,7 +5,7 @@
 #include "../Order/OrdersList.h"
 #include "PlayerStrategies.h"
 #include <vector>
-#include "../GameEngine/GameEngine.cpp"
+#include "../GameEngine/GameEngine.h"
 
 // Test HumanPlayerStrategy (currently empty)
 void testHumanPlayerStrategy() {
