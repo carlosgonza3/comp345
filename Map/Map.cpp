@@ -133,16 +133,16 @@ void Continent::addTerritory(Territory *territory) {
 }
 
 // Default constructor
-Territory::Territory() : name(""), army(0), x(0), y(0) {}
+Territory::Territory() : name(""), army(0), x(0), y(0), owner(nullptr) {}
 
 // Parameterized constructor
 Territory::Territory(std::string name, int army, int x, int y)
-    : name(std::move(name)), army(army), x(x), y(y) {}
+    : name(std::move(name)), army(army), x(x), y(y), owner(nullptr) {}
 
 // Copy constructor
 Territory::Territory(const Territory& territory)
     : name(territory.name), army(territory.army), x(territory.x), y(territory.y),
-      adjTerritories(territory.adjTerritories) {}
+      adjTerritories(territory.adjTerritories), owner(territory.owner) {}
 
 // Destructor
 Territory::~Territory() = default; // Default destructor
@@ -150,6 +150,7 @@ Territory::~Territory() = default; // Default destructor
 // Assignment operator
 Territory& Territory::operator=(const Territory* territory) {
     if (this != territory) {
+        owner = territory->owner;
         name = territory->name;
         army = territory->army;
         x = territory->x;

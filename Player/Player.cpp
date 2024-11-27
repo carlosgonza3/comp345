@@ -52,7 +52,8 @@ Player::~Player() {
     }
     
     delete orders;
-    
+
+    delete playerStrategy;
     
     std::cout << "Player named " << name << " destroyed.\n" << std::endl;
 }
@@ -121,7 +122,7 @@ void Player::addAttackTerritory(Territory* territory) {
 
 // Get territories to defend
 std::vector<Territory*>& Player::toDefend() {
-    return defendTerritories;
+    return playerStrategy->toDefend();
 }
 
 // Get territories to attack
@@ -131,110 +132,7 @@ std::vector<Territory*>& Player::toAttack() {
 
 // Issue an order
 void Player::issueOrder(int number, std::vector<Player*>& players) {
-    int indexInput;
-    bool validInput;
-    if (reinforcementPool > 0){
-        std::cout << "\nPlayer: " << name << " still has a reinforcement pool of "<< reinforcementPool << " units. Therefore must issue a Deploy Order." << std::endl;
-        validInput = false;
-        int reinforcementInput;
-        while(!validInput){
-            this->printTerritoriesToDefend();
-            std::cout << "Please enter the index of the territory where you want to issue a Deploy Order: " << std::endl;
-            std::cin >> indexInput;
-            if (indexInput >= 0 && indexInput <= (toDefend().size() - 1)){
-                std::cout << "Please enter the number of reinforcement you wish to deploy at territory: " << toDefend()[indexInput]->name << std::endl;
-                std::cin >> reinforcementInput;
-                if ((reinforcementInput >= 1 && reinforcementInput <= getReinforcementPool())){
-                    validInput = true;
-                }
-                else{
-                    std::cout << "Invalid reinforcement input!! \n" << std::endl;
-                }
-            }
-            else{
-                std::cout << "Invalid index! Please try again" << std::endl;
-            }
-        }
-        std::cout << "Deploying " << reinforcementInput << " units to " << toDefend()[indexInput]->name << std::endl;
-        reinforcementPool -= reinforcementInput;
-        orders->addOrder(new DeployOrder(reinforcementInput, toDefend()[indexInput], this));
-        return;
-    }
-    validInput = false;
-    while(!validInput){
-        std::cout << "\nPlayer " << name << " no longer has a reinforcement pool. Please enter the index of the order you want to issue: " << std::endl;
-        std::cout << "1. Advance Order To Attack Territories" << std::endl;
-        std::cout << "2. Advance Order To Defend Territories" << std::endl;
-        std::cout << "3. Use Cards" << std::endl;
-        std::cout << "4. See your issued orders" << std::endl;
-        std::cout << "0. Finished giving orders" << std::endl;
-        std::cin >> indexInput;
-        if (indexInput >= 0 && indexInput <= 3) {
-            validInput = true;
-        } 
-        else if(indexInput == 4){
-            if(orders->getSize() != 0){
-                orders->printOrders();
-            }
-            else{
-                std::cout << "\nIssued Orders List is Empty!" << std::endl;
-            }
-        }
-        else {
-            std::cout << "\nInvalid input! Try again!\n" << std::endl;
-        }
-    }
-    int targetTerritoryIndex;
-    int srcTerritoryIndex;
-    int units;
-    Territory* srcTerritory;
-    Territory* targetTerritory;
-    if (indexInput == 1){
-        std::cout << "\nChose index 1" << std::endl;
-        this->printTerritoriesToDefend();
-        std::cout << "\nPlease Enter The Index of the Source Territory for the (Attack) Advance Order" << std::endl;
-        std::cin >> srcTerritoryIndex;
-        srcTerritory = toDefend()[srcTerritoryIndex];
-        std::cout << "\nTerritory: " << srcTerritory->name << " currently has " << srcTerritory->army << " units." << std::endl;
-        std::cout << "How many units do you want to advance?" << std::endl;
-        std::cin >> units;
-        this->printTerritoriesToAttack();
-        std::cout << "\nPlease Enter The Index of the Target Territory for the (Attack) Advance Order" << std::endl;
-        std::cin >> targetTerritoryIndex;
-        targetTerritory = toAttack()[targetTerritoryIndex];
-        orders->addOrder(new AdvanceOrder(units, srcTerritory, targetTerritory, this));
-    }
-    else if(indexInput == 2){
-        std::cout << "\nChose index 2" << std::endl;
-        this->printTerritoriesToDefend();
-        std::cout << "\nPlease Enter The Index of the Source Territory for the (Defend) Advance Order" << std::endl;
-        std::cin >> srcTerritoryIndex;
-        srcTerritory = toDefend()[srcTerritoryIndex];
-        std::cout << "\nTerritory: " << srcTerritory->name << " currently has " << srcTerritory->army << " units." << std::endl;
-        std::cout << "How many units do you want to advance?" << std::endl;
-        std::cin >> units;
-        this->printTerritoriesToDefend();
-        std::cout << "\nPlease Enter The Index of the Target Territory for the (Defend) Advance Order" << std::endl;
-        std::cin >> targetTerritoryIndex;
-        targetTerritory = toAttack()[targetTerritoryIndex];
-        orders->addOrder(new AdvanceOrder(units, srcTerritory, targetTerritory, this));
-    }
-    else if(indexInput == 3){
-        std::cout << "\nChose index 3" << std::endl;
-        if (Hand1->getHandSize() != 0){
-            std::cout << *Hand1 << std::endl;
-            std::cout << "Please enter the index of the card that you want to use: " << std::endl;
-            std::cin >> indexInput;
-            this->Hand1->playCard(indexInput, this->orders, this, players);
-        }
-        else{
-            std::cout << "Your hand is empty so there is no card to play!" << std::endl;
-        }
-    }
-    else if(indexInput == 0){
-        std::cout << "Player " << name << " has finished giving orders." << std::endl;
-        setIssuedAllOrders(true);
-    }
+    playerStrategy->issueOrder(players);
 }
 
 // Overload stream insertion operator
@@ -246,9 +144,10 @@ std::ostream& operator<<(std::ostream& os, const Player& player) {
 
 // Print territories
 void Player::printTerritoriesToAttack() {
+    std::vector<Territory*> terrToAttack = playerStrategy->toAttack();
     int i = 0;
     //std::cout << "To Attack:" << std::endl;
-    for (const auto& territory : attackTerritories) {
+    for (const auto& territory : terrToAttack) {
         std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
@@ -256,7 +155,7 @@ void Player::printTerritoriesToAttack() {
 void Player::printTerritoriesToDefend() {
     int i = 0;
     //std::cout << "To Defend:" << std::endl;
-    for (const auto& territory : defendTerritories) {
+    for (const auto& territory : ownedTerritories) {
         std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }

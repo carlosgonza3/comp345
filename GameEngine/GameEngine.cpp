@@ -857,7 +857,14 @@ void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
             OrdersList* orders = player->getOrdersList();
             if (orders->getSize() != 0) {
                 Order* nextOrder = orders->getNextOrder();  // Retrieves and removes the next order
-                nextOrder->execute();  // Execute the order
+                BlockadeOrder* blockadeOrder = dynamic_cast<BlockadeOrder*>(nextOrder);
+                if (blockadeOrder){
+                    blockadeOrder->execute(players);
+                }
+                else{
+                    nextOrder->execute();// Execute the order
+                }
+                  
 
                 // After executing, the order is automatically popped from the list
                 
