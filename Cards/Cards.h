@@ -9,6 +9,7 @@
 
 class Player;
 class Territory;
+class OrdersList;
 
 class Card {
 public:

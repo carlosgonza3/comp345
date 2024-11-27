@@ -1,8 +1,11 @@
 #include <iostream>
-#include "Map.h"
-#include "Player.h"
+#include "../Map/Map.h"
+#include "../Player/Player.h"
+#include "../Order/Orders.h"
+#include "../Order/OrdersList.h"
 #include "PlayerStrategies.h"
 #include <vector>
+#include "../GameEngine/GameEngine.cpp"
 
 // Test HumanPlayerStrategy (currently empty)
 void testHumanPlayerStrategy() {
@@ -30,6 +33,46 @@ void testNeutralPlayerStrategy() {
 
 
 void testCheaterPlayerStrategy() {
+
+    std::vector<Player*> allPlayers;
+    Player* cheater = new Player();
+    cheater->name = "Cheater";
+    Player* human = new Player();
+    human->name = "human";
+
+    allPlayers.push_back(cheater);
+    allPlayers.push_back(human);
+
+    CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
+    AggressivePlayerStrategy* humanStrategy = new AggressivePlayerStrategy();
+
+    cheater->setPlayerStrategy(cheaterStrategy);
+    human->setPlayerStrategy(humanStrategy);
+
+    
+
+
+    Territory* usa = new Territory("USA", 5, 1, 2);
+    Territory* canada = new Territory("Canada", 5, 3, 4);
+    Territory* mexico = new Territory("Mexico", 5, 5, 6);
+    Territory* greenland = new Territory("Greendland", 5, 7, 8);
+
+    usa->addAdjTerritory(canada);
+    usa->addAdjTerritory(mexico);
+
+    canada->addAdjTerritory(usa);
+    canada->addAdjTerritory(greenland);
+
+    greenland->addAdjTerritory(canada);
+
+    mexico->addAdjTerritory(usa);
+
+    GameEngine* engine = new GameEngine();
+
+    engine->issueOrdersPhase(allPlayers);
+    engine->executeOrdersPhase(allPlayers);
+    
+
     /*
     std::cout << "\n======= Testing CheaterPlayerStrategy =======\n";
     // Create a map
@@ -95,10 +138,10 @@ void testCheaterPlayerStrategy() {
 }
 
 int main() {
-    testHumanPlayerStrategy();
-    testAggressivePlayerStrategy();
-    testBenevolentPlayerStrategy();
-    testNeutralPlayerStrategy();
+    //testHumanPlayerStrategy();
+    //testAggressivePlayerStrategy();
+    //testBenevolentPlayerStrategy();
+    //testNeutralPlayerStrategy();
     testCheaterPlayerStrategy();
     return 0;
 }

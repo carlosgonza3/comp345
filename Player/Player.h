@@ -6,9 +6,11 @@
 #include "../Cards/Cards.h"
 #include "../Order/OrdersList.h"
 #include "../Map/Map.h"
+#include "../Order/Orders.h"
 class Hand;
 class Territory;
 class PlayerStrategy;
+class OrdersList;
 
 class Player {
 public:
@@ -25,7 +27,7 @@ public:
     void addAttackTerritory(Territory* territory);
     std::vector<Territory*> toDefend();
     std::vector<Territory*> toAttack();
-    void issueOrder(int number, std::vector<Player*>& players); // Issue an order
+    void issueOrder(std::vector<Player*>& players); // Issue an order
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);

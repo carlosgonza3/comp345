@@ -195,6 +195,7 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
+/*
 std::vector<Territory*> AggressivePlayerStrategy::toAttack() {
     // Empty for now
 }
@@ -202,6 +203,7 @@ std::vector<Territory*> AggressivePlayerStrategy::toAttack() {
 std::vector<Territory*> AggressivePlayerStrategy::toDefend() {
     // Empty for now
 }
+*/
 
 
 
@@ -234,6 +236,7 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
+/*
 std::vector<Territory*> BenevolentPlayerStrategy::toAttack(){
     // EMPTY
 }
@@ -241,6 +244,7 @@ std::vector<Territory*> BenevolentPlayerStrategy::toAttack(){
 std::vector<Territory*> BenevolentPlayerStrategy::toDefend(){
     // EMPTY
 }
+*/
 
 
 
@@ -339,6 +343,7 @@ void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             }
         }
     }
+    player->setIssuedAllOrders(true);
 }
 
 // Attack targets for CheaterPlayerStrategy

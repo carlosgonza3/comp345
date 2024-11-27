@@ -131,7 +131,7 @@ std::vector<Territory*> Player::toAttack() {
 }
 
 // Issue an order
-void Player::issueOrder(int number, std::vector<Player*>& players) {
+void Player::issueOrder(std::vector<Player*>& players) {
     playerStrategy->issueOrder(players);
 }
 

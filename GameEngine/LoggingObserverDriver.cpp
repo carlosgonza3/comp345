@@ -3,11 +3,11 @@
 //
 
 
-#include "CommandProcessing.h"
+#include "../CommandProcessing/CommandProcessing.h"
 #include "GameEngine.h"
-#include "LoggingObserver.h"
-#include "Orders.h"
-#include "OrdersList.h"
+#include "../GameEngine/LoggingObserver.h"
+#include "../Order/Orders.h"
+#include "../Order/OrdersList.h"
 
 void testLoggingObserver() {
 

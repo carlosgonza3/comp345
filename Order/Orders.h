@@ -21,7 +21,6 @@ class Order : public Subject, public ILoggable {
         friend std::ostream& operator<<(std::ostream& out, const Order& order);
         virtual ~Order() = default;
         virtual std::string stringToOut() const = 0;
-
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

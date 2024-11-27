@@ -9,7 +9,8 @@ include_directories(Cards
                     GameEngine
                     Map
                     Order
-                    Player)
+                    Player
+                    PlayerStrategy)
 
 add_executable(comp345
             MainDriver.cpp
