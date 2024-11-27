@@ -22,6 +22,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Territory& territory); // Overload << for output
     void addAdjTerritory(Territory* territory); // Add an adjacent territory
+    
     // +++++++++++++New part for A3+++++++++++++++
     std::vector<Territory*> getAdjacentTerritories(); // Get adjacent territories
     Player* getOwner();                               // Get the owner of the territory

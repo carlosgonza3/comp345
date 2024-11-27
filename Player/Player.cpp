@@ -113,7 +113,7 @@ void Player::addDefendTerritory(Territory* territory) {
               << " at coordinates (" << territory->x << ", " << territory->y << ")" << std::endl;
 }
 
-// Add a territory to the attack list
+// Add a territory to the attack list *****DO NOT USE UNLES FOR TESTING*****
 void Player::addAttackTerritory(Territory* territory) {
     attackTerritories.push_back(territory);
     std::cout << "Added territory to attack: " << territory->name
@@ -121,13 +121,13 @@ void Player::addAttackTerritory(Territory* territory) {
 }
 
 // Get territories to defend
-std::vector<Territory*>& Player::toDefend() {
+std::vector<Territory*> Player::toDefend() {
     return playerStrategy->toDefend();
 }
 
 // Get territories to attack
-std::vector<Territory*>& Player::toAttack() {
-    return attackTerritories;
+std::vector<Territory*> Player::toAttack() {
+    return playerStrategy->toAttack();
 }
 
 // Issue an order
@@ -153,9 +153,10 @@ void Player::printTerritoriesToAttack() {
 }
 
 void Player::printTerritoriesToDefend() {
+    std::vector<Territory*> terrToDefend = playerStrategy->toAttack();
     int i = 0;
     //std::cout << "To Defend:" << std::endl;
-    for (const auto& territory : ownedTerritories) {
+    for (const auto& territory : terrToDefend) {
         std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }

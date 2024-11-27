@@ -5,6 +5,8 @@
 PlayerStrategy::PlayerStrategy() : player(nullptr) {
 }
 
+PlayerStrategy::PlayerStrategy(Player* playerPtr) : player(playerPtr) {
+}
 
 PlayerStrategy::~PlayerStrategy() {
     delete player;
@@ -22,6 +24,10 @@ PlayerStrategy& PlayerStrategy::operator=(const PlayerStrategy& ope) {
 // -----------------------HumanPlayerStrategy implementation(Empty for now)
 HumanPlayerStrategy::HumanPlayerStrategy() : PlayerStrategy() {
     player = nullptr;
+}
+
+HumanPlayerStrategy::HumanPlayerStrategy(Player* playerPtr) : PlayerStrategy() {
+    player = playerPtr;
 }
 
 HumanPlayerStrategy::HumanPlayerStrategy(const HumanPlayerStrategy& copy) : PlayerStrategy(copy) {}
@@ -48,12 +54,13 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
         std::cout << "\nPlayer: " << player->name << " still has a reinforcement pool of "<< player->reinforcementPool << " units. Therefore must issue a Deploy Order." << std::endl;
         validInput = false;
         int reinforcementInput;
+        std::vector<Territory*> terrToDefend = player->toDefend();
         while(!validInput){
             player->printTerritoriesToDefend();
             std::cout << "Please enter the index of the territory where you want to issue a Deploy Order: " << std::endl;
             std::cin >> indexInput;
-            if (indexInput >= 0 && indexInput <= (player->toDefend().size() - 1)){
-                std::cout << "Please enter the number of reinforcement you wish to deploy at territory: " << player->toDefend()[indexInput]->name << std::endl;
+            if (indexInput >= 0 && indexInput <= (terrToDefend.size() - 1)){
+                std::cout << "Please enter the number of reinforcement you wish to deploy at territory: " << terrToDefend[indexInput]->name << std::endl;
                 std::cin >> reinforcementInput;
                 if ((reinforcementInput >= 1 && reinforcementInput <= player->getReinforcementPool())){
                     validInput = true;
@@ -66,9 +73,9 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
                 std::cout << "Invalid index! Please try again" << std::endl;
             }
         }
-        std::cout << "Deploying " << reinforcementInput << " units to " << player->toDefend()[indexInput]->name << std::endl;
+        std::cout << "Deploying " << reinforcementInput << " units to " << terrToDefend[indexInput]->name << std::endl;
         player->reinforcementPool -= reinforcementInput;
-        player->getOrdersList()->addOrder(new DeployOrder(reinforcementInput, player->toDefend()[indexInput], player));
+        player->getOrdersList()->addOrder(new DeployOrder(reinforcementInput, terrToDefend[indexInput], player));
         return;
     }
     validInput = false;
@@ -101,33 +108,36 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     Territory* srcTerritory;
     Territory* targetTerritory;
     if (indexInput == 1){
+        std::vector<Territory*> terrToDefend = player->toDefend();
         std::cout << "\nChose index 1" << std::endl;
         player->printTerritoriesToDefend();
         std::cout << "\nPlease Enter The Index of the Source Territory for the (Attack) Advance Order" << std::endl;
         std::cin >> srcTerritoryIndex;
-        srcTerritory = player->toDefend()[srcTerritoryIndex];
+        srcTerritory = terrToDefend[srcTerritoryIndex];
         std::cout << "\nTerritory: " << srcTerritory->name << " currently has " << srcTerritory->army << " units." << std::endl;
         std::cout << "How many units do you want to advance?" << std::endl;
         std::cin >> units;
+        std::vector<Territory*> terrToAttack = player->toAttack();
         player->printTerritoriesToAttack();
         std::cout << "\nPlease Enter The Index of the Target Territory for the (Attack) Advance Order" << std::endl;
         std::cin >> targetTerritoryIndex;
-        targetTerritory = player->toAttack()[targetTerritoryIndex];
+        targetTerritory = terrToAttack[targetTerritoryIndex];
         player->getOrdersList()->addOrder(new AdvanceOrder(units, srcTerritory, targetTerritory, player));
     }
     else if(indexInput == 2){
+        std::vector<Territory*> terrToDefend = player->toDefend();
         std::cout << "\nChose index 2" << std::endl;
         player->printTerritoriesToDefend();
         std::cout << "\nPlease Enter The Index of the Source Territory for the (Defend) Advance Order" << std::endl;
         std::cin >> srcTerritoryIndex;
-        srcTerritory = player->toDefend()[srcTerritoryIndex];
+        srcTerritory = terrToDefend[srcTerritoryIndex];
         std::cout << "\nTerritory: " << srcTerritory->name << " currently has " << srcTerritory->army << " units." << std::endl;
         std::cout << "How many units do you want to advance?" << std::endl;
         std::cin >> units;
         player->printTerritoriesToDefend();
         std::cout << "\nPlease Enter The Index of the Target Territory for the (Defend) Advance Order" << std::endl;
         std::cin >> targetTerritoryIndex;
-        targetTerritory = player->toAttack()[targetTerritoryIndex];
+        targetTerritory = terrToDefend[targetTerritoryIndex];
         player->getOrdersList()->addOrder(new AdvanceOrder(units, srcTerritory, targetTerritory, player));
     }
     else if(indexInput == 3){
@@ -148,7 +158,7 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     }
 }
 
-std::vector<Territory*>& HumanPlayerStrategy::toAttack(){
+std::vector<Territory*> HumanPlayerStrategy::toAttack(){ //toAttack for human. Checks neighbouring territories that is not his
     std::vector<Territory*> toAttackList;
     for (Territory* territory : player->getOwnedTerritories()) {
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
@@ -160,19 +170,15 @@ std::vector<Territory*>& HumanPlayerStrategy::toAttack(){
     return toAttackList;
 }
 
-std::vector<Territory*>& HumanPlayerStrategy::toDefend(){
+std::vector<Territory*> HumanPlayerStrategy::toDefend(){ //toAttack for human, simply returns ownedTerritories
     return player->getOwnedTerritories();
 }
 
-
-
-
-
-
-
-
 // -------------------AggressivePlayerStrategy implementation(Empty for now)
 AggressivePlayerStrategy::AggressivePlayerStrategy() : PlayerStrategy() {}
+AggressivePlayerStrategy::AggressivePlayerStrategy(Player* playerPtr) : PlayerStrategy() {
+    player = playerPtr;
+}
 AggressivePlayerStrategy::AggressivePlayerStrategy(const AggressivePlayerStrategy& copy) : PlayerStrategy(copy) {}
 AggressivePlayerStrategy& AggressivePlayerStrategy::operator=(const AggressivePlayerStrategy& ope) {
     if (this != &ope) {
@@ -196,10 +202,11 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
 
 
 
-
-
 // ----------------------BenevolentPlayerStrategy implementation(Empty for now)
 BenevolentPlayerStrategy::BenevolentPlayerStrategy() : PlayerStrategy() {}
+BenevolentPlayerStrategy::BenevolentPlayerStrategy(Player* playerPtr) : PlayerStrategy() {
+    player = playerPtr;
+}
 BenevolentPlayerStrategy::BenevolentPlayerStrategy(const BenevolentPlayerStrategy& copy) : PlayerStrategy(copy) {}
 BenevolentPlayerStrategy& BenevolentPlayerStrategy::operator=(const BenevolentPlayerStrategy& ope) {
     if (this != &ope) {
@@ -229,10 +236,11 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
 
 
 
-
-
 // -----------------------NeutralPlayerStrategy implementation(Empty for now)
 NeutralPlayerStrategy::NeutralPlayerStrategy() : PlayerStrategy() {}
+NeutralPlayerStrategy::NeutralPlayerStrategy(Player* playerPtr) : PlayerStrategy() {
+    player = playerPtr;
+}
 NeutralPlayerStrategy::NeutralPlayerStrategy(const NeutralPlayerStrategy& copy) : PlayerStrategy(copy) {}
 
 NeutralPlayerStrategy& NeutralPlayerStrategy::operator=(const NeutralPlayerStrategy& ope) {
@@ -250,9 +258,19 @@ std::ostream& operator<<(std::ostream& out, const NeutralPlayerStrategy& output)
 }
 
 void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
-    // Empty for now
+    //Does not deploy
+    //Does not play card
+    //Does not do any order
+    player->setIssuedAllOrders(true);
 }
 
+std::vector<Territory*> NeutralPlayerStrategy::toAttack(){
+
+}
+
+std::vector<Territory*> NeutralPlayerStrategy::toDefend(){
+
+}
 
 
 
@@ -271,6 +289,9 @@ void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
 // -------------------CheaterPlayerStrategy implementation
 //constructor
 CheaterPlayerStrategy::CheaterPlayerStrategy() : PlayerStrategy() {}
+CheaterPlayerStrategy::CheaterPlayerStrategy(Player* playerPtr) : PlayerStrategy() {
+    player = playerPtr;
+}
 //copy constructor
 CheaterPlayerStrategy::CheaterPlayerStrategy(const CheaterPlayerStrategy& copy) : PlayerStrategy(copy) {}
 //Assignment operator
@@ -293,6 +314,13 @@ std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output)
 // Issue order implementation for CheaterPlayerStrategy
 void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Automatically conquers all adjacent territories
+
+
+
+
+
+
+
     std::cout << "CheaterPlayerStrategy: Automatically conquering adjacent territories.\n";
     for (Territory* territory : player->getOwnedTerritories()) {
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
@@ -307,7 +335,7 @@ void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
 }
 
 // Attack targets for CheaterPlayerStrategy
-std::vector<Territory*>& CheaterPlayerStrategy::toAttack() {
+std::vector<Territory*> CheaterPlayerStrategy::toAttack() {
     // The Cheater does not have a specific list of targets; it conquers all adjacent territories.
     std::cout << "CheaterPlayerStrategy: All adjacent enemy territories will be attacked automatically.\n";
     std::vector<Territory*> toAttackList;
@@ -322,7 +350,7 @@ std::vector<Territory*>& CheaterPlayerStrategy::toAttack() {
 }
 
 // Defend targets for CheaterPlayerStrategy (doesn't defend)
-std::vector<Territory*>& CheaterPlayerStrategy::toDefend() {
+std::vector<Territory*> CheaterPlayerStrategy::toDefend() {
     // All owned territories are defended by default.
     std::cout << "CheaterPlayerStrategy: Defending all owned territories.\n";
     return player->getOwnedTerritories();

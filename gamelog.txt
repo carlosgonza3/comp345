@@ -6,3 +6,7 @@ Deploy Order: 12 units to Canada
 Deploy Order: 6 units to NORTH KOREA
 Deploy Order: 3 units to Brazil
 Airlift Order: 5 units from USA to USA
+Order added to list: Deploy Order: 12 units to USA
+Order added to list: Deploy Order: 6 units to NORTH KOREA
+Order added to list: Deploy Order: 3 units to Brazil
+Order added to list: Advance Order: 5 units from USA to Brazil

@@ -115,6 +115,12 @@ void AdvanceOrder::execute() {
             targetTerritory->army += units;
             std::cout << "Moved " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
         } else {
+            Player * oldOwner = targetTerritory->getOwner();
+            PlayerStrategy* oldOwnerStrategy = oldOwner->getPlayerStrategy();
+            if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
+                delete oldOwnerStrategy;
+                oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+            }
             // Battle simulation
             int attackUnits = units;
             int defendUnits = targetTerritory->army;
@@ -148,7 +154,7 @@ void AdvanceOrder::execute() {
             if (defendUnits <= 0) {
                 // Attacker wins
                 Player * oldOwner = nullptr;
-                oldOwner = targetTerritory->getOwner();
+                
                 if (oldOwner != nullptr){
                     oldOwner->ownedTerritories.erase(std::remove(oldOwner->ownedTerritories.begin(), oldOwner->ownedTerritories.end(), targetTerritory), oldOwner->ownedTerritories.end());
                 }
@@ -232,6 +238,9 @@ AirliftOrder::AirliftOrder(int units, Territory* source, Territory* target, Play
 // Execute Order
 void AirliftOrder::execute() {
     if (validate()) {
+        if (sourceTerritory->army < units){
+            units = sourceTerritory->army;
+        }
         sourceTerritory->army -= units;
         targetTerritory->army += units;
         std::cout << "Airlifted " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
@@ -299,6 +308,12 @@ BombOrder::BombOrder(Territory* target, Player* player)
 // Execute Order
 void BombOrder::execute() {
     if (validate()) {
+        Player * oldOwner = targetTerritory->getOwner();
+        PlayerStrategy* oldOwnerStrategy = oldOwner->getPlayerStrategy();
+        if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
+            delete oldOwnerStrategy;
+            oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+        }
         int unitsRemoved = targetTerritory->army / 2;
         targetTerritory->army -= unitsRemoved;
         std::cout << "Bombed " << targetTerritory->name << ", removing " << unitsRemoved << " units.\n";
@@ -409,7 +424,7 @@ void BlockadeOrder::execute(std::vector<Player*>& players){
         }
         // If a neutral player is found, assign the territory to the neutral player
         if (neutralPlayer) {
-            targetTerritory->owner = neutralPlayer;
+            targetTerritory->setOwner(neutralPlayer);
             neutralPlayer->ownedTerritories.push_back(targetTerritory);
         }
         // Remove territory from player's owned territories
