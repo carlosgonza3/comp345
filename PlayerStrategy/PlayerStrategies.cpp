@@ -195,6 +195,15 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
+std::vector<Territory*> AggressivePlayerStrategy::toAttack() {
+    // Empty for now
+}
+
+std::vector<Territory*> AggressivePlayerStrategy::toDefend() {
+    // Empty for now
+}
+
+
 
 
 
@@ -225,6 +234,13 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
+std::vector<Territory*> BenevolentPlayerStrategy::toAttack(){
+    // EMPTY
+}
+
+std::vector<Territory*> BenevolentPlayerStrategy::toDefend(){
+    // EMPTY
+}
 
 
 
@@ -265,11 +281,13 @@ void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
 }
 
 std::vector<Territory*> NeutralPlayerStrategy::toAttack(){
-
+    std::vector<Territory*> emptyList; 
+    return emptyList;
 }
 
 std::vector<Territory*> NeutralPlayerStrategy::toDefend(){
-
+    std::vector<Territory*> emptyList;
+    return emptyList;
 }
 
 
@@ -313,22 +331,11 @@ std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output)
 
 // Issue order implementation for CheaterPlayerStrategy
 void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
-    // Automatically conquers all adjacent territories
-
-
-
-
-
-
-
-    std::cout << "CheaterPlayerStrategy: Automatically conquering adjacent territories.\n";
     for (Territory* territory : player->getOwnedTerritories()) {
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
             if (adjacent->getOwner() != player) {
-                std::cout << "CheaterPlayerStrategy: Conquering " << adjacent->getName() << "\n";
-                adjacent->setOwner(player);
-                player->addTerritory(adjacent);
-                break; // Attack only once per turn
+                std::cout << "CheaterPlayerStrategy creating order advance order, attacking: " << adjacent->getName() << " from " << territory->getName() << std::endl;
+                player->getOrdersList()->addOrder(new AdvanceOrder(1, territory, adjacent, player));
             }
         }
     }
