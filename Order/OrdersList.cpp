@@ -1,5 +1,9 @@
 #include "OrdersList.h"
-#include <algorithm> // For std::remove
+#include <algorithm> 
+#include "OrdersList.h"
+#include "Orders.h" 
+#include "GameEngine.h" 
+
 
 // Constructor
 OrdersList::OrdersList() {

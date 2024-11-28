@@ -2,11 +2,6 @@
 #include "Map.h"
 #include <iostream>
 #include <algorithm> // For std::find
-/*
-Player::Player() {
-
-}
-*/
 
 // Constructor
 // Default constructor
@@ -15,51 +10,43 @@ Player::Player() : Hand1(nullptr), orders(new OrdersList()), playerStrategy(null
 }
 
 // Constructor with Hand parameter
+Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {}
 
-Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {
-
-}
-
-//Copy constructor
+// Copy constructor
 Player::Player(const Player& other) 
     : name(other.name),
       ownedTerritories(other.ownedTerritories),
       reinforcementPool(other.reinforcementPool),
       defendTerritories(other.defendTerritories),
       attackTerritories(other.attackTerritories),
-      negotiatedPlayers(other.negotiatedPlayers){
-    // Deep copy for Hand1 
+      negotiatedPlayers(other.negotiatedPlayers) {
+    // Deep copy for Hand1
     if (other.Hand1 != nullptr) {
-        Hand1 = new Hand(*other.Hand1);  // Deep copy 
-    } 
-    else {
-        Hand1 = nullptr;  // Set to null if  is null
+        Hand1 = new Hand(*other.Hand1); // Deep copy
+    } else {
+        Hand1 = nullptr; // Set to null if is null
     }
 
-    // Deep copy for orders 
+    // Deep copy for orders
     if (other.orders != nullptr) {
-        orders = new OrdersList(*other.orders);  
-    } 
-    else {
-        orders = nullptr;  
+        orders = new OrdersList(*other.orders);
+    } else {
+        orders = nullptr;
     }
 }
 
 // Destructor
 Player::~Player() {
-    
     if (Hand1 != nullptr) {
         delete Hand1;
     }
-    
     delete orders;
-
     delete playerStrategy;
-    
+
     std::cout << "Player named " << name << " destroyed.\n" << std::endl;
 }
 
-//Assigmment operator
+// Assignment operator
 Player& Player::operator=(const Player& other) {
     if (this != &other) { // Check for self-assignment
         // Clean up existing resources
@@ -82,16 +69,15 @@ Player& Player::operator=(const Player& other) {
     }
     return *this;
 }
+
 //+++++++++ New part for A3+++++++
 std::vector<Territory*>& Player::getOwnedTerritories() {
     return ownedTerritories;
 }
 
-
-
 // New member function: Adds a new territory to the player's territory list
 void Player::addTerritory(Territory* t) {
-    ownedTerritories.push_back(t);  // Add the territory to the player's list of owned territories
+    ownedTerritories.push_back(t); // Add the territory to the player's list of owned territories
     std::cout << "Player " << name << " now owns the territory: " << t->name << std::endl;
 }
 void Player::setPlayerStrategy(PlayerStrategy* strategy) {
@@ -134,7 +120,8 @@ std::vector<Territory*> Player::toAttack() {
 }
 
 // Issue an order
-void Player::issueOrder(std::vector<Player*>& players) {
+void Player::issueOrder(int& index, std::vector<Player*>& players) { // Modified to accept index
+    std::cout << "Issuing order for player: " << name << " (Index: " << index << ")\n";
     playerStrategy->issueOrder(players);
 }
 
@@ -144,7 +131,6 @@ void Player::setOrdersList(OrdersList* newOrdersList) {
     }
     orders = newOrdersList;
 }
-
 
 // Overload stream insertion operator
 std::ostream& operator<<(std::ostream& os, const Player& player) {
@@ -157,22 +143,18 @@ std::ostream& operator<<(std::ostream& os, const Player& player) {
 void Player::printTerritoriesToAttack() {
     std::vector<Territory*> terrToAttack = playerStrategy->toAttack();
     int i = 0;
-    //std::cout << "To Attack:" << std::endl;
     for (const auto& territory : terrToAttack) {
-        std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
+        std::cout << i++ << ". " << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
 
 void Player::printTerritoriesToDefend() {
     std::vector<Territory*> terrToDefend = playerStrategy->toAttack();
     int i = 0;
-    //std::cout << "To Defend:" << std::endl;
     for (const auto& territory : terrToDefend) {
-        std::cout << i++ << ". "<< territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
+        std::cout << i++ << ". " << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
     }
 }
-
-
 
 void Player::setReinforcementPool(int numOfReinforcement) {
     reinforcementPool = numOfReinforcement;
@@ -188,26 +170,26 @@ bool Player::isNegotiatedWith(Player* player) {
     return std::find(negotiatedPlayers.begin(), negotiatedPlayers.end(), player) != negotiatedPlayers.end();
 }
 
-void Player::printOrders(){
+void Player::printOrders() {
     orders->printOrders();
 }
 
-void Player::drawCard(){
+void Player::drawCard() {
     Hand1->addCardIntoHand();
 }
 
 bool Player::hasIssuedAllOrders() {
-    return issuedAllOrders;  // Check if player has finished issuing orders
+    return issuedAllOrders; // Check if player has finished issuing orders
 }
 
 void Player::setIssuedAllOrders(bool value) {
-    issuedAllOrders = value;    
+    issuedAllOrders = value;
 }
 
-int Player::getReinforcementPool(){
+int Player::getReinforcementPool() {
     return reinforcementPool;
 }
 
 OrdersList* Player::getOrdersList() {
-    return orders; 
+    return orders;
 }

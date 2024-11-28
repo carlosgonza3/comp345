@@ -3,35 +3,36 @@
 
 #include <string>
 #include <vector>
-#include "../Order/OrdersList.h" 
-#include "../Map/Map.h" 
-#include "../Player/Player.h" 
 
-class Player;
-class Territory;
+// Forward declarations
+class OrdersList; // Correctly forward-declare OrdersList
+class Player;     // Correctly forward-declare Player
 
 class Card {
 public:
-    Card(const std::string& cardType);  //Constructor using pass by reference 
-    Card(const Card& other);            //Copy constructor using pass by reference
-    Card& operator=(const Card& other); //Assignment operator
-    ~Card();                            //Destructor
-    friend std::ostream& operator<<(std::ostream& os, const Card& card); //Stream insert. op
-    void play(OrdersList* ptrToList, Player* issuingPlayer, std::vector<Player*>& players); //Also takes in a pointer to a deck object so it appends to the deck
-    std::string getCardType();          //Getter
+    Card(const std::string& cardType);  // Constructor
+    Card(const Card& other);            // Copy constructor
+    Card& operator=(const Card& other); // Assignment operator
+    ~Card();                            // Destructor
+    friend std::ostream& operator<<(std::ostream& os, const Card& card);
+
+    void play(OrdersList* ptrToList, Player* issuingPlayer, std::vector<Player*>& players); // Correct declaration
+    std::string getCardType();
+
 private:
-    std::string * cardType;
+    std::string* cardType;
 };
 
 class Deck {
 public:
-    Deck();                             //Constructor to build the deck/cards
-    Deck(const Deck& copyDeck);         //Copy constructor
-    Deck& operator=(const Deck& other); //Assignment operator
-    ~Deck();                            //Deconstructor
-    friend std::ostream& operator<<(std::ostream& os, const Deck& deck); //Stream insert. op
-    Card* draw(); // Draw method that will remove card from deck and return it as pointer.
-    void returnToDeck(Card* card); // return method that appends card to deck.
+    Deck();
+    Deck(const Deck& copyDeck);
+    Deck& operator=(const Deck& other);
+    ~Deck();
+
+    friend std::ostream& operator<<(std::ostream& os, const Deck& deck);
+    Card* draw();
+    void returnToDeck(Card* card);
 
 private:
     std::vector<Card*> deck_cards;
@@ -39,19 +40,20 @@ private:
 
 class Hand {
 public:
-    Hand(Deck* shared_deck);            // Constructor  
-    Hand(const Hand& copyHand);         // Copy constructor
-    Hand& operator=(const Hand& other); // Assignment operator  
-    ~Hand();                            // Destructor
-    friend std::ostream& operator<<(std::ostream& os, const Hand& hand); //Stream insert. op
-    void addCardIntoHand();             //Method that will add a card to the hand by calling draw card from deck class.
-    void playCard(int index, OrdersList* ptrToList, Player* issuingPlayer, std::vector<Player*>& players);    // playCard method that will 
+    Hand(Deck* shared_deck);
+    Hand(const Hand& copyHand);
+    Hand& operator=(const Hand& other);
+    ~Hand();
+
+    friend std::ostream& operator<<(std::ostream& os, const Hand& hand);
+
+    void addCardIntoHand();
+    void playCard(int index, OrdersList* ptrToList, Player* issuingPlayer, std::vector<Player*>& players); // Correct declaration
     int getHandSize();
+
 private:
-    //ArrayList of cards 
-    std::vector<Card*> cards_in_hand; 
+    std::vector<Card*> cards_in_hand;
     Deck* sharedDeck;
 };
-
 
 #endif

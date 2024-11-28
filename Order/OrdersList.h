@@ -5,8 +5,13 @@
 #include <cstddef> // Include for size_t
 #include "Orders.h" // Include Orders.h to fully declare Order
 #include "GameEngine.h"
+#pragma once
 
-class Order;
+
+class Order;    // Forward declaration for Order
+class Subject;  // Forward declaration for Subject
+class ILoggable; // Forward declaration for ILoggable
+
 
 
 class OrdersList : public Subject, public ILoggable{

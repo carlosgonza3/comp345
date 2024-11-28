@@ -55,12 +55,9 @@ void testBenevolentPlayerStrategy() {
     std::cout << "\n======= Testing BenevolentPlayerStrategy =======\n";
 
     // Create Benevolent Player
-    Player* benevolentPlayer = new Player();
-    benevolentPlayer->name = "Benevolent";
-    benevolentPlayer->setReinforcementPool(15);  // Ensure reinforcement pool is set
+    Player* benevolentPlayer = new Player("Benevolent");
+    benevolentPlayer->setReinforcementPool(15);
     benevolentPlayer->setOrdersList(new OrdersList());
-
-    // Assign BenevolentPlayerStrategy
     BenevolentPlayerStrategy* benevolentStrategy = new BenevolentPlayerStrategy(benevolentPlayer);
     benevolentPlayer->setPlayerStrategy(benevolentStrategy);
 
@@ -72,17 +69,19 @@ void testBenevolentPlayerStrategy() {
     benevolentPlayer->addTerritory(weak2);
     benevolentPlayer->addTerritory(strong);
 
-    // Debug: Confirm setup
-    std::cout << "BenevolentPlayer owns the following territories:\n";
+    // Debug output for owned territories
+    std::cout << "BenevolentPlayer's owned territories:\n";
     for (Territory* t : benevolentPlayer->getOwnedTerritories()) {
         std::cout << "- " << t->name << " with " << t->army << " armies.\n";
     }
 
-    // Prepare players vector
-    std::vector<Player*> players = {benevolentPlayer};
+    // Prepare a proper vector of players
+    std::vector<Player*> players = {benevolentPlayer}; 
 
-    // Call issueOrder
+    // Test issuing orders
+    std::cout << "\nBenevolentPlayer issuing orders...\n";
     benevolentPlayer->getPlayerStrategy()->issueOrder(players);
+    std::cout << "Orders issued successfully!\n";
 
     // Cleanup
     delete weak1;
