@@ -22,6 +22,17 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Territory& territory); // Overload << for output
     void addAdjTerritory(Territory* territory); // Add an adjacent territory
+    
+    // +++++++++++++New part for A3+++++++++++++++
+    std::vector<Territory*> getAdjacentTerritories(); // Get adjacent territories
+    Player* getOwner();                               // Get the owner of the territory
+    void setOwner(Player* p);                         // Set the owner of the territory
+    std::string getName();                            // Get the name of the territory
+    
+    // Methods to handle armies
+    int getNumOfArmies() const { return army; }       // Get the number of armies
+    void setNumOfArmies(int num) { army = num; }      // Set the number of armies
+    // +++++++++++++New part for A3 END +++++++++++++++
 };
 
 class Continent {
@@ -69,4 +80,4 @@ class Map {
     bool isUniqueSubgraph() const;
 };
 
-#endif //MAP_H
+#endif

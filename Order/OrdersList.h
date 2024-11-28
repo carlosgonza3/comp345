@@ -4,8 +4,12 @@
 #include <vector>
 #include <cstddef> // Include for size_t
 #include "Orders.h" // Include Orders.h to fully declare Order
+#include "GameEngine.h"
 
-class OrdersList : public Subject, public ILoggable {
+class Order;
+
+
+class OrdersList : public Subject, public ILoggable{
 public:
     OrdersList();                             // Constructor
     OrdersList(const OrdersList& other);      // Copy constructor
