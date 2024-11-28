@@ -62,6 +62,10 @@ void testTournament() {
     //Placeholder parameters, can be changed
     std::string gamelog = "";
 
+    for (int i = 0; i < mapFiles->size(); i++) {
+
+    }
+
     //Tournament processing (Through GameEngine, as per assignment)
     tournamentLoop(*mapFiles, *playerStrategies, *numGames, *maxTurns, gamelog);
 

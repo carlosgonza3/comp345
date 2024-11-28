@@ -516,3 +516,4 @@ Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt ma
 Command processed: tournament -M map1.txt map2.txt -P p1 p2 p3 p4 p5 -G 2 -D 20
 Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 2 -D 9
 Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G abc -D 20
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
