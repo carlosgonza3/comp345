@@ -720,7 +720,6 @@ void GameEngine::startupPhase() {
 }
 
 void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents){
-    int i = 1;
     for (Player* player: players){
         int continentBonus = 0;
         std::cout << std::endl;
@@ -765,12 +764,14 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
 
 void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
     bool allPlayersDone = false;
+    
     for (Player* player: players){
         player->setIssuedAllOrders(false);
     }
-
+    
     while(!allPlayersDone){
         allPlayersDone = true;
+
         for (Player* player: players){
             if (!player->hasIssuedAllOrders()){
                 player->issueOrder(players);

@@ -119,12 +119,13 @@ void AdvanceOrder::execute() {
             Player* oldOwner = targetTerritory->getOwner();
             if (cheaterStrategy) { //If issuing Player is cheater
                 //cheater player directly conquers the territory
-                std::cout << "Cheater player conquers " << targetTerritory->name << " directly.\n";
-        
+                std::cout << "Cheater player conquers " << targetTerritory->name << " directly." << std::endl;
+                
                 
                 // Remove the target territory from the old owner's list
                 if (oldOwner != nullptr) {
                     oldOwner->ownedTerritories.erase(std::remove(oldOwner->ownedTerritories.begin(), oldOwner->ownedTerritories.end(), targetTerritory), oldOwner->ownedTerritories.end());
+                    std::cout << oldOwner->name << " lost " << targetTerritory->name << std::endl;
                 }
 
                 // Assign the target territory to the issuing player (cheater)
@@ -132,7 +133,6 @@ void AdvanceOrder::execute() {
                 targetTerritory->army = units; // Move all units from the source territory to the target
                 issuingPlayer->ownedTerritories.push_back(targetTerritory);
 
-                std::cout << "Cheater player conquered " << targetTerritory->name << std::endl;
             } 
             else {
                 PlayerStrategy* oldOwnerStrategy = oldOwner->getPlayerStrategy();
@@ -175,10 +175,12 @@ void AdvanceOrder::execute() {
                 if (defendUnits <= 0) {
                     // Attacker wins
                     Player * oldOwner = nullptr;
-                
+
                     if (oldOwner != nullptr){
                         oldOwner->ownedTerritories.erase(std::remove(oldOwner->ownedTerritories.begin(), oldOwner->ownedTerritories.end(), targetTerritory), oldOwner->ownedTerritories.end());
+                        std::cout << oldOwner->name << " lost " << targetTerritory->name << std::endl;
                     }
+                    std::cout << issuingPlayer->name << " has conquered " << targetTerritory->name << std::endl;
                     targetTerritory->setOwner(issuingPlayer);
                     targetTerritory->army = attackUnits;
                     issuingPlayer->ownedTerritories.push_back(targetTerritory);

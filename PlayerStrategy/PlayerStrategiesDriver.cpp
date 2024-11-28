@@ -42,9 +42,10 @@ void testCheaterPlayerStrategy() {
 
     allPlayers.push_back(cheater);
     allPlayers.push_back(human);
+    
 
-    CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
-    AggressivePlayerStrategy* humanStrategy = new AggressivePlayerStrategy();
+    CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy(cheater);
+    HumanPlayerStrategy* humanStrategy = new HumanPlayerStrategy(human);
 
     cheater->setPlayerStrategy(cheaterStrategy);
     human->setPlayerStrategy(humanStrategy);
@@ -53,9 +54,9 @@ void testCheaterPlayerStrategy() {
 
 
     Territory* usa = new Territory("USA", 5, 1, 2);
-    Territory* canada = new Territory("Canada", 5, 3, 4);
-    Territory* mexico = new Territory("Mexico", 5, 5, 6);
-    Territory* greenland = new Territory("Greendland", 5, 7, 8);
+    Territory* canada = new Territory("Canada", 6, 3, 4);
+    Territory* mexico = new Territory("Mexico", 7, 5, 6);
+    Territory* greenland = new Territory("Greendland", 8, 7, 8);
 
     usa->addAdjTerritory(canada);
     usa->addAdjTerritory(mexico);
@@ -68,6 +69,13 @@ void testCheaterPlayerStrategy() {
     mexico->addAdjTerritory(usa);
 
     GameEngine* engine = new GameEngine();
+
+    cheater->addTerritory(canada);
+    canada->setOwner(cheater);
+
+
+    human->addTerritory(mexico);
+    mexico->setOwner(human);
 
     engine->issueOrdersPhase(allPlayers);
     engine->executeOrdersPhase(allPlayers);

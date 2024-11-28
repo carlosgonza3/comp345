@@ -195,15 +195,19 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
-/*
+
 std::vector<Territory*> AggressivePlayerStrategy::toAttack() {
     // Empty for now
+    std::vector<Territory*> emptyList; 
+    return emptyList;
 }
 
 std::vector<Territory*> AggressivePlayerStrategy::toDefend() {
     // Empty for now
+    std::vector<Territory*> emptyList; 
+    return emptyList;
 }
-*/
+
 
 
 
@@ -236,15 +240,19 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     // Empty for now
 }
 
-/*
+
 std::vector<Territory*> BenevolentPlayerStrategy::toAttack(){
     // EMPTY
+    std::vector<Territory*> emptyList; 
+    return emptyList;
 }
 
 std::vector<Territory*> BenevolentPlayerStrategy::toDefend(){
-    // EMPTY
+    // EMPTY TO FINISH
+    std::vector<Territory*> emptyList; 
+    return emptyList;
 }
-*/
+
 
 
 

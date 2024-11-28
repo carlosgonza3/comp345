@@ -10,3 +10,49 @@ Order added to list: Deploy Order: 12 units to USA
 Order added to list: Deploy Order: 6 units to NORTH KOREA
 Order added to list: Deploy Order: 3 units to Brazil
 Order added to list: Advance Order: 5 units from USA to Brazil
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Advance Order: 1 units from Canada to USA
+Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Advance Order: 1 units from Canada to USA
+Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Advance Order: 1 units from Canada to USA
+Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 5 units from Mexico to USA
+Advance Order: 1 units from Canada to USA
+Advance Order: 5 units from Mexico to USA
+Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Order added to list: Advance Order: 7 units from Mexico to USA
+Advance Order: 1 units from Canada to USA
+Advance Order: 7 units from Mexico to USA
+Advance Order: 1 units from Canada to Greendland

@@ -153,7 +153,7 @@ void Player::printTerritoriesToAttack() {
 }
 
 void Player::printTerritoriesToDefend() {
-    std::vector<Territory*> terrToDefend = playerStrategy->toAttack();
+    std::vector<Territory*> terrToDefend = playerStrategy->toDefend();
     int i = 0;
     //std::cout << "To Defend:" << std::endl;
     for (const auto& territory : terrToDefend) {
