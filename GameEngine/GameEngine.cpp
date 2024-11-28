@@ -7,14 +7,14 @@
 
 //To be moved as non-free function?
 //Placeholder inputs, can be changed
-void tournamentLoop(int maps, int games, int turns, std::string gamelog, std::string listOfPlayers) {
-    for (int i = 0; i < maps; i++) {
-        for (int j = 0; j < games; j++) {
+void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog) {
+    for (int i = 0; i < maps.size(); i++) {
+        for (int j = 0; j < numGames; j++) {
             //Insert game run here
 
             //The turns could be a loop or maybe a parameter for the game run?
             //Placeholder string to check loops
-            for (int k = 0; k < turns; k++) {
+            for (int k = 0; k < maxTurns; k++) {
                 std::cout << "Map " << i+1 << " Game " << j+1 << " Turn " << k+1 << std::endl;
             }
 

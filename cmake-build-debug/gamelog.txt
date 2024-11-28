@@ -466,3 +466,53 @@ Order added to list: Negotiate Order: Targeting Player 2
 	[!] Game Log Created at: 2024-11-25 20:18:30
 ===================================================================================
 
+Command processed: dsad
+Command processed: tournament -M <listofmapfiles> -P <listofplayerstrategies> -G <numberofgames> -D <maxnumberofturns>
+Command processed: ds
+Command effect saved: Invalid Command
+Command processed: loadmap
+Command effect saved: Invalid Command
+Command processed: tournament
+Command processed: tournament -M
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt -P p1 p2 p3 p4 p5 -G 5-D 10
+Command processed: dwqd
+Command processed: dsad
+Command processed: sdadds
+Command processed: tournament -M <listofmapfiles> -P <listofplayerstrategies> -G <numberofgames> -D <maxnumberofturns>
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 p3 p4 p5 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 p3 p4 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 p3 p4 p5 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 6 -D 51
+Command processed: bool CommandProcessor::processTournamentCommand(
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 p3 p4 p5 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 p5 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 p5 -G 6 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 p5 -G 8 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 8 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 8 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 5 -D 51
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 4 -D 50
+Command processed:                 std::cout << e.what() << std::endl;
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 2 -D 20
+Command processed: tournament -M map1.txt -P p1 p2 p3 -G 5 -D 50
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed:         std::cout << ", ";
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed:     std::cout<< std::endl;
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt -P p1 p2 p3 p4 -G 3 -D 30
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 6 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 6 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 6 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 6 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 6 -D 20
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 -G 2 -D 20
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 -G 2 -D 20
+Command processed: tournament -M map1.txt map2.txt map3.txt map4.txt map5.txt map6.txt -P p1 p2 -G 2 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 p3 p4 p5 -G 2 -D 20
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G 2 -D 9
+Command processed: tournament -M map1.txt map2.txt -P p1 p2 -G abc -D 20

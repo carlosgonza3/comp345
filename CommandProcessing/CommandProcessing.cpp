@@ -1,5 +1,8 @@
 #include "CommandProcessing.h"
 
+#include <map>
+#include <sstream>
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Command class implementation
 ///
@@ -89,7 +92,7 @@ Command::Command(const std::string& command) : command(std::make_shared<std::str
 // to add the new commands to the command list
     void CommandProcessor::saveCommand(const std::string& command) {
         commandList.push_back(std::make_shared<Command>(command));
-        std::cout << "\tCommand saved: " << command << std::endl;
+        //std::cout << "\tCommand saved: " << command << std::endl;
         notify(this); // Notifies the logger
     }
 
@@ -110,6 +113,111 @@ std::string CommandProcessor::stringToLog() {
         }
         return nullptr;
     }
+
+    std::vector<std::string> CommandProcessor::splitBySpaces(const std::string& input) {
+        std::vector<std::string> result;
+        std::stringstream ss(input);
+        std:: string word;
+
+        while (ss >> word) {
+            result.push_back(word);
+        }
+        return result;
+    }
+
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
+    std::stringstream ss(str);
+    std::string token;
+
+    while (getline(ss, token, delimiter)) {
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
+
+
+bool CommandProcessor::processTournamentCommand(
+    std::shared_ptr<Command> command,
+    std::vector<std::string>* mapFiles,
+    std::vector<std::string>* playerStrategies,
+    int* numGames,
+    int* maxTurns) {
+
+    if (!command) {
+        std::cout << "Error: No command provided.\n";
+        return false;
+    }
+
+    if (!mapFiles || !playerStrategies || !numGames || !maxTurns) {
+        std::cout << "Error: Null pointer passed to processTournamentCommand.\n";
+        return false;
+    }
+
+    // Parse command string
+    std::string commandStr = command->getCommandName();
+    std::map<std::string, std::string> parameters;
+    std::stringstream ss(commandStr);
+    std::string token;
+    std::string currentKey;
+
+    while (ss >> token) {
+        if (token[0] == '-') {
+            currentKey = token;
+            parameters[currentKey] = "";
+        } else if (!currentKey.empty()) {
+            parameters[currentKey] += (parameters[currentKey].empty() ? "" : " ") + token;
+        }
+    }
+
+    // Extract and validate parameters
+    try {
+        if (parameters.count("-M")) {
+            *mapFiles = split(parameters["-M"], ' ');
+            if (mapFiles->size() < 1 || mapFiles->size() > 5) {
+                throw std::invalid_argument("Number of maps is not between 1 and 5");
+            }
+        }
+
+        if (parameters.count("-P")) {
+            *playerStrategies = split(parameters["-P"], ' ');
+            if (playerStrategies->size() < 2 || playerStrategies->size() > 4) {
+                throw std::invalid_argument("Number of player strategies is not between 2 and 4.");
+            }
+        }
+
+        if (parameters.count("-G")) {
+            try {
+                *numGames = std::stoi(parameters["-G"]);
+                if (*numGames < 1 || *numGames > 5) {
+                    throw std::out_of_range("[!] -> Number of games is not between 1 and 5");
+                }
+            } catch (const std::exception& e) {
+                std::cout << e.what() << std::endl;
+                return false;
+            }
+        }
+
+        if (parameters.count("-D")) {
+            try {
+                *maxTurns = std::stoi(parameters["-D"]);
+                if (*maxTurns < 10 || *maxTurns > 50) {
+                    throw std::out_of_range("[!] -> Max number of turns (D) must be between 10 and 50.");
+                }
+            } catch (const std::exception& e) {
+                std::cout << e.what() << std::endl;
+                return false;
+            }
+        }
+
+        return true;
+
+    } catch (const std::exception& e) {
+        std::cout << "[!] -> Error while processing command: " << e.what() << std::endl;
+        return false;
+    }
+}
 
 // Checking the command based on the current state and updates the state if valid
 // loadmap, validatemap, addplayer, gamestart,replay and quit

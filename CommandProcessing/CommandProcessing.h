@@ -57,6 +57,8 @@ class CommandProcessor : public Subject, public ILoggable {
         //validates a command based on the current state
         virtual void Validate(std::string* currentState, Command* com);
         std::string stringToLog() override;
+        std::vector<std::string> splitBySpaces(const std::string& input);
+        bool processTournamentCommand(std::shared_ptr<Command> commmand, std::vector<std::string>* mapFiles, std::vector<std::string>* playerStrategies, int* numGames, int* maxTurns);
 
     protected:
         //Store the command into the command list

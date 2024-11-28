@@ -72,7 +72,7 @@
     void LogObserver::update(ILoggable* loggable) {
         _logFile << loggable->stringToLog() << std::endl;
         _logFile.flush();  // Flush C++ stream buffer
-        std::cout <<"\n\t[:0] -> Log observer updated!\n" << std::endl;
+        // std::cout <<"\n\t[:0] -> Log observer updated!\n" << std::endl;
     }
 
 // Writes Header of creation time

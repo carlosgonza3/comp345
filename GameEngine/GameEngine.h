@@ -17,7 +17,7 @@
 #include "../Cards/Cards.h"
 
 //Placeholder inputs, can be changed
-void tournamentLoop(int maps, int games, int turns, std::string gamelog, std::string listOfPlayers);
+void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog);
 
 // Helper function that given a pointer of type string, prints output, and prompts user for a string input
 std::string getUserInput(std::string& output);
