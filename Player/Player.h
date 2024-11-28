@@ -3,11 +3,14 @@
 
 #include <vector>
 #include <iostream>
-#include "../Cards/Cards.h"
-#include "../Order/OrdersList.h"
-#include "../Map/Map.h"
+#include "Cards.h"
+#include "OrdersList.h"
+#include "Map.h"
+#include "Orders.h"
 class Hand;
 class Territory;
+class PlayerStrategy;
+class OrdersList;
 
 class Player {
 public:
@@ -22,9 +25,9 @@ public:
 
     void addDefendTerritory(Territory* territory);
     void addAttackTerritory(Territory* territory);
-    std::vector<Territory*>& toDefend();
-    std::vector<Territory*>& toAttack();
-    void issueOrder(int number, std::vector<Player*>& players); // Issue an order
+    std::vector<Territory*> toDefend();
+    std::vector<Territory*> toAttack();
+    void issueOrder(std::vector<Player*>& players); // Issue an order
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);
@@ -39,14 +42,25 @@ public:
     bool hasIssuedAllOrders();
     void setIssuedAllOrders(bool value);
     OrdersList* getOrdersList();
+    //+++++++++++ new Part for A3
+    std::vector<Territory*>& getOwnedTerritories();
+    void addTerritory(Territory* t);
+    void setPlayerStrategy(PlayerStrategy* strategy);
+    PlayerStrategy* getPlayerStrategy();
+    std::string getName() const;
+    Player(const std::string& playerName);
     
+    void setOrdersList(OrdersList* newOrdersList);
 
+    
 private:
     std::vector<Territory*> defendTerritories; // Defend territories
     std::vector<Territory*> attackTerritories; // Attack territories
     OrdersList* orders; // Player's orders
     std::vector<Player*> negotiatedPlayers; // Players this player has negotiated with
     bool issuedAllOrders = false; // To see if player still wants to issue orders
+    // new Part for A3
+    PlayerStrategy* playerStrategy;
 };
 
 #endif

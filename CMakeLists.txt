@@ -3,7 +3,7 @@ project(comp345)
 
 set(CMAKE_CXX_STANDARD 14)
 
-
+# Include directories for headers
 include_directories(Cards
                     CommandProcessing
                     GameEngine
@@ -11,6 +11,7 @@ include_directories(Cards
                     Order
                     Player)
 
+# Add all necessary files to the target
 add_executable(comp345
             MainDriver.cpp
             Cards/Cards.cpp
@@ -39,8 +40,7 @@ add_executable(comp345
             Order/OrdersList.h
             Player/Player.cpp
             Player/Player.h
+            PlayerStrategy/PlayerStrategies.cpp  
             CommandProcessing/CommandProcessingDriver.h
             GameEngine/LoggingObserverDriver.h
-        TournamentDriver.cpp
-        TournamentDriver.h
-)
+            )

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
+#include "../PlayerStrategy/PlayerStrategies.h"
 #include "../GameEngine/LoggingObserver.h"
 
 // Forward declarations
@@ -21,7 +21,6 @@ class Order : public Subject, public ILoggable {
         friend std::ostream& operator<<(std::ostream& out, const Order& order);
         virtual ~Order() = default;
         virtual std::string stringToOut() const = 0;
-
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,6 +111,7 @@ class BlockadeOrder : public Order {
         BlockadeOrder(Territory* target, Player* player);
         BlockadeOrder& operator=(const BlockadeOrder& other);
         void execute() override;
+        void execute(std::vector<Player*>& players);
         bool validate() override;
         std::string stringToOut() const override;
         std::string stringToLog() override;
