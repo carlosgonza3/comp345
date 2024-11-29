@@ -1,6 +1,6 @@
 #include "Cards.h"
-#include "OrdersList.h" // Include for OrdersList
-#include "Player.h"      // Include for Player
+#include "../Order/OrdersList.h" // Include for OrdersList
+#include "../Player/Player.h"      // Include for Player
 #include <iostream>
 
 

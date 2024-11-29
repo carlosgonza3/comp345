@@ -7,6 +7,7 @@ public:
     static void testBenevolentPlayerStrategy();
     static void testCheaterPlayerStrategy();
     static void testHumanPlayerStrategy();
+    static void testNeutralPlayerStrategy();
 };
 
 #endif 

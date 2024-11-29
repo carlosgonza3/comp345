@@ -6,12 +6,13 @@
 #include "GameEngine/LoggingObserver.h"
 #include "GameEngine/LoggingObserverDriver.h"
 #include "TournamentDriver.h"
-#include "PlayerStrategy/PlayerStrategiesDriver.h"
+//#include "PlayerStrategy/PlayerStrategiesDriver.h"
+#include "PlayerStrategiesDriver.h"
 
 int main() {
     PlayerStrategiesDriver::testAggressivePlayerStrategy();    
-    PlayerStrategiesDriver::testBenevolentPlayerStrategy();
-     
+    //PlayerStrategiesDriver::testBenevolentPlayerStrategy();
+    //PlayerStrategiesDriver::testCheaterPlayerStrategy();
     
     return 0;
 }
