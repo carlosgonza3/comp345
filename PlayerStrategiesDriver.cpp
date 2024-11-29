@@ -13,7 +13,45 @@
 // Test HumanPlayerStrategy (currently empty)
 void PlayerStrategiesDriver::testHumanPlayerStrategy() {
 	std::cout << "\n======= Testing HumanPlayerStrategy =======\n";
-	// Currently empty
+	std::vector<Player*> allPlayers;
+    Deck* sharedDeck = new Deck();
+	Hand* hand1 = new Hand(sharedDeck);
+	Player* player1 = new Player(hand1);
+
+	PlayerStrategy* humanBehaviour = new HumanPlayerStrategy(player1);
+	player1->setPlayerStrategy(humanBehaviour);
+
+	allPlayers.push_back(player1);
+    player1->name = "Tony";
+	player1->drawCard();
+    player1->drawCard();
+    player1->drawCard();
+    player1->setReinforcementPool(50);
+
+	Territory* usa = new Territory("USA", 5, 1, 2);
+    Territory* canada = new Territory("Canada", 5, 3, 4);
+    Territory* mexico = new Territory("Mexico", 5, 5, 6);
+    Territory* colombia = new Territory("Colombia", 5, 7, 8);
+	usa->addAdjTerritory(canada);
+	usa->addAdjTerritory(mexico);
+	canada->addAdjTerritory(usa);
+	mexico->addAdjTerritory(colombia);
+	mexico->addAdjTerritory(usa);
+	colombia->addAdjTerritory(mexico);
+
+	player1->addTerritory(mexico);
+	player1->addTerritory(usa);
+	mexico->owner = player1;
+	usa->owner = player1;
+	GameEngine* engine = new GameEngine();
+	engine->issueOrdersPhase(allPlayers);
+	engine->executeOrdersPhase(allPlayers);
+	delete usa;
+	delete mexico;
+	delete colombia;
+	delete canada;
+	delete player1;
+	
 }
 
 
@@ -93,7 +131,63 @@ void PlayerStrategiesDriver:: testBenevolentPlayerStrategy() {
 }
 
 void PlayerStrategiesDriver::testNeutralPlayerStrategy() {
-	//Empty
+	std::cout << "\n======= Testing HumanPlayerStrategy =======\n";
+	std::vector<Player*> allPlayers;
+    Deck* sharedDeck = new Deck();
+	Hand* hand1 = new Hand(sharedDeck);
+	Player* player1 = new Player(hand1);
+	player1->name = "Tony:Human";
+	Player* player2 = new Player(new Hand(sharedDeck));
+	player2->name = "Robot:Neutral";
+	PlayerStrategy* humanBehaviour = new HumanPlayerStrategy(player1);
+	player1->setPlayerStrategy(humanBehaviour);
+
+	PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(player2);
+	player2->setPlayerStrategy(neutralBehaviour);
+
+
+
+	allPlayers.push_back(player1);
+    allPlayers.push_back(player2);
+	std::cout << "Give 50 units to player1 Tony" << std::endl; 
+    player1->setReinforcementPool(50);
+
+	Territory* usa = new Territory("USA", 5, 1, 2);
+    Territory* canada = new Territory("Canada", 5, 3, 4);
+    Territory* mexico = new Territory("Mexico", 5, 5, 6);
+    Territory* colombia = new Territory("Colombia", 5, 7, 8);
+
+
+	usa->addAdjTerritory(canada);
+	usa->addAdjTerritory(mexico);
+	canada->addAdjTerritory(usa);
+	mexico->addAdjTerritory(colombia);
+	mexico->addAdjTerritory(usa);
+	colombia->addAdjTerritory(mexico);
+
+	player1->addTerritory(mexico);
+	player1->addTerritory(usa);
+	player2->addTerritory(canada);
+	player2->addTerritory(colombia);
+
+	mexico->owner = player1;
+	usa->owner = player1;
+	colombia->owner = player2;
+	canada->owner = player2;
+
+	GameEngine* engine = new GameEngine();
+	engine->issueOrdersPhase(allPlayers);
+	engine->executeOrdersPhase(allPlayers);
+	engine->issueOrdersPhase(allPlayers);
+
+
+	delete usa;
+	delete mexico;
+	delete colombia;
+	delete canada;
+	delete player1;
+	delete player2;
+	
 }
 
 

@@ -138,15 +138,30 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             std::cout << srcTerritory->name << " does not have enough army!" << std::endl;
             return;
         }
-        std::vector<Territory*> terrToAttack = player->toAttack();
-        player->printTerritoriesToAttack();
+        //std::vector<Territory*> terrToAttack = player->toAttack();
+
+
+
+        std::cout << "\nHere are the territories adjacent to the source territory: " << std::endl;
+        std::vector<Territory*> ajdTerr = srcTerritory->getAdjacentTerritories();
+        std::vector<Territory*> nonOwnedTerritories;  //vector to store territories not owned by the player
+        for (int i = 0; i < ajdTerr.size(); i++){
+            Territory* adjacentTerritory = ajdTerr[i];
+            if (adjacentTerritory->getOwner() != player) {
+                // If it's not owned by the player, add it to nonOwnedTerritories
+                nonOwnedTerritories.push_back(adjacentTerritory);
+            }
+        }
+        for (int i = 0; i < nonOwnedTerritories.size(); i++){
+            std::cout << i << ". " << nonOwnedTerritories[i]->name << " at (" << nonOwnedTerritories[i]->x << ", " << nonOwnedTerritories[i]->y << ")" << std::endl;
+        }
         std::cout << "\nPlease Enter The Index of the Target Territory for the (Attack) Advance Order" << std::endl;
         std::cin >> targetTerritoryIndex;
-        if(targetTerritoryIndex < 0 || targetTerritoryIndex >= terrToAttack.size()){
+        if(targetTerritoryIndex < 0 || targetTerritoryIndex >= nonOwnedTerritories.size()){
             std::cout << "Not a valid index please try again." << std::endl;
             return;
         }
-        targetTerritory = terrToAttack[targetTerritoryIndex];
+        targetTerritory = nonOwnedTerritories[targetTerritoryIndex];
         if (units == 0){
             std::cout << "Cannot create an advance order with 0 units." << std::endl;
         }
@@ -173,14 +188,27 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             std::cout << srcTerritory->name << " does not have enough army!" << std::endl;
             return;
         }
-        player->printTerritoriesToDefend();
+        std::vector<Territory*> ajdTerr = srcTerritory->getAdjacentTerritories();
+        std::vector<Territory*> ownedTerritories;  // Vector to store territories owned by the player
+
+        for (int i = 0; i < ajdTerr.size(); i++) {
+            Territory* adjacentTerritory = ajdTerr[i];
+            if (adjacentTerritory->getOwner() == player) {
+                ownedTerritories.push_back(adjacentTerritory);
+            }
+        }
+
+        std::cout << "Territories adjacent to the source territory that can be defended: " << std::endl;
+        for (int i = 0; i < ownedTerritories.size(); i++) {
+            std::cout << i << ". " << ownedTerritories[i]->getName() << " at (" << ownedTerritories[i]->x << ", "<< ownedTerritories[i]->y << ")" << std::endl;
+        }
         std::cout << "\nPlease Enter The Index of the Target Territory for the (Defend) Advance Order" << std::endl;
         std::cin >> targetTerritoryIndex;
-        if(targetTerritoryIndex < 0 || targetTerritoryIndex >= terrToDefend.size()){
+        if(targetTerritoryIndex < 0 || targetTerritoryIndex >= ownedTerritories.size()){
             std::cout << "Not a valid index please try again." << std::endl;
             return;
         }
-        targetTerritory = terrToDefend[targetTerritoryIndex];
+        targetTerritory = ownedTerritories[targetTerritoryIndex];
         if (units == 0){
             std::cout << "Cannot create an advance order with 0 units." << std::endl;
         }
@@ -204,7 +232,7 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
         }
     }
     else if(indexInput == 0){
-        std::cout << "Player " << player->name << " has finished giving orders." << std::endl;
+        std::cout << "\nPlayer " << player->name << " has finished giving orders.\n" << std::endl;
         player->setIssuedAllOrders(true);
     }
 }
@@ -280,6 +308,9 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
             std::cout << "AggressivePlayerStrategy: Not enough armies to attack.\n";
         }
     }
+    std::cout << "\nPlayer " << player->name << " has finished giving orders.\n" << std::endl;
+
+    player->setIssuedAllOrders(true);
 }
 
 std::vector<Territory*> AggressivePlayerStrategy::toAttack() {
@@ -398,6 +429,8 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     }
 
     // Once all orders are issued, set the player's issuedAllOrders to true
+    std::cout << "\nPlayer " << player->name << " has finished giving orders.\n" << std::endl;
+
     player->setIssuedAllOrders(true);
     
 }
@@ -458,6 +491,7 @@ void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     //Does not deploy
     //Does not play card
     //Does not do any order
+    std::cout << "Neutral player does not issue any order! Skipping turn!" << std::endl;
     player->setIssuedAllOrders(true);
 }
 
@@ -500,9 +534,7 @@ std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output)
 
 // Issue order implementation for CheaterPlayerStrategy
 void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
-
     for (Territory* territory : player->getOwnedTerritories()) {
-
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
             
             if (adjacent->getOwner() != player) {
@@ -511,6 +543,8 @@ void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             }
         }
     }
+    std::cout << "\nPlayer " << player->name << " has finished giving orders.\n" << std::endl;
+
     player->setIssuedAllOrders(true);
 }
 

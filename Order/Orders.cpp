@@ -118,6 +118,7 @@ void AdvanceOrder::execute() {
             std::cout << issuingPlayer->name << " attacking " << targetTerritory->name << " from " << sourceTerritory->name << std::endl;
             CheaterPlayerStrategy* cheaterStrategy = dynamic_cast<CheaterPlayerStrategy*>(issuingPlayer->getPlayerStrategy());
             Player* oldOwner = targetTerritory->getOwner();
+            
             if (cheaterStrategy) { //If issuing Player is cheater
                 //cheater player directly conquers the territory
                 std::cout << "Cheater player conquers " << targetTerritory->name << " directly.\n";
@@ -134,11 +135,16 @@ void AdvanceOrder::execute() {
                 issuingPlayer->ownedTerritories.push_back(targetTerritory);
             } 
             else {
-                PlayerStrategy* oldOwnerStrategy = oldOwner->getPlayerStrategy();
-                if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
-                    delete oldOwnerStrategy;
-                    oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+                PlayerStrategy* oldOwnerStrategy;
+                if (oldOwner != nullptr){
+                    oldOwnerStrategy = oldOwner->getPlayerStrategy();
+                    if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
+                        std::cout << oldOwner->name << " who was a neutral player got attacked!!! Turning into aggressive player!" << std::endl;
+                        delete oldOwnerStrategy;
+                        oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+                    }
                 }
+                
 
 
                 // Battle simulation
