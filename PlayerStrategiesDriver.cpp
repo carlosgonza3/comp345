@@ -7,15 +7,17 @@
 #include <vector>
 #include "GameEngine.h"
 #include <algorithm>
+#include "PlayerStrategiesDriver.h"
+
 
 // Test HumanPlayerStrategy (currently empty)
-void testHumanPlayerStrategy() {
+void PlayerStrategiesDriver:: testHumanPlayerStrategy() {
 	std::cout << "\n======= Testing HumanPlayerStrategy =======\n";
 	// Currently empty
 }
 
 
-void testAggressivePlayerStrategy() {
+void PlayerStrategiesDriver::testAggressivePlayerStrategy() {
 	std::cout << "\n======= Testing AggressivePlayerStrategy =======\n";
 
 	// Create player
@@ -51,7 +53,7 @@ void testAggressivePlayerStrategy() {
 
 
 
-void testBenevolentPlayerStrategy() {
+void PlayerStrategiesDriver:: testBenevolentPlayerStrategy() {
     std::cout << "\n======= Testing BenevolentPlayerStrategy =======\n";
 
     // Create Benevolent Player
@@ -93,7 +95,7 @@ void testBenevolentPlayerStrategy() {
 
 
 
-void testCheaterPlayerStrategy() {
+void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
     std::cout << "\n======= Testing CheaterPlayerStrategy =======\n";
 
 	std::vector<Player*> allPlayers;
@@ -199,11 +201,3 @@ void testCheaterPlayerStrategy() {
 	*/
 }
 
-int main() {
-	//testHumanPlayerStrategy();
-	testAggressivePlayerStrategy();
-	testBenevolentPlayerStrategy();
-	//testNeutralPlayerStrategy();
-	//testCheaterPlayerStrategy();
-	return 0;
-}

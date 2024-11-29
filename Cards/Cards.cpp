@@ -1,7 +1,9 @@
 #include "Cards.h"
-#include "../Order/OrdersList.h"
+#include "OrdersList.h" // Include for OrdersList
+#include "Player.h"      // Include for Player
 #include <iostream>
-#include <string>
+
+
 class OrdersList;
 using namespace std;
 

@@ -27,18 +27,18 @@ public:
     void addAttackTerritory(Territory* territory);
     std::vector<Territory*> toDefend();
     std::vector<Territory*> toAttack();
-    void issueOrder(std::vector<Player*>& players); // Issue an order
+    void issueOrder(int& index, std::vector<Player*>& players); // Modified to accept index
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);
-	void drawCard();
+    void drawCard();
     void printTerritoriesToAttack();
-	void printTerritoriesToDefend();
+    void printTerritoriesToDefend();
     void printOrders();
-	void setReinforcementPool(int numOfReinforcement);
+    void setReinforcementPool(int numOfReinforcement);
     int getReinforcementPool();
-	Hand* Hand1; // Player's deck
-	int reinforcementPool;
+    Hand* Hand1; // Player's deck
+    int reinforcementPool;
     bool hasIssuedAllOrders();
     void setIssuedAllOrders(bool value);
     OrdersList* getOrdersList();
@@ -49,10 +49,9 @@ public:
     PlayerStrategy* getPlayerStrategy();
     std::string getName() const;
     Player(const std::string& playerName);
-    
+
     void setOrdersList(OrdersList* newOrdersList);
 
-    
 private:
     std::vector<Territory*> defendTerritories; // Defend territories
     std::vector<Territory*> attackTerritories; // Attack territories
