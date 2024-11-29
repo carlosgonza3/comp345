@@ -1,19 +1,17 @@
-
 #include <iostream>
 #include <string>
-
 #include "CommandProcessing/CommandProcessingDriver.h"
 #include "Order/OrdersDriver.h"
 #include "GameEngine/GameEngineDriver.h"
 #include "GameEngine/LoggingObserver.h"
 #include "GameEngine/LoggingObserverDriver.h"
 #include "TournamentDriver.h"
+#include "PlayerStrategy/PlayerStrategiesDriver.h"
 
 int main() {
-
-    void PlayerStrategiesDriver();
-
-    // Test
-
+    PlayerStrategiesDriver::testAggressivePlayerStrategy();    
+    PlayerStrategiesDriver::testBenevolentPlayerStrategy();
+     
+    
     return 0;
 }
