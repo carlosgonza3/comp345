@@ -945,4 +945,7 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
     else if (dynamic_cast<CheaterPlayerStrategy*>(winningStrategy)) {
         return "Cheater";
     }
+    else{
+        return "error/to_debug";
+    }
 }

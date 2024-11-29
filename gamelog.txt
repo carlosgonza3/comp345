@@ -2235,3 +2235,16 @@ Order added to list: Deploy Order: 44 units to USA
 Deploy Order: 1 units to Mexico
 Deploy Order: 5 units to Mexico
 Deploy Order: 44 units to USA
+Order added to list: Deploy Order: 15 units to Stronghold
+Order added to list: Advance Order: 19 units from Stronghold to Enemy Outpost
+Order added to list: Deploy Order: 5 units to Weak1
+Order added to list: Deploy Order: 5 units to Weak2
+Order added to list: Deploy Order: 5 units to Strong
+Order added to list: Advance Order: 1 units from Canada to USA
+Order added to list: Advance Order: 1 units from Canada to Greendland
+Advance Order: 1 units from Canada to USA
+Advance Order: 1 units from Canada to Greendland
+Order added to list: Deploy Order: 50 units to Mexico
+Order added to list: Advance Order: 5 units from Mexico to Colombia
+Deploy Order: 50 units to Mexico
+Advance Order: 5 units from Mexico to Colombia

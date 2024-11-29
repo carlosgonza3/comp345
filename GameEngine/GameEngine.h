@@ -15,6 +15,9 @@
 #include "../Order/OrdersList.h"
 #include "../Order/Orders.h"
 #include "../Cards/Cards.h"
+#include "../PlayerStrategy/PlayerStrategies.h"
+
+class PlayerStrategy;
 
 //Placeholder inputs, can be changed
 void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog);
