@@ -1,19 +1,57 @@
 #include <iostream>
-#include "Map.h"
-#include "Player.h"
-#include "Orders.h"
-#include "OrdersList.h"
-#include "PlayerStrategies.h"
+#include "Map/Map.h"
+#include "Player/Player.h"
+#include "Order/Orders.h"
+#include "Order/OrdersList.h"
+#include "PlayerStrategy/PlayerStrategies.h"
 #include <vector>
-#include "GameEngine.h"
+#include "GameEngine/GameEngine.h"
 #include <algorithm>
 #include "PlayerStrategiesDriver.h"
 
 
 // Test HumanPlayerStrategy (currently empty)
-void PlayerStrategiesDriver:: testHumanPlayerStrategy() {
+void PlayerStrategiesDriver::testHumanPlayerStrategy() {
 	std::cout << "\n======= Testing HumanPlayerStrategy =======\n";
-	// Currently empty
+	std::vector<Player*> allPlayers;
+    Deck* sharedDeck = new Deck();
+	Hand* hand1 = new Hand(sharedDeck);
+	Player* player1 = new Player(hand1);
+
+	PlayerStrategy* humanBehaviour = new HumanPlayerStrategy(player1);
+	player1->setPlayerStrategy(humanBehaviour);
+
+	allPlayers.push_back(player1);
+    player1->name = "Tony";
+	player1->drawCard();
+    player1->drawCard();
+    player1->drawCard();
+    player1->setReinforcementPool(50);
+
+	Territory* usa = new Territory("USA", 5, 1, 2);
+    Territory* canada = new Territory("Canada", 5, 3, 4);
+    Territory* mexico = new Territory("Mexico", 5, 5, 6);
+    Territory* colombia = new Territory("Colombia", 5, 7, 8);
+	usa->addAdjTerritory(canada);
+	usa->addAdjTerritory(mexico);
+	canada->addAdjTerritory(usa);
+	mexico->addAdjTerritory(colombia);
+	mexico->addAdjTerritory(usa);
+	colombia->addAdjTerritory(mexico);
+
+	player1->addTerritory(mexico);
+	player1->addTerritory(usa);
+	mexico->owner = player1;
+	usa->owner = player1;
+	GameEngine* engine = new GameEngine();
+	engine->issueOrdersPhase(allPlayers);
+	engine->executeOrdersPhase(allPlayers);
+	delete usa;
+	delete mexico;
+	delete colombia;
+	delete canada;
+	delete player1;
+	
 }
 
 
@@ -27,7 +65,7 @@ void PlayerStrategiesDriver::testAggressivePlayerStrategy() {
 	AggressivePlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(aggressivePlayer);
 	aggressivePlayer->setPlayerStrategy(aggressiveStrategy);
 
-
+	
 	// Create territories
 	Territory* territory1 = new Territory("Stronghold", 20, 1, 2);
 	Territory* territory2 = new Territory("Borderland", 10, 3, 4);
@@ -92,7 +130,65 @@ void PlayerStrategiesDriver:: testBenevolentPlayerStrategy() {
     delete benevolentPlayer;
 }
 
+void PlayerStrategiesDriver::testNeutralPlayerStrategy() {
+	std::cout << "\n======= Testing HumanPlayerStrategy =======\n";
+	std::vector<Player*> allPlayers;
+    Deck* sharedDeck = new Deck();
+	Hand* hand1 = new Hand(sharedDeck);
+	Player* player1 = new Player(hand1);
+	player1->name = "Tony:Human";
+	Player* player2 = new Player(new Hand(sharedDeck));
+	player2->name = "Robot:Neutral";
+	PlayerStrategy* humanBehaviour = new HumanPlayerStrategy(player1);
+	player1->setPlayerStrategy(humanBehaviour);
 
+	PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(player2);
+	player2->setPlayerStrategy(neutralBehaviour);
+
+
+
+	allPlayers.push_back(player1);
+    allPlayers.push_back(player2);
+	std::cout << "Give 50 units to player1 Tony" << std::endl; 
+    player1->setReinforcementPool(50);
+
+	Territory* usa = new Territory("USA", 5, 1, 2);
+    Territory* canada = new Territory("Canada", 5, 3, 4);
+    Territory* mexico = new Territory("Mexico", 5, 5, 6);
+    Territory* colombia = new Territory("Colombia", 5, 7, 8);
+
+
+	usa->addAdjTerritory(canada);
+	usa->addAdjTerritory(mexico);
+	canada->addAdjTerritory(usa);
+	mexico->addAdjTerritory(colombia);
+	mexico->addAdjTerritory(usa);
+	colombia->addAdjTerritory(mexico);
+
+	player1->addTerritory(mexico);
+	player1->addTerritory(usa);
+	player2->addTerritory(canada);
+	player2->addTerritory(colombia);
+
+	mexico->owner = player1;
+	usa->owner = player1;
+	colombia->owner = player2;
+	canada->owner = player2;
+
+	GameEngine* engine = new GameEngine();
+	engine->issueOrdersPhase(allPlayers);
+	engine->executeOrdersPhase(allPlayers);
+	engine->issueOrdersPhase(allPlayers);
+
+
+	delete usa;
+	delete mexico;
+	delete colombia;
+	delete canada;
+	delete player1;
+	delete player2;
+	
+}
 
 
 void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
@@ -107,97 +203,34 @@ void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
 	allPlayers.push_back(cheater);
 	allPlayers.push_back(human);
 
-	CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
-	AggressivePlayerStrategy* humanStrategy = new AggressivePlayerStrategy();
+	CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy(cheater);
+	HumanPlayerStrategy* humanStrategy = new HumanPlayerStrategy(human);
 
 	cheater->setPlayerStrategy(cheaterStrategy);
 	human->setPlayerStrategy(humanStrategy);
-
-
-
 
 	Territory* usa = new Territory("USA", 5, 1, 2);
 	Territory* canada = new Territory("Canada", 5, 3, 4);
 	Territory* mexico = new Territory("Mexico", 5, 5, 6);
 	Territory* greenland = new Territory("Greendland", 5, 7, 8);
-
+	
 	usa->addAdjTerritory(canada);
 	usa->addAdjTerritory(mexico);
-
+	
 	canada->addAdjTerritory(usa);
 	canada->addAdjTerritory(greenland);
-
+	
 	greenland->addAdjTerritory(canada);
-
+	
 	mexico->addAdjTerritory(usa);
+	cheater->addTerritory(canada);
+    canada->setOwner(cheater);
 
+    human->addTerritory(mexico);
+    mexico->setOwner(human);
 	GameEngine* engine = new GameEngine();
 
 	engine->issueOrdersPhase(allPlayers);
 	engine->executeOrdersPhase(allPlayers);
-
-
-	/*
-	std::cout << "\n======= Testing CheaterPlayerStrategy =======\n";
-	// Create a map
-	Map* gameMap = new Map("Test Map");
-
-	// Create territories
-	Territory* territory1 = new Territory("Territory 1", 10, 0, 0);
-	Territory* territory2 = new Territory("Territory 2", 5, 1, 1);
-	Territory* territory3 = new Territory("Territory 3", 8, 2, 2);
-
-	// Set adjacency relationships for territories
-	territory1->addAdjTerritory(territory2);
-	territory2->addAdjTerritory(territory1);
-	territory2->addAdjTerritory(territory3);
-	territory3->addAdjTerritory(territory2);
-
-	// Add territories to the map
-	gameMap->addTerritory(territory1);
-	gameMap->addTerritory(territory2);
-	gameMap->addTerritory(territory3);
-
-	// Create players
-	Player* cheaterPlayer = new Player("Cheater Player");
-	Player* aggressivePlayer = new Player("Aggressive Player");
-	std::vector<Player*> players;
-	players.push_back(cheaterPlayer);
-	players.push_back(aggressivePlayer);
-
-	// Assign territories to players
-	territory1->setOwner(cheaterPlayer);
-	cheaterPlayer->addTerritory(territory1);
-
-	territory2->setOwner(aggressivePlayer);
-	aggressivePlayer->addTerritory(territory2);
-
-	// Assign strategies
-	CheaterPlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
-	AggressivePlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy();
-
-	cheaterPlayer->setPlayerStrategy(cheaterStrategy);
-	aggressivePlayer->setPlayerStrategy(aggressiveStrategy);
-
-	// Simulate the behavior of the cheater player
-	std::cout << "\n======= Simulating the behavior of the cheater player =======\n";
-	cheaterPlayer->getPlayerStrategy()->issueOrder(players);
-
-	// Output the map state to verify results
-	std::cout << "\n======= Verifying the map state =======\n";
-	for (auto& territory : gameMap->territories) {
-	    std::cout << territory->getName() << " is owned by "
-	              << territory->getOwner()->getName() << "\n";
-	}
-
-	// Clean up memory
-	delete cheaterStrategy;
-	delete aggressiveStrategy;
-	delete cheaterPlayer;
-	delete aggressivePlayer;
-	delete gameMap;
-
-	std::cout << "\n======= Test completed =======\n";
-	*/
 }
 

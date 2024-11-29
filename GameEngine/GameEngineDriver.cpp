@@ -82,10 +82,8 @@ void testStartupPhase() {
 }
 
 void testMainGameLoop(){
-    
     std::vector<Player*> allPlayers;
     Deck* sharedDeck = new Deck();
-
     Hand* hand1 = new Hand(sharedDeck);
     Hand* hand2 = new Hand(sharedDeck);
     Hand* hand3 = new Hand(sharedDeck);
@@ -108,8 +106,6 @@ void testMainGameLoop(){
     player2->drawCard();
     player2->drawCard();
     player2->setReinforcementPool(0);
-    
-
     
     //Third Player has no continent bonus and only 1 territory
     Player* player3 = new Player(hand3);

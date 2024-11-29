@@ -105,18 +105,20 @@ AdvanceOrder::AdvanceOrder(int units, Territory* source, Territory* target, Play
 // Execute Order
 void AdvanceOrder::execute() {
     if (validate()) {
-        std::cout << "Executing advance from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
+        
         if (sourceTerritory->army < units){ //If theres less army in src than units then units = army
             units = sourceTerritory->army;
         }
         if (targetTerritory->owner == issuingPlayer) {  // Move units between owned territories
             sourceTerritory->army -= units;
             targetTerritory->army += units;
-            std::cout << "Moved " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
+            std::cout << issuingPlayer->name << " moved " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
         } 
         else { //Attacking Advance Order
+            std::cout << issuingPlayer->name << " attacking " << targetTerritory->name << " from " << sourceTerritory->name << std::endl;
             CheaterPlayerStrategy* cheaterStrategy = dynamic_cast<CheaterPlayerStrategy*>(issuingPlayer->getPlayerStrategy());
             Player* oldOwner = targetTerritory->getOwner();
+            
             if (cheaterStrategy) { //If issuing Player is cheater
                 //cheater player directly conquers the territory
                 std::cout << "Cheater player conquers " << targetTerritory->name << " directly.\n";
@@ -131,15 +133,18 @@ void AdvanceOrder::execute() {
                 targetTerritory->setOwner(issuingPlayer);
                 targetTerritory->army = units; // Move all units from the source territory to the target
                 issuingPlayer->ownedTerritories.push_back(targetTerritory);
-
-                std::cout << "Cheater player conquered " << targetTerritory->name << std::endl;
             } 
             else {
-                PlayerStrategy* oldOwnerStrategy = oldOwner->getPlayerStrategy();
-                if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
-                    delete oldOwnerStrategy;
-                    oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+                PlayerStrategy* oldOwnerStrategy;
+                if (oldOwner != nullptr){
+                    oldOwnerStrategy = oldOwner->getPlayerStrategy();
+                    if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
+                        std::cout << oldOwner->name << " who was a neutral player got attacked!!! Turning into aggressive player!" << std::endl;
+                        delete oldOwnerStrategy;
+                        oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+                    }
                 }
+                
 
 
                 // Battle simulation
@@ -182,12 +187,12 @@ void AdvanceOrder::execute() {
                     targetTerritory->setOwner(issuingPlayer);
                     targetTerritory->army = attackUnits;
                     issuingPlayer->ownedTerritories.push_back(targetTerritory);
-                    std::cout << "Territory " << targetTerritory->name << " conquered!\n";
+                    std::cout << issuingPlayer->name  <<" has conquered " << targetTerritory->name << std::endl;
                 } 
                 else {
                     // Defender holds
                     targetTerritory->army = defendUnits;
-                    std::cout << "Attack on " << targetTerritory->name << " was repelled.\n";
+                    std::cout << issuingPlayer->name  <<" failed his attack on " << targetTerritory->name << std::endl;
                 }
             } 
         }

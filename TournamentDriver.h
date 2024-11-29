@@ -1,7 +1,7 @@
 #ifndef TOURNAMENTDRIVER_H
 #define TOURNAMENTDRIVER_H
 
-#include "GameEngine.h"
+#include "GameEngine/GameEngine.h"
 
 void testTournament();
 

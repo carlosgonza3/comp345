@@ -15,6 +15,9 @@
 #include "../Order/OrdersList.h"
 #include "../Order/Orders.h"
 #include "../Cards/Cards.h"
+#include "../PlayerStrategy/PlayerStrategies.h"
+
+class PlayerStrategy;
 
 //Placeholder inputs, can be changed
 void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog);
@@ -97,10 +100,10 @@ class GameEngine : public Subject, public ILoggable {
         void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
         void issueOrdersPhase(std::vector<Player*>& players);
         void hasTerritory(std::vector<Player*>& players);
-        bool hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
+        PlayerStrategy* hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
         void executeOrdersPhase(std::vector<Player*>& players);
 
-        void mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories);
+        std::string mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories, int numRounds);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

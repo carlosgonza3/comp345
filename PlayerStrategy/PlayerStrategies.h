@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Player.h"
-#include "Map.h"
-#include "Cards.h"
+#include "../Player/Player.h"
+#include "../Map/Map.h"
+#include "../Cards/Cards.h"
 // Forward declaration
 class Player;      
 class Territory;   

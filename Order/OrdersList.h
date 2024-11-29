@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <cstddef> // Include for size_t
-#include "Orders.h" // Include Orders.h to fully declare Order
-#include "GameEngine.h"
+#include "../Order/Orders.h" // Include Orders.h to fully declare Order
+#include "../GameEngine/GameEngine.h"
 #pragma once
 
 

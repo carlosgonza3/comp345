@@ -3,10 +3,10 @@
 
 #include <vector>
 #include <iostream>
-#include "Cards.h"
-#include "OrdersList.h"
-#include "Map.h"
-#include "Orders.h"
+#include "../Cards/Cards.h"
+#include "../Order/OrdersList.h"
+#include "../Map/Map.h"
+#include "../Order/Orders.h"
 class Hand;
 class Territory;
 class PlayerStrategy;
@@ -27,7 +27,7 @@ public:
     void addAttackTerritory(Territory* territory);
     std::vector<Territory*> toDefend();
     std::vector<Territory*> toAttack();
-    void issueOrder(int& index, std::vector<Player*>& players); // Modified to accept index
+    void issueOrder(std::vector<Player*>& players); // Modified to accept index
     friend std::ostream& operator<<(std::ostream& os, const Player& player); // Output operator
     void addNegotiatedPlayer(Player* player);
     bool isNegotiatedWith(Player* player);

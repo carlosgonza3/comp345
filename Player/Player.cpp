@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Map.h"
+//#include "Map.h"
 #include <iostream>
 #include <algorithm> // For std::find
 
@@ -10,9 +10,9 @@ Player::Player() : Hand1(nullptr), orders(new OrdersList()), playerStrategy(null
 }
 
 // Constructor with Hand parameter
-Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()) {}
+Player::Player(Hand* deck) : Hand1(deck), orders(new OrdersList()), playerStrategy(nullptr) {}
 
-// Copy constructor
+// Copy constructor TO DO
 Player::Player(const Player& other) 
     : name(other.name),
       ownedTerritories(other.ownedTerritories),
@@ -120,8 +120,8 @@ std::vector<Territory*> Player::toAttack() {
 }
 
 // Issue an order
-void Player::issueOrder(int& index, std::vector<Player*>& players) { // Modified to accept index
-    std::cout << "Issuing order for player: " << name << " (Index: " << index << ")\n";
+void Player::issueOrder(std::vector<Player*>& players) { // Modified to accept index
+    std::cout << "\nIssuing order for player: " << name << std::endl;
     playerStrategy->issueOrder(players);
 }
 
@@ -149,7 +149,7 @@ void Player::printTerritoriesToAttack() {
 }
 
 void Player::printTerritoriesToDefend() {
-    std::vector<Territory*> terrToDefend = playerStrategy->toAttack();
+    std::vector<Territory*> terrToDefend = playerStrategy->toDefend();
     int i = 0;
     for (const auto& territory : terrToDefend) {
         std::cout << i++ << ". " << territory->name << " at (" << territory->x << ", " << territory->y << ")" << std::endl;
