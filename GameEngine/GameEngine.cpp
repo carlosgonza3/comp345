@@ -4,6 +4,7 @@
 #include <map>
 #include <random>
 #include <algorithm>
+#include <string>
 
 //To be moved as non-free function?
 //Placeholder inputs, can be changed
@@ -821,7 +822,7 @@ void GameEngine::hasTerritory(std::vector<Player*>& players){
     }
 }
 
-bool GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories) {
+PlayerStrategy* GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories) {
     for (int i = 0; i < players.size(); ++i) {
         Player* player = players[i];
         bool controlsAllTerritories = true;
@@ -848,10 +849,10 @@ bool GameEngine::hasAllTerritory(std::vector<Player*>& players, std::vector<Terr
 
         if (controlsAllTerritories) {
             std::cout << "Player " << player->name << " has won since he controls all territories!" << std::endl;
-            return true;
+            return player->getPlayerStrategy(); //return the strat
         }
     }
-    return false; // no player controls all territories yet.
+    return nullptr; // no player controls all territories yet.
 }
 
 void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
@@ -895,12 +896,15 @@ void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
     }
 }
 
-void GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories){
+std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories, int numRounds){
     bool gameOver = false;
-     while (!gameOver) {
+    int i = 1;
+    PlayerStrategy* winningStrategy = nullptr;
+
+    while (!gameOver) {
+        
         // Reinforcement Phase
         reinforcementPhase(players, continents);
-
 
         hasTerritory(players);
         // Issue Orders Phase
@@ -913,16 +917,32 @@ void GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<Contine
         hasTerritory(players);
 
         // Check if any player has won by controlling all territories
-        
+        winningStrategy = hasAllTerritory(players, allTheTerritories);
 
         // Check if there are any players left to continue the game
-        if (hasAllTerritory(players, allTheTerritories)) {
+        if (winningStrategy) {
             gameOver = true;
-            if (!players.empty()) {
-                std::cout << "\nGame Over! Player " << players[0]->name << " has won!" << std::endl;
-            } else {
-                std::cout << "\nGame Over! No players left!" << std::endl;
-            }
         }
+        i++;
+        if (i > numRounds){
+            return "draw";
+        }
+    }
+
+
+    if(dynamic_cast<AggressivePlayerStrategy*>(winningStrategy)){
+        return "Aggressive";
+    }
+    else if (dynamic_cast<BenevolentPlayerStrategy*>(winningStrategy)) {
+        return "Benevolent";
+    }
+    else if (dynamic_cast<NeutralPlayerStrategy*>(winningStrategy)) {
+        return "Neutral";
+    }
+    else if (dynamic_cast<HumanPlayerStrategy*>(winningStrategy)) {
+        return "Human";
+    }
+    else if (dynamic_cast<CheaterPlayerStrategy*>(winningStrategy)) {
+        return "Cheater";
     }
 }

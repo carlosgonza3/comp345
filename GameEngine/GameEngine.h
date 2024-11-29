@@ -97,10 +97,10 @@ class GameEngine : public Subject, public ILoggable {
         void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
         void issueOrdersPhase(std::vector<Player*>& players);
         void hasTerritory(std::vector<Player*>& players);
-        bool hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
+        PlayerStrategy* hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
         void executeOrdersPhase(std::vector<Player*>& players);
 
-        void mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories);
+        std::string mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories, int numRounds);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
