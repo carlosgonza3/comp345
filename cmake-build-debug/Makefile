@@ -489,29 +489,53 @@ Player/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Player/Player.cpp.s
 .PHONY : Player/Player.cpp.s
 
-TournamentDriver.o: TournamentDriver.cpp.o
-.PHONY : TournamentDriver.o
+PlayerStrategy/PlayerStrategies.o: PlayerStrategy/PlayerStrategies.cpp.o
+.PHONY : PlayerStrategy/PlayerStrategies.o
 
 # target to build an object file
-TournamentDriver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.o
-.PHONY : TournamentDriver.cpp.o
+PlayerStrategy/PlayerStrategies.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o
+.PHONY : PlayerStrategy/PlayerStrategies.cpp.o
 
-TournamentDriver.i: TournamentDriver.cpp.i
-.PHONY : TournamentDriver.i
+PlayerStrategy/PlayerStrategies.i: PlayerStrategy/PlayerStrategies.cpp.i
+.PHONY : PlayerStrategy/PlayerStrategies.i
 
 # target to preprocess a source file
-TournamentDriver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.i
-.PHONY : TournamentDriver.cpp.i
+PlayerStrategy/PlayerStrategies.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.i
+.PHONY : PlayerStrategy/PlayerStrategies.cpp.i
 
-TournamentDriver.s: TournamentDriver.cpp.s
-.PHONY : TournamentDriver.s
+PlayerStrategy/PlayerStrategies.s: PlayerStrategy/PlayerStrategies.cpp.s
+.PHONY : PlayerStrategy/PlayerStrategies.s
 
 # target to generate assembly for a file
-TournamentDriver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/TournamentDriver.cpp.s
-.PHONY : TournamentDriver.cpp.s
+PlayerStrategy/PlayerStrategies.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.s
+.PHONY : PlayerStrategy/PlayerStrategies.cpp.s
+
+PlayerStrategy/PlayerStrategiesDriver.o: PlayerStrategy/PlayerStrategiesDriver.cpp.o
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.o
+
+# target to build an object file
+PlayerStrategy/PlayerStrategiesDriver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.cpp.o
+
+PlayerStrategy/PlayerStrategiesDriver.i: PlayerStrategy/PlayerStrategiesDriver.cpp.i
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.i
+
+# target to preprocess a source file
+PlayerStrategy/PlayerStrategiesDriver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.i
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.cpp.i
+
+PlayerStrategy/PlayerStrategiesDriver.s: PlayerStrategy/PlayerStrategiesDriver.cpp.s
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.s
+
+# target to generate assembly for a file
+PlayerStrategy/PlayerStrategiesDriver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.s
+.PHONY : PlayerStrategy/PlayerStrategiesDriver.cpp.s
 
 # Help Target
 help:
@@ -567,9 +591,12 @@ help:
 	@echo "... Player/Player.o"
 	@echo "... Player/Player.i"
 	@echo "... Player/Player.s"
-	@echo "... TournamentDriver.o"
-	@echo "... TournamentDriver.i"
-	@echo "... TournamentDriver.s"
+	@echo "... PlayerStrategy/PlayerStrategies.o"
+	@echo "... PlayerStrategy/PlayerStrategies.i"
+	@echo "... PlayerStrategy/PlayerStrategies.s"
+	@echo "... PlayerStrategy/PlayerStrategiesDriver.o"
+	@echo "... PlayerStrategy/PlayerStrategiesDriver.i"
+	@echo "... PlayerStrategy/PlayerStrategiesDriver.s"
 .PHONY : help
 
 

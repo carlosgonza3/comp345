@@ -16,7 +16,7 @@ include_directories(
 
 # Add all necessary files to the target
 add_executable(comp345
-    #maindriver.cpp
+    MainDriver.cpp
     Cards/Cards.cpp
     Cards/Cards.h
     CommandProcessing/CommandProcessing.cpp
@@ -47,4 +47,5 @@ add_executable(comp345
     PlayerStrategy/PlayerStrategiesDriver.cpp 
     CommandProcessing/CommandProcessingDriver.h
     GameEngine/LoggingObserverDriver.h
+        PlayerStrategy/PlayerStrategiesDriver.cpp
 )

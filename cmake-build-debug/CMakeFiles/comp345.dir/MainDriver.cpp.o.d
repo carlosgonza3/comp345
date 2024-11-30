@@ -993,13 +993,18 @@ CMakeFiles/comp345.dir/MainDriver.cpp.o: \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Map/MapLoader.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/Cards.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/Orders.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Order/../GameEngine/LoggingObserver.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Map/Map.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Cards/../Player/Player.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/../PlayerStrategy/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/../PlayerStrategy/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/../PlayerStrategy/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/../GameEngine/GameEngine.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Player/../Order/Orders.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/OrdersList.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Order/Orders.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Cards/Cards.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/GameEngine/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.h

@@ -23,7 +23,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersDriver.cpp" "CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o" "gcc" "CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o.d"
   "/Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.cpp" "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o" "gcc" "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o.d"
   "/Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.cpp" "CMakeFiles/comp345.dir/Player/Player.cpp.o" "gcc" "CMakeFiles/comp345.dir/Player/Player.cpp.o.d"
-  "/Users/carlosgonzalez/Developer/GitHub/comp345/TournamentDriver.cpp" "CMakeFiles/comp345.dir/TournamentDriver.cpp.o" "gcc" "CMakeFiles/comp345.dir/TournamentDriver.cpp.o.d"
+  "/Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategies.cpp" "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o" "gcc" "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o.d"
+  "/Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.cpp" "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o" "gcc" "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

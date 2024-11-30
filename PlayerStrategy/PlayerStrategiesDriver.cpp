@@ -1,11 +1,11 @@
 #include <iostream>
-#include "Map/Map.h"
-#include "Player/Player.h"
-#include "Order/Orders.h"
-#include "Order/OrdersList.h"
-#include "PlayerStrategy/PlayerStrategies.h"
+#include "Map.h"
+#include "Player.h"
+#include "Orders.h"
+#include "OrdersList.h"
+#include "PlayerStrategies.h"
 #include <vector>
-#include "GameEngine/GameEngine.h"
+#include "GameEngine.h"
 #include <algorithm>
 #include "PlayerStrategiesDriver.h"
 

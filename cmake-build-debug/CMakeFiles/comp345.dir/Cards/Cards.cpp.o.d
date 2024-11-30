@@ -904,7 +904,7 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__split_buffer \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/Orders.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/istream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/ostream \
@@ -959,7 +959,15 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Player/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Player/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Player/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Player/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../PlayerStrategy/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../Order/../GameEngine/LoggingObserver.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -981,8 +989,17 @@ CMakeFiles/comp345.dir/Cards/Cards.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/list \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Map/Map.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Cards/Cards.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/../Map/Map.h
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/GameEngine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/map \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__tree \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../CommandProcessing/CommandProcessing.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../CommandProcessing/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Map/MapDriver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Order/../GameEngine/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Cards/../Player/Player.h

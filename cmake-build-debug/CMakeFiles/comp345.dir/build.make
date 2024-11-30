@@ -279,19 +279,33 @@ CMakeFiles/comp345.dir/Player/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/Player/Player.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/Player/Player.cpp -o CMakeFiles/comp345.dir/Player/Player.cpp.s
 
-CMakeFiles/comp345.dir/TournamentDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
-CMakeFiles/comp345.dir/TournamentDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/TournamentDriver.cpp
-CMakeFiles/comp345.dir/TournamentDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/comp345.dir/TournamentDriver.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/TournamentDriver.cpp.o -MF CMakeFiles/comp345.dir/TournamentDriver.cpp.o.d -o CMakeFiles/comp345.dir/TournamentDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/TournamentDriver.cpp
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategies.cpp
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o -MF CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o.d -o CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategies.cpp
 
-CMakeFiles/comp345.dir/TournamentDriver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/TournamentDriver.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/TournamentDriver.cpp > CMakeFiles/comp345.dir/TournamentDriver.cpp.i
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategies.cpp > CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.i
 
-CMakeFiles/comp345.dir/TournamentDriver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/TournamentDriver.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/TournamentDriver.cpp -o CMakeFiles/comp345.dir/TournamentDriver.cpp.s
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategies.cpp -o CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.s
+
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o: CMakeFiles/comp345.dir/flags.make
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o: /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.cpp
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o: CMakeFiles/comp345.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o -MF CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o.d -o CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o -c /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.cpp
+
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.cpp > CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.i
+
+CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlosgonzalez/Developer/GitHub/comp345/PlayerStrategy/PlayerStrategiesDriver.cpp -o CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.s
 
 # Object files for target comp345
 comp345_OBJECTS = \
@@ -310,7 +324,8 @@ comp345_OBJECTS = \
 "CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o" \
 "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o" \
 "CMakeFiles/comp345.dir/Player/Player.cpp.o" \
-"CMakeFiles/comp345.dir/TournamentDriver.cpp.o"
+"CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o" \
+"CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o"
 
 # External object files for target comp345
 comp345_EXTERNAL_OBJECTS =
@@ -330,10 +345,11 @@ comp345: CMakeFiles/comp345.dir/Order/Orders.cpp.o
 comp345: CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/Order/OrdersList.cpp.o
 comp345: CMakeFiles/comp345.dir/Player/Player.cpp.o
-comp345: CMakeFiles/comp345.dir/TournamentDriver.cpp.o
+comp345: CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o
+comp345: CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o
 comp345: CMakeFiles/comp345.dir/build.make
 comp345: CMakeFiles/comp345.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable comp345"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/carlosgonzalez/Developer/GitHub/comp345/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable comp345"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/comp345.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

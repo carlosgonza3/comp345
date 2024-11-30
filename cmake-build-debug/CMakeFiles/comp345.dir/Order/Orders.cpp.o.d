@@ -957,7 +957,15 @@ CMakeFiles/comp345.dir/Order/Orders.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../GameEngine/LoggingObserver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/GameEngine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/map \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__tree \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../CommandProcessing/CommandProcessing.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -978,15 +986,22 @@ CMakeFiles/comp345.dir/Order/Orders.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__filesystem/u8path.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../CommandProcessing/../GameEngine/LoggingObserver.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/list \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Map/MapDriver.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Map/MapLoader.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Player/Player.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Order/OrdersList.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/../GameEngine/../PlayerStrategy/PlayerStrategies.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Player/../Order/Orders.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Map/Map.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../PlayerStrategy/../Cards/Cards.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../GameEngine/LoggingObserver.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/Cards.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Order/Orders.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Map/Map.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Cards/../Player/Player.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Order/OrdersList.h \
-  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Player/../Map/Map.h \
   /Users/carlosgonzalez/Developer/GitHub/comp345/Order/../Map/Map.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
@@ -1035,4 +1050,5 @@ CMakeFiles/comp345.dir/Order/Orders.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/seed_seq.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/weibull_distribution.h
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
+  /Users/carlosgonzalez/Developer/GitHub/comp345/Order/OrdersList.h

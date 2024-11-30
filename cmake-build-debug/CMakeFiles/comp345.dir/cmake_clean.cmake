@@ -29,8 +29,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o.d"
   "CMakeFiles/comp345.dir/Player/Player.cpp.o"
   "CMakeFiles/comp345.dir/Player/Player.cpp.o.d"
-  "CMakeFiles/comp345.dir/TournamentDriver.cpp.o"
-  "CMakeFiles/comp345.dir/TournamentDriver.cpp.o.d"
+  "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o"
+  "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o.d"
+  "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o"
+  "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategiesDriver.cpp.o.d"
   "comp345"
   "comp345.pdb"
 )
