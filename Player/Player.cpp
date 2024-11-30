@@ -7,6 +7,7 @@
 // Default constructor
 Player::Player() : Hand1(nullptr), orders(new OrdersList()), playerStrategy(nullptr) {
     reinforcementPool = 0;
+    ownedTerritories = std::vector<Territory*>();
 }
 
 // Constructor with Hand parameter
@@ -93,6 +94,8 @@ Player::Player(const std::string& playerName) : name(playerName) {
     orders = new OrdersList();
     Hand1 = nullptr; // Initialize the Hand pointer
     playerStrategy = nullptr; // Initialize the strategy pointer
+    reinforcementPool = 0;
+    ownedTerritories = std::vector<Territory*>();
 }
 //++++++++++ New part for A3 End+++++++++++++++
 // Add a territory to the defend list
@@ -120,9 +123,9 @@ std::vector<Territory*> Player::toAttack() {
 }
 
 // Issue an order
-void Player::issueOrder(std::vector<Player*>& players) { // Modified to accept index
+void Player::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) { // Modified to accept index
     std::cout << "\nIssuing order for player: " << name << std::endl;
-    playerStrategy->issueOrder(players);
+    playerStrategy->issueOrder(players, allTerritories);
 }
 
 void Player::setOrdersList(OrdersList* newOrdersList) {

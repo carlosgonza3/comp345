@@ -118,35 +118,36 @@ void AdvanceOrder::execute() {
             std::cout << issuingPlayer->name << " attacking " << targetTerritory->name << " from " << sourceTerritory->name << std::endl;
             CheaterPlayerStrategy* cheaterStrategy = dynamic_cast<CheaterPlayerStrategy*>(issuingPlayer->getPlayerStrategy());
             Player* oldOwner = targetTerritory->getOwner();
-            
+            std::cout << oldOwner << std::endl;
+            PlayerStrategy* oldOwnerStrategy;
+            if (oldOwner != nullptr){
+                oldOwnerStrategy = oldOwner->getPlayerStrategy();
+                if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
+                    std::cout << oldOwner->name << " who was a neutral player got attacked!!! Turning into aggressive player!" << std::endl;
+                    delete oldOwnerStrategy;
+                    oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
+                }
+            }
             if (cheaterStrategy) { //If issuing Player is cheater
                 //cheater player directly conquers the territory
                 std::cout << "Cheater player conquers " << targetTerritory->name << " directly.\n";
-        
-                
                 // Remove the target territory from the old owner's list
-                if (oldOwner != nullptr) {
-                    oldOwner->ownedTerritories.erase(std::remove(oldOwner->ownedTerritories.begin(), oldOwner->ownedTerritories.end(), targetTerritory), oldOwner->ownedTerritories.end());
+                if (oldOwner) {  // Make sure the territory has an owner
+                    // Find the territory in the old owner's list of owned territories
+                    auto it = std::find(oldOwner->getOwnedTerritories().begin(),
+                            oldOwner->getOwnedTerritories().end(), targetTerritory);
+                    if (it != oldOwner->getOwnedTerritories().end()) {
+                        std::cout << "Removing territory from " << oldOwner->name << std::endl;
+                        oldOwner->getOwnedTerritories().erase(it);  // Remove the territory from the vector
+                        targetTerritory->setOwner(nullptr);
+                    }
                 }
-
                 // Assign the target territory to the issuing player (cheater)
                 targetTerritory->setOwner(issuingPlayer);
                 targetTerritory->army = units; // Move all units from the source territory to the target
                 issuingPlayer->ownedTerritories.push_back(targetTerritory);
             } 
             else {
-                PlayerStrategy* oldOwnerStrategy;
-                if (oldOwner != nullptr){
-                    oldOwnerStrategy = oldOwner->getPlayerStrategy();
-                    if (dynamic_cast<NeutralPlayerStrategy*>(oldOwnerStrategy)){
-                        std::cout << oldOwner->name << " who was a neutral player got attacked!!! Turning into aggressive player!" << std::endl;
-                        delete oldOwnerStrategy;
-                        oldOwner->setPlayerStrategy(new AggressivePlayerStrategy(oldOwner));
-                    }
-                }
-                
-
-
                 // Battle simulation
                 int attackUnits = units;
                 int defendUnits = targetTerritory->army;

@@ -23,7 +23,7 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const PlayerStrategy& output);
 
     // Pure virtual methods
-    virtual void issueOrder(std::vector<Player*>& players) = 0;
+    virtual void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) = 0;
     virtual std::vector<Territory*> toAttack() = 0; 
     virtual std::vector<Territory*> toDefend() = 0; 
 
@@ -43,7 +43,7 @@ public:
     HumanPlayerStrategy& operator=(const HumanPlayerStrategy& ope);
     virtual ~HumanPlayerStrategy();
     friend std::ostream& operator<<(std::ostream& out, const HumanPlayerStrategy& output);
-    void issueOrder(std::vector<Player*>& players) override;
+    void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) override;
     std::vector<Territory*> toAttack() override; 
     std::vector<Territory*> toDefend() override; 
 };
@@ -56,7 +56,7 @@ public:
     AggressivePlayerStrategy& operator=(const AggressivePlayerStrategy& ope);
     virtual ~AggressivePlayerStrategy();
     friend std::ostream& operator<<(std::ostream& out, const AggressivePlayerStrategy& output);
-    void issueOrder(std::vector<Player*>& players) override;
+    void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) override;
     std::vector<Territory*> toAttack() override; 
     std::vector<Territory*> toDefend() override; 
 };
@@ -70,7 +70,7 @@ public:
     BenevolentPlayerStrategy& operator=(const BenevolentPlayerStrategy& ope);
     virtual ~BenevolentPlayerStrategy();
     friend std::ostream& operator<<(std::ostream& out, const BenevolentPlayerStrategy& output);
-    void issueOrder(std::vector<Player*>& players) override;
+    void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) override;
     std::vector<Territory*> toAttack() override; 
     std::vector<Territory*> toDefend() override; 
 };
@@ -85,7 +85,7 @@ public:
     NeutralPlayerStrategy& operator=(const NeutralPlayerStrategy& ope);
     virtual ~NeutralPlayerStrategy();
     friend std::ostream& operator<<(std::ostream& out, const NeutralPlayerStrategy& output);
-    void issueOrder(std::vector<Player*>& players) override;
+    void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) override;
     std::vector<Territory*> toAttack() override; 
     std::vector<Territory*> toDefend() override; 
 };
@@ -99,7 +99,7 @@ public:
     CheaterPlayerStrategy& operator=(const CheaterPlayerStrategy& ope);
     virtual ~CheaterPlayerStrategy();
     friend std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output);
-    void issueOrder(std::vector<Player*>& players) override;
+    void issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) override;
     std::vector<Territory*> toAttack() override; 
     std::vector<Territory*> toDefend() override; 
 };
