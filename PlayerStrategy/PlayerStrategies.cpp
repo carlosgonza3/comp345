@@ -49,7 +49,7 @@ std::ostream& operator<<(std::ostream& out, const HumanPlayerStrategy& output) {
     return out;
 }
 
-void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     int indexInput;
     bool validInput;
     if (player->reinforcementPool > 0){
@@ -139,8 +139,6 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             return;
         }
         //std::vector<Territory*> terrToAttack = player->toAttack();
-
-
 
         std::cout << "\nHere are the territories adjacent to the source territory: " << std::endl;
         std::vector<Territory*> ajdTerr = srcTerritory->getAdjacentTerritories();
@@ -274,7 +272,7 @@ std::ostream& operator<<(std::ostream& out, const AggressivePlayerStrategy& outp
 
 
 
-void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     // Deploy reinforcements to the strongest territory
     Territory* strongestTerritory = nullptr;
     int maxArmies = -1;
@@ -376,7 +374,7 @@ std::ostream& operator<<(std::ostream& out, const BenevolentPlayerStrategy& outp
 }
 
 
-void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
 
     // Ensure player is valid
     if (!player) {
@@ -487,7 +485,7 @@ std::ostream& operator<<(std::ostream& out, const NeutralPlayerStrategy& output)
     return out;
 }
 
-void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     //Does not deploy
     //Does not play card
     //Does not do any order
@@ -533,10 +531,11 @@ std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output)
 }
 
 // Issue order implementation for CheaterPlayerStrategy
-void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) { 
+    std::vector<Territory*> territories = player->getOwnedTerritories();
+    std::cout << territories.size() << std::endl;
     for (Territory* territory : player->getOwnedTerritories()) {
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
-            
             if (adjacent->getOwner() != player) {
                 std::cout << "CheaterPlayerStrategy creating order advance order, attacking: " << adjacent->getName() << " from " << territory->getName() << std::endl;
                 player->getOrdersList()->addOrder(new AdvanceOrder(1, territory, adjacent, player));
@@ -566,6 +565,7 @@ std::vector<Territory*> CheaterPlayerStrategy::toAttack() {
 // Defend targets for CheaterPlayerStrategy (doesn't defend)
 std::vector<Territory*> CheaterPlayerStrategy::toDefend() {
     // All owned territories are defended by default.
+    std::cout <<"debug 1" << std::endl;
     std::cout << "CheaterPlayerStrategy: Defending all owned territories.\n";
     return player->getOwnedTerritories();
 }

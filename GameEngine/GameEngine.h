@@ -98,7 +98,7 @@ class GameEngine : public Subject, public ILoggable {
         std::string stringToLog() override;
 
         void reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents);
-        void issueOrdersPhase(std::vector<Player*>& players);
+        void issueOrdersPhase(std::vector<Player*>& players, std::vector<Territory *>& allTerritories);
         void hasTerritory(std::vector<Player*>& players);
         PlayerStrategy* hasAllTerritory(std::vector<Player*>& players, std::vector<Territory*>& allTheTerritories);
         void executeOrdersPhase(std::vector<Player*>& players);

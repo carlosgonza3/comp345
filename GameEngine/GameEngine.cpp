@@ -772,7 +772,7 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
 
             for (Territory* territory: continent->territories){
                 bool controlsTerritory = false;
-                for (Territory* playerTerritory: player->toDefend()){
+                for (Territory* playerTerritory: player->ownedTerritories){
                     if (playerTerritory == territory){
                         controlsTerritory = true;
                         break;
@@ -790,9 +790,9 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
             }
         }
 
-        int territoryBonus = (player->toDefend().size()) / 3;
+        int territoryBonus = (player->ownedTerritories.size()) / 3;
         int total = territoryBonus + continentBonus;
-        std::cout << "Player: " << player->name << " received a territory bonus " << territoryBonus << " reinforcements due to owning "<< player->toDefend().size() << " territories."<< std::endl;
+        std::cout << "Player: " << player->name << " received a territory bonus " << territoryBonus << " reinforcements due to owning "<< player->ownedTerritories.size() << " territories."<< std::endl;
         if (total >= 3){
             std::cout << "Player: " << player->name << " received a total of " << total << " reinforcements." << std::endl;
             player->setReinforcementPool(total);
@@ -804,7 +804,7 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
     }
 }
 
-void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
+void GameEngine::issueOrdersPhase(std::vector<Player*>& players, std::vector<Territory*>& allTerritories){
     bool allPlayersDone = false;
     for (Player* player: players){
         player->setIssuedAllOrders(false);
@@ -815,7 +815,7 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
         for (Player* player: players){
             
             if (!player->hasIssuedAllOrders()){
-                player->issueOrder(players);
+                player->issueOrder(players, allTerritories);
                 
                 allPlayersDone = false;
             }
@@ -826,7 +826,7 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players){
 
 void GameEngine::hasTerritory(std::vector<Player*>& players){
     for (int i = 0; i < players.size(); ) {  
-        if (players[i]->toDefend().size() == 0) {  // Check if the player has no territories
+        if (players[i]->ownedTerritories.size() == 0) {  // Check if the player has no territories
             std::cout << "\nPlayer " << players[i]->name << " lost since he/she has no territories." << std::endl;
             delete players[i];  // Call destructor
             players.erase(players.begin() + i);  // Erase the player and do not increment i
@@ -847,8 +847,8 @@ PlayerStrategy* GameEngine::hasAllTerritory(std::vector<Player*>& players, std::
             bool ownsTerritory = false;
 
             // Check if this territory is in the player's ownedTerritories
-            for (int k = 0; k < player->toDefend().size(); ++k) {
-                if (player->toDefend()[k] == territory) {
+            for (int k = 0; k < player->ownedTerritories.size(); ++k) {
+                if (player->ownedTerritories[k] == territory) {
                     ownsTerritory = true;
                     break;
                 }
@@ -921,7 +921,7 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
 
         hasTerritory(players);
         // Issue Orders Phase
-        issueOrdersPhase(players);
+        issueOrdersPhase(players, allTheTerritories);
 
         // Execute Orders Phase
         executeOrdersPhase(players);

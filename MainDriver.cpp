@@ -7,7 +7,7 @@
 #include "GameEngine/LoggingObserverDriver.h"
 #include "TournamentDriver.h"
 //#include "PlayerStrategy/PlayerStrategiesDriver.h"
-#include "PlayerStrategiesDriver.h"
+#include "PlayerStrategy/PlayerStrategiesDriver.h"
 
 int main() {
 
@@ -99,5 +99,65 @@ int main() {
         }
     }
 */
+*/  
+    //PlayerStrategiesDriver::testCheaterPlayerStrategy();
+    //PlayerStrategiesDriver::testNeutralPlayerStrategy();
+    
+    std::cout << "Testing Tournament" << std::endl;
+    //testTournament();
+    std::string winner = "";
+    GameEngine* ge = new GameEngine();
+    std::vector<Player*> listOfPlayers;
+
+    Player* aggressivePlayer = new Player();
+    aggressivePlayer->name = "Aggressive";
+	PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(aggressivePlayer);
+    aggressivePlayer->setPlayerStrategy(aggressiveStrategy);
+
+    Player* benevolentPlayer = new Player();
+    benevolentPlayer->name = "Benevolent";
+    PlayerStrategy* benevolentStrategy = new BenevolentPlayerStrategy(benevolentPlayer);
+    benevolentPlayer->setPlayerStrategy(benevolentStrategy);
+
+    Player* neutralPlayer = new Player();
+    PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(neutralPlayer);
+    neutralPlayer->setPlayerStrategy(neutralBehaviour);
+    neutralPlayer->name = "Neutral";
+
+    Player* cheaterPlayer = new Player();
+    PlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy(cheaterPlayer);
+    cheaterPlayer->setPlayerStrategy(cheaterStrategy);
+    cheaterPlayer->name = "Cheater";
+
+    MapLoader mapLoader = MapLoader();
+    Map* map = mapLoader.loadMap("USA.map");
+
+    //listOfPlayers.push_back(aggressivePlayer);
+    //listOfPlayers.push_back(benevolentPlayer);
+    listOfPlayers.push_back(neutralPlayer);
+    listOfPlayers.push_back(cheaterPlayer);
+    
+    for (int i = 0; i < map->territories.size(); i++) {
+        if (map->territories[i] == nullptr) {
+            std::cout << "Territory at index " << i << " is invalid." << std::endl;
+            continue;
+        }
+        listOfPlayers[i % listOfPlayers.size()]->addTerritory(map->territories[i]);
+        map->territories[i]->owner = (listOfPlayers[i % listOfPlayers.size()]);
+        std::cout << map->territories[i]->getOwner()->name << "\n"<< std::endl;
+    }
+    
+    
+    std::cout << "Before GameLoop" << std::endl;
+    ge->issueOrdersPhase(listOfPlayers);
+    ge->executeOrdersPhase(listOfPlayers);
+
+    //winner = ge.mainGameLoop(listOfPlayers, map->continents, map->territories, 4);
+    std::cout << "After GameLoop" << std::endl;
+    std::cout << winner << std::endl;
+    
     return 0;
+    
+    
+    
 }
