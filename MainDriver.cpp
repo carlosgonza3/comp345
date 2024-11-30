@@ -10,7 +10,49 @@
 #include "PlayerStrategiesDriver.h"
 
 int main() {
-/*
+
+    GameEngine ge = GameEngine();
+    MapLoader mapLoader = MapLoader();
+    Map* map = mapLoader.loadMap("Canada.map");
+
+    std::vector<Player*> listOfPlayers;
+    Player* aggressivePlayer = new Player("Aggressive");
+    PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(aggressivePlayer);
+    aggressivePlayer->setPlayerStrategy(aggressiveStrategy);
+    Player* benevolentPlayer = new Player("Benevolent");
+    PlayerStrategy* benevolentStrategy = new BenevolentPlayerStrategy(benevolentPlayer);
+    benevolentPlayer->setPlayerStrategy(benevolentStrategy);
+    Player* neutralPlayer = new Player("Neutral");
+    PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(neutralPlayer);
+    neutralPlayer->setPlayerStrategy(neutralBehaviour);
+    Player* cheaterPlayer = new Player("Cheater");
+    PlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
+    cheaterPlayer->setPlayerStrategy(cheaterStrategy);
+
+    listOfPlayers.push_back(aggressivePlayer);
+    listOfPlayers.push_back(benevolentPlayer);
+    listOfPlayers.push_back(neutralPlayer);
+    //listOfPlayers.push_back(cheaterPlayer);
+
+    /*
+    for (int i = 0; i < map->continents.size(); i++) {
+        std::cout << "Continent " << map->continents[i]->name << std::endl;
+    }
+
+    for (int i = 0; i < map->territories.size(); i++) {
+        std::cout << "Territory " << map->territories[i]->name << std::endl;
+    }
+    */
+
+    ge.startupPhase(map, listOfPlayers);
+
+    std::string winner = "";
+    std::cout << "Before GameLoop" << std::endl;
+    winner = ge.mainGameLoop(listOfPlayers, map->continents, map->territories, 10);
+    std::cout << "After GameLoop" << std::endl;
+    std::cout << winner << std::endl;
+
+    /*
     bool cond = true;
     while(cond){
         std::cout << "\n\n\nPlease choose a strategy to run:" << std::endl;
@@ -57,42 +99,5 @@ int main() {
         }
     }
 */
-    std::cout << "Testing Tournament" << std::endl;
-    //testTournament();
-    std::string winner = "";
-    GameEngine ge = GameEngine();
-    std::vector<Player*> listOfPlayers;
-
-    Player* aggressivePlayer = new Player("Aggressive");
-	PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(aggressivePlayer);
-    aggressivePlayer->setPlayerStrategy(aggressiveStrategy);
-    Player* benevolentPlayer = new Player("Benevolent");
-    PlayerStrategy* benevolentStrategy = new BenevolentPlayerStrategy(benevolentPlayer);
-    benevolentPlayer->setPlayerStrategy(benevolentStrategy);
-    Player* neutralPlayer = new Player("Neutral");
-    PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(neutralPlayer);
-    neutralPlayer->setPlayerStrategy(neutralBehaviour);
-    Player* cheaterPlayer = new Player("Cheater");
-    PlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy();
-    cheaterPlayer->setPlayerStrategy(cheaterStrategy);
-
-    MapLoader mapLoader = MapLoader();
-    Map* map = mapLoader.loadMap("Canada.map");
-
-    //listOfPlayers.push_back(aggressivePlayer);
-    //listOfPlayers.push_back(benevolentPlayer);
-    listOfPlayers.push_back(neutralPlayer);
-    listOfPlayers.push_back(cheaterPlayer);
-
-    for (int i = 0; i < map->territories.size(); i++) {
-        listOfPlayers[i % listOfPlayers.size()]->ownedTerritories.push_back(map->territories[i]);
-        map->territories[i]->setOwner(listOfPlayers[i % listOfPlayers.size()]);
-    }
-
-    std::cout << "Before GameLoop" << std::endl;
-    winner = ge.mainGameLoop(listOfPlayers, map->continents, map->territories, 1000000);
-    std::cout << "After GameLoop" << std::endl;
-    std::cout << winner << std::endl;
-
     return 0;
 }

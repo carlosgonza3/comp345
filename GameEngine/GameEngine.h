@@ -93,7 +93,7 @@ class GameEngine : public Subject, public ILoggable {
 
     //A2 Section
 
-        void startupPhase();
+        void startupPhase(Map* map, std::vector<Player*> listOfPlayers);
 
         std::string stringToLog() override;
 

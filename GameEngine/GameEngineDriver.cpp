@@ -78,7 +78,7 @@ void testGameStates() {
 
 void testStartupPhase() {
     GameEngine* gameEngine = new GameEngine();
-    gameEngine->startupPhase();
+    //gameEngine->startupPhase();
 }
 
 void testMainGameLoop(){

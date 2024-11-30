@@ -648,9 +648,24 @@ bool WinState::isFinished() {
 
 //A2 Section
 
-void GameEngine::startupPhase() {
-    //Section to be deleted? I.E, we put it in a Driver            PLEASE CONFIRM
+void GameEngine::startupPhase(Map* map, std::vector<Player*> listOfPlayers) {
 
+    for (int i = 0; i < map->territories.size(); i++) {
+        listOfPlayers[i % listOfPlayers.size()]->ownedTerritories.push_back(map->territories[i]);
+    }
+
+    /*
+    for (int i = 0; i < listOfPlayers.size(); i++) {
+        for (int j = 0; j < listOfPlayers[i]->ownedTerritories.size(); j++) {
+            std::cout << listOfPlayers[i]->name << listOfPlayers[i]->ownedTerritories[j]->getName() << std::endl;
+        }
+    }
+    */
+
+    for (int i = 0; i < listOfPlayers.size(); i++) {
+        listOfPlayers[i]->setReinforcementPool(10);
+    }
+    /*
     std::vector<std::string> mapFileNames;
     std::ifstream file("MapFileNames.txt");
     std::string line;
@@ -744,6 +759,7 @@ void GameEngine::startupPhase() {
             return;
         }
     }
+    */
 }
 
 void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<Continent*>& continents){
