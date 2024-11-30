@@ -767,13 +767,13 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
                     break;
                 }
             }
-            
+
             if (controlsAllTerritory){
                 std::cout << "Player: " << player->name << " received a continent bonus of " << continent->armyBonus << " reinforcements thanks to " << continent->name << std::endl;
                 continentBonus += continent->armyBonus;
             }
         }
-        
+
         int territoryBonus = (player->toDefend().size()) / 3;
         int total = territoryBonus + continentBonus;
         std::cout << "Player: " << player->name << " received a territory bonus " << territoryBonus << " reinforcements due to owning "<< player->toDefend().size() << " territories."<< std::endl;
@@ -785,8 +785,6 @@ void GameEngine::reinforcementPhase(std::vector<Player*>& players, std::vector<C
             std::cout << "Player: " << player->name << " received less than 3 reinforcements, so their total is set to 3 (minimum reinforcement)." << std::endl;
             player->setReinforcementPool(3);
         }
-        
-        
     }
 }
 
@@ -900,9 +898,8 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
     bool gameOver = false;
     int i = 1;
     PlayerStrategy* winningStrategy = nullptr;
-
     while (!gameOver) {
-        
+
         // Reinforcement Phase
         reinforcementPhase(players, continents);
 
@@ -928,7 +925,6 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
             return "draw";
         }
     }
-
 
     if(dynamic_cast<AggressivePlayerStrategy*>(winningStrategy)){
         return "Aggressive";
