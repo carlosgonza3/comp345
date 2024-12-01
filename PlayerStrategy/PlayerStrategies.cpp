@@ -302,6 +302,10 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players, std::ve
     // Attack adjacent enemy territories
     /*
     for (Territory* enemyTerritory : toAttack()) {
+
+        
+        
+
         if (strongestTerritory && strongestTerritory->getNumOfArmies() > 1) {
             int attackingArmies = strongestTerritory->getNumOfArmies() - 1; // Leave one army behind
             player->getOrdersList()->addOrder(new AdvanceOrder(attackingArmies, strongestTerritory, enemyTerritory, player));

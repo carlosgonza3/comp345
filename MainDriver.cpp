@@ -96,26 +96,28 @@ int main() {
     cheaterPlayer->setPlayerStrategy(cheaterStrategy);
     cheaterPlayer->name = "Cheater";
 
-
-
-
     MapLoader mapLoader = MapLoader();
-    
+    Map* map = mapLoader.loadMap("USA.map");
 
     listOfPlayers.push_back(aggressivePlayer);
     listOfPlayers.push_back(benevolentPlayer);
     listOfPlayers.push_back(neutralPlayer);
     listOfPlayers.push_back(cheaterPlayer);
-
-
-    Map* map = mapLoader.loadMap("Canada.map");
-    ge->startupPhase(map, listOfPlayers);
-
+    
+    for (int i = 0; i < map->territories.size(); i++) {
+        if (map->territories[i] == nullptr) {
+            std::cout << "Territory at index " << i << " is invalid." << std::endl;
+            continue;
+        }
+        listOfPlayers[i % listOfPlayers.size()]->addTerritory(map->territories[i]);
+        map->territories[i]->owner = (listOfPlayers[i % listOfPlayers.size()]);
+    }
+    
+    
     std::cout << "Before GameLoop" << std::endl;
-    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 3);
+    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 10);
     std::cout << "After GameLoop" << std::endl;
     std::cout << winner << std::endl;
-    std::cout << map->territories.size() << std::endl;
     
     return 0;
     
