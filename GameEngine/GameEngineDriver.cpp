@@ -224,7 +224,7 @@ void testMainGameLoop(){
     
     engine->reinforcementPhase(allPlayers, continents);
     engine->hasTerritory(allPlayers);
-    engine->issueOrdersPhase(allPlayers);
+    engine->issueOrdersPhase(allPlayers, allTheTerritories);
     
     engine->executeOrdersPhase(allPlayers);
     

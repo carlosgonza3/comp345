@@ -63,18 +63,12 @@ int main() {
     }
     */
     
-
-   
-
-    
     std::cout << "Testing Tournament" << std::endl;
     //testTournament();
     std::string winner = "";
     
     GameEngine* ge = new GameEngine();
     std::vector<Player*> listOfPlayers;
-
-
     
     Player* aggressivePlayer = new Player();
     aggressivePlayer->name = "Aggressive";
@@ -97,12 +91,12 @@ int main() {
     cheaterPlayer->name = "Cheater";
 
     MapLoader mapLoader = MapLoader();
-    Map* map = mapLoader.loadMap("USA.map");
+    Map* map = mapLoader.loadMap("Canada.map");
 
     listOfPlayers.push_back(aggressivePlayer);
     listOfPlayers.push_back(benevolentPlayer);
-    listOfPlayers.push_back(neutralPlayer);
-    listOfPlayers.push_back(cheaterPlayer);
+    //listOfPlayers.push_back(neutralPlayer);
+    //listOfPlayers.push_back(cheaterPlayer);
     
     for (int i = 0; i < map->territories.size(); i++) {
         if (map->territories[i] == nullptr) {
@@ -112,10 +106,9 @@ int main() {
         listOfPlayers[i % listOfPlayers.size()]->addTerritory(map->territories[i]);
         map->territories[i]->owner = (listOfPlayers[i % listOfPlayers.size()]);
     }
-    
-    
+
     std::cout << "Before GameLoop" << std::endl;
-    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 10);
+    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 2000);
     std::cout << "After GameLoop" << std::endl;
     std::cout << winner << std::endl;
     

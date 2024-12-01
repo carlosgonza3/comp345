@@ -34,9 +34,10 @@ void testTournament() {
         exit(1);
     }
 
-    // Display Data Loaded for Testing Purposes
+    // Display Data Loaded for Testing Purposes ////////////////////////////////////////////////////////////////////////
     std::cout << "\n\n--------- Data Loaded ---------" << std::endl;
     std::cout << "Map Files: ";
+
     for (int i = 0; i < mapFiles->size(); i++) {
         std::cout << mapFiles->at(i);
         if (i == mapFiles->size()-1) {
@@ -57,7 +58,7 @@ void testTournament() {
     std::cout << "Number of Games: "<< *numGames <<std::endl;
     std::cout << "Max number of turns: "<< *maxTurns <<std::endl;
     std::cout<<""<<std::endl;
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Placeholder parameters, can be changed
     std::string gamelog = "";

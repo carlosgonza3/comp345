@@ -9,24 +9,28 @@
 //To be moved as non-free function?
 //Placeholder inputs, can be changed
 void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog) {
+
+
+
     for (int i = 0; i < maps.size(); i++) {
         for (int j = 0; j < numGames; j++) {
 
-            /*
-             *std::string winner = "";
-             *
-             *GameEngine ge = GameEngine();
-             *winner = ge.mainGameLoop(listOfPlayers, maps.listOfContinents, maps.listOfTerritories, maxTurns);
-             *
-             *Carlos inputs winner in CSV
-             */
+
+             std::string winner = "";
+
+             GameEngine ge = GameEngine();
+             winner = ge.mainGameLoop(listOfPlayers, maps.listOfContinents, maps.listOfTerritories, maxTurns);
+
+
 
 
             //The turns could be a loop or maybe a parameter for the game run?
             //Placeholder string to check loops
-            for (int k = 0; k < maxTurns; k++) {
-                std::cout << "Map " << i+1 << " Game " << j+1 << " Turn " << k+1 << std::endl;
-            }
+
+            // CSV Related
+            ///
+            ///
+            ///
 
         }
     }
@@ -666,6 +670,7 @@ void GameEngine::startupPhase(Map* map, std::vector<Player*> listOfPlayers) {
     for (int i = 0; i < listOfPlayers.size(); i++) {
         listOfPlayers[i]->setReinforcementPool(10);
     }
+
     /*
     std::vector<std::string> mapFileNames;
     std::ifstream file("MapFileNames.txt");

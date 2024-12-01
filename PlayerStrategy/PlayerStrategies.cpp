@@ -617,7 +617,7 @@ void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vecto
                 int deployAmount = std::min(3, territory->army);
                 if (matchedTerritory->owner != player){
                     player->getOrdersList()->addOrder(new AdvanceOrder(deployAmount, territory, matchedTerritory, player));
-                    i++;
+                    i+=deployAmount;
                 }
             }
             else{
