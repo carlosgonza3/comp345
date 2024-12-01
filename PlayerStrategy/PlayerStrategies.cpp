@@ -315,13 +315,13 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players, std::ve
     }
     */
 
-    
+    int remainingUnits = strongestTerritory->army;
     for (Territory* enemyTerritory: strongestTerritory->getAdjacentTerritories()){
         int units = 5;
-        if (strongestTerritory->army == 0){
+        if (remainingUnits == 0){
             break;
         }
-        if (strongestTerritory->army < units){
+        if (remainingUnits < units){
             units = strongestTerritory->army;
         }
         std::string enemyName = enemyTerritory->getName();
@@ -333,6 +333,7 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players, std::ve
             if (matchedTerritory->owner != player){
                 std::cout << "Creating order to attack " << matchedTerritory->getName()<< " from " << strongestTerritory->getName() << " with " << units << " units." << std::endl;
                 player->getOrdersList()->addOrder(new AdvanceOrder(units, strongestTerritory, matchedTerritory, player));
+                remainingUnits -= units;
             }
         }
     }
