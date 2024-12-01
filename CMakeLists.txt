@@ -49,4 +49,6 @@ add_executable(comp345
     GameEngine/LoggingObserverDriver.h
         PlayerStrategy/PlayerStrategiesDriver.cpp
         TournamentDriver.cpp
+        Other/Table.cpp
+        Other/Table.h
 )

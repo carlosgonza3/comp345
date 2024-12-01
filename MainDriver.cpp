@@ -95,8 +95,8 @@ int main() {
 
     listOfPlayers.push_back(aggressivePlayer);
     listOfPlayers.push_back(benevolentPlayer);
-    //listOfPlayers.push_back(neutralPlayer);
-    //listOfPlayers.push_back(cheaterPlayer);
+    listOfPlayers.push_back(neutralPlayer);
+    listOfPlayers.push_back(cheaterPlayer);
     
     for (int i = 0; i < map->territories.size(); i++) {
         if (map->territories[i] == nullptr) {
@@ -108,7 +108,7 @@ int main() {
     }
 
     std::cout << "Before GameLoop" << std::endl;
-    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 2000);
+    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 100);
     std::cout << "After GameLoop" << std::endl;
     std::cout << winner << std::endl;
     

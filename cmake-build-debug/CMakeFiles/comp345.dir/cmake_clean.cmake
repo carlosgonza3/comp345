@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/comp345.dir/Order/OrdersDriver.cpp.o.d"
   "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o"
   "CMakeFiles/comp345.dir/Order/OrdersList.cpp.o.d"
+  "CMakeFiles/comp345.dir/Other/Table.cpp.o"
+  "CMakeFiles/comp345.dir/Other/Table.cpp.o.d"
   "CMakeFiles/comp345.dir/Player/Player.cpp.o"
   "CMakeFiles/comp345.dir/Player/Player.cpp.o.d"
   "CMakeFiles/comp345.dir/PlayerStrategy/PlayerStrategies.cpp.o"

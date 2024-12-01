@@ -465,6 +465,30 @@ Order/OrdersList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Order/OrdersList.cpp.s
 .PHONY : Order/OrdersList.cpp.s
 
+Other/Table.o: Other/Table.cpp.o
+.PHONY : Other/Table.o
+
+# target to build an object file
+Other/Table.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Other/Table.cpp.o
+.PHONY : Other/Table.cpp.o
+
+Other/Table.i: Other/Table.cpp.i
+.PHONY : Other/Table.i
+
+# target to preprocess a source file
+Other/Table.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Other/Table.cpp.i
+.PHONY : Other/Table.cpp.i
+
+Other/Table.s: Other/Table.cpp.s
+.PHONY : Other/Table.s
+
+# target to generate assembly for a file
+Other/Table.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comp345.dir/build.make CMakeFiles/comp345.dir/Other/Table.cpp.s
+.PHONY : Other/Table.cpp.s
+
 Player/Player.o: Player/Player.cpp.o
 .PHONY : Player/Player.o
 
@@ -612,6 +636,9 @@ help:
 	@echo "... Order/OrdersList.o"
 	@echo "... Order/OrdersList.i"
 	@echo "... Order/OrdersList.s"
+	@echo "... Other/Table.o"
+	@echo "... Other/Table.i"
+	@echo "... Other/Table.s"
 	@echo "... Player/Player.o"
 	@echo "... Player/Player.i"
 	@echo "... Player/Player.s"
