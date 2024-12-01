@@ -23,6 +23,10 @@ PlayerStrategy& PlayerStrategy::operator=(const PlayerStrategy& ope) {
     return *this;
 }
 
+void PlayerStrategy::setPlayer(Player* playerPtr){
+    player = playerPtr;
+}
+
 // -----------------------HumanPlayerStrategy implementation(Empty for now)
 HumanPlayerStrategy::HumanPlayerStrategy() : PlayerStrategy() {
     player = nullptr;

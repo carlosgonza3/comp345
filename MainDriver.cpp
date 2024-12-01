@@ -74,6 +74,8 @@ int main() {
     GameEngine* ge = new GameEngine();
     std::vector<Player*> listOfPlayers;
 
+
+    
     Player* aggressivePlayer = new Player();
     aggressivePlayer->name = "Aggressive";
 	PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(aggressivePlayer);
@@ -94,14 +96,19 @@ int main() {
     cheaterPlayer->setPlayerStrategy(cheaterStrategy);
     cheaterPlayer->name = "Cheater";
 
+
+
+
     MapLoader mapLoader = MapLoader();
-    Map* map = mapLoader.loadMap("Canada.map");
+    
 
     listOfPlayers.push_back(aggressivePlayer);
     listOfPlayers.push_back(benevolentPlayer);
     listOfPlayers.push_back(neutralPlayer);
     listOfPlayers.push_back(cheaterPlayer);
-   
+
+
+    Map* map = mapLoader.loadMap("Canada.map");
     ge->startupPhase(map, listOfPlayers);
 
     std::cout << "Before GameLoop" << std::endl;
