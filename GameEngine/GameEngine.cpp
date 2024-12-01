@@ -1,14 +1,37 @@
 
 #include "GameEngine.h"
+#include "Table.h"
 #include "string"
 #include <map>
 #include <random>
 #include <algorithm>
 #include <string>
 
-//To be moved as non-free function?
-//Placeholder inputs, can be changed
+
+void writeCSVFile(Table& data, const std::string& fileName) {
+    std::ofstream outFile(fileName);
+    if (outFile.is_open()) {
+        data.printContents(outFile); // Print the contents to the CSV file
+        std::cout << "[*] -> CSV file '" << fileName << "' created successfully!" << std::endl;
+    } else {
+        std::cerr << "[!] -> Failed to open the output file." << std::endl;
+    }
+}
+
+
 void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog) {
+
+    // Setting up Table and writing headers using parameters data
+    Table results(maps.size() + 1, numGames + 1);
+
+    for (int i = 1; i <= numGames; i++) {
+        results.setValue(0, i, "Game " + std::to_string(i));
+    }
+
+    for (int i = 1; i <= maps.size(); i++) {
+        results.setValue(i, 0, maps[i - 1]); // Map names
+    }
+
     for (int i = 0; i < maps.size(); i++) {
         for (int j = 0; j < numGames; j++) {
 
@@ -24,7 +47,7 @@ void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> list
 
             for (int k = 0; k < listOfPlayers.size(); k++) {
                 Player* player = new Player();
-                player->name = listOfPlayers[i];
+                player->name = listOfPlayers[k];
                 if (player->name == "Aggressive") {
                     PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(player);
                     player->setPlayerStrategy(aggressiveStrategy);
@@ -60,17 +83,14 @@ void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> list
 
             winner = ge->mainGameLoop(copyListOfPlayers, map->continents, map->territories, maxTurns);
 
-            std::cout << "Winner: " << winner << std::endl;
-            //The turns could be a loop or maybe a parameter for the game run?
-            //Placeholder string to check loops
 
-            // CSV Related
-            ///
-            ///
-            ///
+            std::cout << "Winner: " << winner << std::endl;
+
+            results.setValue(i+1, j+1, winner);
 
         }
     }
+    writeCSVFile(results, gamelog);
 }
 
 // displays output given and prompts the user for a string, then it returns the user's input
@@ -951,7 +971,47 @@ void GameEngine::executeOrdersPhase(std::vector<Player*>& players){
     }
 }
 
+int num(int min, int max) {
+    // Seed the random number generator with the current time (to ensure different outputs)
+    static bool seeded = false; // Ensures seed is set only once
+    if (!seeded) {
+        srand(static_cast<unsigned int>(time(nullptr)));
+        seeded = true;
+    }
+
+    // Generate a random number between min and max (inclusive)
+    return min + rand() % (max - min + 1);
+}
+
+// For testing CSV and tournament results purposes
+std::string getResult(std::vector<Player*>& players) {
+
+    players.push_back(new Player("Draw"));
+
+    bool hasC = false;
+
+    for (Player* player: players) {
+        if (player->name == "Cheater") {
+            hasC = true;
+        }
+    }
+
+    int numb = num(0, players.size()-1);
+
+    if (hasC) {
+        return players[numb]->name;
+    } else {
+        return players[numb]->name;
+    }
+
+}
+
 std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<Continent*>& continents, std::vector<Territory*>& allTheTerritories, int numRounds){
+
+    for (Player* player: players) {
+        std::cout << "Player " << player->name << std::endl;
+    }
+
     bool gameOver = false;
     int i = 1;
     PlayerStrategy* winningStrategy = nullptr;
@@ -983,7 +1043,7 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
             for (Player* player: players){
                 std::cout << player->name << " had " << player->getOwnedTerritories().size() << " territories." << std::endl;
             }
-            return "draw";
+            return getResult(players);
         }
     }
 
@@ -1006,3 +1066,4 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
         return "error/to_debug";
     }
 }
+

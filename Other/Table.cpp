@@ -83,13 +83,3 @@ void Table::printHeaders(std::ostream& os) {
     }
 }
 
-void writeCSVFile(Table& data, const std::string& fileName) {
-    std::ofstream outFile(fileName);
-    if (outFile.is_open()) {
-        data.printContents(outFile); // Print the contents to the CSV file
-        std::cout << "[*] -> CSV file '" << fileName << "' created successfully!" << std::endl;
-    } else {
-        std::cerr << "[!] -> Failed to open the output file." << std::endl;
-    }
-}
-

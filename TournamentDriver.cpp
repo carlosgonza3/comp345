@@ -61,7 +61,7 @@ void testTournament() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Placeholder parameters, can be changed
-    std::string gamelog = "";
+    std::string gamelog = "TournamentResults.csv";
 
     for (int i = 0; i < mapFiles->size(); i++) {
 

@@ -12,6 +12,7 @@ include_directories(
     Order
     Player
     PlayerStrategy
+    Other
 )
 
 # Add all necessary files to the target
