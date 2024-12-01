@@ -57,7 +57,7 @@
         _logFile.open(LOG_FILE, std::ios::app);
         if (_logFile.fail()) {
             std::cerr << "[!] -> Error opening log file..." << std::endl;
-            exit(1);
+            //exit(1);
         }
     }
 

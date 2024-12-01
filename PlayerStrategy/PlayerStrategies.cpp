@@ -23,6 +23,10 @@ PlayerStrategy& PlayerStrategy::operator=(const PlayerStrategy& ope) {
     return *this;
 }
 
+void PlayerStrategy::setPlayer(Player* playerPtr){
+    player = playerPtr;
+}
+
 // -----------------------HumanPlayerStrategy implementation(Empty for now)
 HumanPlayerStrategy::HumanPlayerStrategy() : PlayerStrategy() {
     player = nullptr;
@@ -49,7 +53,7 @@ std::ostream& operator<<(std::ostream& out, const HumanPlayerStrategy& output) {
     return out;
 }
 
-void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     int indexInput;
     bool validInput;
     if (player->reinforcementPool > 0){
@@ -139,8 +143,6 @@ void HumanPlayerStrategy::issueOrder(std::vector<Player*>& players) {
             return;
         }
         //std::vector<Territory*> terrToAttack = player->toAttack();
-
-
 
         std::cout << "\nHere are the territories adjacent to the source territory: " << std::endl;
         std::vector<Territory*> ajdTerr = srcTerritory->getAdjacentTerritories();
@@ -274,7 +276,7 @@ std::ostream& operator<<(std::ostream& out, const AggressivePlayerStrategy& outp
 
 
 
-void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     // Deploy reinforcements to the strongest territory
     Territory* strongestTerritory = nullptr;
     int maxArmies = -1;
@@ -298,16 +300,45 @@ void AggressivePlayerStrategy::issueOrder(std::vector<Player*>& players) {
     }
 
     // Attack adjacent enemy territories
+    /*
     for (Territory* enemyTerritory : toAttack()) {
+
+        
+        
+
         if (strongestTerritory && strongestTerritory->getNumOfArmies() > 1) {
             int attackingArmies = strongestTerritory->getNumOfArmies() - 1; // Leave one army behind
             player->getOrdersList()->addOrder(new AdvanceOrder(attackingArmies, strongestTerritory, enemyTerritory, player));
             std::cout << "AggressivePlayerStrategy: Attacking " << enemyTerritory->getName()
                       << " from " << strongestTerritory->getName() << " with " << attackingArmies << " armies." << std::endl;
-        } else {
-            std::cout << "AggressivePlayerStrategy: Not enough armies to attack.\n";
+        } 
+    }
+    */
+
+    int remainingUnits = strongestTerritory->army;
+    for (Territory* enemyTerritory: strongestTerritory->getAdjacentTerritories()){
+        int units = 5;
+        if (remainingUnits == 0){
+            break;
+        }
+        if (remainingUnits < units){
+            units = strongestTerritory->army;
+        }
+        std::string enemyName = enemyTerritory->getName();
+        auto it = std::find_if(allTerritories.begin(), allTerritories.end(), [&enemyName](Territory* t) {
+            return t->getName() == enemyName;
+        });
+        if (it != allTerritories.end()) {
+            Territory* matchedTerritory = *it;     
+            if (matchedTerritory->owner != player){
+                std::cout << "Creating order to attack " << matchedTerritory->getName()<< " from " << strongestTerritory->getName() << " with " << units << " units." << std::endl;
+                player->getOrdersList()->addOrder(new AdvanceOrder(units, strongestTerritory, matchedTerritory, player));
+                remainingUnits -= units;
+            }
         }
     }
+
+
     std::cout << "\nPlayer " << player->name << " has finished giving orders.\n" << std::endl;
 
     player->setIssuedAllOrders(true);
@@ -376,7 +407,7 @@ std::ostream& operator<<(std::ostream& out, const BenevolentPlayerStrategy& outp
 }
 
 
-void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
 
     // Ensure player is valid
     if (!player) {
@@ -407,7 +438,9 @@ void BenevolentPlayerStrategy::issueOrder(std::vector<Player*>& players) {
     if (!defendList.empty() && totalReinforcements > 0) {
         int armiesPerTerritory = totalReinforcements / defendList.size();
         int remainingReinforcements = totalReinforcements;
-
+        if (armiesPerTerritory < 1){
+            armiesPerTerritory = 3;
+        }
         // Deploy armies to the territories
         for (Territory* territory : defendList) {
             if (!territory) {
@@ -449,8 +482,6 @@ std::vector<Territory*> BenevolentPlayerStrategy::toDefend() {
 
         std::sort(defendList.begin(), defendList.end(),
                   [](Territory* a, Territory* b) { return a->army < b->army; });
-
-        
     }
 
     return defendList;
@@ -487,7 +518,7 @@ std::ostream& operator<<(std::ostream& out, const NeutralPlayerStrategy& output)
     return out;
 }
 
-void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void NeutralPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) {
     //Does not deploy
     //Does not play card
     //Does not do any order
@@ -533,13 +564,64 @@ std::ostream& operator<<(std::ostream& out, const CheaterPlayerStrategy& output)
 }
 
 // Issue order implementation for CheaterPlayerStrategy
-void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players) {
+void CheaterPlayerStrategy::issueOrder(std::vector<Player*>& players, std::vector<Territory*>& allTerritories) { 
+    std::vector<Territory*> territories = player->getOwnedTerritories();
+    std::sort(player->getOwnedTerritories().begin(), player->getOwnedTerritories().end(), 
+        [](Territory* a, Territory* b) {
+            return a->army < b->army;  // Sort by number of troops (ascending)
+        }
+    );
+    int unitsToDeploy = player->getReinforcementPool()/5;
+    if (unitsToDeploy < 1){
+        unitsToDeploy = 1;
+    }
+    int i = 0;
+    while(player->getReinforcementPool() > 0 && i < player->getOwnedTerritories().size() && i < 5){ //no more than 5 deploys.
+        player->getOrdersList()->addOrder(new DeployOrder(unitsToDeploy, player->getOwnedTerritories()[i++], player));
+    }
     for (Territory* territory : player->getOwnedTerritories()) {
+        int i = 1;
         for (Territory* adjacent : territory->getAdjacentTerritories()) {
-            
+            /*
             if (adjacent->getOwner() != player) {
-                std::cout << "CheaterPlayerStrategy creating order advance order, attacking: " << adjacent->getName() << " from " << territory->getName() << std::endl;
-                player->getOrdersList()->addOrder(new AdvanceOrder(1, territory, adjacent, player));
+                if (i > territory->army){
+                    break; //So cheater doesn't make more armies than whats available.
+                }
+                std::string adjacentName = adjacent->getName();
+                std::cout << "CheaterPlayerStrategy creating order advance order, attacking: " << adjacentName << " from " << territory->getName() << std::endl;
+                auto it = std::find_if(allTerritories.begin(), allTerritories.end(), [&adjacentName](Territory* t) { 
+                    return t->getName() == adjacentName; 
+                });
+                if (it != allTerritories.end()) {
+                    // It's found, now create an order for the matched territory
+                    Territory* matchedTerritory = *it;
+                    player->getOrdersList()->addOrder(new AdvanceOrder(1, territory, matchedTerritory, player));
+                    i++;
+                }
+                else{
+                    std::cout << "Error finding territory" <<std::endl;
+                }
+            }
+            */
+            if (i > territory->army){
+                break; //So cheater doesn't make more armies than whats available.
+            }
+            std::string adjacentName = adjacent->getName();
+            std::cout << "CheaterPlayerStrategy creating order advance order, attacking: " << adjacentName << " from " << territory->getName() << std::endl;
+            auto it = std::find_if(allTerritories.begin(), allTerritories.end(), [&adjacentName](Territory* t) { 
+                return t->getName() == adjacentName; 
+            });
+            if (it != allTerritories.end()) {
+                // It's found, now create an order for the matched territory
+                Territory* matchedTerritory = *it;
+                int deployAmount = std::min(3, territory->army);
+                if (matchedTerritory->owner != player){
+                    player->getOrdersList()->addOrder(new AdvanceOrder(deployAmount, territory, matchedTerritory, player));
+                    i++;
+                }
+            }
+            else{
+                std::cout << "Error finding territory" <<std::endl;
             }
         }
     }
@@ -566,6 +648,7 @@ std::vector<Territory*> CheaterPlayerStrategy::toAttack() {
 // Defend targets for CheaterPlayerStrategy (doesn't defend)
 std::vector<Territory*> CheaterPlayerStrategy::toDefend() {
     // All owned territories are defended by default.
+    std::cout <<"debug 1" << std::endl;
     std::cout << "CheaterPlayerStrategy: Defending all owned territories.\n";
     return player->getOwnedTerritories();
 }

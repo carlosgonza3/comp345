@@ -1,13 +1,13 @@
 #include <iostream>
-#include "Map.h"
-#include "Player.h"
-#include "Orders.h"
-#include "OrdersList.h"
-#include "PlayerStrategies.h"
+#include "../Map/Map.h"
+#include "../Player/Player.h"
+#include "../Order/Orders.h"
+#include "../Order/OrdersList.h"
+#include "../PlayerStrategy/PlayerStrategies.h"
 #include <vector>
-#include "GameEngine.h"
+#include "../GameEngine/GameEngine.h"
 #include <algorithm>
-#include "PlayerStrategiesDriver.h"
+#include "../PlayerStrategy/PlayerStrategiesDriver.h"
 
 
 // Test HumanPlayerStrategy (currently empty)
@@ -44,7 +44,12 @@ void PlayerStrategiesDriver::testHumanPlayerStrategy() {
 	mexico->owner = player1;
 	usa->owner = player1;
 	GameEngine* engine = new GameEngine();
-	engine->issueOrdersPhase(allPlayers);
+	std::vector<Territory*> allTheTerr;
+	allTheTerr.push_back(usa);
+	allTheTerr.push_back(canada);
+	allTheTerr.push_back(mexico);
+	allTheTerr.push_back(colombia);
+	engine->issueOrdersPhase(allPlayers, allTheTerr);
 	engine->executeOrdersPhase(allPlayers);
 	delete usa;
 	delete mexico;
@@ -74,13 +79,16 @@ void PlayerStrategiesDriver::testAggressivePlayerStrategy() {
 	territory1->addAdjTerritory(enemyTerritory);
 	aggressivePlayer->addTerritory(territory1);
 	aggressivePlayer->addTerritory(territory2);
-
+	std::vector<Territory*> allTheTerr;
+	allTheTerr.push_back(enemyTerritory);
+	allTheTerr.push_back(territory1);
+	allTheTerr.push_back(territory2);
 	// Prepare player vector
 	std::vector<Player*> players;
 	players.push_back(aggressivePlayer);
 
 	// Test issuing orders
-	aggressivePlayer->getPlayerStrategy()->issueOrder(players);
+	aggressivePlayer->getPlayerStrategy()->issueOrder(players, allTheTerr);
 
 	// Cleanup
 	delete territory1;
@@ -108,19 +116,22 @@ void PlayerStrategiesDriver:: testBenevolentPlayerStrategy() {
     benevolentPlayer->addTerritory(weak1);
     benevolentPlayer->addTerritory(weak2);
     benevolentPlayer->addTerritory(strong);
-
+	std::vector<Territory*> allTheTerr;
+	allTheTerr.push_back(weak1);
+	allTheTerr.push_back(weak2);
+	allTheTerr.push_back(strong);
     // Debug output for owned territories
     std::cout << "BenevolentPlayer's owned territories:\n";
     for (Territory* t : benevolentPlayer->getOwnedTerritories()) {
         std::cout << "- " << t->name << " with " << t->army << " armies.\n";
     }
-
+	
     // Prepare a proper vector of players
     std::vector<Player*> players = {benevolentPlayer}; 
 
     // Test issuing orders
     std::cout << "\nBenevolentPlayer issuing orders...\n";
-    benevolentPlayer->getPlayerStrategy()->issueOrder(players);
+    benevolentPlayer->getPlayerStrategy()->issueOrder(players, allTheTerr);
     std::cout << "Orders issued successfully!\n";
 
     // Cleanup
@@ -169,16 +180,20 @@ void PlayerStrategiesDriver::testNeutralPlayerStrategy() {
 	player1->addTerritory(usa);
 	player2->addTerritory(canada);
 	player2->addTerritory(colombia);
-
+	std::vector<Territory*> allTheTerritories;
+	allTheTerritories.push_back(mexico);
+	allTheTerritories.push_back(usa);
+	allTheTerritories.push_back(canada);
+	allTheTerritories.push_back(colombia);
 	mexico->owner = player1;
 	usa->owner = player1;
 	colombia->owner = player2;
 	canada->owner = player2;
 
 	GameEngine* engine = new GameEngine();
-	engine->issueOrdersPhase(allPlayers);
+	engine->issueOrdersPhase(allPlayers, allTheTerritories);
 	engine->executeOrdersPhase(allPlayers);
-	engine->issueOrdersPhase(allPlayers);
+	engine->issueOrdersPhase(allPlayers, allTheTerritories);
 
 
 	delete usa;
@@ -208,12 +223,17 @@ void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
 
 	cheater->setPlayerStrategy(cheaterStrategy);
 	human->setPlayerStrategy(humanStrategy);
-
+	
+	
 	Territory* usa = new Territory("USA", 5, 1, 2);
 	Territory* canada = new Territory("Canada", 5, 3, 4);
 	Territory* mexico = new Territory("Mexico", 5, 5, 6);
 	Territory* greenland = new Territory("Greendland", 5, 7, 8);
-	
+	std::vector<Territory*> allTheTerr;
+	allTheTerr.push_back(usa);
+	allTheTerr.push_back(canada);
+	allTheTerr.push_back(mexico);
+	allTheTerr.push_back(greenland);
 	usa->addAdjTerritory(canada);
 	usa->addAdjTerritory(mexico);
 	
@@ -230,7 +250,20 @@ void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
     mexico->setOwner(human);
 	GameEngine* engine = new GameEngine();
 
-	engine->issueOrdersPhase(allPlayers);
+	engine->issueOrdersPhase(allPlayers, allTheTerr);
 	engine->executeOrdersPhase(allPlayers);
+
+	std::cout << "Territories that the cheater owns: " << std::endl;
+	for (Territory * terr: cheater->getOwnedTerritories()){
+		std::cout << terr->name << std::endl;
+	}
+
+	std::cout << "Territories that the human owns: " << std::endl;
+
+	for (Territory * terr: human->getOwnedTerritories()){
+		std::cout << terr->name << std::endl;
+	}
+	
+	
 }
 
