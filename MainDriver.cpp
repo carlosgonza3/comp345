@@ -144,15 +144,11 @@ int main() {
         }
         listOfPlayers[i % listOfPlayers.size()]->addTerritory(map->territories[i]);
         map->territories[i]->owner = (listOfPlayers[i % listOfPlayers.size()]);
-        std::cout << map->territories[i]->getOwner()->name << "\n"<< std::endl;
     }
     
     
     std::cout << "Before GameLoop" << std::endl;
-    ge->issueOrdersPhase(listOfPlayers);
-    ge->executeOrdersPhase(listOfPlayers);
-
-    //winner = ge.mainGameLoop(listOfPlayers, map->continents, map->territories, 4);
+    winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 10);
     std::cout << "After GameLoop" << std::endl;
     std::cout << winner << std::endl;
     

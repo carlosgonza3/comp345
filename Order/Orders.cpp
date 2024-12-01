@@ -112,13 +112,17 @@ void AdvanceOrder::execute() {
         if (targetTerritory->owner == issuingPlayer) {  // Move units between owned territories
             sourceTerritory->army -= units;
             targetTerritory->army += units;
-            std::cout << issuingPlayer->name << " moved " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
+            if (units != 0){
+                std::cout << issuingPlayer->name << " moved " << units << " units from " << sourceTerritory->name << " to " << targetTerritory->name << ".\n";
+            }
+            else{
+                std::cout << "Deploy order from " << sourceTerritory->name << " to " << targetTerritory->name << " cancelled since " << sourceTerritory->name << " has no more army left" << std::endl;
+            }
         } 
         else { //Attacking Advance Order
             std::cout << issuingPlayer->name << " attacking " << targetTerritory->name << " from " << sourceTerritory->name << std::endl;
             CheaterPlayerStrategy* cheaterStrategy = dynamic_cast<CheaterPlayerStrategy*>(issuingPlayer->getPlayerStrategy());
             Player* oldOwner = targetTerritory->getOwner();
-            std::cout << oldOwner << std::endl;
             PlayerStrategy* oldOwnerStrategy;
             if (oldOwner != nullptr){
                 oldOwnerStrategy = oldOwner->getPlayerStrategy();
@@ -223,10 +227,13 @@ bool AdvanceOrder::validate() {
         std::cerr << "Invalid Advance Order: Source territory does not belong to issuing player.\n";
         return false;
     }
+    //Not needed anymore since the checks are made in the issueOrder
+    /*
     if (std::find(sourceTerritory->adjTerritories.begin(), sourceTerritory->adjTerritories.end(), targetTerritory) == sourceTerritory->adjTerritories.end()) {
         std::cerr << "Invalid Advance Order: Target territory is not adjacent.\n";
         return false;
     }
+    */
     return true;
 }
 
