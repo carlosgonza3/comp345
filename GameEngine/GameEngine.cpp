@@ -922,6 +922,9 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
         }
         i++;
         if (i > numRounds){
+            for (Player* player: players){
+                std::cout << player->name << " had " << player->getOwnedTerritories().size() << " territories." << std::endl;
+            }
             return "draw";
         }
     }
