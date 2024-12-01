@@ -989,18 +989,25 @@ std::string getResult(std::vector<Player*>& players) {
     players.push_back(new Player("Draw"));
 
     bool hasC = false;
+    int  indexB = -1;
 
-    for (Player* player: players) {
-        if (player->name == "Cheater") {
+    for (int i=0; i < players.size(); i++) {
+        if (players[i]->name == "Cheater") {
             hasC = true;
+        }
+        if (players[i]->name == "Benevolent") {
+            indexB = i;
         }
     }
 
-    int numb = num(0, players.size()-1);
-
     if (hasC) {
+        return "Cheater";
+    } else if (indexB != -1) {
+        players.erase(players.begin() + indexB);
+        int numb = num(0, players.size()-1);
         return players[numb]->name;
     } else {
+        int numb = num(0, players.size()-1);
         return players[numb]->name;
     }
 
