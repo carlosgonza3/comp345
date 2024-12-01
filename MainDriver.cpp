@@ -64,8 +64,8 @@ int main() {
     */
     
     std::cout << "Testing Tournament" << std::endl;
-    //testTournament();
-    std::string winner = "";
+    testTournament();
+    /*std::string winner = "";
     
     GameEngine* ge = new GameEngine();
     std::vector<Player*> listOfPlayers;
@@ -111,7 +111,7 @@ int main() {
     winner = ge->mainGameLoop(listOfPlayers, map->continents, map->territories, 100);
     std::cout << "After GameLoop" << std::endl;
     std::cout << winner << std::endl;
-    
+    */
     return 0;
     
     

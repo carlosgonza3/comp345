@@ -9,21 +9,58 @@
 //To be moved as non-free function?
 //Placeholder inputs, can be changed
 void tournamentLoop(std::vector<std::string> maps, std::vector<std::string> listOfPlayers, int numGames, int maxTurns, std::string gamelog) {
-
-
-
     for (int i = 0; i < maps.size(); i++) {
         for (int j = 0; j < numGames; j++) {
 
 
-             std::string winner = "";
+            std::string winner = "";
 
-             GameEngine ge = GameEngine();
-             winner = ge.mainGameLoop(listOfPlayers, maps.listOfContinents, maps.listOfTerritories, maxTurns);
+            GameEngine* ge = new GameEngine();
 
+            MapLoader mapLoader = MapLoader();
+            Map* map = mapLoader.loadMap(maps[i]);
 
+            std::vector<Player*> copyListOfPlayers;
 
+            for (int k = 0; k < listOfPlayers.size(); k++) {
+                Player* player = new Player();
+                player->name = listOfPlayers[i];
+                if (player->name == "Aggressive") {
+                    PlayerStrategy* aggressiveStrategy = new AggressivePlayerStrategy(player);
+                    player->setPlayerStrategy(aggressiveStrategy);
+                }
+                else if (player->name == "Benevolent") {
+                    PlayerStrategy* benevolentStrategy = new BenevolentPlayerStrategy(player);
+                    player->setPlayerStrategy(benevolentStrategy);
+                }
+                else if (player->name == "Neutral") {
+                    PlayerStrategy* neutralBehaviour = new NeutralPlayerStrategy(player);
+                    player->setPlayerStrategy(neutralBehaviour);
+                }
+                else if (player->name == "Cheater") {
+                    PlayerStrategy* cheaterStrategy = new CheaterPlayerStrategy(player);
+                    player->setPlayerStrategy(cheaterStrategy);
+                }
+                else {
+                    std::cout << "Error! Invalid player. Please try again." << std::endl;
+                    exit(1);
+                }
 
+                copyListOfPlayers.push_back(player);
+            }
+
+            for (int i = 0; i < map->territories.size(); i++) {
+                if (map->territories[i] == nullptr) {
+                    std::cout << "Territory at index " << i << " is invalid." << std::endl;
+                    continue;
+                }
+                copyListOfPlayers[i % copyListOfPlayers.size()]->addTerritory(map->territories[i]);
+                map->territories[i]->owner = (copyListOfPlayers[i % copyListOfPlayers.size()]);
+            }
+
+            winner = ge->mainGameLoop(copyListOfPlayers, map->continents, map->territories, maxTurns);
+
+            std::cout << "Winner: " << winner << std::endl;
             //The turns could be a loop or maybe a parameter for the game run?
             //Placeholder string to check loops
 
