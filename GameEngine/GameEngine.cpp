@@ -652,6 +652,7 @@ void GameEngine::startupPhase(Map* map, std::vector<Player*> listOfPlayers) {
 
     for (int i = 0; i < map->territories.size(); i++) {
         listOfPlayers[i % listOfPlayers.size()]->ownedTerritories.push_back(map->territories[i]);
+        map->territories[i]->owner = (listOfPlayers[i % listOfPlayers.size()]);
     }
 
     /*
@@ -809,7 +810,6 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players, std::vector<Ter
     for (Player* player: players){
         player->setIssuedAllOrders(false);
     }
-
     while(!allPlayersDone){
         allPlayersDone = true;
         for (Player* player: players){
@@ -821,7 +821,6 @@ void GameEngine::issueOrdersPhase(std::vector<Player*>& players, std::vector<Ter
             }
         }
     }
-
 }
 
 void GameEngine::hasTerritory(std::vector<Player*>& players){
@@ -934,6 +933,7 @@ std::string GameEngine::mainGameLoop(std::vector<Player*>& players, std::vector<
 
         // Check if there are any players left to continue the game
         if (winningStrategy) {
+            std::cout << "Game finished at round: " << i << std::endl;
             gameOver = true;
         }
         i++;

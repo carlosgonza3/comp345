@@ -41,7 +41,7 @@ std::ostream& operator<<(std::ostream& out, const Order& order) {
     void DeployOrder::execute() {
     if (validate()) {
         targetTerritory->army += units;
-        std::cout << "Deployed " << units << " units to " << targetTerritory->name << ".\n";
+        std::cout << issuingPlayer->name << " deployed " << units << " units to " << targetTerritory->name << ".\n";
     }
     notify(this);
 }
@@ -184,15 +184,18 @@ void AdvanceOrder::execute() {
 
                 if (defendUnits <= 0) {
                     // Attacker wins
-                    Player * oldOwner = nullptr;
-                
+                    Player* oldOwner = targetTerritory->getOwner();
                     if (oldOwner != nullptr){
                         oldOwner->ownedTerritories.erase(std::remove(oldOwner->ownedTerritories.begin(), oldOwner->ownedTerritories.end(), targetTerritory), oldOwner->ownedTerritories.end());
                     }
+
+
+
                     targetTerritory->setOwner(issuingPlayer);
                     targetTerritory->army = attackUnits;
                     issuingPlayer->ownedTerritories.push_back(targetTerritory);
                     std::cout << issuingPlayer->name  <<" has conquered " << targetTerritory->name << std::endl;
+                    std::cout << "Removing territory from " << oldOwner->name << std::endl;
                 } 
                 else {
                     // Defender holds
@@ -224,7 +227,8 @@ bool AdvanceOrder::validate() {
     }
 
     if (sourceTerritory->owner != issuingPlayer) {
-        std::cerr << "Invalid Advance Order: Source territory does not belong to issuing player.\n";
+        std::cerr << "Invalid Advance Order: " << issuingPlayer->name << " does not own " << sourceTerritory->name << ", actual owner: " << sourceTerritory->owner->name << std::endl;
+        
         return false;
     }
     //Not needed anymore since the checks are made in the issueOrder

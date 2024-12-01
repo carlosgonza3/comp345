@@ -252,22 +252,18 @@ void PlayerStrategiesDriver::testCheaterPlayerStrategy() {
 
 	engine->issueOrdersPhase(allPlayers, allTheTerr);
 	engine->executeOrdersPhase(allPlayers);
+
+	std::cout << "Territories that the cheater owns: " << std::endl;
+	for (Territory * terr: cheater->getOwnedTerritories()){
+		std::cout << terr->name << std::endl;
+	}
+
+	std::cout << "Territories that the human owns: " << std::endl;
+
+	for (Territory * terr: human->getOwnedTerritories()){
+		std::cout << terr->name << std::endl;
+	}
 	
-	/*
-	GameEngine ge = GameEngine();
-	MapLoader mapLoader = MapLoader();
-    Map* map = mapLoader.loadMap("USA.map");
-	for (int i = 0; i < map->territories.size(); i++) {
-        if (map->territories[i] == nullptr) {
-            std::cout << "Territory at index " << i << " is invalid." << std::endl;
-            continue;
-        }
-        allPlayers[i % allPlayers.size()]->addTerritory(map->territories[i]);
-        map->territories[i]->setOwner(allPlayers[i % allPlayers.size()]);
-    }
-	std::string winner = ge.mainGameLoop(allPlayers, map->continents, map->territories, 1000000);
-    std::cout << "After GameLoop" << std::endl;
-    std::cout << winner << std::endl;
-	*/
+	
 }
 
